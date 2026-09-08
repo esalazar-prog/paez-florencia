@@ -160,18 +160,6 @@
             }
         }
 
-        @keyframes floatPulse {
-
-            0%,
-            100% {
-                transform: translateY(0px) scale(1);
-            }
-
-            50% {
-                transform: translateY(-8px) scale(1.02);
-            }
-        }
-
         @keyframes pinPulse {
 
             0%,
@@ -197,10 +185,6 @@
         .hero-pin-bounce {
             transform-origin: 100px 100px;
             animation: pinPulse 3.5s ease-in-out infinite;
-        }
-
-        .floating-element {
-            animation: floatPulse 6s ease-in-out infinite;
         }
 
         /* Form styling */
@@ -372,18 +356,18 @@
 
         <div class="relative max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
             <!-- Breadcrumb -->
-            <div class="flex items-center gap-2 mb-8 font-label-md text-label-md text-white/70">
+            <div class="flex items-center gap-2 mb-8 font-label-md text-label-md text-white/70" data-anim>
                 <a href="index.html" class="hover:text-white transition-colors">Inicio</a>
                 <span class="material-symbols-outlined" style="font-size:14px">chevron_right</span>
                 <span class="text-white font-semibold">Contacto &amp; Sedes</span>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
                 <!-- Text Column -->
-                <div class="lg:col-span-7">
+                <div class="lg:col-span-7" data-anim>
                     <!-- Badge -->
                     <div
-                        class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider mb-6">
+                        class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider mb-6 hover:bg-white/20 transition-colors">
                         <span class="material-symbols-outlined text-white"
                             style="font-size:18px;font-variation-settings: 'FILL' 1">support_agent</span>
                         <span>Atención Directa &amp; Asesoría Corporativa</span>
@@ -400,35 +384,44 @@
                         profesional.
                     </p>
 
-                    <!-- Feature Pillars Tags -->
-                    <div class="flex flex-wrap gap-3">
-                        <span
-                            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-black/20 text-xs font-medium text-white/90 border border-white/10">
-                            <span class="material-symbols-outlined text-sm text-yellow-300">verified</span>
-                            <span>Respuesta en menos de 24h</span>
-                        </span>
-                        <span
-                            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-black/20 text-xs font-medium text-white/90 border border-white/10">
-                            <span class="material-symbols-outlined text-sm text-yellow-300">lock</span>
-                            <span>Trato 100% Confidencial (NDA)</span>
-                        </span>
-                        <span
-                            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-black/20 text-xs font-medium text-white/90 border border-white/10">
-                            <span class="material-symbols-outlined text-sm text-yellow-300">pin_drop</span>
-                            <span>Sedes en Quito y Guayaquil</span>
-                        </span>
+                    <!-- Feature Pillars Tags (Estandarizados con Nosotros y Servicios) -->
+                    <div class="flex flex-wrap gap-3.5 items-center">
+                        <div
+                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined text-white"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">verified</span>
+                            <span>RESPUESTA EN MENOS DE 24H</span>
+                        </div>
+                        <div
+                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined text-white"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">lock</span>
+                            <span>CONFIDENCIALIDAD TOTAL (NDA)</span>
+                        </div>
+                        <div
+                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined text-white"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">pin_drop</span>
+                            <span>SEDES QUITO Y GUAYAQUIL</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Graphic Column: Interactive Corporate Compass & Geographic Seal -->
-                <div class="lg:col-span-5 flex justify-center items-center">
-                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center select-none"
-                        id="hero-emblem-container">
-                        <!-- Outer Glow Aura -->
-                        <div class="absolute inset-4 rounded-full bg-white/10 filter blur-2xl pointer-events-none">
-                        </div>
+                <!-- Graphic Column: Emblema Geográfico Institucional Estandarizado -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end items-center relative" data-anim="scale">
+                    <div id="hero-contacto-box"
+                        class="hero-interactive-box relative w-72 h-72 sm:w-84 sm:h-84 md:w-96 md:h-96 flex items-center justify-center">
 
-                        <svg class="w-full h-full drop-shadow-2xl floating-element" viewBox="0 0 200 200" fill="none"
+                        <!-- Concentric glowing ambient backdrop aura -->
+                        <div
+                            class="ambient-glow-aura absolute inset-0 rounded-full bg-gradient-to-tr from-white/20 via-[#B22222]/30 to-amber-200/20 blur-3xl pointer-events-none">
+                        </div>
+                        <div
+                            class="absolute inset-4 rounded-full border border-white/15 border-dashed pointer-events-none dial-rotate-bwd">
+                        </div>
+                        <div class="absolute inset-12 rounded-full border border-white/10 pointer-events-none"></div>
+
+                        <svg class="w-64 h-64 sm:w-76 sm:h-76 md:w-84 md:h-84 drop-shadow-[0_16px_36px_rgba(0,0,0,0.4)]" viewBox="0 0 200 200" fill="none"
                             xmlns="http://www.w3.org/2000/svg" id="hero-emblem-svg">
                             <defs>
                                 <radialGradient id="contactGoldGrad" cx="50%" cy="50%" r="50%">
@@ -1355,27 +1348,6 @@
                     toast.classList.remove('show');
                 }, 5000);
             }
-        }
-
-        // 7. Mouse 3D Parallax on Hero Compass Emblem
-        const emblemContainer = document.getElementById('hero-emblem-container');
-        const emblemSvg = document.getElementById('hero-emblem-svg');
-
-        if (emblemContainer && emblemSvg && window.matchMedia('(pointer: fine)').matches) {
-            emblemContainer.addEventListener('mousemove', (e) => {
-                const rect = emblemContainer.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                const rotX = -(y / rect.height) * 16;
-                const rotY = (x / rect.width) * 16;
-                emblemSvg.style.transform = `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`;
-                emblemSvg.style.transition = 'transform 0.1s ease-out';
-            });
-
-            emblemContainer.addEventListener('mouseleave', () => {
-                emblemSvg.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';
-                emblemSvg.style.transition = 'transform 0.5s ease-out';
-            });
         }
     </script>
     <script src="site-animations.js"></script>

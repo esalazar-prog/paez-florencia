@@ -277,6 +277,41 @@ nav.pf-nav-scrolled {
 }
 
 /* ══════════════════════════════════════════
+   8.1 DIALES TÉCNICOS ROTATIVOS DEL HERO
+   ══════════════════════════════════════════ */
+.hero-interactive-box,
+.compass-interactive-box,
+.seal-interactive-box,
+.emblem-interactive-box {
+  perspective: 1000px;
+  transition: transform 0.25s var(--pf-ease);
+}
+
+.dial-rotate-fwd {
+  animation: pfDialFwd 60s linear infinite;
+  transform-origin: center center;
+}
+
+.dial-rotate-bwd {
+  animation: pfDialBwd 80s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes pfDialFwd {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pfDialBwd {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.ambient-glow-aura {
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════
    9. PULSO DISCRETO PARA INSIGNIAS O DESTACADOS
    ══════════════════════════════════════════ */
 @keyframes pfPulseSoft {

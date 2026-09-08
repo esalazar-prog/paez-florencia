@@ -21,6 +21,7 @@
     setupNumberCounters();
     setupButtonSheenEffects();
     setupSmoothAnchors();
+    setupHero3DParallax();
     setupSafetyFallback();
   }
 
@@ -246,7 +247,35 @@
   }
 
   /* ══════════════════════════════════════════
-     H. RED DE SEGURIDAD (FAILSAFE TIMEOUT)
+     H. PARALLAX 3D INTERACTIVO ESTANDARIZADO DEL HERO
+     ══════════════════════════════════════════ */
+  function setupHero3DParallax() {
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    const heroBoxes = document.querySelectorAll('.hero-interactive-box, .seal-interactive-box, .compass-interactive-box, .emblem-interactive-box, #hero-emblem-container, #hero-seal-box, #hero-compass-box, #hero-noticias-box, #hero-contacto-box');
+    
+    heroBoxes.forEach(box => {
+      const section = box.closest('header, section');
+      if (!section) return;
+
+      section.addEventListener('mousemove', (e) => {
+        const rect = box.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
+        const deltaY = (e.clientY - centerY) / 300;
+        const rotX = (-deltaY * 12).toFixed(2);
+        const rotY = (deltaX * 14).toFixed(2);
+        box.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.03, 1.03, 1.03)`;
+      }, { passive: true });
+
+      section.addEventListener('mouseleave', () => {
+        box.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    });
+  }
+
+  /* ══════════════════════════════════════════
+     I. RED DE SEGURIDAD (FAILSAFE TIMEOUT)
      ══════════════════════════════════════════ */
   function setupSafetyFallback() {
     // Si por alguna razón el observador no se dispara en 2 segundos, asegurar que todo el contenido sea visible
