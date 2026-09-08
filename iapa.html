@@ -126,54 +126,271 @@
             animation: pulse-subtle 3s infinite ease-in-out;
         }
 
-        /* Leaflet custom styling */
+        /* ══════════════════════════════════════════
+           ESTILOS EJECUTIVOS PARA EL MAPA IAPA GLOBAL
+        ══════════════════════════════════════════ */
         #iapa-leaflet-map {
             width: 100%;
-            height: 520px;
-            border-radius: 1rem;
+            height: 600px;
+            border-radius: 1.5rem;
             z-index: 10;
+            background: #F1F5F9;
         }
 
-        .leaflet-popup-content-wrapper {
-            border-radius: 14px;
-            box-shadow: 0 16px 32px -8px rgba(19, 62, 70, 0.18);
-            font-family: 'Work Sans', sans-serif;
-            padding: 4px;
-            border: 1px solid #E2E8F0;
+        @media (max-width: 768px) {
+            #iapa-leaflet-map {
+                height: 480px;
+            }
         }
 
-        .leaflet-popup-content {
-            margin: 12px 14px;
-            line-height: 1.4;
+        /* Modo Pantalla Completa */
+        .map-fullscreen-active {
+            position: fixed !important;
+            inset: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 9999 !important;
+            border-radius: 0 !important;
+            background: #0B1924;
+            padding: 0 !important;
+        }
+        .map-fullscreen-active #iapa-leaflet-map {
+            height: 100vh !important;
+            border-radius: 0 !important;
         }
 
-        .leaflet-container {
-            font-family: 'Work Sans', sans-serif;
-        }
-
-        .map-pulse-marker {
+        /* ── MARCADORES PERSONALIZADOS ── */
+        /* Marcador Sede Matriz Ecuador (Páez Florencia) */
+        .map-hq-marker {
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        .map-pulse-marker::before {
-            content: '';
+        .map-hq-marker .hq-ring {
             position: absolute;
-            top: -4px;
-            left: -4px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(178, 34, 34, 0.45) 0%, rgba(178, 34, 34, 0) 72%);
+            animation: hq-beacon 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        .map-hq-marker .hq-ring-secondary {
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 223, 122, 0.7);
+            animation: hq-ring-expand 2.4s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+        }
+        .map-hq-marker .hq-core {
+            position: relative;
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: rgba(178, 34, 34, 0.4);
-            animation: map-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+            background: linear-gradient(135deg, #C52227 0%, #7A1014 100%);
+            border: 2.5px solid #FFFFFF;
+            box-shadow: 0 4px 14px rgba(178, 34, 34, 0.6), 0 0 0 2px rgba(178, 34, 34, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFDF7A;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+        .map-hq-marker:hover .hq-core {
+            transform: scale(1.22);
+        }
+        .map-hq-pill {
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3E0C0F;
+            color: #FFFFFF;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            padding: 2px 7px;
+            border-radius: 6px;
+            white-space: nowrap;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.25);
+            pointer-events: none;
         }
 
-        @keyframes map-ping {
+        @keyframes hq-beacon {
+            0% { transform: scale(0.6); opacity: 1; }
+            70% { transform: scale(2.2); opacity: 0; }
+            100% { transform: scale(2.4); opacity: 0; }
+        }
+        @keyframes hq-ring-expand {
+            0% { transform: scale(0.7); opacity: 0.9; }
+            80% { transform: scale(1.7); opacity: 0; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
 
-            75%,
-            100% {
-                transform: scale(1.9);
-                opacity: 0;
+        /* Marcador Oficinas Principales IAPA */
+        .map-hub-marker {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .map-hub-marker .hub-ring {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(32, 97, 109, 0.35);
+            animation: hub-beacon 2.6s ease-out infinite;
+        }
+        .map-hub-marker .hub-core {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3AA5B4 0%, #133E46 100%);
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 3px 8px rgba(32, 97, 109, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .map-hub-marker:hover .hub-core {
+            transform: scale(1.35);
+        }
+
+        @keyframes hub-beacon {
+            0% { transform: scale(0.7); opacity: 0.9; }
+            80% { transform: scale(1.8); opacity: 0; }
+            100% { transform: scale(1.9); opacity: 0; }
+        }
+
+        /* Marcador Sedes Miembro Asociadas */
+        .map-assoc-marker {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .map-assoc-marker .assoc-core {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #64748B;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .map-assoc-marker:hover .assoc-core {
+            transform: scale(1.5);
+            background: #20616D;
+            box-shadow: 0 4px 10px rgba(32, 97, 109, 0.4);
+        }
+
+        
+            to { stroke-dashoffset: 0; }
+        }
+
+        /* ── POPUPS Y TOOLTIPS LEAFLET ── */
+        .leaflet-popup-content-wrapper {
+            border-radius: 18px !important;
+            box-shadow: 0 24px 48px -12px rgba(19, 62, 70, 0.22), 0 0 0 1px rgba(19, 62, 70, 0.08) !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.98) !important;
+            font-family: 'Work Sans', sans-serif !important;
+        }
+        .leaflet-popup-content {
+            margin: 0 !important;
+            line-height: 1.45 !important;
+        }
+        .leaflet-popup-tip-container {
+            margin-top: -1px;
+        }
+        .leaflet-popup-tip {
+            background: #FFFFFF !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+        }
+        .leaflet-popup-close-button {
+            top: 12px !important;
+            right: 12px !important;
+            color: #64748B !important;
+            font-size: 18px !important;
+            padding: 4px !important;
+            border-radius: 9999px !important;
+            transition: all 0.2s ease !important;
+        }
+        .leaflet-popup-close-button:hover {
+            color: #3E0C0F !important;
+            background: rgba(0,0,0,0.05) !important;
+        }
+
+        .custom-leaflet-tooltip {
+            background: #133E46 !important;
+            color: #FFFFFF !important;
+            font-family: 'Work Sans', sans-serif !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            border-radius: 8px !important;
+            border: 1px solid rgba(255,255,255,0.15) !important;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+            padding: 5px 9px !important;
+        }
+        .custom-leaflet-tooltip::before {
+            border-top-color: #133E46 !important;
+        }
+
+        /* Controles de Zoom personalizados */
+        .leaflet-bar {
+            border: none !important;
+            box-shadow: 0 8px 20px -4px rgba(0,0,0,0.15) !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+        }
+        .leaflet-bar a {
+            background-color: #FFFFFF !important;
+            color: #133E46 !important;
+            width: 34px !important;
+            height: 34px !important;
+            line-height: 34px !important;
+            font-size: 16px !important;
+            font-weight: bold !important;
+            border-bottom: 1px solid #E2E8F0 !important;
+            transition: all 0.2s ease !important;
+        }
+        .leaflet-bar a:hover {
+            background-color: #F8FAFC !important;
+            color: #20616D !important;
+        }
+
+        /* Drawer / Ficha Lateral Desplegable */
+        #map-firm-drawer {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        }
+        #map-firm-drawer.drawer-closed {
+            transform: translateX(115%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #map-firm-drawer.drawer-open {
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        @media (max-width: 640px) {
+            #map-firm-drawer.drawer-closed {
+                transform: translateY(115%);
             }
+            #map-firm-drawer.drawer-open {
+                transform: translateY(0);
+            }
+        }
         }
     </style>
 </head>
@@ -922,101 +1139,220 @@
                 </div>
             </div>
 
-            <!-- ── SECCIÓN INTERACTIVA: MAPA GLOBAL LEAFLET ── -->
-            <div class="bg-white border border-border-light rounded-3xl p-6 md:p-10 shadow-sm mb-12" data-anim>
-                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-6">
-                    <div>
-                        <div
-                            class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-iapa-teal bg-iapa-teal/10 px-3 py-1 rounded-full mb-2">
-                            <span class="material-symbols-outlined text-sm">public</span>
-                            <span>Red Global en Tiempo Real</span>
+            <!-- ── SECCIÓN INTERACTIVA: MAPA GLOBAL LEAFLET (DISEÑO EJECUTIVO) ── -->
+            <div id="iapa-map-main-card" class="bg-white border border-slate-200/90 rounded-3xl p-5 md:p-9 shadow-xl shadow-slate-100/80 mb-12 relative transition-all duration-300" data-anim>
+                
+                <!-- Encabezado de la Sección del Mapa -->
+                <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-6 mb-6">
+                    <div class="max-w-2xl">
+                        <div class="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider text-iapa-teal bg-iapa-teal/10 px-3.5 py-1.5 rounded-full mb-3 border border-iapa-teal/20">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span>Red Global en Tiempo Real · IAPA International</span>
                         </div>
-                        <h3 class="font-headline-md text-2xl md:text-3xl text-institutional-navy font-bold">
-                            Mapa Interactivo de Presencia Internacional
+                        <h3 class="font-headline-md text-2xl sm:text-3xl md:text-4xl text-institutional-navy font-bold tracking-tight">
+                            Mapa Interactivo de Cobertura Global
                         </h3>
-                        <p class="text-secondary text-sm md:text-base font-body-md mt-1">
-                            Explore las principales firmas miembro y corresponsalías de la red IAPA alrededor del mundo.
+                        <p class="text-secondary text-sm md:text-base font-body-md mt-2 leading-relaxed">
+                            Interconectamos a las sedes matrices de <strong class="text-institutional-navy font-semibold">Páez, Florencia &amp; Co.</strong> en Quito y Guayaquil con más de 140 despachos independientes en los centros neurálgicos de negocio del mundo.
                         </p>
                     </div>
 
-                    <!-- Controles: Buscador en Tiempo Real & Filtros de Región -->
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                        <!-- Buscador -->
-                        <div class="relative min-w-[220px]">
-                            <span
-                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">search</span>
+                    <!-- Controles Principales: Buscador Inteligente -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full xl:w-auto">
+                        <!-- Buscador en tiempo real -->
+                        <div class="relative flex-1 sm:w-72">
+                            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg pointer-events-none">search</span>
                             <input type="text" id="map-search-input" oninput="handleMapSearch(this.value)"
                                 placeholder="Buscar país, ciudad o firma..."
-                                class="w-full pl-9 pr-3 py-2 bg-slate-50 border border-border-light rounded-xl text-xs font-body-md focus:outline-none focus:border-iapa-teal focus:bg-white transition-all shadow-2xs" />
-                        </div>
-
-                        <!-- Botones de Navegación Rápida por Región -->
-                        <div class="flex flex-wrap items-center gap-2" id="map-region-filters">
-                            <button type="button" id="btn-filter-world" onclick="filterMapByRegion('world')"
-                                class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-iapa-teal text-white transition-all shadow-xs cursor-pointer">
-                                Todas (146)
-                            </button>
-                            <button type="button" id="btn-filter-ecuador" onclick="filterMapByRegion('ecuador')"
-                                class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-heritage-red/10 text-heritage-red border border-heritage-red/20 hover:bg-heritage-red hover:text-white transition-all cursor-pointer">
-                                Ecuador (2)
-                            </button>
-                            <button type="button" id="btn-filter-europe" onclick="filterMapByRegion('europe')"
-                                class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-text hover:bg-iapa-teal hover:text-white transition-all cursor-pointer">
-                                Europa &amp; EMEA (66)
-                            </button>
-                            <button type="button" id="btn-filter-americas" onclick="filterMapByRegion('americas')"
-                                class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-text hover:bg-iapa-teal hover:text-white transition-all cursor-pointer">
-                                Américas (44)
-                            </button>
-                            <button type="button" id="btn-filter-asia" onclick="filterMapByRegion('asia')"
-                                class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-text hover:bg-iapa-teal hover:text-white transition-all cursor-pointer">
-                                Asia Pacífico (36)
+                                class="w-full pl-10 pr-9 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-body-md text-slate-800 focus:outline-none focus:border-iapa-teal focus:bg-white focus:ring-2 focus:ring-iapa-teal/15 transition-all shadow-xs" />
+                            <button type="button" id="btn-clear-search" onclick="clearMapSearch()"
+                                class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 rounded-full hover:bg-slate-200/60 transition-colors"
+                                title="Limpiar búsqueda">
+                                <span class="material-symbols-outlined text-sm block">close</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contenedor del Mapa Leaflet -->
-                <div id="iapa-leaflet-map"
-                    class="w-full h-[380px] sm:h-[460px] md:h-[540px] rounded-2xl overflow-hidden border border-border-light shadow-inner relative z-0">
+                <!-- Barra de Filtros por Región -->
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-4 pb-4 border-b border-slate-100">
+                    <div class="flex flex-wrap items-center gap-2" id="map-region-filters">
+                        <button type="button" id="btn-filter-world" onclick="filterMapByRegion('world')"
+                            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-iapa-teal text-white shadow-sm transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">public</span>
+                            <span>Todas las Sedes (146)</span>
+                        </button>
+                        <button type="button" id="btn-filter-ecuador" onclick="filterMapByRegion('ecuador')"
+                            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-heritage-red/10 text-heritage-red border border-heritage-red/20 hover:bg-heritage-red hover:text-white transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">stars</span>
+                            <span>Ecuador Matriz (2)</span>
+                        </button>
+                        <button type="button" id="btn-filter-americas" onclick="filterMapByRegion('americas')"
+                            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-iapa-teal hover:text-white transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">south_america</span>
+                            <span>Américas (44)</span>
+                        </button>
+                        <button type="button" id="btn-filter-europe" onclick="filterMapByRegion('europe')"
+                            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-iapa-teal hover:text-white transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">euro</span>
+                            <span>Europa &amp; EMEA (66)</span>
+                        </button>
+                        <button type="button" id="btn-filter-asia" onclick="filterMapByRegion('asia')"
+                            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-iapa-teal hover:text-white transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">language</span>
+                            <span>Asia Pacífico (36)</span>
+                        </button>
+                    </div>
+
+                    <!-- Indicador de Sedes Filtradas -->
+                    <div class="text-xs font-semibold text-slate-500 flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm text-iapa-teal">filter_alt</span>
+                        <span>Mostrando: <span id="map-counter" class="font-extrabold text-institutional-navy text-sm">146</span> de 146 sedes</span>
+                    </div>
                 </div>
 
-                <!-- Leyenda de marcadores y métricas de red -->
-                <div
-                    class="mt-6 pt-6 border-t border-border-light flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
-                    <!-- Leyenda interactiva -->
-                    <div class="flex flex-wrap items-center gap-5 text-xs font-medium text-slate-text">
-                        <div class="flex items-center gap-2">
-                            <span class="w-3.5 h-3.5 rounded-full bg-heritage-red inline-block shadow-xs"></span>
+                <!-- Marco del Mapa con Acciones Flotantes e Inspector Drawer -->
+                <div id="map-viewport-wrapper" class="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-inner bg-slate-900">
+                    
+                    <!-- Contenedor del Mapa Leaflet -->
+                    <div id="iapa-leaflet-map" class="w-full relative z-0"></div>
+
+                    <!-- Barra Flotante de Acciones Rápidas (Esquina Superior Derecha del Mapa) -->
+                    <div class="absolute top-4 right-4 z-[500] flex items-center gap-2 bg-white/95 backdrop-blur-md p-1.5 rounded-2xl border border-white/40 shadow-lg shadow-black/10">
+                        
+
+                        <!-- Toggle Tema de Mapa (Claro / Ejecutivo Oscuro) -->
+                        <button type="button" id="btn-toggle-theme" onclick="toggleMapTheme()"
+                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all cursor-pointer"
+                            title="Alternar estilo de visualización del mapa">
+                            <span class="material-symbols-outlined text-sm" id="theme-icon">dark_mode</span>
+                            <span class="hidden sm:inline" id="theme-label">Modo Noche</span>
+                        </button>
+
+                        <!-- Botón Restablecer Vista Global -->
+                        <button type="button" onclick="filterMapByRegion('world')"
+                            class="p-2 rounded-xl text-slate-700 bg-slate-100 hover:bg-iapa-teal hover:text-white transition-all cursor-pointer"
+                            title="Centrar mapa en vista global">
+                            <span class="material-symbols-outlined text-sm block">center_focus_strong</span>
+                        </button>
+
+                        <!-- Botón Pantalla Completa -->
+                        <button type="button" id="btn-toggle-fullscreen" onclick="toggleMapFullscreen()"
+                            class="p-2 rounded-xl text-slate-700 bg-slate-100 hover:bg-iapa-teal hover:text-white transition-all cursor-pointer"
+                            title="Modo pantalla completa">
+                            <span class="material-symbols-outlined text-sm block" id="fullscreen-icon">fullscreen</span>
+                        </button>
+                    </div>
+
+                    <!-- Panel / Drawer Flotante de Detalle de Firma (Slide-in al dar clic a un marcador) -->
+                    <div id="map-firm-drawer" class="drawer-closed absolute right-4 top-16 bottom-4 w-80 sm:w-96 max-w-[calc(100%-2rem)] z-[550] bg-white/95 backdrop-blur-xl border border-white/60 rounded-2xl shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+                        <div>
+                            <!-- Header de la Ficha -->
+                            <div class="flex items-start justify-between gap-3 mb-4 pb-3 border-b border-slate-100">
+                                <span id="drawer-badge" class="inline-block text-[11px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-iapa-teal/10 text-iapa-teal">
+                                    Oficina IAPA
+                                </span>
+                                <button type="button" onclick="closeFirmDrawer()" class="text-slate-400 hover:text-slate-700 p-1 rounded-full hover:bg-slate-100 transition-colors" title="Cerrar ficha">
+                                    <span class="material-symbols-outlined text-lg block">close</span>
+                                </button>
+                            </div>
+
+                            <!-- Nombre de la Firma -->
+                            <h4 id="drawer-title" class="font-headline-md text-lg sm:text-xl font-bold text-institutional-navy mb-2 leading-tight">
+                                Nombre de la Firma
+                            </h4>
+
+                            <!-- Ubicación -->
+                            <div class="flex items-center gap-1.5 text-xs font-semibold text-iapa-teal mb-3">
+                                <span class="material-symbols-outlined text-base">location_on</span>
+                                <span id="drawer-location">Ciudad, País</span>
+                            </div>
+
+                            <!-- Grupo Regional -->
+                            <div id="drawer-group-wrapper" class="mb-4">
+                                <span class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Región:</span>
+                                <span id="drawer-group" class="text-xs text-slate-700 font-medium ml-1">América Latina</span>
+                            </div>
+
+                            <!-- Dirección Completa -->
+                            <div class="p-3 bg-slate-50/90 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed mb-4">
+                                <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Dirección oficial:</div>
+                                <div id="drawer-address" class="break-words">Dirección de la sede...</div>
+                            </div>
+
+                            <!-- Enlaces Rápidos de Contacto -->
+                            <div class="space-y-2 text-xs">
+                                <div id="drawer-phone-row" class="hidden">
+                                    <a id="drawer-phone-link" href="#" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 text-slate-700 hover:text-institutional-navy transition-colors">
+                                        <span class="material-symbols-outlined text-base text-iapa-teal">call</span>
+                                        <span id="drawer-phone" class="font-medium">Teléfono</span>
+                                    </a>
+                                </div>
+                                <div id="drawer-email-row" class="hidden">
+                                    <a id="drawer-email-link" href="#" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-100 text-slate-700 hover:text-institutional-navy transition-colors break-all">
+                                        <span class="material-symbols-outlined text-base text-iapa-teal">mail</span>
+                                        <span id="drawer-email" class="font-medium">correo@dominio.com</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones de Acción al pie de la Ficha -->
+                        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center gap-2.5">
+                            <a id="drawer-web-btn" href="#" target="_blank" rel="noopener noreferrer"
+                                class="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-iapa-teal text-white text-xs font-bold hover:bg-iapa-teal-dark shadow-sm transition-all text-center">
+                                <span>Sitio Oficial</span>
+                                <span class="material-symbols-outlined text-sm">open_in_new</span>
+                            </a>
+                            <button type="button" id="drawer-focus-btn" onclick="focusCurrentDrawerLoc()"
+                                class="inline-flex items-center justify-center gap-1 py-2.5 px-3 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 text-xs font-bold transition-all"
+                                title="Acercar mapa a esta sede">
+                                <span class="material-symbols-outlined text-base">zoom_in</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Leyenda Flotante (Esquina Inferior Izquierda del Mapa) -->
+                    <div class="absolute bottom-4 left-4 z-[500] hidden sm:flex items-center gap-3 bg-white/90 backdrop-blur-md py-2 px-3.5 rounded-xl border border-white/50 shadow-md text-xs font-medium text-slate-700 pointer-events-none">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded-full bg-heritage-red border border-white shadow-xs"></span>
                             <span>Páez Florencia (Ecuador)</span>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <span class="w-3.5 h-3.5 rounded-full bg-iapa-teal inline-block shadow-xs"></span>
+                        <span class="text-slate-300">|</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded-full bg-iapa-teal border border-white shadow-xs"></span>
                             <span>Oficinas Principales IAPA</span>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <span class="w-3.5 h-3.5 rounded-full bg-slate-400 inline-block shadow-xs"></span>
-                            <span>Sedes Secundarias</span>
-                        </div>
-                        <div class="text-xs text-secondary font-medium ml-2">
-                            Mostrando: <span id="map-counter" class="font-bold text-institutional-navy">146</span> sedes
-                        </div>
-                    </div>
-
-                    <!-- Métricas globales -->
-                    <div
-                        class="flex items-center gap-6 font-semibold text-xs uppercase tracking-wider text-institutional-navy">
-                        <div><strong class="text-iapa-teal text-base font-bold font-display-lg">51+</strong> Países
-                        </div>
-                        <div><strong class="text-institutional-navy text-base font-bold font-display-lg">146</strong>
-                            Sedes</div>
-                        <div><strong class="text-heritage-red text-base font-bold font-display-lg">2</strong> Sedes EC
+                        <span class="text-slate-300">|</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-slate-400 border border-white shadow-xs"></span>
+                            <span>Sedes Corresponsales</span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Mini Callout de Asistencia en Otro Mercado -->
+                <!-- Métrica Ejecutiva al Pie del Mapa -->
+                <div class="mt-6 pt-6 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-3 rounded-2xl bg-slate-50/80 border border-slate-100">
+                        <div class="font-display-lg text-2xl md:text-3xl font-bold text-iapa-teal">51+</div>
+                        <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">Países con Presencia</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50/80 border border-slate-100">
+                        <div class="font-display-lg text-2xl md:text-3xl font-bold text-institutional-navy">146</div>
+                        <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">Sedes y Despachos</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50/80 border border-slate-100">
+                        <div class="font-display-lg text-2xl md:text-3xl font-bold text-heritage-red">2</div>
+                        <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">Matrices en Ecuador</div>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-slate-50/80 border border-slate-100">
+                        <div class="font-display-lg text-2xl md:text-3xl font-bold text-slate-800">Top 10</div>
+                        <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">Alianza Global IAPA</div>
+                    </div>
+                </div>
+
+            </div>
+<!-- Mini Callout de Asistencia en Otro Mercado -->
             <div class="bg-[#F0F8FA] border border-iapa-teal/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6"
                 data-anim>
                 <div class="flex items-center gap-5">
@@ -1282,40 +1618,53 @@
     <script>
         let iapaMap = null;
         let markersLayer = null;
+        let lightTileLayer = null;
+        let darkTileLayer = null;
         let currentRegion = 'world';
         let currentQuery = '';
+        let currentTheme = 'light';
+        let currentDrawerLoc = null;
+        let isFullscreen = false;
 
+        // Crear marcadores personalizados limpios y ejecutivos
         function createCustomIcon(loc) {
             if (loc.office_type === 'headquarters') {
                 return L.divIcon({
                     className: 'custom-map-marker',
                     html: `
-                        <div class="map-pulse-marker relative flex items-center justify-center w-7 h-7 bg-heritage-red text-white rounded-full shadow-lg border-2 border-white cursor-pointer hover:scale-110 transition-transform" title="${loc.name}">
-                            <span class="material-symbols-outlined" style="font-size:16px;">apartment</span>
+                        <div class="map-hq-marker" title="${loc.name}">
+                            <div class="hq-ring"></div>
+                            <div class="hq-core">
+                                <span class="material-symbols-outlined" style="font-size:17px;">apartment</span>
+                            </div>
+                            <div class="map-hq-pill">PÁEZ FLORENCIA (ECUADOR)</div>
                         </div>
                     `,
-                    iconSize: [28, 28],
-                    iconAnchor: [14, 14],
-                    popupAnchor: [0, -14]
+                    iconSize: [34, 34],
+                    iconAnchor: [17, 17],
+                    popupAnchor: [0, -17]
                 });
             } else if (loc.office_type === 'main_office') {
                 return L.divIcon({
                     className: 'custom-map-marker',
                     html: `
-                        <div class="relative flex items-center justify-center w-5 h-5 bg-iapa-teal text-white rounded-full shadow-sm border-2 border-white cursor-pointer hover:scale-125 transition-transform" title="${loc.name}">
-                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                        <div class="map-hub-marker" title="${loc.name}">
+                            <div class="hub-ring"></div>
+                            <div class="hub-core">
+                                <span class="w-2 h-2 bg-white rounded-full"></span>
+                            </div>
                         </div>
                     `,
-                    iconSize: [20, 20],
-                    iconAnchor: [10, 10],
-                    popupAnchor: [0, -10]
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12],
+                    popupAnchor: [0, -12]
                 });
             } else {
                 return L.divIcon({
                     className: 'custom-map-marker',
                     html: `
-                        <div class="relative flex items-center justify-center w-4 h-4 bg-slate-400 text-white rounded-full shadow-xs border border-white cursor-pointer hover:scale-125 transition-transform" title="${loc.name}">
-                            <span class="w-1 h-1 bg-white rounded-full"></span>
+                        <div class="map-assoc-marker" title="${loc.name}">
+                            <div class="assoc-core"></div>
                         </div>
                     `,
                     iconSize: [16, 16],
@@ -1325,48 +1674,190 @@
             }
         }
 
+        // Generar Popup estilizado
         function createPopupContent(loc) {
             const isHQ = loc.office_type === 'headquarters';
             const isMain = loc.office_type === 'main_office';
-            const badgeColor = isHQ ? 'text-heritage-red bg-heritage-red/10' : (isMain ? 'text-iapa-teal bg-iapa-teal/10' : 'text-slate-600 bg-slate-100');
-            const badgeText = isHQ ? 'Sede Páez Florencia (Ecuador)' : (isMain ? 'Oficina Principal IAPA' : 'Oficina Regional / Sub-Sede');
+            const badgeColor = isHQ 
+                ? 'text-white bg-heritage-red shadow-xs' 
+                : (isMain ? 'text-iapa-teal bg-iapa-teal/10' : 'text-slate-600 bg-slate-100');
+            const badgeText = isHQ 
+                ? 'Sede Páez Florencia (Ecuador)' 
+                : (isMain ? 'Oficina Principal IAPA' : 'Firma Corresponsal IAPA');
 
             return `
-                <div class="p-1 min-w-[220px] max-w-[280px]">
-                    <span class="inline-block text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full ${badgeColor} mb-1.5">
+                <div class="p-3.5 min-w-[240px] max-w-[300px]">
+                    <span class="inline-block text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full ${badgeColor} mb-2">
                         ${badgeText}
                     </span>
-                    <h5 class="font-bold text-institutional-navy text-sm leading-snug mb-1">${loc.name}</h5>
-                    <div class="text-xs text-slate-text flex items-center gap-1 mb-1">
-                        <span class="material-symbols-outlined text-sm text-iapa-teal">location_on</span>
+                    <h5 class="font-bold text-institutional-navy text-sm leading-snug mb-1.5">${loc.name}</h5>
+                    <div class="text-xs font-semibold text-iapa-teal flex items-center gap-1 mb-2">
+                        <span class="material-symbols-outlined text-sm">location_on</span>
                         <span>${loc.city ? loc.city + ', ' : ''}${loc.country}</span>
                     </div>
-                    ${loc.reg_group_name ? `<div class="text-[10px] text-gray-400 uppercase tracking-wider mb-2 font-medium">${loc.reg_group_name}</div>` : ''}
-                    ${loc.address ? `<div class="text-[11px] text-gray-600 mb-2 pt-1.5 border-t border-border-light leading-relaxed">${loc.address}</div>` : ''}
-                    <div class="space-y-1.5 text-xs pt-1.5 border-t border-border-light">
-                        ${loc.phone ? `
-                            <div class="flex items-center gap-1.5 text-secondary">
-                                <span class="material-symbols-outlined text-[14px]">call</span>
-                                <a href="tel:${loc.phone.replace(/[^0-9+]/g, '')}" class="hover:text-heritage-red transition-colors">${loc.phone}</a>
-                            </div>
-                        ` : ''}
-                        ${loc.email ? `
-                            <div class="flex items-center gap-1.5 text-secondary">
-                                <span class="material-symbols-outlined text-[14px]">mail</span>
-                                <a href="mailto:${loc.email}" class="hover:text-heritage-red transition-colors break-all">${loc.email}</a>
-                            </div>
-                        ` : ''}
-                        ${loc.website ? `
-                            <div class="flex items-center gap-1.5 text-secondary">
-                                <span class="material-symbols-outlined text-[14px]">language</span>
-                                <a href="${loc.website.startsWith('http') ? loc.website : 'https://' + loc.website}" target="_blank" rel="noopener noreferrer" class="hover:text-heritage-red transition-colors font-medium">Visitar Sitio Web</a>
-                            </div>
-                        ` : ''}
+                    ${loc.address ? `<div class="text-[11px] text-slate-600 mb-3 pt-2 border-t border-slate-100 leading-relaxed">${loc.address}</div>` : ''}
+                    <div class="pt-2 border-t border-slate-100 flex items-center gap-2">
+                        <button type="button" onclick="openFirmDrawerById('${loc.id}')" 
+                            class="w-full py-1.5 px-2.5 rounded-lg bg-iapa-teal text-white text-[11px] font-bold hover:bg-iapa-teal-dark transition-all text-center flex items-center justify-center gap-1 cursor-pointer">
+                            <span>Ver Ficha de la Sede</span>
+                            <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                        </button>
                     </div>
                 </div>
             `;
         }
 
+        // Alternar Tema del Mapa (Voyager Ejecutivo Claro vs Dark Matter)
+        function toggleMapTheme() {
+            if (!iapaMap) return;
+
+            const iconEl = document.getElementById('theme-icon');
+            const labelEl = document.getElementById('theme-label');
+
+            if (currentTheme === 'light') {
+                currentTheme = 'dark';
+                if (lightTileLayer) iapaMap.removeLayer(lightTileLayer);
+                if (darkTileLayer) darkTileLayer.addTo(iapaMap);
+                if (iconEl) iconEl.textContent = 'light_mode';
+                if (labelEl) labelEl.textContent = 'Modo Claro';
+            } else {
+                currentTheme = 'light';
+                if (darkTileLayer) iapaMap.removeLayer(darkTileLayer);
+                if (lightTileLayer) lightTileLayer.addTo(iapaMap);
+                if (iconEl) iconEl.textContent = 'dark_mode';
+                if (labelEl) labelEl.textContent = 'Modo Noche';
+            }
+        }
+
+        // Alternar Modo Pantalla Completa
+        function toggleMapFullscreen() {
+            const wrapper = document.getElementById('iapa-map-main-card');
+            const icon = document.getElementById('fullscreen-icon');
+            if (!wrapper) return;
+
+            isFullscreen = !isFullscreen;
+            if (isFullscreen) {
+                wrapper.classList.add('map-fullscreen-active');
+                if (icon) icon.textContent = 'fullscreen_exit';
+            } else {
+                wrapper.classList.remove('map-fullscreen-active');
+                if (icon) icon.textContent = 'fullscreen';
+            }
+
+            setTimeout(() => {
+                if (iapaMap) iapaMap.invalidateSize();
+            }, 300);
+        }
+
+        // Abrir Drawer con datos completos de la firma
+        function openFirmDrawer(loc) {
+            currentDrawerLoc = loc;
+            const drawer = document.getElementById('map-firm-drawer');
+            if (!drawer) return;
+
+            const isHQ = loc.office_type === 'headquarters';
+            const isMain = loc.office_type === 'main_office';
+
+            // Badge
+            const badgeEl = document.getElementById('drawer-badge');
+            if (badgeEl) {
+                if (isHQ) {
+                    badgeEl.textContent = 'Sede Páez Florencia (Ecuador)';
+                    badgeEl.className = 'inline-block text-[11px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-heritage-red text-white shadow-xs';
+                } else if (isMain) {
+                    badgeEl.textContent = 'Oficina Principal IAPA';
+                    badgeEl.className = 'inline-block text-[11px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-iapa-teal/15 text-iapa-teal';
+                } else {
+                    badgeEl.textContent = 'Firma Miembro Asociada';
+                    badgeEl.className = 'inline-block text-[11px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-700';
+                }
+            }
+
+            // Campos de texto
+            const titleEl = document.getElementById('drawer-title');
+            if (titleEl) titleEl.textContent = loc.name;
+
+            const locEl = document.getElementById('drawer-location');
+            if (locEl) locEl.textContent = `${loc.city ? loc.city + ', ' : ''}${loc.country}`;
+
+            const groupEl = document.getElementById('drawer-group');
+            const groupWrapper = document.getElementById('drawer-group-wrapper');
+            if (loc.reg_group_name) {
+                if (groupEl) groupEl.textContent = loc.reg_group_name;
+                if (groupWrapper) groupWrapper.classList.remove('hidden');
+            } else {
+                if (groupWrapper) groupWrapper.classList.add('hidden');
+            }
+
+            const addrEl = document.getElementById('drawer-address');
+            if (addrEl) addrEl.textContent = loc.address || 'Consultar con secretaría IAPA para datos de contacto local.';
+
+            // Teléfono
+            const phoneRow = document.getElementById('drawer-phone-row');
+            const phoneText = document.getElementById('drawer-phone');
+            const phoneLink = document.getElementById('drawer-phone-link');
+            if (loc.phone) {
+                if (phoneText) phoneText.textContent = loc.phone;
+                if (phoneLink) phoneLink.href = `tel:${loc.phone.replace(/[^0-9+]/g, '')}`;
+                if (phoneRow) phoneRow.classList.remove('hidden');
+            } else {
+                if (phoneRow) phoneRow.classList.add('hidden');
+            }
+
+            // E-mail
+            const emailRow = document.getElementById('drawer-email-row');
+            const emailText = document.getElementById('drawer-email');
+            const emailLink = document.getElementById('drawer-email-link');
+            if (loc.email) {
+                if (emailText) emailText.textContent = loc.email;
+                if (emailLink) emailLink.href = `mailto:${loc.email}`;
+                if (emailRow) emailRow.classList.remove('hidden');
+            } else {
+                if (emailRow) emailRow.classList.add('hidden');
+            }
+
+            // Botón Web
+            const webBtn = document.getElementById('drawer-web-btn');
+            if (webBtn) {
+                if (loc.website) {
+                    webBtn.href = loc.website.startsWith('http') ? loc.website : `https://${loc.website}`;
+                    webBtn.classList.remove('opacity-50', 'pointer-events-none');
+                } else {
+                    webBtn.href = 'https://iapa.net/find-a-firm/';
+                }
+            }
+
+            // Desplegar drawer con animación suave
+            drawer.classList.remove('drawer-closed');
+            drawer.classList.add('drawer-open');
+        }
+
+        function openFirmDrawerById(id) {
+            if (typeof IAPA_MEMBERS_DATA === 'undefined') return;
+            const loc = IAPA_MEMBERS_DATA.find(item => item.id == id);
+            if (loc) {
+                openFirmDrawer(loc);
+                if (iapaMap && loc.lat && loc.lng) {
+                    iapaMap.flyTo([loc.lat, loc.lng], Math.max(iapaMap.getZoom(), 5), { duration: 1.0 });
+                }
+            }
+        }
+
+        function closeFirmDrawer() {
+            const drawer = document.getElementById('map-firm-drawer');
+            if (drawer) {
+                drawer.classList.remove('drawer-open');
+                drawer.classList.add('drawer-closed');
+            }
+        }
+
+        function focusCurrentDrawerLoc() {
+            if (currentDrawerLoc && iapaMap && currentDrawerLoc.lat && currentDrawerLoc.lng) {
+                iapaMap.flyTo([currentDrawerLoc.lat, currentDrawerLoc.lng], 12, { duration: 1.2 });
+            }
+        }
+
+        // Renderizado de los marcadores con filtros
         function renderMarkers() {
             if (!iapaMap || typeof IAPA_MEMBERS_DATA === 'undefined') return [];
 
@@ -1398,7 +1889,7 @@
                 return true;
             });
 
-            // Actualizar contador en interfaz
+            // Actualizar contador en la interfaz
             const counterEl = document.getElementById('map-counter');
             if (counterEl) counterEl.textContent = filtered.length;
 
@@ -1407,6 +1898,18 @@
                 if (loc.lat && loc.lng) {
                     const marker = L.marker([loc.lat, loc.lng], { icon: createCustomIcon(loc) });
                     marker.bindPopup(createPopupContent(loc));
+
+                    // Tooltip limpio y directo
+                    marker.bindTooltip(
+                        `<strong>${loc.name}</strong><br><span style="opacity:0.85">${loc.city ? loc.city + ', ' : ''}${loc.country}</span>`,
+                        { className: 'custom-leaflet-tooltip', direction: 'top', offset: [0, -12] }
+                    );
+
+                    // Al hacer clic, abre la ficha lateral
+                    marker.on('click', () => {
+                        openFirmDrawer(loc);
+                    });
+
                     markersLayer.addLayer(marker);
                     latLngs.push([loc.lat, loc.lng]);
                 }
@@ -1415,30 +1918,42 @@
             return latLngs;
         }
 
+        // Inicialización principal del Mapa Leaflet
         function initIapaMap() {
             const mapEl = document.getElementById('iapa-leaflet-map');
             if (!mapEl || iapaMap) return;
 
             // Iniciar mapa centrado globalmente
             iapaMap = L.map('iapa-leaflet-map', {
-                center: [20, 0],
-                zoom: 2,
+                center: [22, 5],
+                zoom: 2.2,
                 minZoom: 2,
-                maxZoom: 16,
-                scrollWheelZoom: false
+                maxZoom: 17,
+                scrollWheelZoom: false,
+                zoomControl: false
             });
 
-            // Mapa base limpio y corporativo (Esri World Light Gray - 100% gratuito sin marcas de agua ni API key requerida)
-            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-                attribution: '&copy; <a href="https://www.esri.com/" target="_blank" rel="noopener noreferrer">Esri</a> &copy; OpenStreetMap contributors',
-                maxZoom: 16
-            }).addTo(iapaMap);
+            // Control de Zoom en posición limpia
+            L.control.zoom({ position: 'bottomright' }).addTo(iapaMap);
 
-            // Capa de nombres de países y referencias geográficas
-            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
-                maxZoom: 16
-            }).addTo(iapaMap);
+            // Capa CartoDB Voyager (Clara, moderna y ultra corporativa)
+            lightTileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 18
+            });
 
+            // Capa CartoDB Dark Matter (Deep Executive Navy)
+            darkTileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 18
+            });
+
+            // Activar capa inicial clara
+            lightTileLayer.addTo(iapaMap);
+
+            // Renderizar marcadores
             renderMarkers();
 
             // Reajustar dimensiones para renderizado nítido
@@ -1447,25 +1962,29 @@
             }, 350);
         }
 
-        // Navegación y filtrado por regiones
+        // Filtrado por región con animación fluida de cámara
         function filterMapByRegion(region) {
             currentRegion = region;
 
-            // Actualizar estilo activo de botones
+            // Actualizar estilo visual de los botones de filtro
             const filterBtns = document.querySelectorAll('#map-region-filters button');
             filterBtns.forEach(btn => {
-                btn.className = "px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-text hover:bg-iapa-teal hover:text-white transition-all cursor-pointer";
+                btn.className = "inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-iapa-teal hover:text-white transition-all cursor-pointer";
             });
 
             const currentBtn = document.getElementById(`btn-filter-${region}`);
             if (currentBtn) {
-                currentBtn.className = "px-3.5 py-2 rounded-xl text-xs font-semibold bg-iapa-teal text-white transition-all shadow-xs cursor-pointer";
+                if (region === 'ecuador') {
+                    currentBtn.className = "inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-heritage-red text-white shadow-sm transition-all cursor-pointer";
+                } else {
+                    currentBtn.className = "inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-iapa-teal text-white shadow-sm transition-all cursor-pointer";
+                }
             }
 
             const points = renderMarkers();
 
             if (region === 'world') {
-                iapaMap.flyTo([20, 0], 2, { duration: 1.2 });
+                iapaMap.flyTo([22, 5], 2.2, { duration: 1.2 });
             } else if (region === 'ecuador') {
                 iapaMap.flyTo([-1.2, -78.5], 7, { duration: 1.2 });
             } else if (region === 'americas') {
@@ -1480,11 +1999,26 @@
         // Búsqueda en tiempo real
         function handleMapSearch(val) {
             currentQuery = val;
+            const clearBtn = document.getElementById('btn-clear-search');
+            if (clearBtn) {
+                if (val && val.trim().length > 0) {
+                    clearBtn.classList.remove('hidden');
+                } else {
+                    clearBtn.classList.add('hidden');
+                }
+            }
+
             const points = renderMarkers();
             if (points && points.length > 0 && currentQuery.trim().length >= 2) {
                 const bounds = L.latLngBounds(points);
-                iapaMap.fitBounds(bounds, { padding: [50, 50], maxZoom: 7 });
+                iapaMap.fitBounds(bounds, { padding: [50, 50], maxZoom: 8 });
             }
+        }
+
+        function clearMapSearch() {
+            const input = document.getElementById('map-search-input');
+            if (input) input.value = '';
+            handleMapSearch('');
         }
 
         // Cargar el mapa al inicializar el documento
