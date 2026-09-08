@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Nosotros — PAEZ, FLORENCIA & CO.</title>
+    <meta name="description"
+        content="Más de 25 años de excelencia profesional en auditoría y consultoría. Conozca nuestra historia, principios y liderazgo ejecutivo en PAEZ, FLORENCIA & CO." />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "border-light": "#E2E8F0",
+                        "slate-text": "#2D3748",
+                        "heritage-red": "#B22222",
+                        "institutional-navy": "#3E0C0F",
+                        "surface": "#fbf9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3f5",
+                        "surface-container": "#efedf0",
+                        "surface-dim": "#dbd9dc",
+                        "surface-variant": "#e4e2e4",
+                        "tertiary-fixed": "#ffdcc0",
+                        "outline-variant": "#c5c6ce",
+                        "secondary": "#b52424",
+                    },
+                    spacing: {
+                        "gutter-desktop": "32px",
+                        "gutter-mobile": "16px",
+                        "container-max-width": "1200px",
+                        "margin-desktop": "80px",
+                    },
+                    fontFamily: {
+                        "display-lg": ["Fraunces", "serif"],
+                        "headline-lg": ["Fraunces", "serif"],
+                        "headline-md": ["Fraunces", "serif"],
+                        "body-lg": ["Work Sans", "sans-serif"],
+                        "body-md": ["Work Sans", "sans-serif"],
+                        "label-md": ["Work Sans", "sans-serif"],
+                        "caption": ["Work Sans", "sans-serif"],
+                    },
+                    fontSize: {
+                        "display-lg": ["46px", { "lineHeight": "54px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* ── Scroll progress bar ── */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #B22222, #3E0C0F);
+            z-index: 200;
+            width: 0;
+            transition: width .1s linear
+        }
+
+        /* ── Animated gradient line ── */
+        .grad-line {
+            background: linear-gradient(90deg, #B22222, #3E0C0F, #B22222);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%
+            }
+
+            100% {
+                background-position: 200% 50%
+            }
+        }
+
+        /* ── Scroll reveal ── */
+        [data-anim] {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity .75s cubic-bezier(.22, 1, .36, 1), transform .75s cubic-bezier(.22, 1, .36, 1)
+        }
+
+        [data-anim].in {
+            opacity: 1;
+            transform: none
+        }
+
+        [data-anim="left"] {
+            transform: translateX(-32px)
+        }
+
+        [data-anim="right"] {
+            transform: translateX(32px)
+        }
+
+        [data-anim="scale"] {
+            transform: scale(.94)
+        }
+
+        [data-anim="left"].in,
+        [data-anim="right"].in,
+        [data-anim="scale"].in {
+            transform: none;
+            opacity: 1
+        }
+
+        /* ── Nav Active Link ── */
+        .nav-active {
+            color: #B22222 !important;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #B22222;
+            border-radius: 2px;
+        }
+
+        /* ── Card hover elevation ── */
+        .pilar-card {
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+
+        .pilar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 30px -10px rgba(62, 12, 15, 0.08);
+            border-color: rgba(178, 34, 34, 0.3);
+        }
+
+        /* ── Leader card image hover ── */
+        .leader-card {
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -10px rgba(62, 12, 15, 0.12);
+        }
+
+        .leader-card img {
+            transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        .leader-card:hover img {
+            transform: scale(1.04);
+        }
+
+        /* ── Timeline Reveal & Dynamic Unfolding ── */
+        .timeline-stem-bg {
+            position: absolute;
+            top: 24px;
+            bottom: 24px;
+            left: 50%;
+            width: 3px;
+            background: #E2E8F0;
+            transform: translateX(-50%);
+            border-radius: 9999px;
+        }
+
+        .timeline-stem-fill {
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            width: 3px;
+            height: 0%;
+            background: linear-gradient(180deg, #B22222 0%, #3E0C0F 100%);
+            transform: translateX(-50%);
+            border-radius: 9999px;
+            transition: height 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 0 12px rgba(178, 34, 34, 0.4);
+        }
+
+        .timeline-stem-fill.filled {
+            height: calc(100% - 48px);
+        }
+
+        .timeline-year {
+            font-family: 'Fraunces', serif;
+            font-size: 5rem;
+            line-height: 1;
+            font-weight: 700;
+            color: rgba(62, 12, 15, 0.08);
+            user-select: none;
+            transition: color .4s ease, transform .4s ease;
+        }
+
+        @media (max-width: 767px) {
+            .timeline-year {
+                font-size: 2.75rem;
+                line-height: 1.1;
+                text-align: center;
+                margin-top: 0.25rem;
+            }
+        }
+
+        .timeline-row:hover .timeline-year,
+        .timeline-row.active .timeline-year {
+            color: rgba(178, 34, 34, 0.18);
+            transform: scale(1.06);
+        }
+
+        .timeline-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 3px solid #cbd5e1;
+            box-shadow: 0 0 0 3px rgba(203, 213, 225, 0.4);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .timeline-row.unfolded .timeline-dot,
+        .timeline-row:hover .timeline-dot,
+        .timeline-row.active .timeline-dot {
+            border-color: #B22222;
+            background: #B22222;
+            box-shadow: 0 0 0 6px rgba(178, 34, 34, 0.25), 0 0 16px rgba(178, 34, 34, 0.5);
+            transform: scale(1.3);
+        }
+
+        .timeline-card-box {
+            opacity: 0;
+            transform: translateY(28px) scale(0.96);
+            transition: all 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .timeline-row.unfolded .timeline-card-box {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .timeline-nav-chip {
+            transition: all 0.25s ease;
+        }
+
+        .timeline-nav-chip.active {
+            background-color: #B22222 !important;
+            color: #ffffff !important;
+            border-color: #B22222 !important;
+            box-shadow: 0 6px 16px -4px rgba(178, 34, 34, 0.35);
+        }
+
+        /* Stagger Delays */
+        .d1 {
+            transition-delay: .15s
+        }
+
+        .d2 {
+            transition-delay: .3s
+        }
+
+        .d3 {
+            transition-delay: .45s
+        }
+
+        .d4 {
+            transition-delay: .6s
+        }
+
+        /* Leader Portrait Showcase */
+        .leader-portrait-stage {
+            background: radial-gradient(circle at 50% 30%, rgba(178, 34, 34, 0.10) 0%, rgba(62, 12, 15, 0.05) 50%, #F1F5F9 100%);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid transparent;
+            transition: all 0.5s ease;
+        }
+
+        .leader-card:hover .leader-portrait-stage {
+            border-bottom-color: #B22222;
+        }
+
+        .leader-photo-cutout {
+            filter: drop-shadow(0 16px 24px rgba(62, 12, 15, 0.25));
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            transform-origin: bottom center;
+        }
+
+        .leader-card:hover .leader-photo-cutout {
+            transform: scale(1.05) translateY(-4px);
+            filter: drop-shadow(0 24px 32px rgba(178, 34, 34, 0.35));
+        }
+
+        .leader-stage-glow {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(178, 34, 34, 0.18) 0%, rgba(178, 34, 34, 0) 70%);
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -20%);
+            pointer-events: none;
+            transition: all 0.6s ease;
+        }
+
+        .leader-card:hover .leader-stage-glow {
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, rgba(178, 34, 34, 0.28) 0%, rgba(178, 34, 34, 0) 70%);
+        }
+
+        /* ══════════════════════════════════════════
+           SELLO INSTITUCIONAL: ANIMACIONES PROFESIONALES
+           ══════════════════════════════════════════ */
+        @keyframes sealFloating {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            32% {
+                transform: translateY(-9px) rotate(2deg);
+            }
+
+            68% {
+                transform: translateY(7px) rotate(-1.6deg);
+            }
+        }
+
+        @keyframes dialSpinSlow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes dialSpinRev {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes ambientAura {
+
+            0%,
+            100% {
+                opacity: 0.18;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.35;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes sparklePulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(0.9);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.4);
+                filter: drop-shadow(0 0 8px rgba(254, 240, 138, 0.95));
+            }
+        }
+
+        .seal-assembly {
+            animation: sealFloating 7.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+            transform-origin: 100px 100px;
+        }
+
+        .dial-rotate-fwd {
+            animation: dialSpinSlow 85s linear infinite;
+            transform-origin: 100px 100px;
+        }
+
+        .dial-rotate-bwd {
+            animation: dialSpinRev 55s linear infinite;
+            transform-origin: 100px 100px;
+        }
+
+        .ambient-glow-aura {
+            animation: ambientAura 5.5s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        .seal-sparkle {
+            animation: sparklePulse 3s ease-in-out infinite;
+            transform-origin: 100px 58px;
+        }
+
+        .seal-interactive-box {
+            perspective: 1000px;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden bg-white text-on-background antialiased" style="font-family:'Work Sans',sans-serif;color:#1b1b1e">
+
+    <div id="progress-bar"></div>
+
+    <!-- ══════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════ -->
+    <nav class="bg-white sticky top-0 w-full border-b border-border-light z-50 shadow-sm">
+        <div
+            class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
+            <a href="code.html">
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain"
+                    src="P.F Logo.png" />
+            </a>
+            <div class="hidden lg:flex items-center gap-5 xl:gap-8">
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="servicios.html">Servicios</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="expertise.html">Expertise</a>
+                <a class="font-label-md text-label-md nav-active" href="nosotros.html">Nosotros</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="iapa.html">IAPA</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="noticias.html">Noticias</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="contacto.html">Contacto</a>
+                <div class="flex items-center gap-4">
+                    <a href="contacto.html"
+                        class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Contáctenos</a>
+                    <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global" class="flex items-center">
+                        <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-10 w-auto object-contain rounded hover:opacity-85 transition-opacity" />
+                    </a>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 lg:hidden">
+                <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-9 w-auto object-contain rounded" />
+                </a>
+                <button id="menu-toggle" onclick="toggleMobileMenu()" class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors" aria-label="Abrir menú de navegación" aria-expanded="false">
+                    <span id="menu-toggle-icon" class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="servicios.html">Servicios</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="expertise.html">Expertise</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-heritage-red font-semibold"
+                href="nosotros.html">Nosotros</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="iapa.html">IAPA</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="noticias.html">Noticias</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="contacto.html">Contacto</a>
+            <div class="flex items-center gap-3 pt-2">
+                <a onclick="closeMobileMenu()" href="contacto.html"
+                    class="block text-center flex-1 bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Contáctenos</a>
+                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International" class="flex-shrink-0">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-11 w-auto object-contain rounded" />
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Script de navegación móvil global autónomo -->
+    <script>
+        function toggleMobileMenu() {
+            var m = document.getElementById('mobile-menu');
+            var b = document.getElementById('menu-toggle');
+            var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+            if (!m) return;
+            var isHidden = m.classList.contains('hidden') || m.style.display === 'none' || (window.getComputedStyle && window.getComputedStyle(m).display === 'none');
+            if (isHidden) {
+                m.classList.remove('hidden');
+                m.style.display = 'block';
+                if (b) b.setAttribute('aria-expanded', 'true');
+                if (ic) ic.textContent = 'close';
+            } else {
+                m.classList.add('hidden');
+                m.style.display = 'none';
+                if (b) b.setAttribute('aria-expanded', 'false');
+                if (ic) ic.textContent = 'menu';
+            }
+        }
+
+        function closeMobileMenu() {
+            var m = document.getElementById('mobile-menu');
+            var b = document.getElementById('menu-toggle');
+            var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+            if (!m) return;
+            m.classList.add('hidden');
+            m.style.display = 'none';
+            if (b) b.setAttribute('aria-expanded', 'false');
+            if (ic) ic.textContent = 'menu';
+        }
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                var m = document.getElementById('mobile-menu');
+                if (m) {
+                    m.classList.add('hidden');
+                    m.style.display = '';
+                }
+                var b = document.getElementById('menu-toggle');
+                if (b) b.setAttribute('aria-expanded', 'false');
+                var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+                if (ic) ic.textContent = 'menu';
+            }
+        });
+    </script>
+
+    <!-- ══════════════════════════════════════════
+     HERO  —  Rojo Heritage con Badges
+══════════════════════════════════════════ -->
+    <section
+        class="relative bg-gradient-to-br from-[#9E1B1B] via-[#B22222] to-[#801414] text-white overflow-hidden py-20 md:py-28">
+        <!-- Subtle background pattern overlay -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none"
+            style="background-image: radial-gradient(circle at 25px 25px, #ffffff 2%, transparent 0%), radial-gradient(circle at 75px 75px, #ffffff 2%, transparent 0%); background-size: 100px 100px;">
+        </div>
+
+        <div class="relative max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+            <!-- Breadcrumb -->
+            <div class="flex items-center gap-2 mb-8 font-label-md text-label-md text-white/70" data-anim>
+                <a href="code.html" class="hover:text-white transition-colors">Inicio</a>
+                <span class="material-symbols-outlined" style="font-size:14px">chevron_right</span>
+                <span class="text-white font-semibold">Nosotros</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                <!-- Left Column: Copy & Badges -->
+                <div class="lg:col-span-7" data-anim>
+                    <h1 class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
+                        Más de 25 años de<br />excelencia profesional
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed mb-10 max-w-2xl font-light">
+                        PAEZ, FLORENCIA &amp; CO. CIA. LTDA. es una firma ecuatoriana especializada en
+                        auditoría externa, asesorías contables y tributarias, impulsando el crecimiento y
+                        fortalecimiento de nuestros clientes con integridad y precisión.
+                    </p>
+
+                    <!-- Badges / Pill Tags -->
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <div
+                            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined text-white"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">verified_user</span>
+                            <span>CONFIDENCIALIDAD</span>
+                        </div>
+                        <div
+                            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined text-white"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
+                            <span>OPORTUNIDAD</span>
+                        </div>
+                        <div
+                            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined text-white"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">workspace_premium</span>
+                            <span>PROFESIONALISMO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Emblema Institucional de 25+ Años Animado -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end items-center relative" data-anim="scale">
+                    <div id="hero-seal-box"
+                        class="seal-interactive-box relative w-72 h-72 sm:w-84 sm:h-84 md:w-96 md:h-96 flex items-center justify-center">
+
+                        <!-- Concentric glowing ambient backdrop aura -->
+                        <div
+                            class="ambient-glow-aura absolute inset-0 rounded-full bg-gradient-to-tr from-white/20 via-[#B22222]/30 to-amber-200/20 blur-3xl pointer-events-none">
+                        </div>
+                        <div
+                            class="absolute inset-4 rounded-full border border-white/15 border-dashed pointer-events-none dial-rotate-bwd">
+                        </div>
+                        <div class="absolute inset-12 rounded-full border border-white/10 pointer-events-none"></div>
+
+                        <!-- Institutional Seal SVG -->
+                        <svg class="w-64 h-64 sm:w-76 sm:h-76 md:w-84 md:h-84 drop-shadow-[0_16px_36px_rgba(0,0,0,0.4)]"
+                            viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <!-- Gold Gradient -->
+                                <linearGradient id="sealGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#fef08a" />
+                                    <stop offset="35%" stop-color="#f59e0b" />
+                                    <stop offset="70%" stop-color="#d97706" />
+                                    <stop offset="100%" stop-color="#ffdcc0" />
+                                </linearGradient>
+                                <!-- Metallic Silver Gradient -->
+                                <linearGradient id="sealMetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ffffff" />
+                                    <stop offset="50%" stop-color="#e2e8f0" />
+                                    <stop offset="100%" stop-color="#94a3b8" />
+                                </linearGradient>
+                                <!-- Deep Ruby Radial Gradient -->
+                                <radialGradient id="sealRubyGrad" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#801414" />
+                                    <stop offset="70%" stop-color="#3E0C0F" />
+                                    <stop offset="100%" stop-color="#240507" />
+                                </radialGradient>
+                                <!-- Circular path for text -->
+                                <path id="sealTextPath" d="M 100, 100 m -74, 0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0"
+                                    fill="none" />
+                                <filter id="sealGlowBlur" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="2" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+
+                            <!-- ── 1. BACKGROUND TECHNICAL ORBITS & RETICLE ── -->
+                            <g class="dial-rotate-fwd" opacity="0.45">
+                                <circle cx="100" cy="100" r="92" stroke="#ffffff" stroke-width="0.8"
+                                    stroke-dasharray="2 6" />
+                                <circle cx="100" cy="100" r="86" stroke="#ffffff" stroke-width="0.5" />
+                                <!-- 12 Precision Orbital Star Markers -->
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(30 100 100)" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(60 100 100)" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(90 100 100)" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(120 100 100)" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(150 100 100)" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(180 100 100)" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(210 100 100)" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(240 100 100)" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(270 100 100)" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(300 100 100)" />
+                                <circle cx="100" cy="14" r="1.5" fill="#fef08a" transform="rotate(330 100 100)" />
+                            </g>
+
+                            <!-- ── 2. ROTATING CIRCULAR INSCRIPTION RING ── -->
+                            <g class="dial-rotate-bwd">
+                                <circle cx="100" cy="100" r="74" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+                                <text font-family="'Work Sans', sans-serif" font-size="6.8" font-weight="600"
+                                    letter-spacing="2.2px" fill="rgba(255,255,255,0.88)">
+                                    <textPath href="#sealTextPath">
+                                        ★ 25 AÑOS DE TRAYECTORIA ★ PAEZ, FLORENCIA &amp; CO. ★ EXCELENCIA
+                                    </textPath>
+                                </text>
+                            </g>
+
+                            <!-- Blueprint Crosshair Axes -->
+                            <g opacity="0.2">
+                                <line x1="20" y1="100" x2="180" y2="100" stroke="#ffffff" stroke-width="0.8"
+                                    stroke-dasharray="3 4" />
+                                <line x1="100" y1="20" x2="100" y2="180" stroke="#ffffff" stroke-width="0.8"
+                                    stroke-dasharray="3 4" />
+                            </g>
+
+                            <!-- ── 3. MAIN FLOATING SEAL ASSEMBLY ── -->
+                            <g class="seal-assembly">
+                                <!-- Outer Medallion Base / Faceted Ring -->
+                                <circle cx="100" cy="100" r="62" fill="url(#sealRubyGrad)" stroke="url(#sealGoldGrad)"
+                                    stroke-width="3.5" filter="drop-shadow(0 6px 14px rgba(0,0,0,0.5))" />
+
+                                <!-- Engraved Inner Gold Ring -->
+                                <circle cx="100" cy="100" r="54" stroke="url(#sealGoldGrad)" stroke-width="1.5"
+                                    stroke-dasharray="3 3" opacity="0.9" />
+                                <circle cx="100" cy="100" r="50" fill="#3E0C0F" stroke="rgba(255,255,255,0.3)"
+                                    stroke-width="1" />
+
+                                <!-- Stylized Laurel Wreath (Leaves Left) -->
+                                <path d="M 64 100 C 64 116 74 130 90 135" stroke="url(#sealGoldGrad)" stroke-width="2"
+                                    fill="none" stroke-linecap="round" />
+                                <ellipse cx="66" cy="94" rx="4" ry="2" transform="rotate(-30 66 94)"
+                                    fill="url(#sealGoldGrad)" />
+                                <ellipse cx="64" cy="104" rx="4" ry="2" transform="rotate(-15 64 104)"
+                                    fill="url(#sealGoldGrad)" />
+                                <ellipse cx="68" cy="115" rx="4" ry="2" transform="rotate(10 68 115)"
+                                    fill="url(#sealGoldGrad)" />
+                                <ellipse cx="76" cy="125" rx="4" ry="2" transform="rotate(35 76 125)"
+                                    fill="url(#sealGoldGrad)" />
+                                <ellipse cx="86" cy="132" rx="4" ry="2" transform="rotate(60 86 132)"
+                                    fill="url(#sealGoldGrad)" />
+
+                                <!-- Stylized Laurel Wreath (Leaves Right) -->
+                                <path d="M 136 100 C 136 116 126 130 110 135" stroke="url(#sealGoldGrad)"
+                                    stroke-width="2" fill="none" stroke-linecap="round" />
+                                <ellipse cx="134" cy="94" rx="4" ry="2" transform="rotate(30 134 94)"
+                                    fill="url(#sealGoldGrad)" />
+                                <ellipse cx="136" cy="104" rx="4" ry="2" transform="rotate(15 136 104)"
+                                    fill="url(#sealGoldGrad)" />
+                                <ellipse cx="132" cy="115" rx="4" ry="2" transform="rotate(-10 132 115)"
+                                    fill="url(#sealGoldGrad)" />
+                                <ellipse cx="124" cy="125" rx="4" ry="2" transform="rotate(-35 124 125)"
+                                    fill="url(#sealGoldGrad)" />
+                                <ellipse cx="114" cy="132" rx="4" ry="2" transform="rotate(-60 114 132)"
+                                    fill="url(#sealGoldGrad)" />
+
+                                <!-- Top Star with Dynamic Sparkle Pulse -->
+                                <g class="seal-sparkle">
+                                    <path
+                                        d="M 100 56 L 102 61 L 107 61 L 103 64 L 105 69 L 100 66 L 95 69 L 97 64 L 93 61 L 98 61 Z"
+                                        fill="url(#sealGoldGrad)" stroke="#ffffff" stroke-width="0.5" />
+                                    <circle cx="100" cy="62" r="6" fill="#ffffff" fill-opacity="0.25" />
+                                </g>
+
+                                <!-- Center Typography: 25+ AÑOS -->
+                                <text x="100" y="93" text-anchor="middle" font-family="'Fraunces', Georgia, serif"
+                                    font-size="30" font-weight="700" fill="url(#sealGoldGrad)" letter-spacing="-0.02em"
+                                    filter="drop-shadow(0 2px 6px rgba(0,0,0,0.6))">
+                                    25+
+                                </text>
+
+                                <!-- AÑOS Label -->
+                                <text x="100" y="107" text-anchor="middle" font-family="'Work Sans', sans-serif"
+                                    font-size="8" font-weight="700" letter-spacing="3.5px" fill="#ffffff">
+                                    AÑOS
+                                </text>
+
+                                <!-- Accent Divider Line -->
+                                <line x1="82" y1="113" x2="118" y2="113" stroke="url(#sealGoldGrad)" stroke-width="1.4"
+                                    stroke-linecap="round" />
+
+                                <!-- 1999 — 2025 Subtitle -->
+                                <text x="100" y="123" text-anchor="middle" font-family="'Work Sans', sans-serif"
+                                    font-size="6.5" font-weight="600" letter-spacing="1.8px"
+                                    fill="rgba(255,255,255,0.75)">
+                                    1999 — 2025
+                                </text>
+                            </g>
+                        </svg>
+
+                        <!-- Floating Micro-Badge of Institutional Trust -->
+                        <div
+                            class="absolute -bottom-3 bg-[#3E0C0F]/90 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full shadow-xl flex items-center gap-2 text-[11px] text-white/90 font-label-md tracking-wider uppercase">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>1999 — Presente • 25+ Años de Confianza</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     NUESTROS PILARES  —  Misión, Visión, Propósito
+══════════════════════════════════════════ -->
+    <section class="py-margin-desktop bg-white">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16" data-anim>
+                <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-heritage-red mb-3">
+                    Nuestros Pilares
+                </h2>
+                <div class="w-20 h-1 bg-institutional-navy mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Pilares Grid: Misión y Visión -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+
+                <!-- Card Misión -->
+                <div class="pilar-card bg-surface-container-lowest border border-border-light rounded-xl p-8 md:p-10 shadow-sm relative overflow-hidden border-t-4 border-t-heritage-red"
+                    data-anim="left">
+                    <div
+                        class="w-14 h-14 bg-[#FEE2E2] rounded-xl flex items-center justify-center mb-6 text-heritage-red">
+                        <span class="material-symbols-outlined"
+                            style="font-size:28px;font-variation-settings:'FILL' 1">flag</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-institutional-navy mb-4">
+                        Misión
+                    </h3>
+                    <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                        Brindar a nuestros clientes un servicio de calidad, realizado por profesionales de
+                        alto nivel, con el objetivo de superar sus expectativas y aportar valor real a sus
+                        operaciones.
+                    </p>
+                </div>
+
+                <!-- Card Visión -->
+                <div class="pilar-card bg-surface-container-lowest border border-border-light rounded-xl p-8 md:p-10 shadow-sm relative overflow-hidden border-t-4 border-t-heritage-red"
+                    data-anim="right">
+                    <div
+                        class="w-14 h-14 bg-[#FEE2E2] rounded-xl flex items-center justify-center mb-6 text-heritage-red">
+                        <span class="material-symbols-outlined"
+                            style="font-size:28px;font-variation-settings:'FILL' 1">visibility</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-institutional-navy mb-4">
+                        Visión
+                    </h3>
+                    <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                        Ser el referente indiscutible de las firmas auditoras locales en el Ecuador, destacándonos por
+                        nuestro trabajo ético, coherente y de alta calidad que establece estándares en la industria
+                        nacional.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Banner Propósito -->
+            <div class="relative bg-gradient-to-r from-[#9E1B1B] via-[#B22222] to-[#801414] rounded-xl p-8 md:p-10 text-white shadow-lg overflow-hidden flex flex-col md:flex-row items-start md:items-center gap-6"
+                data-anim="scale">
+                <!-- Watermark drafting icon background -->
+                <div class="absolute -right-8 -bottom-10 opacity-15 pointer-events-none text-white">
+                    <span class="material-symbols-outlined"
+                        style="font-size:180px;font-variation-settings:'FILL' 0">architecture</span>
+                </div>
+
+                <!-- Icon -->
+                <div
+                    class="w-16 h-16 rounded-xl bg-institutional-navy flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span class="material-symbols-outlined text-white"
+                        style="font-size:32px;font-variation-settings:'FILL' 1">target</span>
+                </div>
+
+                <!-- Content -->
+                <div class="relative z-10">
+                    <h3 class="font-headline-md text-headline-md text-white mb-2">
+                        Propósito
+                    </h3>
+                    <p class="font-body-md text-body-md text-white/90 leading-relaxed max-w-4xl">
+                        Proporcionar conocimiento especializado, recomendaciones estratégicas y experiencia
+                        comprobada para contribuir directamente al crecimiento sostenido y fortalecimiento
+                        institucional de nuestros clientes.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     NUESTRA TRAYECTORIA  —  Timeline Histórico Interactivo
+══════════════════════════════════════════ -->
+    <section id="trayectoria-section"
+        class="py-margin-desktop bg-surface border-y border-border-light relative overflow-hidden">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <!-- Section Header & Controls -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12" data-anim>
+                <div class="max-w-2xl">
+                    <p
+                        class="font-label-md text-label-md text-heritage-red uppercase tracking-widest mb-2 font-semibold">
+                        Evolución Continua
+                    </p>
+                    <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-heritage-red mb-3">
+                        Nuestra Trayectoria
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-slate-text leading-relaxed">
+                        Un legado de evolución constante, adaptándonos a las exigencias normativas y
+                        tecnológicas para servir mejor a nuestros clientes.
+                    </p>
+                </div>
+                <!-- Play / Replay Animation Trigger -->
+                <div class="flex-shrink-0">
+                    <button id="btn-replay-timeline"
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border-light text-slate-text hover:text-heritage-red hover:border-heritage-red/40 font-label-md text-xs uppercase tracking-wider shadow-sm transition-all">
+                        <span class="material-symbols-outlined text-base">replay</span>
+                        Desplegar animación
+                    </button>
+                </div>
+            </div>
+
+            <!-- Milestone Navigator Chips -->
+            <div class="flex flex-wrap items-center gap-2.5 mb-14" data-anim>
+                <button
+                    class="timeline-nav-chip active px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
+                    data-filter="all">
+                    ✦ Toda la trayectoria
+                </button>
+                <button
+                    class="timeline-nav-chip px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
+                    data-target="year-2001">
+                    2001 · Constitución
+                </button>
+                <button
+                    class="timeline-nav-chip px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
+                    data-target="year-2007">
+                    2007 · SuperCompañías
+                </button>
+                <button
+                    class="timeline-nav-chip px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
+                    data-target="year-2012">
+                    2012 · Miembro IAPA
+                </button>
+                <button
+                    class="timeline-nav-chip px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
+                    data-target="year-2020">
+                    2020 · Contraloría
+                </button>
+                <button
+                    class="timeline-nav-chip px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
+                    data-target="year-2021">
+                    2021 · Educación Superior
+                </button>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="relative py-8">
+                <!-- Central vertical line (hidden on mobile, visible md+) -->
+                <div class="hidden md:block timeline-stem-bg"></div>
+                <div id="timeline-stem-fill" class="hidden md:block timeline-stem-fill"></div>
+
+                <div class="space-y-12 md:space-y-16" id="timeline-items-container">
+
+                    <!-- Item 1: 2001 (Left content, Right Year) -->
+                    <div id="year-2001" class="timeline-row relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+                        data-step="1">
+                        <div class="md:text-right md:pr-12">
+                            <div
+                                class="timeline-card-box bg-white border border-border-light p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-heritage-red/30 transition-all text-left md:text-right">
+                                <span
+                                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-heritage-red font-label-md text-xs uppercase tracking-wider mb-3 font-semibold">
+                                    <span class="material-symbols-outlined text-xs">flag</span> Hito Fundacional
+                                </span>
+                                <h3 class="font-headline-md text-xl md:text-2xl text-institutional-navy mb-2 font-bold">
+                                    Constitución de la Firma
+                                </h3>
+                                <p class="font-body-md text-body-md text-slate-text leading-relaxed mb-4">
+                                    Permiso de operación emitido por la Superintendencia de Compañías del Ecuador.
+                                </p>
+                                <div
+                                    class="inline-flex items-center gap-2 text-xs font-label-md text-heritage-red font-semibold uppercase tracking-wider">
+                                    <span class="material-symbols-outlined text-sm">verified</span>
+                                    <span>Superintendencia de Compañías del Ecuador</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Dot (center) -->
+                        <div
+                            class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center z-10">
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <div class="md:pl-12">
+                            <div class="timeline-year">2001</div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: 2007 (Left Year, Right content) -->
+                    <div id="year-2007" class="timeline-row relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+                        data-step="2">
+                        <div class="md:text-right md:pr-12 order-2 md:order-1">
+                            <div class="timeline-year">2007</div>
+                        </div>
+
+                        <!-- Timeline Dot (center) -->
+                        <div
+                            class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center z-10">
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <div class="md:pl-12 order-1 md:order-2">
+                            <div
+                                class="timeline-card-box bg-white border border-border-light p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-heritage-red/30 transition-all text-left">
+                                <span
+                                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-heritage-red font-label-md text-xs uppercase tracking-wider mb-3 font-semibold">
+                                    <span class="material-symbols-outlined text-xs">trending_up</span> Mercado de
+                                    Valores
+                                </span>
+                                <h3 class="font-headline-md text-xl md:text-2xl text-heritage-red mb-2 font-bold">
+                                    Superintendencia de Compañías
+                                </h3>
+                                <p class="font-body-md text-body-md text-slate-text leading-relaxed mb-4">
+                                    Autorización a la firma para auditar compañías registradas en el mercado de valores.
+                                </p>
+                                <div
+                                    class="inline-flex items-center gap-2 text-xs font-label-md text-heritage-red font-semibold uppercase tracking-wider">
+                                    <span class="material-symbols-outlined text-sm">verified</span>
+                                    <span>Mercado de Valores del Ecuador</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: 2012 (Left content, Right Year) -->
+                    <div id="year-2012" class="timeline-row relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+                        data-step="3">
+                        <div class="md:text-right md:pr-12">
+                            <div
+                                class="timeline-card-box bg-white border border-border-light p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-heritage-red/30 transition-all text-left md:text-right">
+                                <span
+                                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-heritage-red font-label-md text-xs uppercase tracking-wider mb-3 font-semibold">
+                                    <span class="material-symbols-outlined text-xs">public</span> Alianza Global
+                                </span>
+                                <h3 class="font-headline-md text-xl md:text-2xl text-institutional-navy mb-2 font-bold">
+                                    Miembro IAPA
+                                </h3>
+                                <p class="font-body-md text-body-md text-slate-text leading-relaxed mb-4">
+                                    Nos asociamos con IAPA para fortalecer nuestra firma.
+                                </p>
+                                <div
+                                    class="inline-flex items-center gap-2 text-xs font-label-md text-heritage-red font-semibold uppercase tracking-wider">
+                                    <span class="material-symbols-outlined text-sm">language</span>
+                                    <span>IAPA International (UK)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Dot (center) -->
+                        <div
+                            class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center z-10">
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <div class="md:pl-12">
+                            <div class="timeline-year">2012</div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: 2020 (Left Year, Right content) -->
+                    <div id="year-2020" class="timeline-row relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+                        data-step="4">
+                        <div class="md:text-right md:pr-12 order-2 md:order-1">
+                            <div class="timeline-year">2020</div>
+                        </div>
+
+                        <!-- Timeline Dot (center) -->
+                        <div
+                            class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center z-10">
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <div class="md:pl-12 order-1 md:order-2">
+                            <div
+                                class="timeline-card-box bg-white border border-border-light p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-heritage-red/30 transition-all text-left">
+                                <span
+                                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-heritage-red font-label-md text-xs uppercase tracking-wider mb-3 font-semibold">
+                                    <span class="material-symbols-outlined text-xs">gavel</span> Sector Público
+                                </span>
+                                <h3 class="font-headline-md text-xl md:text-2xl text-heritage-red mb-2 font-bold">
+                                    Contraloría General del Estado
+                                </h3>
+                                <p class="font-body-md text-body-md text-slate-text leading-relaxed mb-4">
+                                    Autorización a la firma para auditar entidades del sector público de Ecuador.
+                                </p>
+                                <div
+                                    class="inline-flex items-center gap-2 text-xs font-label-md text-heritage-red font-semibold uppercase tracking-wider">
+                                    <span class="material-symbols-outlined text-sm">verified_user</span>
+                                    <span>Contraloría General del Estado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: 2021 (Left content, Right Year) -->
+                    <div id="year-2021" class="timeline-row relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+                        data-step="5">
+                        <div class="md:text-right md:pr-12">
+                            <div
+                                class="timeline-card-box bg-white border border-border-light p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-md hover:border-heritage-red/30 transition-all text-left md:text-right">
+                                <span
+                                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-heritage-red font-label-md text-xs uppercase tracking-wider mb-3 font-semibold">
+                                    <span class="material-symbols-outlined text-xs">school</span> Sector Educativo
+                                </span>
+                                <h3 class="font-headline-md text-xl md:text-2xl text-institutional-navy mb-2 font-bold">
+                                    Consejo Educación Superior
+                                </h3>
+                                <p class="font-body-md text-body-md text-slate-text leading-relaxed mb-4">
+                                    Autorización a la firma para auditar entidades del sector educativo de Ecuador.
+                                </p>
+                                <div
+                                    class="inline-flex items-center gap-2 text-xs font-label-md text-heritage-red font-semibold uppercase tracking-wider">
+                                    <span class="material-symbols-outlined text-sm">verified</span>
+                                    <span>Consejo de Educación Superior (CES)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Dot (center) -->
+                        <div
+                            class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center z-10">
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <div class="md:pl-12">
+                            <div class="timeline-year">2021</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     LIDERAZGO EJECUTIVO  —  Gabriel Páez & William Florencia
+══════════════════════════════════════════ -->
+    <section class="py-margin-desktop bg-white">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16" data-anim>
+                <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-heritage-red mb-3">
+                    Liderazgo Ejecutivo
+                </h2>
+                <div class="w-20 h-1 bg-institutional-navy mx-auto rounded-full mb-4"></div>
+                <p class="font-body-lg text-body-lg text-slate-text leading-relaxed">
+                    Profesionales altamente capacitados con destacada trayectoria en las principales firmas globales y
+                    corporaciones del país.
+                </p>
+            </div>
+
+            <!-- Leadership Cards Grid -->
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-10 max-w-7xl mx-auto items-stretch">
+
+                <!-- Leader 1: Gabriel Páez -->
+                <div class="leader-card group bg-white border border-border-light hover:border-heritage-red/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 grid grid-cols-1 lg:grid-cols-12 flex-1"
+                    data-anim="left">
+                    <!-- Photo Column -->
+                    <div class="lg:col-span-5 relative overflow-hidden min-h-[320px] sm:min-h-[400px] lg:min-h-[520px] bg-[#F1F5F9]">
+                        <img src="Gabriel Paez.png" alt="Dr. Gabriel Páez — Presidente / Socio"
+                            class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                        <!-- Gradient overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#3E0C0F]/90 via-[#3E0C0F]/30 to-transparent flex flex-col justify-end p-6 z-10">
+                            <span
+                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white font-label-md text-xs uppercase tracking-wider mb-2 self-start border border-white/20">
+                                <span class="material-symbols-outlined text-xs">location_on</span> Oficina Quito
+                            </span>
+                            <span
+                                class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-heritage-red text-white font-label-md text-[11px] font-bold uppercase tracking-wider mb-2 self-start border border-white/20">
+                                <span class="material-symbols-outlined text-xs">verified</span>
+                                Socio
+                            </span>
+                            <h3 class="font-headline-md text-headline-md text-white font-bold leading-tight">
+                                Gabriel Páez
+                            </h3>
+                            <p class="text-white/90 font-medium italic text-sm">
+                                Presidente · <span
+                                    class="text-white/75 font-normal uppercase not-italic text-xs tracking-wider">Socio</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Details Column -->
+                    <div
+                        class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between bg-surface-container-lowest border-t lg:border-t-0 lg:border-l border-border-light">
+                        <div class="space-y-6">
+                            <!-- Experiencia -->
+                            <div>
+                                <div class="flex items-center gap-2 mb-4 pb-2 border-b border-border-light">
+                                    <span class="material-symbols-outlined text-heritage-red"
+                                        style="font-size:20px">work_history</span>
+                                    <h4
+                                        class="font-label-md text-label-md text-institutional-navy uppercase tracking-wider font-bold text-xs">
+                                        Experiencia Profesional
+                                    </h4>
+                                </div>
+                                <div class="space-y-3 font-body-md text-xs sm:text-sm">
+                                    <div class="relative pl-4 border-l-2 border-heritage-red">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-heritage-red">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Páez, Florencia &amp; Co, Cía. Ltda.
+                                        </p>
+                                        <p class="text-slate-text/70 text-xs">Socio (2001 - presente)</p>
+                                    </div>
+                                    <div class="relative pl-4 border-l-2 border-border-light">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">BDO Stern</p>
+                                        <p class="text-slate-text/70 text-xs">Socio (1996 - 2001)</p>
+                                    </div>
+                                    <div class="relative pl-4 border-l-2 border-border-light">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Hansen Holm (Coopers &amp; Lybrand)</p>
+                                        <p class="text-slate-text/70 text-xs">Socio (1990 - 1996)</p>
+                                    </div>
+                                    <div class="relative pl-4 border-l-2 border-border-light">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Tabacalera Andina S.A TANASA</p>
+                                        <p class="text-slate-text/70 text-xs">Supervisor y senior de auditoría interna
+                                            (1980 - 1990)</p>
+                                    </div>
+                                    <div class="relative pl-4 border-l-2 border-border-light">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">PricewaterhouseCoopers</p>
+                                        <p class="text-slate-text/70 text-xs">Senior y asistente de auditoría (1978 -
+                                            1980)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Educación -->
+                            <div>
+                                <div class="flex items-center gap-2 mb-3 pb-2 border-b border-border-light">
+                                    <span class="material-symbols-outlined text-institutional-navy"
+                                        style="font-size:20px">school</span>
+                                    <h4
+                                        class="font-label-md text-label-md text-institutional-navy uppercase tracking-wider font-bold text-xs">
+                                        Formación Académica
+                                    </h4>
+                                </div>
+                                <div class="space-y-2.5 font-body-md text-xs sm:text-sm">
+                                    <div class="relative pl-4 border-l-2 border-institutional-navy">
+                                        <div
+                                            class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-institutional-navy">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Master Administración de Empresas</p>
+                                        <p class="text-slate-text/70 text-xs">Universidad del Pacífico</p>
+                                    </div>
+                                    <div class="relative pl-4 border-l-2 border-institutional-navy">
+                                        <div
+                                            class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-institutional-navy">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Doctor Contabilidad y Auditoría</p>
+                                        <p class="text-slate-text/70 text-xs">Universidad Central del Ecuador</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leader 2: William Florencia -->
+                <div class="leader-card group bg-white border border-border-light hover:border-heritage-red/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 grid grid-cols-1 lg:grid-cols-12 flex-1"
+                    data-anim="right">
+                    <!-- Photo Column -->
+                    <div class="lg:col-span-5 relative overflow-hidden min-h-[320px] sm:min-h-[400px] lg:min-h-[520px] bg-[#F1F5F9]">
+                        <img src="William Florencia.png" alt="Mst. William Florencia — Gerente General / Socio"
+                            class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                        <!-- Gradient overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-heritage-red/65 via-heritage-red/20 to-transparent flex flex-col justify-end p-6 z-10">
+                            <span
+                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white font-label-md text-xs uppercase tracking-wider mb-2 self-start border border-white/20">
+                                <span class="material-symbols-outlined text-xs">location_on</span> Oficina Guayaquil
+                            </span>
+                            <span
+                                class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/20 text-white font-label-md text-[11px] font-bold uppercase tracking-wider mb-2 self-start border border-white/20">
+                                <span class="material-symbols-outlined text-xs">verified</span>
+                                Socio
+                            </span>
+                            <h3 class="font-headline-md text-headline-md text-white font-bold leading-tight">
+                                William Florencia
+                            </h3>
+                            <p class="text-white/90 font-medium italic text-sm">
+                                Gerente General · <span
+                                    class="text-white/75 font-normal uppercase not-italic text-xs tracking-wider">Socio</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Details Column -->
+                    <div
+                        class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between bg-surface-container-lowest border-t lg:border-t-0 lg:border-l border-border-light">
+                        <div class="space-y-6">
+                            <!-- Experiencia -->
+                            <div>
+                                <div class="flex items-center gap-2 mb-4 pb-2 border-b border-border-light">
+                                    <span class="material-symbols-outlined text-heritage-red"
+                                        style="font-size:20px">work_history</span>
+                                    <h4
+                                        class="font-label-md text-label-md text-institutional-navy uppercase tracking-wider font-bold text-xs">
+                                        Experiencia Profesional
+                                    </h4>
+                                </div>
+                                <div class="space-y-3 font-body-md text-xs sm:text-sm">
+                                    <div class="relative pl-4 border-l-2 border-heritage-red">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-heritage-red">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Páez Florencia &amp; Co. Cía. Ltda.</p>
+                                        <p class="text-slate-text/70 text-xs">Socio (2001 - presente)</p>
+                                    </div>
+                                    <div class="relative pl-4 border-l-2 border-border-light">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">BDO Stern</p>
+                                        <p class="text-slate-text/70 text-xs">Gerente de auditoría (1994 - 2001)</p>
+                                    </div>
+                                    <div class="relative pl-4 border-l-2 border-border-light">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Pimocha S.A</p>
+                                        <p class="text-slate-text/70 text-xs">Gerente de auditoría interna (1991 - 1994)
+                                        </p>
+                                    </div>
+                                    <div class="relative pl-4 border-l-2 border-border-light">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Meridian S.A Sociedad Agropecuaria</p>
+                                        <p class="text-slate-text/70 text-xs">Gerente financiero (1988 - 1991)</p>
+                                    </div>
+                                    <div class="relative pl-4 border-l-2 border-border-light">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-400">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Arthur Andersen &amp; Co</p>
+                                        <p class="text-slate-text/70 text-xs">Senior y asistente de auditoría (1982 -
+                                            1988)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Educación -->
+                            <div>
+                                <div class="flex items-center gap-2 mb-3 pb-2 border-b border-border-light">
+                                    <span class="material-symbols-outlined text-institutional-navy"
+                                        style="font-size:20px">school</span>
+                                    <h4
+                                        class="font-label-md text-label-md text-institutional-navy uppercase tracking-wider font-bold text-xs">
+                                        Formación Académica
+                                    </h4>
+                                </div>
+                                <div class="space-y-2.5 font-body-md text-xs sm:text-sm">
+                                    <div class="relative pl-4 border-l-2 border-institutional-navy">
+                                        <div
+                                            class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-institutional-navy">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Master en Tributación y Finanzas</p>
+                                        <p class="text-slate-text/70 text-xs">Universidad Estatal de Guayaquil</p>
+                                    </div>
+                                    <div class="relative pl-4 border-l-2 border-heritage-red">
+                                        <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-heritage-red">
+                                        </div>
+                                        <p class="font-semibold text-slate-text">Contador Público Autorizado</p>
+                                        <p class="text-slate-text/70 text-xs">Universidad de Guayaquil</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     FOOTER INSTITUCIONAL
+══════════════════════════════════════════ -->
+    <footer class="bg-[#871B1F] w-full">
+        <div class="grad-line h-1 w-full"></div>
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop py-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 text-white">
+
+                <!-- Brand -->
+                <div class="md:col-span-4">
+                    <a href="code.html" class="inline-block mb-5 group">
+                        <span
+                            class="font-display-lg text-2xl sm:text-[26px] font-bold tracking-tight text-white block leading-snug group-hover:text-white/90 transition-colors">
+                            Páez, Florencia &amp; Co. Cía. Ltda.
+                        </span>
+                    </a>
+                    <p class="font-body-md text-body-md mb-6 leading-relaxed max-w-xs"
+                        style="color:rgba(228,226,228,.8)">
+                        25 años de ética profesional, confianza institucional y precisión técnica en
+                        auditoría externa y consultoría financiera en todo el Ecuador.
+                    </p>
+                </div>
+
+                <!-- Oficina Quito -->
+                <div class="md:col-span-4">
+                    <h4 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
+                        style="border-color:rgba(255,255,255,.2)">
+                        <span class="material-symbols-outlined text-white" style="font-size:20px">location_city</span>
+                        Oficina Quito
+                    </h4>
+                    <div class="space-y-3 font-body-md text-sm" style="color:rgba(228,226,228,.9)">
+                        <div class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">location_on</span>
+                            <span>Juan Diguja OE2-66 y Voz Andes, Edificio Opal oficinas 501 y 502</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">call</span>
+                            <a href="tel:023809780"
+                                class="hover:underline hover:text-white transition-colors">023809-780</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">smartphone</span>
+                            <a href="tel:09997102616"
+                                class="hover:underline hover:text-white transition-colors">09997102616</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">mail</span>
+                            <a href="mailto:pfcontadores@paezflorencia.com.ec"
+                                class="hover:underline hover:text-white transition-colors break-all">pfcontadores@paezflorencia.com.ec</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oficina Guayaquil -->
+                <div class="md:col-span-4">
+                    <h4 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
+                        style="border-color:rgba(255,255,255,.2)">
+                        <span class="material-symbols-outlined text-white" style="font-size:20px">location_city</span>
+                        Oficina Guayaquil
+                    </h4>
+                    <div class="space-y-3 font-body-md text-sm" style="color:rgba(228,226,228,.9)">
+                        <div class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">location_on</span>
+                            <span>Junín 203 y Panamá, Edificio Teófilo Bucaram oficinas 1 y 2</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">smartphone</span>
+                            <a href="tel:0998452649"
+                                class="hover:underline hover:text-white transition-colors">0998452649</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">mail</span>
+                            <a href="mailto:pfcontad@paezflorencia.com"
+                                class="hover:underline hover:text-white transition-colors break-all">pfcontad@paezflorencia.com</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 border-t"
+                style="border-color:rgba(255,255,255,.1)">
+                <p class="font-caption text-caption text-center md:text-left" style="color:rgba(197,198,206,.8)">
+                    © 2026 PAEZ, FLORENCIA &amp; CO. Todos los derechos reservados.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="font-caption text-caption hover:text-white transition-colors"
+                        style="color:rgba(197,198,206,.8)">Política de Privacidad</a>
+                    <a href="#" class="font-caption text-caption hover:text-white transition-colors"
+                        style="color:rgba(197,198,206,.8)">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+    <script>
+        // ── Scroll progress bar
+        const pb = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            pb.style.width = (p * 100) + '%';
+        }, { passive: true });
+
+        // ── Scroll reveal animation
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('[data-anim]').forEach(el => animObserver.observe(el));
+
+        // ── Professional Timeline Unfolding & Interactive Controller
+        const timelineSection = document.getElementById('trayectoria-section');
+        const stemFill = document.getElementById('timeline-stem-fill');
+        const timelineRows = document.querySelectorAll('.timeline-row');
+        const navChips = document.querySelectorAll('.timeline-nav-chip');
+        const replayBtn = document.getElementById('btn-replay-timeline');
+
+        const unfoldTimeline = () => {
+            if (stemFill) stemFill.classList.add('filled');
+            timelineRows.forEach((row, idx) => {
+                setTimeout(() => {
+                    row.classList.add('unfolded');
+                }, idx * 300 + 200);
+            });
+        };
+
+        const resetTimeline = () => {
+            if (stemFill) stemFill.classList.remove('filled');
+            timelineRows.forEach(row => {
+                row.classList.remove('unfolded', 'active');
+            });
+        };
+
+        // Trigger unfold on viewport intersection
+        let timelineTriggered = false;
+        if (timelineSection) {
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !timelineTriggered) {
+                        timelineTriggered = true;
+                        unfoldTimeline();
+                    }
+                });
+            }, { threshold: 0.15 });
+            timelineObserver.observe(timelineSection);
+        }
+
+        // Replay Button
+        replayBtn?.addEventListener('click', () => {
+            resetTimeline();
+            setTimeout(() => {
+                unfoldTimeline();
+            }, 100);
+        });
+
+        // Milestone Filter / Nav Chips
+        navChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                navChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+
+                const targetId = chip.getAttribute('data-target');
+                if (!targetId || chip.getAttribute('data-filter') === 'all') {
+                    timelineRows.forEach(row => {
+                        row.classList.remove('opacity-30', 'scale-95');
+                        row.classList.add('unfolded');
+                    });
+                } else {
+                    timelineRows.forEach(row => {
+                        if (row.id === targetId) {
+                            row.classList.remove('opacity-30', 'scale-95');
+                            row.classList.add('unfolded', 'active');
+                            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            row.classList.add('opacity-30', 'scale-95');
+                            row.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // ── Interactive 3D Parallax on Hero Institutional Seal
+        const sealBox = document.getElementById("hero-seal-box");
+        if (sealBox) {
+            const heroSec = sealBox.closest("section");
+            heroSec.addEventListener("mousemove", (e) => {
+                const rect = sealBox.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
+                const deltaY = (e.clientY - centerY) / 300;
+                const rotX = (-deltaY * 12).toFixed(2);
+                const rotY = (deltaX * 14).toFixed(2);
+                sealBox.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.03, 1.03, 1.03)`;
+            });
+
+            heroSec.addEventListener("mouseleave", () => {
+                sealBox.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+            });
+        }
+    </script>
+</body>
+
+</html>

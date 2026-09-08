@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Expertise — PAEZ, FLORENCIA & CO.</title>
+    <meta name="description"
+        content="Conocimiento técnico que entiende tu negocio. Experiencia, acreditaciones y metodología de auditoría de PAEZ, FLORENCIA & CO." />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "border-light": "#E2E8F0",
+                        "slate-text": "#2D3748",
+                        "heritage-red": "#B22222",
+                        "institutional-navy": "#3E0C0F",
+                        "surface": "#fbf9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3f5",
+                        "surface-container": "#efedf0",
+                        "surface-dim": "#dbd9dc",
+                        "surface-variant": "#e4e2e4",
+                        "tertiary-fixed": "#ffdcc0",
+                        "outline-variant": "#c5c6ce",
+                        "secondary": "#b52424",
+                    },
+                    spacing: {
+                        "gutter-desktop": "32px",
+                        "gutter-mobile": "16px",
+                        "container-max-width": "1200px",
+                        "margin-desktop": "80px",
+                    },
+                    fontFamily: {
+                        "display-lg": ["Fraunces"],
+                        "headline-lg": ["Fraunces"],
+                        "headline-md": ["Fraunces"],
+                        "body-lg": ["Work Sans"],
+                        "body-md": ["Work Sans"],
+                        "label-md": ["Work Sans"],
+                        "caption": ["Work Sans"],
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* ── Scroll progress bar ── */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #B22222, #3E0C0F);
+            z-index: 200;
+            width: 0;
+            transition: width .1s linear
+        }
+
+        /* ── Animated gradient line ── */
+        .grad-line {
+            background: linear-gradient(90deg, #B22222, #3E0C0F, #B22222);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%
+            }
+
+            100% {
+                background-position: 200% 50%
+            }
+        }
+
+        /* ── Scroll reveal ── */
+        [data-anim] {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity .75s cubic-bezier(.22, 1, .36, 1), transform .75s cubic-bezier(.22, 1, .36, 1)
+        }
+
+        [data-anim].in {
+            opacity: 1;
+            transform: none
+        }
+
+        [data-anim="left"] {
+            transform: translateX(-36px)
+        }
+
+        [data-anim="right"] {
+            transform: translateX(36px)
+        }
+
+        [data-anim="scale"] {
+            transform: scale(.92)
+        }
+
+        [data-anim="left"].in,
+        [data-anim="right"].in,
+        [data-anim="scale"].in {
+            transform: none;
+            opacity: 1
+        }
+
+        /* ── Hero subtle grid ── */
+        .hero-grid {
+            background-image: linear-gradient(rgba(62, 12, 15, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(62, 12, 15, .04) 1px, transparent 1px);
+            background-size: 48px 48px
+        }
+
+        /* ── Hover card top border ── */
+        .card-hover {
+            position: relative;
+            overflow: hidden
+        }
+
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #B22222;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .35s ease
+        }
+
+        .card-hover:hover::before {
+            transform: scaleX(1)
+        }
+
+        /* ── Accred card ── */
+        .accred-card {
+            transition: transform .3s ease, box-shadow .3s ease
+        }
+
+        .accred-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(178, 34, 34, .12)
+        }
+
+        /* ── Method step ── */
+        .method-step:hover .step-num {
+            background: #B22222;
+            color: #fff
+        }
+
+        .step-num {
+            transition: background .3s, color .3s
+        }
+
+        /* ── Nav active ── */
+        .nav-active {
+            color: #B22222;
+            position: relative
+        }
+
+        .nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #B22222;
+            border-radius: 2px
+        }
+
+        /* ── Big stat number ── */
+        .big-num {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1;
+            color: #B22222
+        }
+
+        /* ── Quote block ── */
+        .quote-stripe {
+            background: repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(178, 34, 34, .04) 8px, rgba(178, 34, 34, .04) 16px)
+        }
+
+        /* ── Table row hover ── */
+        .exp-row {
+            transition: background .2s
+        }
+
+        .exp-row:hover {
+            background: #fef2f2
+        }
+
+        /* ── Stagger delay helpers ── */
+        .d1 {
+            transition-delay: .1s
+        }
+
+        .d2 {
+            transition-delay: .2s
+        }
+
+        .d3 {
+            transition-delay: .3s
+        }
+
+        .d4 {
+            transition-delay: .4s
+        }
+
+        .d5 {
+            transition-delay: .5s
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden bg-white text-on-background antialiased" style="font-family:'Work Sans',sans-serif;color:#1b1b1e">
+
+    <div id="progress-bar"></div>
+
+    <!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
+    <nav class="bg-white sticky top-0 w-full border-b border-border-light z-50 shadow-sm">
+        <div
+            class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
+            <a href="code.html">
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain"
+                    src="P.F Logo.png" />
+            </a>
+            <div class="hidden lg:flex items-center gap-5 xl:gap-8">
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="servicios.html">Servicios</a>
+                <a class="font-label-md text-label-md nav-active" href="expertise.html">Expertise</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="nosotros.html">Nosotros</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="iapa.html">IAPA</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="noticias.html">Noticias</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="contacto.html">Contacto</a>
+                <div class="flex items-center gap-4">
+                    <a href="contacto.html"
+                        class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Contáctenos</a>
+                    <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global" class="flex items-center">
+                        <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-10 w-auto object-contain rounded hover:opacity-85 transition-opacity" />
+                    </a>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 lg:hidden">
+                <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-9 w-auto object-contain rounded" />
+                </a>
+                <button id="menu-toggle" onclick="toggleMobileMenu()" class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors" aria-label="Abrir menú de navegación" aria-expanded="false">
+                    <span id="menu-toggle-icon" class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="servicios.html">Servicios</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-heritage-red font-semibold"
+                href="expertise.html">Expertise</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="nosotros.html">Nosotros</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="iapa.html">IAPA</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="noticias.html">Noticias</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="contacto.html">Contacto</a>
+            <div class="flex items-center gap-3 pt-2">
+                <a onclick="closeMobileMenu()" href="contacto.html"
+                    class="block text-center flex-1 bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Contáctenos</a>
+                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global" class="flex-shrink-0">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-11 w-auto object-contain rounded" />
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Script de navegación móvil global autónomo -->
+    <script>
+        function toggleMobileMenu() {
+            var m = document.getElementById('mobile-menu');
+            var b = document.getElementById('menu-toggle');
+            var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+            if (!m) return;
+            var isHidden = m.classList.contains('hidden') || m.style.display === 'none' || (window.getComputedStyle && window.getComputedStyle(m).display === 'none');
+            if (isHidden) {
+                m.classList.remove('hidden');
+                m.style.display = 'block';
+                if (b) b.setAttribute('aria-expanded', 'true');
+                if (ic) ic.textContent = 'close';
+            } else {
+                m.classList.add('hidden');
+                m.style.display = 'none';
+                if (b) b.setAttribute('aria-expanded', 'false');
+                if (ic) ic.textContent = 'menu';
+            }
+        }
+
+        function closeMobileMenu() {
+            var m = document.getElementById('mobile-menu');
+            var b = document.getElementById('menu-toggle');
+            var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+            if (!m) return;
+            m.classList.add('hidden');
+            m.style.display = 'none';
+            if (b) b.setAttribute('aria-expanded', 'false');
+            if (ic) ic.textContent = 'menu';
+        }
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                var m = document.getElementById('mobile-menu');
+                if (m) {
+                    m.classList.add('hidden');
+                    m.style.display = '';
+                }
+                var b = document.getElementById('menu-toggle');
+                if (b) b.setAttribute('aria-expanded', 'false');
+                var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+                if (ic) ic.textContent = 'menu';
+            }
+        });
+    </script>
+
+    <!-- ══════════════════════════════════════════
+     HERO  —  fondo blanco con acento rojo
+══════════════════════════════════════════ -->
+    <section class="relative bg-white hero-grid overflow-hidden">
+        <!-- Red top stripe -->
+        <div class="absolute top-0 left-0 right-0 h-1 grad-line"></div>
+
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop py-20 md:py-28">
+            <!-- Breadcrumb -->
+            <div class="flex items-center gap-2 mb-10 font-label-md text-label-md text-slate-text/60" data-anim>
+                <a href="code.html" class="hover:text-heritage-red transition-colors">Inicio</a>
+                <span class="material-symbols-outlined" style="font-size:14px">chevron_right</span>
+                <span class="text-heritage-red">Expertise</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+                <!-- Left: copy -->
+                <div data-anim="left">
+                    <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-heritage-red/8 border border-heritage-red/20 rounded-full"
+                        style="background:rgba(178,34,34,.07)">
+                        <span class="material-symbols-outlined text-heritage-red"
+                            style="font-size:16px;font-variation-settings:'FILL' 1">workspace_premium</span>
+                        <span
+                            class="font-label-md text-label-md text-heritage-red uppercase tracking-widest">Conocimiento
+                            &amp; Experiencia</span>
+                    </div>
+                    <h1 class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-institutional-navy mb-5 leading-tight break-words">
+                        Conocimiento técnico<br />que entiende<br />
+                        <em class="text-heritage-red not-italic">tu negocio.</em>
+                    </h1>
+                    <div class="grad-line h-1 w-28 mb-7 rounded-full"></div>
+                    <p class="font-body-lg text-body-lg text-slate-text leading-relaxed mb-4 max-w-lg">
+                        Cada empresa es diferente. Por eso combinamos nuestra experiencia profesional con el
+                        conocimiento de las normas <strong>contables, tributarias, societarias y de auditoría</strong>
+                        aplicables en Ecuador.
+                    </p>
+                    <p class="font-body-lg text-body-lg text-slate-text leading-relaxed max-w-lg">
+                        Entendemos los riesgos y desafíos de cada organización para transformarlos en
+                        soluciones concretas y útiles para el negocio.
+                    </p>
+                </div>
+
+                <!-- Right: image + stat overlay -->
+                <div class="relative mt-4 lg:mt-0" data-anim="right">
+                    <div class="rounded-xl overflow-hidden shadow-xl aspect-[4/3]">
+                        <img src="Auditorias_2025.jpg" alt="Auditorías PAEZ FLORENCIA"
+                            class="w-full h-full object-cover object-center scale-100 hover:scale-105 transition-transform duration-700" />
+                    </div>
+                    <!-- Floating stat card -->
+                    <div class="absolute bottom-2 left-2 sm:-bottom-5 sm:-left-5 bg-white/95 backdrop-blur-sm sm:bg-white rounded-xl shadow-lg p-3.5 sm:p-5 flex items-center gap-3 sm:gap-4 border border-border-light max-w-[85%]"
+                        style="min-width:180px">
+                        <div
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-heritage-red flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-white text-lg sm:text-2xl"
+                                style="font-variation-settings:'FILL' 1">verified</span>
+                        </div>
+                        <div>
+                            <div class="font-headline-md text-xl sm:text-headline-md text-institutional-navy leading-none mb-1">25+
+                            </div>
+                            <div
+                                class="font-label-md text-label-md text-slate-text/60 uppercase tracking-wider text-[10px] sm:text-xs">
+                                Años de experiencia</div>
+                        </div>
+                    </div>
+                    <!-- Floating stat card 2 -->
+                    <div
+                        class="absolute top-2 right-2 sm:-top-4 sm:-right-4 bg-heritage-red/95 backdrop-blur-sm sm:bg-heritage-red rounded-xl shadow-lg p-3.5 sm:p-5 flex items-center gap-3 sm:gap-4">
+                        <div>
+                            <div class="font-headline-md text-xl sm:text-headline-md text-white leading-none mb-1">103</div>
+                            <div class="font-label-md text-label-md text-white/70 uppercase tracking-wider text-[10px] sm:text-xs">
+                                Auditorías 2025</div>
+                        </div>
+                        <span class="material-symbols-outlined text-white/70 text-lg sm:text-2xl"
+                            style="font-variation-settings:'FILL' 1">task_alt</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KPI strip -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-12 border-t border-border-light">
+                <div class="text-center" data-anim>
+                    <div class="big-num">25<span class="text-institutional-navy" style="font-size:.5em">+</span></div>
+                    <p class="font-label-md text-label-md text-slate-text/60 uppercase tracking-wider text-xs mt-2">Años
+                        de experiencia</p>
+                </div>
+                <div class="text-center d1" data-anim>
+                    <div class="big-num">103</div>
+                    <p class="font-label-md text-label-md text-slate-text/60 uppercase tracking-wider text-xs mt-2">
+                        Auditorías en 2025</p>
+                </div>
+                <div class="text-center d2" data-anim>
+                    <div class="big-num">61</div>
+                    <p class="font-label-md text-label-md text-slate-text/60 uppercase tracking-wider text-xs mt-2">
+                        Clientes recurrentes</p>
+                </div>
+                <div class="text-center d3" data-anim>
+                    <div class="big-num">4</div>
+                    <p class="font-label-md text-label-md text-slate-text/60 uppercase tracking-wider text-xs mt-2">
+                        Acreditaciones nacionales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     EXPERIENCIA — tabla + mini chart
+══════════════════════════════════════════ -->
+    <section id="experiencia" class="py-margin-desktop bg-surface-container-low border-y border-border-light">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-4" data-anim>
+                <div>
+                    <p class="font-label-md text-label-md text-heritage-red uppercase tracking-widest mb-2">Trayectoria
+                    </p>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-institutional-navy">
+                        Nuestra Experiencia</h2>
+                    <div class="w-16 h-1 bg-heritage-red mt-3 rounded-full"></div>
+                </div>
+                <p class="font-body-md text-body-md text-slate-text max-w-xs md:text-right">
+                    Auditorías realizadas en los últimos 3 años, por tipo de entidad.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Table — ocupa 2/3 -->
+                <div class="lg:col-span-2" data-anim="left">
+                    <div class="overflow-hidden rounded-xl border border-border-light shadow-sm bg-white">
+                        <table class="w-full border-collapse text-left">
+                            <thead>
+                                <tr class="bg-institutional-navy">
+                                    <th
+                                        class="px-5 py-4 font-label-md text-label-md text-white uppercase tracking-wider">
+                                        Tipo de Entidad</th>
+                                    <th
+                                        class="px-4 py-4 font-label-md text-label-md text-white/60 text-center uppercase">
+                                        2023</th>
+                                    <th
+                                        class="px-4 py-4 font-label-md text-label-md text-white/60 text-center uppercase">
+                                        2024</th>
+                                    <th
+                                        class="px-4 py-4 font-label-md text-label-md text-white/60 text-center uppercase">
+                                        2025</th>
+                                    <th
+                                        class="px-4 py-4 font-label-md text-label-md text-heritage-red text-center uppercase">
+                                        Recurrentes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="exp-row border-b border-border-light">
+                                    <td
+                                        class="px-5 py-4 font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-heritage-red"
+                                            style="font-size:18px;font-variation-settings:'FILL' 1">business</span>
+                                        Entidades privadas
+                                    </td>
+                                    <td class="px-4 py-4 text-center text-slate-text">69</td>
+                                    <td class="px-4 py-4 text-center text-slate-text">67</td>
+                                    <td class="px-4 py-4 text-center text-slate-text">63</td>
+                                    <td class="px-4 py-4 text-center font-label-md text-label-md text-heritage-red">39
+                                    </td>
+                                </tr>
+                                <tr class="exp-row border-b border-border-light bg-surface-container-low">
+                                    <td class="px-5 py-4 font-body-md text-body-md font-medium flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-heritage-red"
+                                            style="font-size:18px;font-variation-settings:'FILL' 1">candlestick_chart</span>
+                                        Mercado de valores
+                                    </td>
+                                    <td class="px-4 py-4 text-center text-slate-text">16</td>
+                                    <td class="px-4 py-4 text-center text-slate-text">24</td>
+                                    <td class="px-4 py-4 text-center text-slate-text">24</td>
+                                    <td class="px-4 py-4 text-center font-label-md text-label-md text-heritage-red">14
+                                    </td>
+                                </tr>
+                                <tr class="exp-row border-b border-border-light">
+                                    <td class="px-5 py-4 font-body-md text-body-md font-medium flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-heritage-red"
+                                            style="font-size:18px;font-variation-settings:'FILL' 1">account_balance</span>
+                                        Entidades públicas
+                                    </td>
+                                    <td class="px-4 py-4 text-center text-slate-text">2</td>
+                                    <td class="px-4 py-4 text-center text-slate-text">2</td>
+                                    <td class="px-4 py-4 text-center text-slate-text">1</td>
+                                    <td class="px-4 py-4 text-center text-slate-text/40">—</td>
+                                </tr>
+                                <tr class="exp-row border-b border-border-light bg-surface-container-low">
+                                    <td class="px-5 py-4 font-body-md text-body-md font-medium flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-heritage-red"
+                                            style="font-size:18px;font-variation-settings:'FILL' 1">volunteer_activism</span>
+                                        ONG
+                                    </td>
+                                    <td class="px-4 py-4 text-center text-slate-text">6</td>
+                                    <td class="px-4 py-4 text-center text-slate-text">9</td>
+                                    <td class="px-4 py-4 text-center text-slate-text">9</td>
+                                    <td class="px-4 py-4 text-center font-label-md text-label-md text-heritage-red">5
+                                    </td>
+                                </tr>
+                                <tr class="exp-row border-b border-border-light">
+                                    <td class="px-5 py-4 font-body-md text-body-md font-medium flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-heritage-red"
+                                            style="font-size:18px;font-variation-settings:'FILL' 1">handshake</span>
+                                        Otros servicios
+                                    </td>
+                                    <td class="px-4 py-4 text-center text-slate-text">8</td>
+                                    <td class="px-4 py-4 text-center text-slate-text">6</td>
+                                    <td class="px-4 py-4 text-center text-slate-text">6</td>
+                                    <td class="px-4 py-4 text-center font-label-md text-label-md text-heritage-red">3
+                                    </td>
+                                </tr>
+                                <tr class="bg-heritage-red">
+                                    <td class="px-5 py-4 font-headline-md text-headline-md text-white">TOTAL</td>
+                                    <td class="px-4 py-4 font-headline-md text-headline-md text-white text-center">101
+                                    </td>
+                                    <td class="px-4 py-4 font-headline-md text-headline-md text-white text-center">108
+                                    </td>
+                                    <td class="px-4 py-4 font-headline-md text-headline-md text-white text-center">103
+                                    </td>
+                                    <td class="px-4 py-4 font-headline-md text-headline-md text-white text-center">61
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Mini bar chart — 1/3 -->
+                <div class="bg-white border border-border-light rounded-xl p-8 shadow-sm flex flex-col justify-between"
+                    data-anim="right">
+                    <div>
+                        <p class="font-label-md text-label-md text-heritage-red uppercase tracking-widest mb-1">
+                            Auditorías por año</p>
+                        <p class="font-body-md text-body-md text-slate-text/60 text-sm mb-8">Evolución del volumen de
+                            trabajo</p>
+                    </div>
+                    <!-- Bar chart con alturas fijas -->
+                    <div class="flex items-end gap-3 mb-4" style="height:160px">
+                        <!-- 2023 -->
+                        <div class="flex-1 flex flex-col items-center justify-end gap-1" style="height:160px">
+                            <span class="font-label-md text-label-md text-institutional-navy"
+                                style="font-size:11px;margin-bottom:4px">101</span>
+                            <div class="w-full relative rounded-t overflow-hidden"
+                                style="height:131px;background:#dbd9dc">
+                                <div class="chart-bar-v absolute bottom-0 left-0 right-0 rounded-t bg-institutional-navy"
+                                    style="height:0;transition:height 1.2s cubic-bezier(.22,1,.36,1)" data-h="107px">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2024 (más alto = 100%) -->
+                        <div class="flex-1 flex flex-col items-center justify-end gap-1" style="height:160px">
+                            <span class="font-label-md text-label-md text-heritage-red"
+                                style="font-size:11px;margin-bottom:4px">108</span>
+                            <div class="w-full relative rounded-t overflow-hidden"
+                                style="height:131px;background:rgba(178,34,34,.15)">
+                                <div class="chart-bar-v absolute bottom-0 left-0 right-0 rounded-t bg-heritage-red"
+                                    style="height:0;transition:height 1.2s cubic-bezier(.22,1,.36,1)" data-h="131px">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2025 -->
+                        <div class="flex-1 flex flex-col items-center justify-end gap-1" style="height:160px">
+                            <span class="font-label-md text-label-md text-institutional-navy"
+                                style="font-size:11px;margin-bottom:4px">103</span>
+                            <div class="w-full relative rounded-t overflow-hidden"
+                                style="height:131px;background:#dbd9dc">
+                                <div class="chart-bar-v absolute bottom-0 left-0 right-0 rounded-t bg-institutional-navy"
+                                    style="height:0;transition:height 1.2s cubic-bezier(.22,1,.36,1)" data-h="125px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between font-label-md text-label-md text-slate-text/50 text-xs uppercase tracking-wider border-t border-border-light pt-4">
+                        <span>2023</span><span>2024</span><span>2025</span>
+                    </div>
+                    <!-- Recurrentes highlight -->
+                    <div
+                        class="mt-6 flex items-center gap-4 bg-heritage-red/5 border border-heritage-red/15 rounded-lg px-4 py-3">
+                        <span class="material-symbols-outlined text-heritage-red"
+                            style="font-variation-settings:'FILL' 1">people</span>
+                        <div>
+                            <div class="font-headline-md text-headline-md text-heritage-red">61</div>
+                            <div class="font-caption text-caption text-slate-text/60 uppercase tracking-wider">Clientes
+                                recurrentes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     ACREDITACIONES  —  fondo blanco, cards con borde rojo
+══════════════════════════════════════════ -->
+    <section id="acreditaciones" class="py-margin-desktop bg-white">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <!-- Header con imagen de fondo parcial -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div data-anim="left">
+                    <p class="font-label-md text-label-md text-heritage-red uppercase tracking-widest mb-3">
+                        Reconocimiento institucional</p>
+                    <h2
+                        class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-institutional-navy mb-4">
+                        Acreditaciones Profesionales
+                    </h2>
+                    <div class="w-16 h-1 bg-heritage-red rounded-full mb-6"></div>
+                    <p class="font-body-lg text-body-lg text-slate-text leading-relaxed">
+                        Contamos con todas las habilitaciones exigidas por los organismos reguladores del Ecuador
+                        para ejercer la auditoría externa de manera <strong>independiente y calificada</strong>.
+                    </p>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-lg aspect-video" data-anim="right">
+                    <img src="Acreditaciones.jpg" alt="Acreditaciones profesionales"
+                        class="w-full h-full object-cover object-center scale-105" style="filter: blur(3px);" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-institutional-navy/60 to-transparent flex items-center px-8">
+                        <div class="text-white">
+                            <div class="font-display-lg text-display-lg font-bold leading-none mb-2">4</div>
+                            <div class="font-label-md text-label-md uppercase tracking-widest opacity-80">Organismos
+                                reguladores</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accreditation cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="accred-card card-hover bg-white border border-border-light rounded-xl p-8 text-center shadow-sm"
+                    data-anim>
+                    <div class="h-16 w-full flex items-center justify-center mx-auto mb-5">
+                        <img src="SUPERCIAS.png" alt="Superintendencia de Compañías, Valores y Seguros"
+                            class="max-h-16 max-w-[140px] object-contain" />
+                    </div>
+                    <h3
+                        class="font-headline-md text-headline-md text-institutional-navy mb-3 leading-tight text-sm md:text-base">
+                        Superintendencia de Compañías, Valores y Seguros
+                    </h3>
+                    <p class="font-body-md text-body-md text-slate-text text-sm mb-5">Auditores Externos Registrados</p>
+                    <a href="SUPERCIAS.pdf" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 font-label-md text-label-md text-heritage-red hover:text-institutional-navy transition-colors text-sm">
+                        <span class="material-symbols-outlined" style="font-size:16px">picture_as_pdf</span>
+                        Ver Acreditación (PDF)
+                    </a>
+                </div>
+
+                <div class="accred-card card-hover bg-white border border-border-light rounded-xl p-8 text-center shadow-sm d1"
+                    data-anim>
+                    <div class="h-16 w-full flex items-center justify-center mx-auto mb-5">
+                        <img src="SUPERCIAS.png" alt="Mercado de Valores"
+                            class="max-h-16 max-w-[140px] object-contain" />
+                    </div>
+                    <h3
+                        class="font-headline-md text-headline-md text-institutional-navy mb-3 leading-tight text-sm md:text-base">
+                        Mercado de Valores
+                    </h3>
+                    <p class="font-body-md text-body-md text-slate-text text-sm mb-5">Firma Certificada — Calificadora
+                        de Riesgos</p>
+                    <a href="SUPERCIAS.pdf" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 font-label-md text-label-md text-heritage-red hover:text-institutional-navy transition-colors text-sm">
+                        <span class="material-symbols-outlined" style="font-size:16px">picture_as_pdf</span>
+                        Ver Acreditación (PDF)
+                    </a>
+                </div>
+
+                <div class="accred-card card-hover bg-white border border-border-light rounded-xl p-8 text-center shadow-sm d2"
+                    data-anim>
+                    <div class="h-16 w-full flex items-center justify-center mx-auto mb-5">
+                        <img src="Contraloria.jpg" alt="Contraloría General del Estado"
+                            class="max-h-16 max-w-[140px] object-contain" />
+                    </div>
+                    <h3
+                        class="font-headline-md text-headline-md text-institutional-navy mb-3 leading-tight text-sm md:text-base">
+                        Contraloría General del Estado
+                    </h3>
+                    <p class="font-body-md text-body-md text-slate-text text-sm mb-5">Firma de Auditoría Calificada</p>
+                    <a href="CONTRALORIA.pdf" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 font-label-md text-label-md text-heritage-red hover:text-institutional-navy transition-colors text-sm">
+                        <span class="material-symbols-outlined" style="font-size:16px">picture_as_pdf</span>
+                        Ver Acreditación (PDF)
+                    </a>
+                </div>
+
+                <div class="accred-card card-hover bg-white border border-border-light rounded-xl p-8 text-center shadow-sm d3"
+                    data-anim>
+                    <div class="h-16 w-full flex items-center justify-center mx-auto mb-5">
+                        <img src="CES.png" alt="Consejo de Educación Superior"
+                            class="max-h-16 max-w-[140px] object-contain" />
+                    </div>
+                    <h3
+                        class="font-headline-md text-headline-md text-institutional-navy mb-3 leading-tight text-sm md:text-base">
+                        Consejo de Educación Superior
+                    </h3>
+                    <p class="font-body-md text-body-md text-slate-text text-sm mb-5">Consejo de Educación Superior</p>
+                    <a href="CES.pdf" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 font-label-md text-label-md text-heritage-red hover:text-institutional-navy transition-colors text-sm">
+                        <span class="material-symbols-outlined" style="font-size:16px">picture_as_pdf</span>
+                        Ver Acreditación (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     METODOLOGÍA  —  fondo claro, pasos sobre blanco
+══════════════════════════════════════════ -->
+    <section id="metodologia" class="py-margin-desktop bg-surface-container-low border-t border-border-light">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <div class="text-center mb-20" data-anim>
+                <p class="font-label-md text-label-md text-heritage-red uppercase tracking-widest mb-3">Proceso riguroso
+                </p>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-institutional-navy mb-4">
+                    Nuestra Metodología de Auditoría
+                </h2>
+                <div class="w-16 h-1 bg-heritage-red mx-auto rounded-full mb-6"></div>
+                <p class="font-body-lg text-body-lg text-slate-text max-w-2xl mx-auto">
+                    Un proceso estructurado basado en riesgos, orientado a obtener evidencia confiable
+                    y aportar valor a la toma de decisiones.
+                </p>
+            </div>
+
+            <!-- DESKTOP: pasos en fila con línea conectora -->
+            <div class="hidden lg:flex items-start gap-0 relative mb-12">
+                <!-- Connecting line behind steps -->
+                <div class="absolute top-7 left-[calc(10%+28px)] right-[calc(10%+28px)] h-0.5"
+                    style="background:linear-gradient(90deg,#B22222,#3E0C0F,#B22222,#3E0C0F,#B22222);opacity:.2"></div>
+
+                <!-- Step 01 -->
+                <div class="flex-1 method-step flex flex-col items-center text-center px-3 group cursor-default"
+                    data-anim>
+                    <div
+                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-heritage-red bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-heritage-red group-hover:bg-heritage-red group-hover:text-white transition-all duration-300">
+                        01</div>
+                    <div
+                        class="bg-white border border-border-light rounded-xl p-5 shadow-sm w-full group-hover:shadow-md group-hover:border-heritage-red/30 transition-all duration-300">
+                        <span class="material-symbols-outlined text-heritage-red mb-3 block"
+                            style="font-size:24px;font-variation-settings:'FILL' 1">manage_search</span>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy mb-2 text-sm">Conocimiento
+                            del Negocio</h3>
+                        <p class="font-body-md text-body-md text-slate-text text-sm leading-relaxed">Comprendemos la
+                            entidad, sus operaciones, entorno y principales riesgos.</p>
+                    </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="flex-1 method-step flex flex-col items-center text-center px-3 group cursor-default d1"
+                    data-anim>
+                    <div
+                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-institutional-navy bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-institutional-navy group-hover:bg-institutional-navy group-hover:text-white transition-all duration-300">
+                        02</div>
+                    <div
+                        class="bg-white border border-border-light rounded-xl p-5 shadow-sm w-full group-hover:shadow-md group-hover:border-institutional-navy/30 transition-all duration-300">
+                        <span class="material-symbols-outlined text-institutional-navy mb-3 block"
+                            style="font-size:24px;font-variation-settings:'FILL' 1">verified_user</span>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy mb-2 text-sm">Evaluación de
+                            Controles</h3>
+                        <p class="font-body-md text-body-md text-slate-text text-sm leading-relaxed">Analizamos el
+                            control interno y los controles clave sobre la información financiera.</p>
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="flex-1 method-step flex flex-col items-center text-center px-3 group cursor-default d2"
+                    data-anim>
+                    <div
+                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-heritage-red bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-heritage-red group-hover:bg-heritage-red group-hover:text-white transition-all duration-300">
+                        03</div>
+                    <div
+                        class="bg-white border border-border-light rounded-xl p-5 shadow-sm w-full group-hover:shadow-md group-hover:border-heritage-red/30 transition-all duration-300">
+                        <span class="material-symbols-outlined text-heritage-red mb-3 block"
+                            style="font-size:24px;font-variation-settings:'FILL' 1">target</span>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy mb-2 text-sm">Planificación
+                            y Enfoque</h3>
+                        <p class="font-body-md text-body-md text-slate-text text-sm leading-relaxed">Definimos la
+                            estrategia, alcance y procedimientos según los riesgos identificados.</p>
+                    </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="flex-1 method-step flex flex-col items-center text-center px-3 group cursor-default d3"
+                    data-anim>
+                    <div
+                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-institutional-navy bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-institutional-navy group-hover:bg-institutional-navy group-hover:text-white transition-all duration-300">
+                        04</div>
+                    <div
+                        class="bg-white border border-border-light rounded-xl p-5 shadow-sm w-full group-hover:shadow-md group-hover:border-institutional-navy/30 transition-all duration-300">
+                        <span class="material-symbols-outlined text-institutional-navy mb-3 block"
+                            style="font-size:24px;font-variation-settings:'FILL' 1">lab_research</span>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy mb-2 text-sm">Ejecución y
+                            Evidencia</h3>
+                        <p class="font-body-md text-body-md text-slate-text text-sm leading-relaxed">Aplicamos pruebas
+                            para obtener evidencia suficiente que sustente nuestras conclusiones.</p>
+                    </div>
+                </div>
+
+                <!-- Step 05 -->
+                <div class="flex-1 method-step flex flex-col items-center text-center px-3 group cursor-default d4"
+                    data-anim>
+                    <div
+                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-heritage-red bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-heritage-red group-hover:bg-heritage-red group-hover:text-white transition-all duration-300">
+                        05</div>
+                    <div
+                        class="bg-white border border-border-light rounded-xl p-5 shadow-sm w-full group-hover:shadow-md group-hover:border-heritage-red/30 transition-all duration-300">
+                        <span class="material-symbols-outlined text-heritage-red mb-3 block"
+                            style="font-size:24px;font-variation-settings:'FILL' 1">summarize</span>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy mb-2 text-sm">Conclusión y
+                            Comunicación</h3>
+                        <p class="font-body-md text-body-md text-slate-text text-sm leading-relaxed">Evaluamos hallazgos
+                            y comunicamos conclusiones y recomendaciones oportunamente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOBILE: cards en lista -->
+            <div class="lg:hidden space-y-4 mb-12">
+                <div class="bg-white border border-border-light rounded-xl p-5 shadow-sm flex gap-4 items-start"
+                    data-anim>
+                    <div
+                        class="w-10 h-10 rounded-full border-2 border-heritage-red flex items-center justify-center flex-shrink-0 text-heritage-red font-bold text-sm">
+                        01</div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy mb-1">Conocimiento del
+                            Negocio</h3>
+                        <p class="font-body-md text-body-md text-slate-text text-sm">Comprendemos la entidad, sus
+                            operaciones, entorno y principales riesgos.</p>
+                    </div>
+                </div>
+                <div class="bg-white border border-border-light rounded-xl p-5 shadow-sm flex gap-4 items-start"
+                    data-anim>
+                    <div
+                        class="w-10 h-10 rounded-full border-2 border-institutional-navy flex items-center justify-center flex-shrink-0 text-institutional-navy font-bold text-sm">
+                        02</div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy mb-1">Evaluación de
+                            Controles</h3>
+                        <p class="font-body-md text-body-md text-slate-text text-sm">Analizamos el control interno y los
+                            controles clave sobre la información financiera.</p>
+                    </div>
+                </div>
+                <div class="bg-white border border-border-light rounded-xl p-5 shadow-sm flex gap-4 items-start"
+                    data-anim>
+                    <div
+                        class="w-10 h-10 rounded-full border-2 border-heritage-red flex items-center justify-center flex-shrink-0 text-heritage-red font-bold text-sm">
+                        03</div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy mb-1">Planificación y
+                            Enfoque de Riesgos</h3>
+                        <p class="font-body-md text-body-md text-slate-text text-sm">Definimos la estrategia, alcance y
+                            procedimientos según los riesgos identificados.</p>
+                    </div>
+                </div>
+                <div class="bg-white border border-border-light rounded-xl p-5 shadow-sm flex gap-4 items-start"
+                    data-anim>
+                    <div
+                        class="w-10 h-10 rounded-full border-2 border-institutional-navy flex items-center justify-center flex-shrink-0 text-institutional-navy font-bold text-sm">
+                        04</div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy mb-1">Ejecución y Evidencia
+                        </h3>
+                        <p class="font-body-md text-body-md text-slate-text text-sm">Aplicamos pruebas para obtener
+                            evidencia suficiente que sustente nuestras conclusiones.</p>
+                    </div>
+                </div>
+                <div class="bg-white border border-border-light rounded-xl p-5 shadow-sm flex gap-4 items-start"
+                    data-anim>
+                    <div
+                        class="w-10 h-10 rounded-full border-2 border-heritage-red flex items-center justify-center flex-shrink-0 text-heritage-red font-bold text-sm">
+                        05</div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy mb-1">Conclusión y
+                            Comunicación</h3>
+                        <p class="font-body-md text-body-md text-slate-text text-sm">Evaluamos hallazgos y comunicamos
+                            conclusiones y recomendaciones oportunamente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── FRASE DE CIERRE — diseño editorial elegante ── -->
+            <div class="relative mt-6" data-anim="scale">
+                <!-- Número decorativo -->
+                <div class="absolute -top-8 left-0 font-headline-lg text-headline-lg text-heritage-red/8 select-none leading-none"
+                    style="font-family:'Fraunces',serif;font-size:clamp(100px,14vw,180px);font-weight:700;line-height:1;pointer-events:none">
+                    &ldquo;
+                </div>
+                <div
+                    class="relative bg-white border-l-4 border-heritage-red rounded-r-xl px-8 md:px-14 py-10 md:py-14 shadow-sm quote-stripe">
+                    <div class="flex flex-col md:flex-row md:items-center gap-8">
+                        <!-- Red accent bar -->
+                        <div
+                            class="hidden md:block w-1 self-stretch bg-heritage-red rounded-full flex-shrink-0 opacity-0">
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-institutional-navy leading-relaxed"
+                                style="font-family:'Fraunces',serif;font-style:italic">
+                                Una metodología basada en riesgos, orientada a obtener evidencia confiable,
+                                anticipar impactos y aportar valor a la toma de decisiones.
+                            </p>
+                            <div class="flex items-center gap-3 mt-6">
+                                <div class="w-10 h-0.5 bg-heritage-red rounded-full"></div>
+                                <span
+                                    class="font-label-md text-label-md text-heritage-red uppercase tracking-widest text-xs">PAEZ,
+                                    FLORENCIA &amp; CO.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     CONTACT / CONSULTATION CTA SECTION
+══════════════════════════════════════════ -->
+    <section id="contacto-cta" class="py-16 md:py-24 bg-white">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+            <div class="bg-gradient-to-br from-institutional-navy via-[#4a0e12] to-heritage-red rounded-3xl p-8 md:p-14 text-white shadow-xl relative overflow-hidden"
+                data-anim>
+                <!-- Decorative element -->
+                <div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-white/5 pointer-events-none"></div>
+                <div class="absolute right-1/4 -top-16 w-60 h-60 rounded-full bg-white/5 pointer-events-none"></div>
+
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7">
+                        <h2 class="font-display-lg text-3xl md:text-4xl text-white mb-4 leading-tight">
+                            ¿Listo para transformar<br />los riesgos en<br />decisiones?
+                        </h2>
+                        <p class="font-body-lg text-white/90 text-base md:text-lg mb-8 leading-relaxed max-w-xl">
+                            Hablemos de tu empresa. Nuestro equipo está listo para entender tus necesidades y proponer el
+                            enfoque más adecuado.
+                        </p>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <a href="mailto:pfcontadores@paezflorencia.com.ec"
+                                class="bg-white text-institutional-navy font-label-md text-sm md:text-base px-7 py-3.5 rounded-xl hover:bg-[#FAF8F8] transition-colors shadow-md font-semibold inline-flex items-center gap-2">
+                                <span class="material-symbols-outlined text-heritage-red" style="font-size:18px">mail</span>
+                                <span>Contáctenos</span>
+                            </a>
+                            <a href="code.html"
+                                class="bg-white/15 border border-white/30 text-white font-label-md text-sm md:text-base px-7 py-3.5 rounded-xl hover:bg-white/25 transition-colors font-semibold inline-flex items-center gap-2">
+                                <span class="material-symbols-outlined text-white" style="font-size:18px">arrow_back</span>
+                                <span>Volver al Inicio</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                        <h3 class="font-headline-md text-lg text-white mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-white">call</span>
+                            Líneas de Atención Directa
+                        </h3>
+                        <div class="space-y-4 text-sm text-white/90">
+                            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                                <span>Oficina Quito (PBX):</span>
+                                <a href="tel:023809780"
+                                    class="font-bold hover:text-white transition-colors">023809-780</a>
+                            </div>
+                            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                                <span>Celular Quito:</span>
+                                <a href="tel:09997102616"
+                                    class="font-bold hover:text-white transition-colors">09997102616</a>
+                            </div>
+                            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                                <span>Celular Guayaquil:</span>
+                                <a href="tel:0998452649"
+                                    class="font-bold hover:text-white transition-colors">0998452649</a>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span>Horario:</span>
+                                <span class="text-white/80">Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     FOOTER INSTITUCIONAL
+══════════════════════════════════════════ -->
+    <footer class="bg-[#871B1F] w-full">
+        <div class="grad-line h-1 w-full"></div>
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop py-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 text-white">
+
+                <!-- Brand -->
+                <div class="md:col-span-4">
+                    <a href="code.html" class="inline-block mb-5 group">
+                        <span class="font-display-lg text-2xl sm:text-[26px] font-bold tracking-tight text-white block leading-snug group-hover:text-white/90 transition-colors">
+                            Páez, Florencia &amp; Co. Cía. Ltda.
+                        </span>
+                    </a>
+                    <p class="font-body-md text-body-md mb-6 leading-relaxed max-w-xs"
+                        style="color:rgba(228,226,228,.8)">
+                        25 años de ética profesional, confianza institucional y precisión técnica en
+                        auditoría externa y consultoría financiera en todo el Ecuador.
+                    </p>
+                </div>
+
+                <!-- Oficina Quito -->
+                <div class="md:col-span-4">
+                    <h4 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
+                        style="border-color:rgba(255,255,255,.2)">
+                        <span class="material-symbols-outlined text-white" style="font-size:20px">location_city</span>
+                        Oficina Quito
+                    </h4>
+                    <div class="space-y-3 font-body-md text-sm" style="color:rgba(228,226,228,.9)">
+                        <div class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">location_on</span>
+                            <span>Juan Diguja OE2-66 y Voz Andes, Edificio Opal oficinas 501 y 502</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">call</span>
+                            <a href="tel:023809780"
+                                class="hover:underline hover:text-white transition-colors">023809-780</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">smartphone</span>
+                            <a href="tel:09997102616"
+                                class="hover:underline hover:text-white transition-colors">09997102616</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">mail</span>
+                            <a href="mailto:pfcontadores@paezflorencia.com.ec"
+                                class="hover:underline hover:text-white transition-colors break-all">pfcontadores@paezflorencia.com.ec</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oficina Guayaquil -->
+                <div class="md:col-span-4">
+                    <h4 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
+                        style="border-color:rgba(255,255,255,.2)">
+                        <span class="material-symbols-outlined text-white" style="font-size:20px">location_city</span>
+                        Oficina Guayaquil
+                    </h4>
+                    <div class="space-y-3 font-body-md text-sm" style="color:rgba(228,226,228,.9)">
+                        <div class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">location_on</span>
+                            <span>Junín 203 y Panamá, Edificio Teófilo Bucaram oficinas 1 y 2</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">smartphone</span>
+                            <a href="tel:0998452649"
+                                class="hover:underline hover:text-white transition-colors">0998452649</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">mail</span>
+                            <a href="mailto:pfcontad@paezflorencia.com"
+                                class="hover:underline hover:text-white transition-colors break-all">pfcontad@paezflorencia.com</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 border-t"
+                style="border-color:rgba(255,255,255,.1)">
+                <p class="font-caption text-caption text-center md:text-left" style="color:rgba(197,198,206,.8)">
+                    © 2026 PAEZ, FLORENCIA &amp; CO. Todos los derechos reservados.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="font-caption text-caption hover:text-white transition-colors"
+                        style="color:rgba(197,198,206,.8)">Política de Privacidad</a>
+                    <a href="#" class="font-caption text-caption hover:text-white transition-colors"
+                        style="color:rgba(197,198,206,.8)">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+    <script>
+        // ── Scroll progress bar
+        const pb = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            pb.style.width = (p * 100) + '%';
+        }, { passive: true });
+
+        // ── Universal scroll-reveal (IntersectionObserver)
+        const anim = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    // stagger siblings with same parent
+                    const siblings = [...e.target.parentElement.querySelectorAll('[data-anim]')];
+                    const idx = siblings.indexOf(e.target);
+                    setTimeout(() => e.target.classList.add('in'), idx * 80);
+                    anim.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('[data-anim]').forEach(el => anim.observe(el));
+
+        // ── Animate bar chart — fires on scroll OR on load if already visible
+        function animateBars() {
+            document.querySelectorAll('.chart-bar-v').forEach((bar, i) => {
+                setTimeout(() => { bar.style.height = bar.getAttribute('data-h'); }, i * 250 + 300);
+            });
+        }
+        const expSec = document.getElementById('experiencia');
+        if (expSec) {
+            const barObserver = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        animateBars();
+                        barObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
+            barObserver.observe(expSec);
+            // Fallback: si ya está en el viewport al cargar
+            const rect = expSec.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                setTimeout(animateBars, 600);
+            }
+        }
+    </script>
+</body>
+
+</html>

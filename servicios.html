@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Servicios Profesionales e Integrales — PAEZ, FLORENCIA &amp; CO.</title>
+    <meta name="description"
+        content="Servicios profesionales de Auditoría Externa, Contabilidad, Asesoría Tributaria, Consultoría Empresarial, Auditoría Interna, NIIF, Servicios Especiales y Gestión de Riesgos en Ecuador." />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "border-light": "#E2E8F0",
+                        "slate-text": "#2D3748",
+                        "heritage-red": "#B22222",
+                        "institutional-navy": "#3E0C0F",
+                        "surface": "#fbf9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3f5",
+                        "surface-container": "#efedf0",
+                        "surface-dim": "#dbd9dc",
+                        "surface-variant": "#e4e2e4",
+                        "tertiary-fixed": "#ffdcc0",
+                        "outline-variant": "#c5c6ce",
+                        "secondary": "#b52424",
+                    },
+                    spacing: {
+                        "gutter-desktop": "32px",
+                        "gutter-mobile": "16px",
+                        "container-max-width": "1200px",
+                        "margin-desktop": "80px",
+                    },
+                    fontFamily: {
+                        "display-lg": ["Fraunces", "serif"],
+                        "headline-lg": ["Fraunces", "serif"],
+                        "headline-md": ["Fraunces", "serif"],
+                        "body-lg": ["Work Sans", "sans-serif"],
+                        "body-md": ["Work Sans", "sans-serif"],
+                        "label-md": ["Work Sans", "sans-serif"],
+                        "caption": ["Work Sans", "sans-serif"],
+                    },
+                    fontSize: {
+                        "display-lg": ["46px", { "lineHeight": "54px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll progress bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #B22222, #3E0C0F);
+            z-index: 200;
+            width: 0;
+            transition: width .1s linear;
+        }
+
+        /* Animated gradient line */
+        .grad-line {
+            background: linear-gradient(90deg, #B22222, #3E0C0F, #B22222);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        /* Nav Active Link */
+        .nav-active {
+            color: #B22222 !important;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .nav-active::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #B22222;
+            border-radius: 2px;
+        }
+
+        /* Sticky Sidebar Navigation Items */
+        .service-nav-item {
+            position: relative;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-nav-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #B22222;
+            border-radius: 0 4px 4px 0;
+            opacity: 0;
+            transform: scaleY(0.4);
+            transition: all 0.25s ease;
+        }
+
+        .service-nav-item.active {
+            color: #B22222;
+            background: rgba(178, 34, 34, 0.05);
+            font-weight: 600;
+            padding-left: 1.25rem;
+        }
+
+        .service-nav-item.active::before {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+
+        /* Service Cards */
+        .service-card {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 35px -10px rgba(62, 12, 15, 0.08);
+            border-color: rgba(178, 34, 34, 0.3);
+        }
+
+        /* Scroll reveal */
+        [data-anim] {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .75s cubic-bezier(.22, 1, .36, 1), transform .75s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        [data-anim].in {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ══════════════════════════════════════════
+           COMPÁS TÉCNICO: ANIMACIONES PROFESIONALES
+           ══════════════════════════════════════════ */
+        @keyframes compassFloating {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            32% {
+                transform: translateY(-9px) rotate(2deg);
+            }
+
+            68% {
+                transform: translateY(7px) rotate(-1.6deg);
+            }
+        }
+
+        @keyframes compassLegLeft {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            35% {
+                transform: rotate(-3.5deg);
+            }
+
+            65% {
+                transform: rotate(1.2deg);
+            }
+        }
+
+        @keyframes compassLegRight {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            35% {
+                transform: rotate(3.5deg);
+            }
+
+            65% {
+                transform: rotate(-1.2deg);
+            }
+        }
+
+        @keyframes arcDraftTrace {
+            0% {
+                stroke-dashoffset: 240;
+                opacity: 0.2;
+            }
+
+            35% {
+                stroke-dashoffset: 0;
+                opacity: 0.95;
+            }
+
+            70% {
+                stroke-dashoffset: -120;
+                opacity: 0.55;
+            }
+
+            100% {
+                stroke-dashoffset: -240;
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes needleTipGlow {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(0.9);
+            }
+
+            35% {
+                opacity: 1;
+                transform: scale(1.45);
+                filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95));
+            }
+
+            70% {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes dialSpinSlow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes dialSpinRev {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes ambientAura {
+
+            0%,
+            100% {
+                opacity: 0.18;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.35;
+                transform: scale(1.1);
+            }
+        }
+
+        .compass-assembly {
+            animation: compassFloating 7.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+            transform-origin: 100px 44px;
+        }
+
+        .compass-arm-l {
+            animation: compassLegLeft 7.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+            transform-origin: 100px 44px;
+        }
+
+        .compass-arm-r {
+            animation: compassLegRight 7.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+            transform-origin: 100px 44px;
+        }
+
+        .compass-draft-arc {
+            stroke-dasharray: 140 140;
+            animation: arcDraftTrace 7.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+        }
+
+        .compass-needle-glow {
+            animation: needleTipGlow 3.5s ease-in-out infinite;
+        }
+
+        .dial-rotate-fwd {
+            animation: dialSpinSlow 85s linear infinite;
+            transform-origin: 100px 100px;
+        }
+
+        .dial-rotate-bwd {
+            animation: dialSpinRev 55s linear infinite;
+            transform-origin: 100px 100px;
+        }
+
+        .ambient-glow-aura {
+            animation: ambientAura 5.5s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        /* Compass 3D container hover transition */
+        .compass-interactive-box {
+            perspective: 1000px;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
+
+    <!-- Scroll Progress -->
+    <div id="progress-bar"></div>
+
+    <!-- ══════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════ -->
+    <nav class="bg-white sticky top-0 w-full border-b border-border-light z-50 shadow-sm">
+        <div
+            class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
+            <a href="code.html">
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain"
+                    src="P.F Logo.png" />
+            </a>
+
+            <div class="hidden lg:flex items-center gap-5 xl:gap-8">
+                <a class="font-label-md text-label-md nav-active" href="servicios.html">Servicios</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="expertise.html">Expertise</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="nosotros.html">Nosotros</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="iapa.html">IAPA</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="noticias.html">Noticias</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="contacto.html">Contacto</a>
+                <div class="flex items-center gap-4">
+                    <a href="contacto.html"
+                        class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Contáctenos</a>
+                    <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global" class="flex items-center">
+                        <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-10 w-auto object-contain rounded hover:opacity-85 transition-opacity" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 lg:hidden">
+                <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-9 w-auto object-contain rounded" />
+                </a>
+                <button id="menu-toggle" onclick="toggleMobileMenu()" class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors" aria-label="Abrir menú de navegación" aria-expanded="false">
+                    <span id="menu-toggle-icon" class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-heritage-red font-semibold"
+                href="servicios.html">Servicios</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="expertise.html">Expertise</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="nosotros.html">Nosotros</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="iapa.html">IAPA</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="noticias.html">Noticias</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="contacto.html">Contacto</a>
+            <div class="flex items-center gap-3 pt-2">
+                <a onclick="closeMobileMenu()" href="contacto.html"
+                    class="block text-center flex-1 bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Contáctenos</a>
+                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global" class="flex-shrink-0">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-11 w-auto object-contain rounded" />
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Script de navegación móvil global autónomo -->
+    <script>
+        function toggleMobileMenu() {
+            var m = document.getElementById('mobile-menu');
+            var b = document.getElementById('menu-toggle');
+            var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+            if (!m) return;
+            var isHidden = m.classList.contains('hidden') || m.style.display === 'none' || (window.getComputedStyle && window.getComputedStyle(m).display === 'none');
+            if (isHidden) {
+                m.classList.remove('hidden');
+                m.style.display = 'block';
+                if (b) b.setAttribute('aria-expanded', 'true');
+                if (ic) ic.textContent = 'close';
+            } else {
+                m.classList.add('hidden');
+                m.style.display = 'none';
+                if (b) b.setAttribute('aria-expanded', 'false');
+                if (ic) ic.textContent = 'menu';
+            }
+        }
+
+        function closeMobileMenu() {
+            var m = document.getElementById('mobile-menu');
+            var b = document.getElementById('menu-toggle');
+            var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+            if (!m) return;
+            m.classList.add('hidden');
+            m.style.display = 'none';
+            if (b) b.setAttribute('aria-expanded', 'false');
+            if (ic) ic.textContent = 'menu';
+        }
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                var m = document.getElementById('mobile-menu');
+                if (m) {
+                    m.classList.add('hidden');
+                    m.style.display = '';
+                }
+                var b = document.getElementById('menu-toggle');
+                if (b) b.setAttribute('aria-expanded', 'false');
+                var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+                if (ic) ic.textContent = 'menu';
+            }
+        });
+    </script>
+
+    <!-- ══════════════════════════════════════════
+     HERO  —  Rojo Heritage Corporativo con Badges
+══════════════════════════════════════════ -->
+    <section
+        class="relative bg-gradient-to-br from-[#9E1B1B] via-[#B22222] to-[#801414] text-white overflow-hidden py-20 md:py-28">
+        <!-- Subtle background pattern overlay -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none"
+            style="background-image: radial-gradient(circle at 25px 25px, #ffffff 2%, transparent 0%), radial-gradient(circle at 75px 75px, #ffffff 2%, transparent 0%); background-size: 100px 100px;">
+        </div>
+
+        <div class="relative max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+            <!-- Breadcrumb -->
+            <div class="flex items-center gap-2 mb-8 font-label-md text-label-md text-white/70" data-anim>
+                <a href="code.html" class="hover:text-white transition-colors">Inicio</a>
+                <span class="material-symbols-outlined" style="font-size:14px">chevron_right</span>
+                <span class="text-white font-semibold">Servicios</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                <!-- Left Column: Copy & Badges -->
+                <div class="lg:col-span-7" data-anim>
+                    <h1 class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
+                        Servicios Profesionales<br />e Integrales
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed mb-8 max-w-2xl font-light">
+                        Soluciones profesionales adaptadas a las exigencias de tu empresa. Integramos auditoría externa,
+                        contabilidad estratégica, asesoría tributaria y consultoría empresarial para asegurar el
+                        cumplimiento, la transparencia y la optimización financiera de su organización.
+                    </p>
+
+                    <!-- Badges / Pill Tags -->
+                    <div class="flex flex-wrap gap-3.5 items-center">
+                        <div
+                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined text-white"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">fact_check</span>
+                            <span>AUDITORÍA EXTERNA</span>
+                        </div>
+                        <div
+                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined text-white"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">account_balance_wallet</span>
+                            <span>CONTABILIDAD &amp; OUTSOURCING</span>
+                        </div>
+                        <div
+                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined text-white"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">receipt_long</span>
+                            <span>ASESORÍA TRIBUTARIA</span>
+                        </div>
+                        <div
+                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined text-white"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">shield</span>
+                            <span>GESTIÓN DE RIESGOS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Compás Técnico Emblem Animado (Inspirado en Referencia_Servicios.png) -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end items-center relative" data-anim="scale">
+                    <div id="hero-compass-box"
+                        class="compass-interactive-box relative w-72 h-72 sm:w-84 sm:h-84 md:w-96 md:h-96 flex items-center justify-center">
+
+                        <!-- Concentric glowing ambient backdrop aura -->
+                        <div
+                            class="ambient-glow-aura absolute inset-0 rounded-full bg-gradient-to-tr from-white/20 via-[#B22222]/30 to-amber-200/20 blur-3xl pointer-events-none">
+                        </div>
+                        <div
+                            class="absolute inset-4 rounded-full border border-white/15 border-dashed pointer-events-none dial-rotate-bwd">
+                        </div>
+                        <div class="absolute inset-12 rounded-full border border-white/10 pointer-events-none"></div>
+
+                        <!-- Technical Precision Animated Compass SVG -->
+                        <svg class="w-64 h-64 sm:w-76 sm:h-76 md:w-84 md:h-84 drop-shadow-[0_16px_36px_rgba(0,0,0,0.4)]"
+                            viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <!-- Metallic arm gradients -->
+                                <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ffffff" />
+                                    <stop offset="45%" stop-color="#e2e8f0" />
+                                    <stop offset="70%" stop-color="#cbd5e1" />
+                                    <stop offset="100%" stop-color="#ffffff" />
+                                </linearGradient>
+                                <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#fef08a" />
+                                    <stop offset="50%" stop-color="#f59e0b" />
+                                    <stop offset="100%" stop-color="#ffdcc0" />
+                                </linearGradient>
+                                <linearGradient id="arcGlowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1" />
+                                    <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95" />
+                                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1" />
+                                </linearGradient>
+                                <filter id="glowBlur" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="2" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+
+                            <!-- ── 1. BACKGROUND TECHNICAL PROTRACTOR & RETICLE ── -->
+                            <g class="dial-rotate-fwd" opacity="0.45">
+                                <circle cx="100" cy="100" r="88" stroke="#ffffff" stroke-width="0.8"
+                                    stroke-dasharray="2 6" />
+                                <circle cx="100" cy="100" r="82" stroke="#ffffff" stroke-width="0.5" />
+                                <!-- 12 Precision Degree Markings -->
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(30 100 100)" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(60 100 100)" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(90 100 100)" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(120 100 100)" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(150 100 100)" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(180 100 100)" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(210 100 100)" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(240 100 100)" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(270 100 100)" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(300 100 100)" />
+                                <line x1="100" y1="12" x2="100" y2="18" stroke="#ffffff" stroke-width="1.2"
+                                    transform="rotate(330 100 100)" />
+                            </g>
+
+                            <!-- Blueprint Crosshair Axes -->
+                            <g opacity="0.25">
+                                <line x1="24" y1="100" x2="176" y2="100" stroke="#ffffff" stroke-width="0.8"
+                                    stroke-dasharray="3 4" />
+                                <line x1="100" y1="24" x2="100" y2="176" stroke="#ffffff" stroke-width="0.8"
+                                    stroke-dasharray="3 4" />
+                            </g>
+
+                            <!-- ── 2. DRAFTED MEASUREMENT ARC (TRACER PATH) ── -->
+                            <path class="compass-draft-arc" d="M 38 184 A 146 146 0 0 0 162 184"
+                                stroke="url(#arcGlowGrad)" stroke-width="2.5" stroke-linecap="round"
+                                filter="url(#glowBlur)" />
+
+                            <!-- ── 3. MAIN COMPASS FLOATING ASSEMBLY ── -->
+                            <g class="compass-assembly">
+                                <!-- Top Handle & Knurled Finial -->
+                                <rect x="97" y="12" width="6" height="24" rx="3" fill="url(#metalGrad)" stroke="#ffffff"
+                                    stroke-width="0.6" />
+                                <circle cx="100" cy="12" r="3.5" fill="url(#brassGrad)" />
+
+                                <!-- Curved Measurement Gauge / Calibrated Arc -->
+                                <path d="M 64 122 Q 100 144 136 122" stroke="#ffffff" stroke-width="2.2"
+                                    stroke-dasharray="2 3" stroke-opacity="0.85" />
+
+                                <!-- Horizontal Axis / Threaded Adjustment Screw -->
+                                <line x1="56" y1="122" x2="144" y2="122" stroke="url(#metalGrad)" stroke-width="2.5"
+                                    stroke-linecap="round" />
+                                <rect x="95" y="117" width="10" height="10" rx="2" fill="url(#brassGrad)"
+                                    stroke="#ffffff" stroke-width="1" />
+                                <circle cx="100" cy="122" r="2" fill="#3E0C0F" />
+
+                                <!-- LEFT ARM (Articulated & Animated) -->
+                                <g class="compass-arm-l">
+                                    <!-- Upper Metallic Leg -->
+                                    <path d="M 94 48 L 48 170" stroke="url(#metalGrad)" stroke-width="5"
+                                        stroke-linecap="round" />
+                                    <!-- Lower Leg Extension / Collet -->
+                                    <path d="M 48 170 L 42 186" stroke="url(#brassGrad)" stroke-width="3"
+                                        stroke-linecap="round" />
+                                    <!-- Steel Needle Tip -->
+                                    <circle cx="42" cy="186" r="2" fill="#ffffff" />
+                                    <circle cx="42" cy="186" r="4.5" fill="#ffffff" fill-opacity="0.2" />
+                                </g>
+
+                                <!-- RIGHT ARM (Articulated & Animated with Tracer Glow) -->
+                                <g class="compass-arm-r">
+                                    <!-- Upper Metallic Leg -->
+                                    <path d="M 106 48 L 152 170" stroke="url(#metalGrad)" stroke-width="5"
+                                        stroke-linecap="round" />
+                                    <!-- Lower Leg Extension / Stylus Collet -->
+                                    <path d="M 152 170 L 158 186" stroke="url(#brassGrad)" stroke-width="3"
+                                        stroke-linecap="round" />
+                                    <!-- Drawing Needle Tip -->
+                                    <circle cx="158" cy="186" r="2" fill="#ffffff" />
+                                    <!-- Dynamic Tracer Glowing Sparkle -->
+                                    <circle class="compass-needle-glow" cx="158" cy="186" r="4.5" fill="#ffffff"
+                                        fill-opacity="0.9" />
+                                </g>
+
+                                <!-- Central Pivot Joint / Master Hinge (Overlaid on top of arms) -->
+                                <circle cx="100" cy="44" r="17" stroke="url(#metalGrad)" stroke-width="3"
+                                    fill="#3E0C0F" />
+                                <circle cx="100" cy="44" r="10" fill="url(#metalGrad)" />
+                                <circle cx="100" cy="44" r="4" fill="#B22222" stroke="#ffffff" stroke-width="1.2" />
+                            </g>
+                        </svg>
+
+                        <!-- Floating Micro-Badge of Technical Precision -->
+                        <div
+                            class="absolute -bottom-3 bg-[#3E0C0F]/90 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full shadow-xl flex items-center gap-2 text-[11px] text-white/90 font-label-md tracking-wider uppercase">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>Precisión &amp; Control 360°</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     MAIN SERVICES SECTION WITH STICKY SIDEBAR & SHOWCASE
+══════════════════════════════════════════ -->
+    <section id="catalogo" class="py-12 md:py-20">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                <!-- ── COLUMNA 1: SIDEBAR DE NAVEGACIÓN STICKY (col-span-3) ── -->
+                <aside class="hidden lg:block lg:col-span-3 sticky top-28 space-y-6">
+                    <div class="bg-white rounded-2xl p-5 border border-border-light shadow-sm">
+                        <div class="flex items-center gap-2.5 pb-4 mb-4 border-b border-border-light">
+                            <span class="material-symbols-outlined text-heritage-red"
+                                style="font-size:22px">menu_book</span>
+                            <h3
+                                class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold">
+                                Portafolio de Servicios</h3>
+                        </div>
+
+                        <nav class="space-y-1 text-sm font-label-md" id="sidebar-nav">
+                            <a href="#servicio-1"
+                                class="service-nav-item active flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
+                                <span>01. Auditoría Externa</span>
+                                <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
+                            </a>
+                            <a href="#servicio-2"
+                                class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
+                                <span>02. Contabilidad &amp; Outsourcing</span>
+                                <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
+                            </a>
+                            <a href="#servicio-3"
+                                class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
+                                <span>03. Asesoría Tributaria</span>
+                                <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
+                            </a>
+                            <a href="#servicio-4"
+                                class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
+                                <span>04. Consultoría Empresarial</span>
+                                <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
+                            </a>
+                            <a href="#servicio-5"
+                                class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
+                                <span>05. Auditoría Interna</span>
+                                <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
+                            </a>
+                            <a href="#servicio-6"
+                                class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
+                                <span>06. NIIF y Consultoría</span>
+                                <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
+                            </a>
+                            <a href="#servicio-7"
+                                class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
+                                <span>07. Servicios Especiales</span>
+                                <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
+                            </a>
+                            <a href="#servicio-8"
+                                class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
+                                <span>08. Cumplimiento &amp; Riesgos</span>
+                                <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
+                            </a>
+                        </nav>
+                    </div>
+
+                    <!-- Sidebar mini CTA card -->
+                    <div
+                        class="bg-gradient-to-br from-institutional-navy to-[#5a1217] rounded-2xl p-6 text-white shadow-md relative overflow-hidden">
+                        <div class="relative z-10">
+                            <span class="material-symbols-outlined text-tertiary-fixed mb-3"
+                                style="font-size:28px">support_agent</span>
+                            <h4 class="font-headline-md text-lg text-white mb-2">¿Necesita asistencia inmediata?</h4>
+                            <p class="font-body-md text-xs text-white/80 leading-relaxed mb-4">
+                                Nuestros socios directores revisan cada requerimiento de forma directa y personalizada.
+                            </p>
+                            <div class="flex flex-col gap-2">
+                                <a href="tel:09997102616"
+                                    class="inline-flex items-center gap-2 text-xs font-semibold text-white bg-white/15 px-3.5 py-2 rounded-lg hover:bg-white/25 transition-colors">
+                                    <span class="material-symbols-outlined text-sm">phone</span>
+                                    <span>09997102616 (Quito)</span>
+                                </a>
+                                <a href="tel:0998452649"
+                                    class="inline-flex items-center gap-2 text-xs font-semibold text-white bg-white/15 px-3.5 py-2 rounded-lg hover:bg-white/25 transition-colors">
+                                    <span class="material-symbols-outlined text-sm">phone</span>
+                                    <span>0998452649 (Guayaquil)</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- ── NAVEGACIÓN MÓVIL RÁPIDA (visible sólo en pantallas < lg) ── -->
+                <div class="lg:hidden col-span-1 -mt-2 mb-2 overflow-x-auto pb-3 pt-1">
+                    <div class="flex items-center gap-2 min-w-max">
+                        <span class="text-xs font-semibold text-secondary uppercase tracking-wider pl-1 pr-2">Ir a:</span>
+                        <a href="#servicio-1" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">01. Auditoría</a>
+                        <a href="#servicio-2" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">02. Contabilidad</a>
+                        <a href="#servicio-3" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">03. Tributaria</a>
+                        <a href="#servicio-4" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">04. Consultoría</a>
+                        <a href="#servicio-5" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">05. Fiscal</a>
+                        <a href="#servicio-6" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">06. NIIF</a>
+                        <a href="#servicio-7" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">07. Especiales</a>
+                        <a href="#servicio-8" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">08. Riesgos</a>
+                    </div>
+                </div>
+
+                <!-- ── COLUMNA 2: DETALLE DE LOS 8 SERVICIOS (col-span-6 en desktop) ── -->
+                <main class="lg:col-span-6 space-y-10">
+
+                    <!-- 1. AUDITORÍA EXTERNA -->
+                    <article id="servicio-1"
+                        class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
+                        data-anim>
+                        <div
+                            class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
+                            01</div>
+
+                        <div class="flex items-center gap-3.5 mb-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                <span class="material-symbols-outlined" style="font-size:28px">fact_check</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    01</span>
+                                <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Auditoría
+                                    Externa</h2>
+                            </div>
+                        </div>
+
+                        <!-- Tagline Quote -->
+                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
+                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
+                                "Información financiera confiable para tomar decisiones con seguridad."
+                            </p>
+                        </div>
+
+                        <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
+                            Realizamos auditorías independientes de estados financieros, revisiones y trabajos
+                            especiales con un enfoque basado en riesgos y en el conocimiento del negocio.
+                        </p>
+
+                        <div class="border-t border-border-light pt-6">
+                            <h4
+                                class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                Servicios Principales:
+                            </h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Auditoría de estados financieros.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Auditorías para compañías sujetas a organismos de control.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Auditorías con propósitos especiales.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Revisiones de información financiera.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Procedimientos previamente convenidos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Evaluación de controles internos.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- 2. CONTABILIDAD Y OUTSOURCING CONTABLE -->
+                    <article id="servicio-2"
+                        class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
+                        data-anim>
+                        <div
+                            class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
+                            02</div>
+
+                        <div class="flex items-center gap-3.5 mb-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                <span class="material-symbols-outlined"
+                                    style="font-size:28px">account_balance_wallet</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    02</span>
+                                <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Contabilidad y
+                                    Outsourcing Contable</h2>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
+                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
+                                "Una función financiera organizada para que puedas concentrarte en tu negocio."
+                            </p>
+                        </div>
+
+                        <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
+                            Brindamos outsourcing contable y acompañamiento profesional para que las empresas dispongan
+                            de información financiera oportuna, organizada y confiable.
+                        </p>
+
+                        <div class="border-t border-border-light pt-6">
+                            <h4
+                                class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                Servicios Principales:
+                            </h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Outsourcing contable.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Registro y procesamiento de operaciones.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Elaboración de estados financieros.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Cierres y conciliaciones contables.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Consolidación de estados financieros.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Implementación y revisión de sistemas contables.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 md:col-span-2">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Aplicación de NIIF y NIIF para PYMES.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- 3. ASESORÍA TRIBUTARIA -->
+                    <article id="servicio-3"
+                        class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
+                        data-anim>
+                        <div
+                            class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
+                            03</div>
+
+                        <div class="flex items-center gap-3.5 mb-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                <span class="material-symbols-outlined" style="font-size:28px">receipt_long</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    03</span>
+                                <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Asesoría
+                                    Tributaria</h2>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
+                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
+                                "Anticiparse a las obligaciones también es parte de una buena estrategia empresarial."
+                            </p>
+                        </div>
+
+                        <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
+                            Acompañamos a nuestros clientes en el cumplimiento de sus obligaciones tributarias y en el
+                            análisis de los efectos fiscales de sus operaciones, buscando reducir contingencias y
+                            facilitar la toma de decisiones.
+                        </p>
+
+                        <div class="border-t border-border-light pt-6">
+                            <h4
+                                class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                Servicios Principales:
+                            </h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Asesoría tributaria.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Revisión de declaraciones y obligaciones.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Análisis de contingencias fiscales.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Consultas y revisión de tratamientos tributarios.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Asesoría en procesos de fiscalización.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Acompañamiento ante el SRI.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 md:col-span-2">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Planificación tributaria dentro del marco legal.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- 4. CONSULTORÍA EMPRESARIAL -->
+                    <article id="servicio-4"
+                        class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
+                        data-anim>
+                        <div
+                            class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
+                            04</div>
+
+                        <div class="flex items-center gap-3.5 mb-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                <span class="material-symbols-outlined" style="font-size:28px">domain</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    04</span>
+                                <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Consultoría
+                                    Empresarial</h2>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
+                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
+                                "Convertimos los desafíos de tu empresa en oportunidades de mejora."
+                            </p>
+                        </div>
+
+                        <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
+                            Aportamos nuestra experiencia para ayudar a las organizaciones a mejorar procesos,
+                            fortalecer su estructura financiera y tomar decisiones con mayor información.
+                        </p>
+
+                        <div class="border-t border-border-light pt-6">
+                            <h4
+                                class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                Áreas Principales:
+                            </h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Consultoría financiera y contable.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Control interno.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Evaluación y mejora de procesos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Diseño de políticas y procedimientos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Análisis financiero.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Evaluación de riesgos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 md:col-span-2">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Reorganización y mejora empresarial.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- 5. AUDITORÍA INTERNA Y CONTROL INTERNO -->
+                    <article id="servicio-5"
+                        class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
+                        data-anim>
+                        <div
+                            class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
+                            05</div>
+
+                        <div class="flex items-center gap-3.5 mb-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                <span class="material-symbols-outlined" style="font-size:28px">security</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    05</span>
+                                <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Auditoría
+                                    Interna y Control Interno</h2>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
+                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
+                                "Controles más sólidos. Riesgos mejor gestionados."
+                            </p>
+                        </div>
+
+                        <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
+                            Ayudamos a las organizaciones a identificar riesgos y oportunidades de mejora en sus
+                            procesos, estructuras de control y sistemas de información.
+                        </p>
+
+                        <div class="border-t border-border-light pt-6">
+                            <h4
+                                class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                Servicios Principales:
+                            </h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Auditoría interna.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Evaluación de control interno.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Levantamiento y documentación de procesos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Identificación y evaluación de riesgos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Diseño y evaluación de controles.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Políticas y procedimientos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 md:col-span-2">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Informes y recomendaciones de mejora.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- 6. NIIF Y CONSULTORÍA CONTABLE ESPECIALIZADA -->
+                    <article id="servicio-6"
+                        class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
+                        data-anim>
+                        <div
+                            class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
+                            06</div>
+
+                        <div class="flex items-center gap-3.5 mb-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                <span class="material-symbols-outlined" style="font-size:28px">menu_book</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    06</span>
+                                <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">NIIF y
+                                    Consultoría Contable Especializada</h2>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
+                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
+                                "Información financiera preparada para las decisiones de hoy."
+                            </p>
+                        </div>
+
+                        <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
+                            Asesoramos a las empresas en la aplicación de NIIF, NIIF para PYMES y otros requerimientos
+                            contables aplicables a sus operaciones.
+                        </p>
+
+                        <div class="border-t border-border-light pt-6">
+                            <h4
+                                class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                Servicios Principales:
+                            </h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Implementación de NIIF y NIIF para PYMES.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Diagnóstico y políticas contables.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Tratamiento de operaciones complejas.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Preparación y conversión de información financiera.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Consolidación de estados financieros.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Análisis de impactos contables.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- 7. SERVICIOS ESPECIALES -->
+                    <article id="servicio-7"
+                        class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
+                        data-anim>
+                        <div
+                            class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
+                            07</div>
+
+                        <div class="flex items-center gap-3.5 mb-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                <span class="material-symbols-outlined" style="font-size:28px">stars</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    07</span>
+                                <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Servicios
+                                    Especiales</h2>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
+                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
+                                "Soluciones profesionales para situaciones que requieren experiencia especializada."
+                            </p>
+                        </div>
+
+                        <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
+                            Atendemos trabajos específicos que requieren análisis independiente, conocimiento técnico y
+                            una metodología profesional.
+                        </p>
+
+                        <div class="border-t border-border-light pt-6">
+                            <h4
+                                class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                Servicios Principales:
+                            </h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Due diligence financiero y contable.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Revisiones especiales.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Procedimientos previamente convenidos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Inventarios físicos y conciliaciones.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Valuación y revisión de activos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Informes especiales.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Investigaciones y análisis financieros.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Apoyo en procesos de reorganización empresarial.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- 8. CUMPLIMIENTO Y GESTIÓN DE RIESGOS -->
+                    <article id="servicio-8"
+                        class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
+                        data-anim>
+                        <div
+                            class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
+                            08</div>
+
+                        <div class="flex items-center gap-3.5 mb-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                <span class="material-symbols-outlined" style="font-size:28px">shield</span>
+                            </div>
+                            <div>
+                                <span
+                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    08</span>
+                                <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Cumplimiento y
+                                    Gestión de Riesgos</h2>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
+                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
+                                "Cumplir no es solamente una obligación. Es proteger el negocio."
+                            </p>
+                        </div>
+
+                        <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
+                            Acompañamos a las empresas en la identificación y gestión de riesgos asociados al
+                            cumplimiento de sus obligaciones regulatorias, financieras y corporativas.
+                        </p>
+
+                        <div class="border-t border-border-light pt-6">
+                            <h4
+                                class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                Servicios Principales:
+                            </h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Prevención de lavado de activos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Consultoría en cumplimiento.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Elaboración y actualización de manuales.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Políticas y procedimientos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Evaluación de riesgos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Apoyo al oficial de cumplimiento.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Asesoría frente a organismos de control.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                    <span>Revisiones de cumplimiento.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                </main>
+
+                <!-- ── COLUMNA 3: SHOWCASE VISUAL STICKY (col-span-3 en desktop, como la referencia) ── -->
+                <aside class="lg:col-span-3 sticky top-28 space-y-6">
+
+                    <!-- Reference Image style photo card -->
+                    <div class="rounded-3xl overflow-hidden shadow-lg border border-border-light bg-white group"
+                        data-anim>
+                        <div class="relative h-[380px] w-full overflow-hidden">
+                            <img src="imagen_Servicios.png" alt="Consultoría y Servicios PAEZ FLORENCIA"
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-institutional-navy/90 via-institutional-navy/20 to-transparent">
+                            </div>
+
+                            <div class="absolute bottom-5 left-5 right-5 text-white">
+                                <span
+                                    class="inline-block px-3 py-1 rounded-md bg-heritage-red text-[11px] font-bold uppercase tracking-wider mb-2">Compromiso</span>
+                                <h4 class="font-display-lg text-lg text-white font-semibold leading-snug">
+                                    Acompañamiento Estratégico y Rigor Técnico
+                                </h4>
+                                <p class="text-xs text-white/80 mt-1">
+                                    Soluciones a la medida de los desafíos financieros de su organización.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card footer highlights -->
+                        <div class="p-5 space-y-3 bg-white">
+                            <div class="flex items-center gap-3 text-xs text-slate-text">
+                                <span class="material-symbols-outlined text-heritage-red text-lg">verified</span>
+                                <span class="font-semibold">Firma calificada por entes reguladores</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-text">
+                                <span
+                                    class="material-symbols-outlined text-heritage-red text-lg">supervised_user_circle</span>
+                                <span>Atención directa de Socios Directores</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-text">
+                                <span class="material-symbols-outlined text-heritage-red text-lg">insights</span>
+                                <span>Enfoque preventivo de riesgos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Quote CTA box -->
+                    <div class="p-6 rounded-3xl bg-white border border-border-light shadow-sm text-center">
+                        <div
+                            class="w-12 h-12 mx-auto rounded-full bg-[#3E0C0F]/5 flex items-center justify-center text-institutional-navy mb-3">
+                            <span class="material-symbols-outlined" style="font-size:24px">mail</span>
+                        </div>
+                        <h4 class="font-headline-md text-base text-institutional-navy mb-1">¿Requiere una propuesta
+                            formal?</h4>
+                        <p class="font-body-md text-xs text-slate-text/70 mb-4">
+                            Envíenos los requerimientos de su empresa y le responderemos en menos de 24 horas
+                            laborables.
+                        </p>
+                        <a href="#contacto-cta"
+                            class="inline-block w-full py-2.5 px-4 bg-institutional-navy text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-heritage-red transition-colors shadow">
+                            Solicitar Cotización
+                        </a>
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     ESTRUCTURA TARIFARIA REFERENCIAL (Idéntico a Referencia_Servicios.png)
+══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════
+     TARIFARIO DE SERVICIOS
+══════════════════════════════════════════ -->
+    <section id="tarifas" class="py-16 md:py-24 bg-[#F2ECEC]/60 border-t border-b border-border-light">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <div class="text-center max-w-3xl mx-auto mb-14" data-anim>
+                <div
+                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-heritage-red/10 border border-heritage-red/20 mb-4">
+                    <span
+                        class="font-label-md text-xs tracking-wider uppercase text-heritage-red font-bold">TRANSPARENCIA
+                        INSTITUCIONAL</span>
+                </div>
+                <h2 class="font-display-lg text-3xl md:text-4xl text-institutional-navy mb-4 font-semibold">
+                    Tarifario de Servicios
+                </h2>
+                <p class="font-body-md text-sm md:text-base text-slate-text/80 max-w-2xl mx-auto leading-relaxed">
+                    Estructura horaria de honorarios profesionales para auditoría externa, consultoría financiera y
+                    auditoría de tecnología.
+                </p>
+            </div>
+
+            <!-- 5 Responsive Rate Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-10" data-anim>
+                <!-- 1. Socio de auditoría -->
+                <div
+                    class="bg-white rounded-2xl p-6 border border-border-light shadow-sm hover:shadow-md hover:border-heritage-red/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-heritage-red/10 flex items-center justify-center text-heritage-red mb-4 group-hover:bg-heritage-red group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined" style="font-size:26px">workspace_premium</span>
+                        </div>
+                        <span
+                            class="font-label-md text-[11px] uppercase tracking-wider text-heritage-red font-bold block mb-1">Nivel
+                            Directivo</span>
+                        <h3 class="font-display-lg text-lg text-institutional-navy font-bold mb-3 leading-snug">Socio de
+                            auditoría</h3>
+                        <p class="font-body-md text-xs text-slate-text/75 leading-relaxed mb-6">
+                            Dirección estratégica del encargo, suscripción de informes y representación ante organismos
+                            reguladores.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-border-light">
+                        <div class="font-display-lg text-2xl font-bold text-heritage-red">US$ 60</div>
+                        <span class="font-caption text-xs text-slate-text/60">por hora</span>
+                    </div>
+                </div>
+
+                <!-- 2. Gerente de auditoría -->
+                <div
+                    class="bg-white rounded-2xl p-6 border border-border-light shadow-sm hover:shadow-md hover:border-heritage-red/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-heritage-red/10 flex items-center justify-center text-heritage-red mb-4 group-hover:bg-heritage-red group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined" style="font-size:26px">manage_accounts</span>
+                        </div>
+                        <span
+                            class="font-label-md text-[11px] uppercase tracking-wider text-heritage-red font-bold block mb-1">Supervisión</span>
+                        <h3 class="font-display-lg text-lg text-institutional-navy font-bold mb-3 leading-snug">Gerente
+                            de auditoría</h3>
+                        <p class="font-body-md text-xs text-slate-text/75 leading-relaxed mb-6">
+                            Planificación global, aseguramiento del control de calidad y revisión exhaustiva de papeles
+                            de trabajo.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-border-light">
+                        <div class="font-display-lg text-2xl font-bold text-heritage-red">US$ 40</div>
+                        <span class="font-caption text-xs text-slate-text/60">por hora</span>
+                    </div>
+                </div>
+
+                <!-- 3. Senior de auditoría -->
+                <div
+                    class="bg-white rounded-2xl p-6 border border-border-light shadow-sm hover:shadow-md hover:border-heritage-red/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-heritage-red/10 flex items-center justify-center text-heritage-red mb-4 group-hover:bg-heritage-red group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined" style="font-size:26px">assignment_turned_in</span>
+                        </div>
+                        <span
+                            class="font-label-md text-[11px] uppercase tracking-wider text-heritage-red font-bold block mb-1">Ejecución
+                            en Campo</span>
+                        <h3 class="font-display-lg text-lg text-institutional-navy font-bold mb-3 leading-snug">Senior
+                            de auditoría</h3>
+                        <p class="font-body-md text-xs text-slate-text/75 leading-relaxed mb-6">
+                            Ejecución de procedimientos complejos, pruebas analíticas sustantivas y liderazgo operativo
+                            del equipo.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-border-light">
+                        <div class="font-display-lg text-2xl font-bold text-heritage-red">US$ 20</div>
+                        <span class="font-caption text-xs text-slate-text/60">por hora</span>
+                    </div>
+                </div>
+
+                <!-- 4. Junior de auditoría -->
+                <div
+                    class="bg-white rounded-2xl p-6 border border-border-light shadow-sm hover:shadow-md hover:border-heritage-red/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-heritage-red/10 flex items-center justify-center text-heritage-red mb-4 group-hover:bg-heritage-red group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined" style="font-size:26px">badge</span>
+                        </div>
+                        <span
+                            class="font-label-md text-[11px] uppercase tracking-wider text-heritage-red font-bold block mb-1">Soporte
+                            Técnico</span>
+                        <h3 class="font-display-lg text-lg text-institutional-navy font-bold mb-3 leading-snug">Junior
+                            de auditoría</h3>
+                        <p class="font-body-md text-xs text-slate-text/75 leading-relaxed mb-6">
+                            Verificación documental, confirmaciones de saldos, muestreo analítico y conciliaciones.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-border-light">
+                        <div class="font-display-lg text-2xl font-bold text-heritage-red">US$ 15</div>
+                        <span class="font-caption text-xs text-slate-text/60">por hora</span>
+                    </div>
+                </div>
+
+                <!-- 5. Gerente de tecnología -->
+                <div
+                    class="bg-white rounded-2xl p-6 border border-border-light shadow-sm hover:shadow-md hover:border-institutional-navy/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-institutional-navy/10 flex items-center justify-center text-institutional-navy mb-4 group-hover:bg-institutional-navy group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined" style="font-size:26px">terminal</span>
+                        </div>
+                        <span
+                            class="font-label-md text-[11px] uppercase tracking-wider text-institutional-navy font-bold block mb-1">Especialidad
+                            TI</span>
+                        <h3 class="font-display-lg text-lg text-institutional-navy font-bold mb-3 leading-snug">Gerente
+                            de tecnología</h3>
+                        <p class="font-body-md text-xs text-slate-text/75 leading-relaxed mb-6">
+                            Auditoría de sistemas computarizados, evaluación de controles generales TI y ciberseguridad.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-border-light">
+                        <div class="font-display-lg text-2xl font-bold text-institutional-navy">US$ 40</div>
+                        <span class="font-caption text-xs text-slate-text/60">por hora</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Structured Detail Table -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-border-light mb-6" data-anim>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="bg-gradient-to-r from-[#9E1B1B] to-heritage-red text-white text-xs md:text-sm font-semibold tracking-wider uppercase">
+                                <th class="py-4 px-6">Categoría Profesional</th>
+                                <th class="py-4 px-6">Área de Especialidad</th>
+                                <th class="py-4 px-6">Alcance y Responsabilidad</th>
+                                <th class="py-4 px-6 text-right">Tarifa por Hora</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border-light text-xs md:text-sm font-body-md">
+                            <tr class="hover:bg-surface/70 transition-colors">
+                                <td class="py-4 px-6 font-semibold text-institutional-navy flex items-center gap-2.5">
+                                    <span class="w-2 h-2 rounded-full bg-heritage-red"></span>
+                                    <span>Socio de auditoría</span>
+                                </td>
+                                <td class="py-4 px-6 text-slate-text/80">Auditoría Externa y Gobierno Corporativo</td>
+                                <td class="py-4 px-6 text-slate-text/80">Dirección estratégica, dictámenes oficiales y
+                                    representación institucional</td>
+                                <td class="py-4 px-6 text-right font-bold text-heritage-red">US$ 60 por hora</td>
+                            </tr>
+                            <tr class="hover:bg-surface/70 transition-colors">
+                                <td class="py-4 px-6 font-semibold text-institutional-navy flex items-center gap-2.5">
+                                    <span class="w-2 h-2 rounded-full bg-heritage-red"></span>
+                                    <span>Gerente de auditoría</span>
+                                </td>
+                                <td class="py-4 px-6 text-slate-text/80">Supervisión y Control de Calidad</td>
+                                <td class="py-4 px-6 text-slate-text/80">Planificación, revisión de papeles de trabajo y
+                                    coordinación del encargo</td>
+                                <td class="py-4 px-6 text-right font-bold text-heritage-red">US$ 40 por hora</td>
+                            </tr>
+                            <tr class="hover:bg-surface/70 transition-colors">
+                                <td class="py-4 px-6 font-semibold text-institutional-navy flex items-center gap-2.5">
+                                    <span class="w-2 h-2 rounded-full bg-heritage-red"></span>
+                                    <span>Senior de auditoría</span>
+                                </td>
+                                <td class="py-4 px-6 text-slate-text/80">Auditoría Operativa y de Campo</td>
+                                <td class="py-4 px-6 text-slate-text/80">Ejecución técnica avanzada, evaluación de
+                                    controles y liderazgo en campo</td>
+                                <td class="py-4 px-6 text-right font-bold text-heritage-red">US$ 20 por hora</td>
+                            </tr>
+                            <tr class="hover:bg-surface/70 transition-colors">
+                                <td class="py-4 px-6 font-semibold text-institutional-navy flex items-center gap-2.5">
+                                    <span class="w-2 h-2 rounded-full bg-heritage-red"></span>
+                                    <span>Junior de auditoría</span>
+                                </td>
+                                <td class="py-4 px-6 text-slate-text/80">Soporte Técnico y Conciliaciones</td>
+                                <td class="py-4 px-6 text-slate-text/80">Verificación documental, confirmaciones de
+                                    saldos y pruebas de cumplimiento</td>
+                                <td class="py-4 px-6 text-right font-bold text-heritage-red">US$ 15 por hora</td>
+                            </tr>
+                            <tr class="hover:bg-surface/70 transition-colors">
+                                <td class="py-4 px-6 font-semibold text-institutional-navy flex items-center gap-2.5">
+                                    <span class="w-2 h-2 rounded-full bg-institutional-navy"></span>
+                                    <span>Gerente de tecnología</span>
+                                </td>
+                                <td class="py-4 px-6 text-slate-text/80">Auditoría de Sistemas y TI</td>
+                                <td class="py-4 px-6 text-slate-text/80">Evaluación de controles generales de TI,
+                                    ciberseguridad y análisis de datos</td>
+                                <td class="py-4 px-6 text-right font-bold text-institutional-navy">US$ 40 por hora</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Footnote & CTA -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left mt-6">
+                <p class="text-xs text-slate-text/70 italic max-w-xl">
+                    * Tarifas referenciales para proyectos en Ecuador. También estructuramos propuestas de honorarios
+                    fijos cerrados según el alcance acordado.
+                </p>
+                <a href="#contacto-cta"
+                    class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-institutional-navy text-white text-xs font-semibold uppercase tracking-wider hover:bg-heritage-red transition-colors shadow">
+                    <span>Solicitar Propuesta a Medida</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     CONTACT / CONSULTATION CTA SECTION
+══════════════════════════════════════════ -->
+    <section id="contacto-cta" class="py-16 md:py-24 bg-white">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+            <div class="bg-gradient-to-br from-institutional-navy via-[#4a0e12] to-heritage-red rounded-3xl p-8 md:p-14 text-white shadow-xl relative overflow-hidden"
+                data-anim>
+                <!-- Decorative element -->
+                <div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-white/5 pointer-events-none"></div>
+                <div class="absolute right-1/4 -top-16 w-60 h-60 rounded-full bg-white/5 pointer-events-none"></div>
+
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7">
+                        <span
+                            class="inline-block px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-xs font-semibold tracking-wider uppercase mb-4 text-white">
+                            Atención Personalizada
+                        </span>
+                        <h2 class="font-display-lg text-3xl md:text-4xl text-white mb-4 leading-tight">
+                            ¿Listo para optimizar la solidez y cumplimiento de su empresa?
+                        </h2>
+                        <p class="font-body-lg text-white/85 text-base md:text-lg mb-6 leading-relaxed">
+                            Coordine una sesión preliminar con nuestro equipo directivo en Quito o Guayaquil.
+                            Analizaremos sus necesidades con absoluta reserva profesional.
+                        </p>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <a href="mailto:pfcontadores@paezflorencia.com.ec"
+                                class="bg-white text-institutional-navy font-label-md text-sm md:text-base px-6 py-3.5 rounded-xl hover:bg-[#FAF8F8] transition-colors shadow-md font-semibold inline-flex items-center gap-2">
+                                <span class="material-symbols-outlined text-heritage-red">email</span>
+                                <span>Escribir a Quito</span>
+                            </a>
+                            <a href="mailto:pfcontad@paezflorencia.com"
+                                class="bg-white/15 border border-white/30 text-white font-label-md text-sm md:text-base px-6 py-3.5 rounded-xl hover:bg-white/25 transition-colors font-semibold inline-flex items-center gap-2">
+                                <span class="material-symbols-outlined text-white">email</span>
+                                <span>Escribir a Guayaquil</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                        <h3 class="font-headline-md text-lg text-white mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-white">call</span>
+                            Líneas de Atención Directa
+                        </h3>
+                        <div class="space-y-4 text-sm text-white/90">
+                            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                                <span>Oficina Quito (PBX):</span>
+                                <a href="tel:023809780"
+                                    class="font-bold hover:text-white transition-colors">023809-780</a>
+                            </div>
+                            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                                <span>Celular Quito:</span>
+                                <a href="tel:09997102616"
+                                    class="font-bold hover:text-white transition-colors">09997102616</a>
+                            </div>
+                            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                                <span>Celular Guayaquil:</span>
+                                <a href="tel:0998452649"
+                                    class="font-bold hover:text-white transition-colors">0998452649</a>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span>Horario:</span>
+                                <span class="text-white/80">Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     FOOTER INSTITUCIONAL (Exacto al sitio general)
+══════════════════════════════════════════ -->
+    <footer class="bg-[#871B1F] pt-16 pb-12 relative overflow-hidden">
+        <!-- Animated top accent line -->
+        <div class="grad-line h-1 w-full absolute top-0 left-0"></div>
+
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 text-white">
+
+                <!-- Brand -->
+                <div class="md:col-span-4">
+                    <a href="code.html" class="inline-block mb-5 group">
+                        <span class="font-display-lg text-2xl sm:text-[26px] font-bold tracking-tight text-white block leading-snug group-hover:text-white/90 transition-colors">
+                            Páez, Florencia &amp; Co. Cía. Ltda.
+                        </span>
+                    </a>
+                    <p class="font-body-md text-body-md mb-6 leading-relaxed max-w-xs"
+                        style="color:rgba(228,226,228,.8)">
+                        25 años de ética profesional, confianza institucional y precisión técnica en auditoría externa y
+                        consultoría financiera en todo el Ecuador.
+                    </p>
+                </div>
+
+                <!-- Oficina Quito -->
+                <div class="md:col-span-4">
+                    <h4 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
+                        style="border-color:rgba(255,255,255,.2)">
+                        <span class="material-symbols-outlined text-white" style="font-size:20px">location_city</span>
+                        Oficina Quito
+                    </h4>
+                    <div class="space-y-3 font-body-md text-sm" style="color:rgba(228,226,228,.9)">
+                        <div class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">location_on</span>
+                            <span>Juan Diguja OE2-66 y Voz Andes, Edificio Opal oficinas 501 y 502</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">call</span>
+                            <a href="tel:023809780"
+                                class="hover:underline hover:text-white transition-colors">023809-780</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">smartphone</span>
+                            <a href="tel:09997102616"
+                                class="hover:underline hover:text-white transition-colors">09997102616</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">mail</span>
+                            <a href="mailto:pfcontadores@paezflorencia.com.ec"
+                                class="hover:underline hover:text-white transition-colors break-all">pfcontadores@paezflorencia.com.ec</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oficina Guayaquil -->
+                <div class="md:col-span-4">
+                    <h4 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
+                        style="border-color:rgba(255,255,255,.2)">
+                        <span class="material-symbols-outlined text-white" style="font-size:20px">location_city</span>
+                        Oficina Guayaquil
+                    </h4>
+                    <div class="space-y-3 font-body-md text-sm" style="color:rgba(228,226,228,.9)">
+                        <div class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">location_on</span>
+                            <span>Junín 203 y Panamá, Edificio Teófilo Bucaram oficinas 1 y 2</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">smartphone</span>
+                            <a href="tel:0998452649"
+                                class="hover:underline hover:text-white transition-colors">0998452649</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">mail</span>
+                            <a href="mailto:pfcontad@paezflorencia.com"
+                                class="hover:underline hover:text-white transition-colors break-all">pfcontad@paezflorencia.com</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 border-t"
+                style="border-color:rgba(255,255,255,.1)">
+                <p class="font-caption text-caption text-center md:text-left" style="color:rgba(197,198,206,.8)">
+                    © 2026 PAEZ, FLORENCIA &amp; CO. Todos los derechos reservados.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="font-caption text-caption hover:text-white transition-colors"
+                        style="color:rgba(197,198,206,.8)">Política de Privacidad</a>
+                    <a href="#" class="font-caption text-caption hover:text-white transition-colors"
+                        style="color:rgba(197,198,206,.8)">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════════
+     SCRIPTS (Scrollspy, Reveal, Mobile Menu)
+══════════════════════════════════════════ -->
+    <script>
+        // ── Scroll progress bar
+        const pb = document.getElementById("progress-bar");
+        window.addEventListener("scroll", () => {
+            const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            if (pb) pb.style.width = (p * 100) + "%";
+        }, { passive: true });
+
+        // ── Scroll reveal animation
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add("in");
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+
+        document.querySelectorAll("[data-anim]").forEach(el => animObserver.observe(el));
+
+        // ── ScrollSpy for Sticky Sidebar
+        const serviceSections = document.querySelectorAll("main article[id^='servicio-']");
+        const navLinks = document.querySelectorAll("#sidebar-nav .service-nav-item");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            serviceSections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            if (current) {
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === "#" + current) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+        }, { passive: true });
+
+        // ── Interactive 3D Parallax on Hero Compass
+        const compassBox = document.getElementById("hero-compass-box");
+        if (compassBox) {
+            const heroSec = compassBox.closest("section");
+            heroSec.addEventListener("mousemove", (e) => {
+                const rect = compassBox.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
+                const deltaY = (e.clientY - centerY) / 300;
+                const rotX = (-deltaY * 12).toFixed(2);
+                const rotY = (deltaX * 14).toFixed(2);
+                compassBox.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.03, 1.03, 1.03)`;
+            });
+
+            heroSec.addEventListener("mouseleave", () => {
+                compassBox.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+            });
+        }
+    </script>
+</body>
+
+</html>

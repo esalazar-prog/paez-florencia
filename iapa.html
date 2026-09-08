@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IAPA International — PAEZ, FLORENCIA &amp; CO. | Alianza Global</title>
+    <meta name="description"
+        content="PÁEZ, FLORENCIA & CO. es miembro de IAPA International. Una firma local, una conexión global con presencia en más de 60 países." />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "border-light": "#E2E8F0",
+                        "slate-text": "#2D3748",
+                        "heritage-red": "#B22222",
+                        "institutional-navy": "#3E0C0F",
+                        "iapa-teal": "#20616D",
+                        "iapa-teal-dark": "#133E46",
+                        "iapa-teal-light": "#3AA5B4",
+                        "iapa-cyan": "#48CAE4",
+                        "surface": "#fbf9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3f5",
+                        "surface-container": "#efedf0",
+                        "surface-dim": "#dbd9dc",
+                        "surface-variant": "#e4e2e4",
+                        "tertiary-fixed": "#ffdcc0",
+                        "secondary": "#b52424",
+                    },
+                    spacing: {
+                        "gutter-desktop": "32px",
+                        "gutter-mobile": "16px",
+                        "container-max-width": "1200px",
+                        "margin-desktop": "80px",
+                    },
+                    fontFamily: {
+                        "display-lg": ["Fraunces", "serif"],
+                        "headline-lg": ["Fraunces", "serif"],
+                        "headline-md": ["Fraunces", "serif"],
+                        "body-lg": ["Work Sans", "sans-serif"],
+                        "body-md": ["Work Sans", "sans-serif"],
+                        "label-md": ["Work Sans", "sans-serif"],
+                        "caption": ["Work Sans", "sans-serif"],
+                    },
+                    fontSize: {
+                        "display-lg": ["46px", { "lineHeight": "54px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-active {
+            color: #20616D !important;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #20616D;
+            border-radius: 2px;
+        }
+
+        .card-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px -8px rgba(32, 97, 109, 0.12);
+        }
+
+        [data-anim] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-anim].in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes pulse-subtle {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: scale(1.08);
+                opacity: 1;
+            }
+        }
+
+        .pulse-node {
+            animation: pulse-subtle 3s infinite ease-in-out;
+        }
+
+        /* Leaflet custom styling */
+        #iapa-leaflet-map {
+            width: 100%;
+            height: 520px;
+            border-radius: 1rem;
+            z-index: 10;
+        }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 14px;
+            box-shadow: 0 16px 32px -8px rgba(19, 62, 70, 0.18);
+            font-family: 'Work Sans', sans-serif;
+            padding: 4px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .leaflet-popup-content {
+            margin: 12px 14px;
+            line-height: 1.4;
+        }
+
+        .leaflet-container {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .map-pulse-marker {
+            position: relative;
+        }
+
+        .map-pulse-marker::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(178, 34, 34, 0.4);
+            animation: map-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes map-ping {
+
+            75%,
+            100% {
+                transform: scale(1.9);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="overflow-x-hidden bg-[#FAF9F9] text-on-background font-body-md antialiased selection:bg-iapa-teal selection:text-white">
+
+    <!-- ══════════════════════════════════════════
+     NAVBAR (Estandarizado con IAPA activo)
+    ══════════════════════════════════════════ -->
+    <nav class="bg-white sticky top-0 w-full border-b border-border-light z-50 shadow-sm">
+        <div
+            class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
+            <a href="code.html" class="flex items-center gap-3">
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="P.F Logo.png" />
+            </a>
+
+            <div class="hidden lg:flex items-center gap-5 xl:gap-8">
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="servicios.html">Servicios</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="expertise.html">Expertise</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="nosotros.html">Nosotros</a>
+                <a class="font-label-md text-label-md nav-active" href="iapa.html">IAPA</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="noticias.html">Noticias</a>
+                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                    href="contacto.html">Contacto</a>
+                <div class="flex items-center gap-4">
+                    <a href="contacto.html"
+                        class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Contáctenos</a>
+                    <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                        title="IAPA International — Conexión Global" class="flex items-center">
+                        <img src="IAPA_International_Logo.png" alt="IAPA International"
+                            class="h-10 w-auto object-contain rounded hover:opacity-85 transition-opacity" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 lg:hidden">
+                <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International"
+                        class="h-9 w-auto object-contain rounded" />
+                </a>
+                <button id="menu-toggle" onclick="toggleMobileMenu()"
+                    class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors"
+                    aria-label="Abrir menú de navegación" aria-expanded="false">
+                    <span id="menu-toggle-icon" class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="servicios.html">Servicios</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="expertise.html">Expertise</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="nosotros.html">Nosotros</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-iapa-teal font-semibold"
+                href="iapa.html">IAPA</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="noticias.html">Noticias</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="contacto.html">Contacto</a>
+            <div class="flex items-center gap-3 pt-2">
+                <a onclick="closeMobileMenu()" href="contacto.html"
+                    class="block text-center flex-1 bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Contáctenos</a>
+                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                    title="IAPA International" class="flex-shrink-0">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International"
+                        class="h-11 w-auto object-contain rounded" />
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Script de navegación móvil global autónomo -->
+    <script>
+        function toggleMobileMenu() {
+            var m = document.getElementById('mobile-menu');
+            var b = document.getElementById('menu-toggle');
+            var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+            if (!m) return;
+            var isHidden = m.classList.contains('hidden') || m.style.display === 'none' || (window.getComputedStyle && window.getComputedStyle(m).display === 'none');
+            if (isHidden) {
+                m.classList.remove('hidden');
+                m.style.display = 'block';
+                if (b) b.setAttribute('aria-expanded', 'true');
+                if (ic) ic.textContent = 'close';
+            } else {
+                m.classList.add('hidden');
+                m.style.display = 'none';
+                if (b) b.setAttribute('aria-expanded', 'false');
+                if (ic) ic.textContent = 'menu';
+            }
+        }
+
+        function closeMobileMenu() {
+            var m = document.getElementById('mobile-menu');
+            var b = document.getElementById('menu-toggle');
+            var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+            if (!m) return;
+            m.classList.add('hidden');
+            m.style.display = 'none';
+            if (b) b.setAttribute('aria-expanded', 'false');
+            if (ic) ic.textContent = 'menu';
+        }
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 1024) {
+                var m = document.getElementById('mobile-menu');
+                if (m) {
+                    m.classList.add('hidden');
+                    m.style.display = '';
+                }
+                var b = document.getElementById('menu-toggle');
+                if (b) b.setAttribute('aria-expanded', 'false');
+                var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+                if (ic) ic.textContent = 'menu';
+            }
+        });
+    </script>
+
+
+    <!-- ══════════════════════════════════════════
+     HERO CO-BRANDED: PÁEZ, FLORENCIA + IAPA
+    ══════════════════════════════════════════ -->
+    <header class="relative bg-white border-b border-border-light py-16 md:py-24 overflow-hidden">
+        <!-- Decoración visual sutil de fondo -->
+        <div
+            class="absolute top-0 right-0 w-96 h-96 bg-iapa-teal/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-80 h-80 bg-heritage-red/5 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20">
+        </div>
+
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop relative z-10">
+
+            <!-- Co-Branding Badges -->
+            <div class="flex flex-wrap items-center justify-between gap-6 pb-12 mb-12 border-b border-border-light"
+                data-anim>
+                <div class="flex items-center gap-4">
+                    <img src="P.F Logo.png" alt="Páez, Florencia & Co." class="h-14 md:h-16 w-auto object-contain" />
+                    <div class="h-10 w-[1px] bg-border-light hidden sm:block"></div>
+                    <div class="hidden sm:block">
+                        <span
+                            class="block font-label-md text-label-md uppercase tracking-widest text-secondary font-semibold">Auditores
+                            — Asesores</span>
+                        <span class="block font-caption text-caption text-slate-text">Ecuador (Quito | Guayaquil)</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 bg-[#FAF8F8] border border-border-light px-5 py-2.5 rounded-full">
+                    <span class="w-2.5 h-2.5 rounded-full bg-iapa-teal animate-ping"></span>
+                    <span class="font-label-md text-label-md uppercase tracking-wider text-iapa-teal font-bold">PÁEZ,
+                        FLORENCIA + IAPA</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                        title="Visitar Sitio Oficial de IAPA International" class="hover:opacity-85 transition-opacity">
+                        <img src="IAPA_International_Logo.png" alt="IAPA International"
+                            class="h-14 md:h-16 w-auto object-contain rounded-lg" />
+                    </a>
+                    <div class="hidden sm:block">
+                        <span
+                            class="block font-label-md text-label-md uppercase tracking-widest text-iapa-teal font-semibold">IAPA
+                            International</span>
+                        <span class="block font-caption text-caption text-slate-text">Global Support · Local
+                            Knowledge</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Heading Statement -->
+            <div class="max-w-4xl mx-auto text-center" data-anim>
+                <h1
+                    class="font-display-lg text-3xl sm:text-4xl md:text-[50px] md:leading-[58px] text-institutional-navy mb-6 break-words">
+                    Una firma local.<br />
+                    <span class="text-iapa-teal">Una conexión global.</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-slate-text max-w-3xl mx-auto leading-relaxed">
+                    Somos una firma independiente ecuatoriana y miembro de <strong>IAPA</strong>, una asociación global
+                    de firmas de auditoría, asesoría legal y consultoría empresarial que comparte valores, conocimiento
+                    y conexiones internacionales.
+                </p>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ══════════════════════════════════════════
+     SECCIÓN 01: ¿QUÉ ES IAPA Y QUÉ SIGNIFICA SER MIEMBRO?
+    ══════════════════════════════════════════ -->
+    <section class="py-16 md:py-24 bg-[#FAF9F9]">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <!-- Section 01 Header -->
+            <div class="flex items-center gap-4 mb-12" data-anim>
+                <div
+                    class="w-12 h-12 rounded-xl bg-iapa-teal text-white flex items-center justify-center font-display-lg text-xl font-bold flex-shrink-0 shadow-sm">
+                    01
+                </div>
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-institutional-navy uppercase tracking-tight">
+                        ¿Qué es IAPA y qué significa ser miembro?
+                    </h2>
+                    <div class="w-14 h-1 bg-iapa-teal mt-1 rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- Definition & Interactive Flow Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
+                <!-- Columna Izquierda: Definición -->
+                <div class="lg:col-span-4 bg-white p-8 rounded-2xl border border-border-light shadow-sm" data-anim>
+                    <div
+                        class="w-12 h-12 rounded-xl bg-iapa-teal/10 text-iapa-teal flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-2xl">apartment</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                        <strong>IAPA</strong> es una asociación global de firmas independientes de contabilidad,
+                        servicios legales y asesoría empresarial, que promueve la colaboración y el intercambio
+                        de conocimiento entre sus miembros en todo el mundo.
+                    </p>
+                </div>
+
+                <!-- Columna Central: Diagrama de Conexión Institucional -->
+                <div class="lg:col-span-8 bg-gradient-to-r from-white via-[#F4F9FA] to-white p-8 rounded-2xl border border-border-light shadow-sm"
+                    data-anim>
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+                        <!-- Firma Local -->
+                        <div class="text-center md:text-left flex-1">
+                            <span
+                                class="font-label-md text-label-md font-bold uppercase tracking-wider text-secondary">Páez,
+                                Florencia &amp; Co.</span>
+                            <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mt-1">Firma
+                                independiente ecuatoriana</h3>
+                            <div
+                                class="flex items-center justify-center md:justify-start gap-2 mt-2 font-caption text-caption font-semibold text-slate-text">
+                                <span class="material-symbols-outlined text-sm text-heritage-red">location_on</span>
+                                <span>QUITO | GUAYAQUIL</span>
+                            </div>
+                        </div>
+
+                        <!-- Badge Central de Membresía -->
+                        <div class="flex flex-col items-center justify-center flex-shrink-0">
+                            <div
+                                class="w-16 h-16 rounded-full bg-heritage-red text-white flex flex-col items-center justify-center shadow-md pulse-node">
+                                <span class="material-symbols-outlined text-xl">groups</span>
+                                <span class="text-[9px] font-bold uppercase tracking-tighter mt-0.5">MIEMBRO</span>
+                            </div>
+                            <span
+                                class="font-caption text-caption uppercase tracking-wider text-slate-text mt-1">Alianza
+                                Activa</span>
+                        </div>
+
+                        <!-- Asociación Global -->
+                        <div class="text-center md:text-right flex-1 flex flex-col items-center md:items-end">
+                            <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                                title="Visitar Sitio Oficial de IAPA International"
+                                class="hover:opacity-85 transition-opacity">
+                                <img src="IAPA_International_Logo.png" alt="IAPA International"
+                                    class="h-10 w-auto object-contain rounded mb-1" />
+                            </a>
+                            <h3 class="font-headline-md text-headline-md text-iapa-teal font-bold">IAPA INTERNATIONAL
+                            </h3>
+                            <p class="font-body-md text-body-md text-slate-text">Asociación global de firmas
+                                independientes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Pilares de la Membresía (Cards) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Pilar 1 -->
+                <div class="card-hover bg-white border border-border-light p-6 rounded-2xl shadow-sm text-center flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 bg-[#F0F8FA] text-iapa-teal rounded-2xl flex items-center justify-center mx-auto mb-4 border border-iapa-teal/15">
+                            <span class="material-symbols-outlined text-2xl">public</span>
+                        </div>
+                        <h4
+                            class="font-headline-md text-headline-md font-bold text-institutional-navy uppercase tracking-wider mb-2">
+                            Alcance Internacional
+                        </h4>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Conexiones profesionales estratégicas en diferentes mercados del mundo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="card-hover bg-white border border-border-light p-6 rounded-2xl shadow-sm text-center flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 bg-[#F0F8FA] text-iapa-teal rounded-2xl flex items-center justify-center mx-auto mb-4 border border-iapa-teal/15">
+                            <span class="material-symbols-outlined text-2xl">handshake</span>
+                        </div>
+                        <h4
+                            class="font-headline-md text-headline-md font-bold text-institutional-navy uppercase tracking-wider mb-2">
+                            Colaboración
+                        </h4>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Intercambio permanente de conocimiento técnico y mejores prácticas internacionales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="card-hover bg-white border border-border-light p-6 rounded-2xl shadow-sm text-center flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 bg-[#F0F8FA] text-iapa-teal rounded-2xl flex items-center justify-center mx-auto mb-4 border border-iapa-teal/15">
+                            <span class="material-symbols-outlined text-2xl">location_on</span>
+                        </div>
+                        <h4
+                            class="font-headline-md text-headline-md font-bold text-institutional-navy uppercase tracking-wider mb-2">
+                            Conocimiento Local
+                        </h4>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Acceso a experiencia calificada sobre regulaciones, cultura y normativas de cada plaza.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pilar 4 -->
+                <div class="card-hover bg-white border border-border-light p-6 rounded-2xl shadow-sm text-center flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 bg-[#F0F8FA] text-iapa-teal rounded-2xl flex items-center justify-center mx-auto mb-4 border border-iapa-teal/15">
+                            <span class="material-symbols-outlined text-2xl">link</span>
+                        </div>
+                        <h4
+                            class="font-headline-md text-headline-md font-bold text-institutional-navy uppercase tracking-wider mb-2">
+                            Referencias Internacionales
+                        </h4>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Conexión directa con firmas de total confianza cuando las operaciones lo exigen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner Cierre Sección 01 (Cita de Valor) -->
+            <div class="bg-gradient-to-r from-iapa-teal-dark via-iapa-teal to-iapa-teal-dark text-white rounded-2xl p-6 md:p-8 flex items-center justify-center gap-4 text-center shadow-md"
+                data-anim>
+                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-xl text-white">verified_user</span>
+                </div>
+                <p class="font-headline-md text-headline-md font-medium tracking-wide">
+                    "Ser parte de IAPA no cambia quiénes somos. Amplía hasta dónde podemos llegar."
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     SECCIÓN 02: NUESTROS PRINCIPIOS COMPARTIDOS
+    ══════════════════════════════════════════ -->
+    <section class="py-16 md:py-24 bg-white border-t border-border-light">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <!-- Section 02 Header -->
+            <div class="flex items-center gap-4 mb-12" data-anim>
+                <div
+                    class="w-12 h-12 rounded-xl bg-institutional-navy text-white flex items-center justify-center font-display-lg text-xl font-bold flex-shrink-0 shadow-sm">
+                    02
+                </div>
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-institutional-navy uppercase tracking-tight">
+                        Nuestros Principios Compartidos
+                    </h2>
+                    <div class="w-14 h-1 bg-institutional-navy mt-1 rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- 5 Principios Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- 1. Quality -->
+                <div class="card-hover bg-[#FAF8F8] border border-border-light rounded-2xl p-6 text-center shadow-xs flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-full bg-white border border-border-light flex items-center justify-center mx-auto mb-5 shadow-xs text-heritage-red">
+                            <span class="material-symbols-outlined text-2xl"
+                                style="font-variation-settings:'FILL' 1">workspace_premium</span>
+                        </div>
+                        <span
+                            class="font-label-md text-label-md uppercase tracking-widest text-slate-text/70 block">QUALITY</span>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-3">Calidad
+                        </h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Buscamos la excelencia técnica sin comprometer jamás nuestros estándares profesionales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Integrity -->
+                <div class="card-hover bg-[#FAF8F8] border border-border-light rounded-2xl p-6 text-center shadow-xs flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-full bg-white border border-border-light flex items-center justify-center mx-auto mb-5 shadow-xs text-heritage-red">
+                            <span class="material-symbols-outlined text-2xl"
+                                style="font-variation-settings:'FILL' 1">balance</span>
+                        </div>
+                        <span
+                            class="font-label-md text-label-md uppercase tracking-widest text-slate-text/70 block">INTEGRITY</span>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-3">Integridad
+                        </h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Actuamos con los más altos estándares éticos, transparencia e independencia en cada encargo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Passion -->
+                <div class="card-hover bg-[#FAF8F8] border border-border-light rounded-2xl p-6 text-center shadow-xs flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-full bg-white border border-border-light flex items-center justify-center mx-auto mb-5 shadow-xs text-heritage-red">
+                            <span class="material-symbols-outlined text-2xl"
+                                style="font-variation-settings:'FILL' 1">favorite</span>
+                        </div>
+                        <span
+                            class="font-label-md text-label-md uppercase tracking-widest text-slate-text/70 block">PASSION</span>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-3">Pasión</h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Nos comprometemos con entregar lo mejor a cada uno de nuestros clientes y sus proyectos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. Innovation -->
+                <div class="card-hover bg-[#FAF8F8] border border-border-light rounded-2xl p-6 text-center shadow-xs flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-full bg-white border border-border-light flex items-center justify-center mx-auto mb-5 shadow-xs text-heritage-red">
+                            <span class="material-symbols-outlined text-2xl"
+                                style="font-variation-settings:'FILL' 1">lightbulb</span>
+                        </div>
+                        <span
+                            class="font-label-md text-label-md uppercase tracking-widest text-slate-text/70 block">INNOVATION</span>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-3">Innovación
+                        </h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Buscamos continuamente nuevas formas eficientes de hacer las cosas y crear soluciones a
+                            medida.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. Knowledge -->
+                <div class="card-hover bg-[#FAF8F8] border border-border-light rounded-2xl p-6 text-center shadow-xs flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-full bg-white border border-border-light flex items-center justify-center mx-auto mb-5 shadow-xs text-heritage-red">
+                            <span class="material-symbols-outlined text-2xl"
+                                style="font-variation-settings:'FILL' 1">school</span>
+                        </div>
+                        <span
+                            class="font-label-md text-label-md uppercase tracking-widest text-slate-text/70 block">KNOWLEDGE</span>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-3">
+                            Conocimiento</h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Compartimos experiencia y know-how global para generar las mejores respuestas técnicas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     SECCIÓN 03: ¿QUÉ SIGNIFICA PARA NUESTROS CLIENTES?
+    ══════════════════════════════════════════ -->
+    <section class="py-16 md:py-24 bg-[#F6F8F9] border-t border-border-light">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <!-- Section 03 Header -->
+            <div class="flex items-center gap-4 mb-12" data-anim>
+                <div
+                    class="w-12 h-12 rounded-xl bg-heritage-red text-white flex items-center justify-center font-display-lg text-xl font-bold flex-shrink-0 shadow-sm">
+                    03
+                </div>
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-institutional-navy uppercase tracking-tight">
+                        ¿Qué significa para nuestros clientes?
+                    </h2>
+                    <div class="w-14 h-1 bg-heritage-red mt-1 rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- 5 Beneficios para Clientes -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- 1. Acceso Global -->
+                <div class="card-hover bg-white border border-border-light rounded-2xl p-6 text-center shadow-sm flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-iapa-teal/10 text-iapa-teal flex items-center justify-center mx-auto mb-4">
+                            <span class="material-symbols-outlined text-2xl">travel_explore</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-2">Acceso
+                            Global</h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Red de firmas independientes preparadas para atender en múltiples mercados internacionales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Confianza -->
+                <div class="card-hover bg-white border border-border-light rounded-2xl p-6 text-center shadow-sm flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-iapa-teal/10 text-iapa-teal flex items-center justify-center mx-auto mb-4">
+                            <span class="material-symbols-outlined text-2xl">verified</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-2">Confianza
+                        </h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Firmas que comparten estrictos estándares de profesionalismo, integridad y control de
+                            calidad.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Conocimiento Local -->
+                <div class="card-hover bg-white border border-border-light rounded-2xl p-6 text-center shadow-sm flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-iapa-teal/10 text-iapa-teal flex items-center justify-center mx-auto mb-4">
+                            <span class="material-symbols-outlined text-2xl">map</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-2">
+                            Conocimiento Local</h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Información técnica de primera mano sobre regulaciones, jurisprudencia y prácticas de cada
+                            país.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. Colaboración -->
+                <div class="card-hover bg-white border border-border-light rounded-2xl p-6 text-center shadow-sm flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-iapa-teal/10 text-iapa-teal flex items-center justify-center mx-auto mb-4">
+                            <span class="material-symbols-outlined text-2xl">hub</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-2">
+                            Colaboración</h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Trabajamos coordinadamente para brindar las soluciones integrales que demandan nuestros
+                            clientes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. Crecimiento Internacional -->
+                <div class="card-hover bg-white border border-border-light rounded-2xl p-6 text-center shadow-sm flex flex-col justify-between"
+                    data-anim>
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-iapa-teal/10 text-iapa-teal flex items-center justify-center mx-auto mb-4">
+                            <span class="material-symbols-outlined text-2xl">trending_up</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-2">Crecimiento
+                            Internacional</h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Acompañamiento especializado cuando su negocio ingresa o se expande hacia nuevas fronteras.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     SECCIÓN 04: DE ECUADOR AL MUNDO (MAPA Y REGIONES)
+    ══════════════════════════════════════════ -->
+    <section class="py-16 md:py-24 bg-white border-t border-border-light">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+
+            <!-- Section 04 Header -->
+            <div class="flex items-center gap-4 mb-12" data-anim>
+                <div
+                    class="w-12 h-12 rounded-xl bg-iapa-teal text-white flex items-center justify-center font-display-lg text-xl font-bold flex-shrink-0 shadow-sm">
+                    04
+                </div>
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-institutional-navy uppercase tracking-tight">
+                        De Ecuador al Mundo
+                    </h2>
+                    <div class="w-14 h-1 bg-iapa-teal mt-1 rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- Mapa / Conexión Global Layout -->
+            <div class="bg-[#F8FAFB] border border-border-light rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-sm mb-12"
+                data-anim>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+                    <!-- Columna Izquierda: Nodos de conexión Ecuador -> IAPA -->
+                    <div class="lg:col-span-4 space-y-6">
+                        <!-- Origen: Páez Florencia -->
+                        <div class="bg-white p-6 rounded-2xl border border-border-light shadow-xs">
+                            <div class="flex items-center gap-4 mb-2">
+                                <img src="P.F Logo.png" alt="Páez Florencia" class="h-10 w-auto object-contain" />
+                                <div>
+                                    <h4 class="font-headline-md text-headline-md font-bold text-institutional-navy">
+                                        PÁEZ, FLORENCIA &amp; CO.</h4>
+                                    <p class="font-body-md text-body-md text-slate-text">Ecuador (Quito | Guayaquil)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Flecha Conectora -->
+                        <div class="flex items-center justify-center">
+                            <div
+                                class="flex items-center gap-2 text-iapa-teal font-label-md text-label-md font-bold uppercase tracking-wider bg-iapa-teal/10 px-4 py-1.5 rounded-full">
+                                <span>Conexión Global Directa</span>
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </div>
+                        </div>
+
+                        <!-- Hub: IAPA International -->
+                        <div class="bg-white p-6 rounded-2xl border border-iapa-teal/20 shadow-xs">
+                            <div class="flex items-center gap-4">
+                                <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                                    title="Visitar Sitio Oficial de IAPA International"
+                                    class="hover:opacity-85 transition-opacity">
+                                    <img src="IAPA_International_Logo.png" alt="IAPA International"
+                                        class="h-12 w-auto object-contain rounded" />
+                                </a>
+                                <div>
+                                    <h4 class="font-headline-md text-headline-md font-bold text-iapa-teal">IAPA
+                                        INTERNATIONAL</h4>
+                                    <p class="font-body-md text-body-md text-slate-text">Asociación global de firmas
+                                        independientes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Central/Derecha: Representación Visual de los 4 Continentes -->
+                    <div class="lg:col-span-8">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                            <!-- Región 1: Europa -->
+                            <div
+                                class="bg-white p-6 rounded-2xl border-l-4 border-institutional-navy border-t border-r border-b border-border-light shadow-xs hover:border-l-iapa-teal transition-colors">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span
+                                        class="inline-block px-3 py-1 bg-institutional-navy text-white font-label-md text-label-md uppercase tracking-wider rounded-md font-bold">
+                                        Europa
+                                    </span>
+                                    <span class="material-symbols-outlined text-institutional-navy text-xl">euro</span>
+                                </div>
+                                <h4 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-1">
+                                    Presencia Consolidada</h4>
+                                <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                                    Conexión directa en Reino Unido, España, Alemania, Francia, Italia y los principales
+                                    hubs de la Unión Europea.
+                                </p>
+                            </div>
+
+                            <!-- Región 2: Norteamérica -->
+                            <div
+                                class="bg-white p-6 rounded-2xl border-l-4 border-iapa-teal border-t border-r border-b border-border-light shadow-xs hover:border-l-iapa-teal-light transition-colors">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span
+                                        class="inline-block px-3 py-1 bg-iapa-teal text-white font-label-md text-label-md uppercase tracking-wider rounded-md font-bold">
+                                        Norteamérica
+                                    </span>
+                                    <span class="material-symbols-outlined text-iapa-teal text-xl">attach_money</span>
+                                </div>
+                                <h4 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-1">
+                                    Estados Unidos &amp; Canadá</h4>
+                                <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                                    Acceso a firmas asociadas de primer nivel en los centros financieros y comerciales
+                                    de Norteamérica.
+                                </p>
+                            </div>
+
+                            <!-- Región 3: Latinoamérica -->
+                            <div
+                                class="bg-white p-6 rounded-2xl border-l-4 border-heritage-red border-t border-r border-b border-border-light shadow-xs hover:border-l-secondary transition-colors">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span
+                                        class="inline-block px-3 py-1 bg-heritage-red text-white font-label-md text-label-md uppercase tracking-wider rounded-md font-bold">
+                                        Latinoamérica
+                                    </span>
+                                    <span
+                                        class="material-symbols-outlined text-heritage-red text-xl">travel_explore</span>
+                                </div>
+                                <h4 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-1">Red
+                                    Regional Estratégica</h4>
+                                <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                                    Vínculos fluidos con firmas en Colombia, Perú, Chile, México, Argentina, Panamá y
+                                    Centroamérica.
+                                </p>
+                            </div>
+
+                            <!-- Región 4: Asia Pacífico -->
+                            <div
+                                class="bg-white p-6 rounded-2xl border-l-4 border-amber-600 border-t border-r border-b border-border-light shadow-xs hover:border-l-amber-500 transition-colors">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span
+                                        class="inline-block px-3 py-1 bg-amber-600 text-white font-label-md text-label-md uppercase tracking-wider rounded-md font-bold">
+                                        Asia Pacífico
+                                    </span>
+                                    <span class="material-symbols-outlined text-amber-600 text-xl">language</span>
+                                </div>
+                                <h4 class="font-headline-md text-headline-md text-institutional-navy font-bold mb-1">
+                                    Mercados en Expansión</h4>
+                                <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                                    Soporte en economías dinámicas de Asia, Medio Oriente, Australia y centros
+                                    logísticos del Pacífico.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── SECCIÓN INTERACTIVA: MAPA GLOBAL LEAFLET ── -->
+            <div class="bg-white border border-border-light rounded-3xl p-6 md:p-10 shadow-sm mb-12" data-anim>
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-6">
+                    <div>
+                        <div
+                            class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-iapa-teal bg-iapa-teal/10 px-3 py-1 rounded-full mb-2">
+                            <span class="material-symbols-outlined text-sm">public</span>
+                            <span>Red Global en Tiempo Real</span>
+                        </div>
+                        <h3 class="font-headline-md text-2xl md:text-3xl text-institutional-navy font-bold">
+                            Mapa Interactivo de Presencia Internacional
+                        </h3>
+                        <p class="text-secondary text-sm md:text-base font-body-md mt-1">
+                            Explore las principales firmas miembro y corresponsalías de la red IAPA alrededor del mundo.
+                        </p>
+                    </div>
+
+                    <!-- Controles: Buscador en Tiempo Real & Filtros de Región -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                        <!-- Buscador -->
+                        <div class="relative min-w-[220px]">
+                            <span
+                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">search</span>
+                            <input type="text" id="map-search-input" oninput="handleMapSearch(this.value)"
+                                placeholder="Buscar país, ciudad o firma..."
+                                class="w-full pl-9 pr-3 py-2 bg-slate-50 border border-border-light rounded-xl text-xs font-body-md focus:outline-none focus:border-iapa-teal focus:bg-white transition-all shadow-2xs" />
+                        </div>
+
+                        <!-- Botones de Navegación Rápida por Región -->
+                        <div class="flex flex-wrap items-center gap-2" id="map-region-filters">
+                            <button type="button" id="btn-filter-world" onclick="filterMapByRegion('world')"
+                                class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-iapa-teal text-white transition-all shadow-xs cursor-pointer">
+                                Todas (146)
+                            </button>
+                            <button type="button" id="btn-filter-ecuador" onclick="filterMapByRegion('ecuador')"
+                                class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-heritage-red/10 text-heritage-red border border-heritage-red/20 hover:bg-heritage-red hover:text-white transition-all cursor-pointer">
+                                Ecuador (2)
+                            </button>
+                            <button type="button" id="btn-filter-europe" onclick="filterMapByRegion('europe')"
+                                class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-text hover:bg-iapa-teal hover:text-white transition-all cursor-pointer">
+                                Europa &amp; EMEA (66)
+                            </button>
+                            <button type="button" id="btn-filter-americas" onclick="filterMapByRegion('americas')"
+                                class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-text hover:bg-iapa-teal hover:text-white transition-all cursor-pointer">
+                                Américas (44)
+                            </button>
+                            <button type="button" id="btn-filter-asia" onclick="filterMapByRegion('asia')"
+                                class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-text hover:bg-iapa-teal hover:text-white transition-all cursor-pointer">
+                                Asia Pacífico (36)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenedor del Mapa Leaflet -->
+                <div id="iapa-leaflet-map"
+                    class="w-full h-[380px] sm:h-[460px] md:h-[540px] rounded-2xl overflow-hidden border border-border-light shadow-inner relative z-0">
+                </div>
+
+                <!-- Leyenda de marcadores y métricas de red -->
+                <div
+                    class="mt-6 pt-6 border-t border-border-light flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+                    <!-- Leyenda interactiva -->
+                    <div class="flex flex-wrap items-center gap-5 text-xs font-medium text-slate-text">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3.5 h-3.5 rounded-full bg-heritage-red inline-block shadow-xs"></span>
+                            <span>Páez Florencia (Ecuador)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3.5 h-3.5 rounded-full bg-iapa-teal inline-block shadow-xs"></span>
+                            <span>Oficinas Principales IAPA</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3.5 h-3.5 rounded-full bg-slate-400 inline-block shadow-xs"></span>
+                            <span>Sedes Secundarias</span>
+                        </div>
+                        <div class="text-xs text-secondary font-medium ml-2">
+                            Mostrando: <span id="map-counter" class="font-bold text-institutional-navy">146</span> sedes
+                        </div>
+                    </div>
+
+                    <!-- Métricas globales -->
+                    <div
+                        class="flex items-center gap-6 font-semibold text-xs uppercase tracking-wider text-institutional-navy">
+                        <div><strong class="text-iapa-teal text-base font-bold font-display-lg">51+</strong> Países
+                        </div>
+                        <div><strong class="text-institutional-navy text-base font-bold font-display-lg">146</strong>
+                            Sedes</div>
+                        <div><strong class="text-heritage-red text-base font-bold font-display-lg">2</strong> Sedes EC
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mini Callout de Asistencia en Otro Mercado -->
+            <div class="bg-[#F0F8FA] border border-iapa-teal/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6"
+                data-anim>
+                <div class="flex items-center gap-5">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-iapa-teal text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <span class="material-symbols-outlined text-2xl">handshake</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline-md text-headline-md text-institutional-navy font-bold">¿Necesitas apoyo
+                            en otro mercado?</h4>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Como firma miembro de IAPA, podemos conectarte directamente con profesionales independientes
+                            calificados de la asociación en el país que requieras.
+                        </p>
+                    </div>
+                </div>
+                <a href="contacto.html"
+                    class="bg-iapa-teal hover:bg-iapa-teal-dark text-white font-label-md text-label-md uppercase tracking-wider px-6 py-3.5 rounded-xl transition-colors font-semibold flex-shrink-0 flex items-center gap-2">
+                    <span>Contactar con un Director</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     SECCIÓN 05: PORTAL OFICIAL DE IAPA INTERNATIONAL
+    ══════════════════════════════════════════ -->
+    <section class="py-16 md:py-24 bg-[#FAF9F9] border-t border-border-light">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+            <div class="bg-gradient-to-br from-white via-[#F5FAFB] to-white border border-iapa-teal/20 rounded-3xl p-8 md:p-14 shadow-sm relative overflow-hidden"
+                data-anim>
+                <!-- Decorative background elements -->
+                <div
+                    class="absolute -right-16 -top-16 w-64 h-64 bg-iapa-teal/5 rounded-full blur-2xl pointer-events-none">
+                </div>
+                <div
+                    class="absolute -left-16 -bottom-16 w-64 h-64 bg-heritage-red/5 rounded-full blur-2xl pointer-events-none">
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <!-- Columna Izquierda: Logo Oficial y Sede Global -->
+                    <div class="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
+                        <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                            title="Ir al portal web oficial de IAPA"
+                            class="p-4 rounded-2xl bg-white border border-border-light shadow-sm mb-4 inline-block hover:shadow-md transition-all group">
+                            <img src="IAPA_International_Logo.png" alt="IAPA International"
+                                class="h-16 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform" />
+                        </a>
+                        <div
+                            class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-iapa-teal bg-iapa-teal/10 px-3 py-1 rounded-full mb-2">
+                            <span class="material-symbols-outlined text-sm">verified</span>
+                            <span>Sitio Web Oficial</span>
+                        </div>
+                        <p class="font-caption text-caption text-slate-text/80 font-medium">www.iapa.net • Londres,
+                            Reino Unido</p>
+                    </div>
+
+                    <!-- Columna Central: Reseña del Portal -->
+                    <div class="lg:col-span-5 text-center lg:text-left">
+                        <h3 class="font-headline-lg text-headline-lg text-institutional-navy font-bold mb-3">
+                            Visite el Portal Oficial de IAPA International
+                        </h3>
+                        <p class="font-body-md text-body-md text-slate-text leading-relaxed">
+                            Acceda a recursos técnicos especializados, publicaciones tributarias internacionales,
+                            conferencias mundiales y al directorio global completo de firmas miembro de la asociación.
+                        </p>
+                    </div>
+
+                    <!-- Columna Derecha: Botón de Enlace Directo -->
+                    <div class="lg:col-span-3 flex flex-col items-center lg:items-end justify-center">
+                        <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-iapa-teal hover:bg-iapa-teal-dark text-white font-label-md text-label-md uppercase tracking-wider font-bold transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 group">
+                            <span>Ir a IAPA.NET</span>
+                            <span
+                                class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">open_in_new</span>
+                        </a>
+                        <span class="font-caption text-[11px] text-slate-text/60 mt-2 text-center">Se abrirá en una
+                            nueva pestaña</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+     SECCIÓN 06: BANNER DE CIERRE INTERNACIONAL (CTA)
+    ══════════════════════════════════════════ -->
+    <section
+        class="bg-gradient-to-r from-iapa-teal-dark via-[#10434C] to-institutional-navy py-16 md:py-20 text-white relative overflow-hidden">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+
+                <div class="flex items-center gap-5 text-center lg:text-left">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0 mx-auto lg:mx-0">
+                        <span class="material-symbols-outlined text-3xl text-iapa-cyan">language</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display-lg text-headline-lg md:text-display-lg font-bold mb-2">
+                            ¿Tu negocio está pensando en crecer internacionalmente?
+                        </h3>
+                        <p class="font-body-md text-body-md text-white/80 max-w-2xl">
+                            Desde Ecuador, podemos ayudarte a conectar con profesionales de confianza en otros mercados
+                            para asegurar el éxito y cumplimiento de tu expansión.
+                        </p>
+                    </div>
+                </div>
+
+                <a href="contacto.html"
+                    class="bg-heritage-red hover:bg-[#C82A2A] text-white font-label-md text-label-md uppercase tracking-wider px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl font-bold flex-shrink-0 flex items-center gap-3">
+                    <span>HABLEMOS DE TU PRÓXIMO MERCADO</span>
+                    <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+     FOOTER INSTITUCIONAL
+    ══════════════════════════════════════════ -->
+    <footer class="bg-[#871B1F] w-full">
+        <div class="h-1 w-full bg-[#3E0C0F]"></div>
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop py-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 text-white">
+
+                <!-- Brand -->
+                <div class="md:col-span-4">
+                    <a href="code.html" class="inline-block mb-5 group">
+                        <span
+                            class="font-display-lg text-2xl sm:text-[26px] font-bold tracking-tight text-white block leading-snug group-hover:text-white/90 transition-colors">
+                            Páez, Florencia &amp; Co. Cía. Ltda.
+                        </span>
+                    </a>
+                    <p class="font-body-md text-body-md mb-6 leading-relaxed max-w-xs"
+                        style="color:rgba(228,226,228,.8)">
+                        25 años de ética profesional, confianza institucional y precisión técnica en
+                        auditoría externa y consultoría financiera en todo el Ecuador. Miembros de IAPA International.
+                    </p>
+                </div>
+
+                <!-- Oficina Quito -->
+                <div class="md:col-span-4">
+                    <h4 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
+                        style="border-color:rgba(255,255,255,.2)">
+                        <span class="material-symbols-outlined text-white" style="font-size:20px">location_city</span>
+                        Oficina Quito
+                    </h4>
+                    <div class="space-y-3 font-body-md text-sm" style="color:rgba(228,226,228,.9)">
+                        <div class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">location_on</span>
+                            <span>Juan Diguja OE2-66 y Voz Andes, Edificio Opal oficinas 501 y 502</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">call</span>
+                            <a href="tel:023809780"
+                                class="hover:underline hover:text-white transition-colors">023809-780</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">smartphone</span>
+                            <a href="tel:09997102616"
+                                class="hover:underline hover:text-white transition-colors">09997102616</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">mail</span>
+                            <a href="mailto:pfcontadores@paezflorencia.com.ec"
+                                class="hover:underline hover:text-white transition-colors break-all">pfcontadores@paezflorencia.com.ec</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oficina Guayaquil -->
+                <div class="md:col-span-4">
+                    <h4 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
+                        style="border-color:rgba(255,255,255,.2)">
+                        <span class="material-symbols-outlined text-white" style="font-size:20px">location_city</span>
+                        Oficina Guayaquil
+                    </h4>
+                    <div class="space-y-3 font-body-md text-sm" style="color:rgba(228,226,228,.9)">
+                        <div class="flex items-start gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">location_on</span>
+                            <span>Junín 203 y Panamá, Edificio Teófilo Bucaram oficinas 1 y 2</span>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">smartphone</span>
+                            <a href="tel:0998452649"
+                                class="hover:underline hover:text-white transition-colors">0998452649</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">mail</span>
+                            <a href="mailto:pfcontad@paezflorencia.com"
+                                class="hover:underline hover:text-white transition-colors break-all">pfcontad@paezflorencia.com</a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 border-t"
+                style="border-color:rgba(255,255,255,.1)">
+                <p class="font-caption text-caption text-center md:text-left" style="color:rgba(197,198,206,.8)">
+                    © 2026 PAEZ, FLORENCIA &amp; CO. Todos los derechos reservados.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="font-caption text-caption hover:text-white transition-colors"
+                        style="color:rgba(197,198,206,.8)">Política de Privacidad</a>
+                    <a href="#" class="font-caption text-caption hover:text-white transition-colors"
+                        style="color:rgba(197,198,206,.8)">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ══════════════════════════════════════════
+     SCRIPTS: Mobile Menu & Scroll Animations
+    ══════════════════════════════════════════ -->
+    <script>
+        // Scroll observer for subtle entry animations
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    animObserver.unobserve(entry.target);
+                    // If the animated element is or contains the map, invalidate size
+                    if (iapaMap && (entry.target.id === 'iapa-leaflet-map' || entry.target.contains(document.getElementById('iapa-leaflet-map')))) {
+                        setTimeout(() => iapaMap.invalidateSize(), 350);
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-anim]').forEach(el => animObserver.observe(el));
+    </script>
+
+    <!-- ══════════════════════════════════════════
+     LEAFLET JS & DATOS OFICIALES DE LA RED IAPA (146 SEDES)
+    ══════════════════════════════════════════ -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="iapa-members-data.js"></script>
+    <script>
+        let iapaMap = null;
+        let markersLayer = null;
+        let currentRegion = 'world';
+        let currentQuery = '';
+
+        function createCustomIcon(loc) {
+            if (loc.office_type === 'headquarters') {
+                return L.divIcon({
+                    className: 'custom-map-marker',
+                    html: `
+                        <div class="map-pulse-marker relative flex items-center justify-center w-7 h-7 bg-heritage-red text-white rounded-full shadow-lg border-2 border-white cursor-pointer hover:scale-110 transition-transform" title="${loc.name}">
+                            <span class="material-symbols-outlined" style="font-size:16px;">apartment</span>
+                        </div>
+                    `,
+                    iconSize: [28, 28],
+                    iconAnchor: [14, 14],
+                    popupAnchor: [0, -14]
+                });
+            } else if (loc.office_type === 'main_office') {
+                return L.divIcon({
+                    className: 'custom-map-marker',
+                    html: `
+                        <div class="relative flex items-center justify-center w-5 h-5 bg-iapa-teal text-white rounded-full shadow-sm border-2 border-white cursor-pointer hover:scale-125 transition-transform" title="${loc.name}">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                        </div>
+                    `,
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10],
+                    popupAnchor: [0, -10]
+                });
+            } else {
+                return L.divIcon({
+                    className: 'custom-map-marker',
+                    html: `
+                        <div class="relative flex items-center justify-center w-4 h-4 bg-slate-400 text-white rounded-full shadow-xs border border-white cursor-pointer hover:scale-125 transition-transform" title="${loc.name}">
+                            <span class="w-1 h-1 bg-white rounded-full"></span>
+                        </div>
+                    `,
+                    iconSize: [16, 16],
+                    iconAnchor: [8, 8],
+                    popupAnchor: [0, -8]
+                });
+            }
+        }
+
+        function createPopupContent(loc) {
+            const isHQ = loc.office_type === 'headquarters';
+            const isMain = loc.office_type === 'main_office';
+            const badgeColor = isHQ ? 'text-heritage-red bg-heritage-red/10' : (isMain ? 'text-iapa-teal bg-iapa-teal/10' : 'text-slate-600 bg-slate-100');
+            const badgeText = isHQ ? 'Sede Páez Florencia (Ecuador)' : (isMain ? 'Oficina Principal IAPA' : 'Oficina Regional / Sub-Sede');
+
+            return `
+                <div class="p-1 min-w-[220px] max-w-[280px]">
+                    <span class="inline-block text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full ${badgeColor} mb-1.5">
+                        ${badgeText}
+                    </span>
+                    <h5 class="font-bold text-institutional-navy text-sm leading-snug mb-1">${loc.name}</h5>
+                    <div class="text-xs text-slate-text flex items-center gap-1 mb-1">
+                        <span class="material-symbols-outlined text-sm text-iapa-teal">location_on</span>
+                        <span>${loc.city ? loc.city + ', ' : ''}${loc.country}</span>
+                    </div>
+                    ${loc.reg_group_name ? `<div class="text-[10px] text-gray-400 uppercase tracking-wider mb-2 font-medium">${loc.reg_group_name}</div>` : ''}
+                    ${loc.address ? `<div class="text-[11px] text-gray-600 mb-2 pt-1.5 border-t border-border-light leading-relaxed">${loc.address}</div>` : ''}
+                    <div class="space-y-1.5 text-xs pt-1.5 border-t border-border-light">
+                        ${loc.phone ? `
+                            <div class="flex items-center gap-1.5 text-secondary">
+                                <span class="material-symbols-outlined text-[14px]">call</span>
+                                <a href="tel:${loc.phone.replace(/[^0-9+]/g, '')}" class="hover:text-heritage-red transition-colors">${loc.phone}</a>
+                            </div>
+                        ` : ''}
+                        ${loc.email ? `
+                            <div class="flex items-center gap-1.5 text-secondary">
+                                <span class="material-symbols-outlined text-[14px]">mail</span>
+                                <a href="mailto:${loc.email}" class="hover:text-heritage-red transition-colors break-all">${loc.email}</a>
+                            </div>
+                        ` : ''}
+                        ${loc.website ? `
+                            <div class="flex items-center gap-1.5 text-secondary">
+                                <span class="material-symbols-outlined text-[14px]">language</span>
+                                <a href="${loc.website.startsWith('http') ? loc.website : 'https://' + loc.website}" target="_blank" rel="noopener noreferrer" class="hover:text-heritage-red transition-colors font-medium">Visitar Sitio Web</a>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderMarkers() {
+            if (!iapaMap || typeof IAPA_MEMBERS_DATA === 'undefined') return [];
+
+            if (markersLayer) {
+                markersLayer.clearLayers();
+            } else {
+                markersLayer = L.layerGroup().addTo(iapaMap);
+            }
+
+            const q = currentQuery.toLowerCase().trim();
+            const filtered = IAPA_MEMBERS_DATA.filter(loc => {
+                // Filtro por región
+                if (currentRegion === 'ecuador') {
+                    if (loc.country.toLowerCase() !== 'ecuador') return false;
+                } else if (currentRegion !== 'world') {
+                    if (loc.region !== currentRegion) return false;
+                }
+
+                // Filtro por texto en tiempo real
+                if (q) {
+                    const matchName = (loc.name || '').toLowerCase().includes(q);
+                    const matchCity = (loc.city || '').toLowerCase().includes(q);
+                    const matchCountry = (loc.country || '').toLowerCase().includes(q);
+                    const matchAddr = (loc.address || '').toLowerCase().includes(q);
+                    const matchGroup = (loc.reg_group_name || '').toLowerCase().includes(q);
+                    if (!matchName && !matchCity && !matchCountry && !matchAddr && !matchGroup) return false;
+                }
+
+                return true;
+            });
+
+            // Actualizar contador en interfaz
+            const counterEl = document.getElementById('map-counter');
+            if (counterEl) counterEl.textContent = filtered.length;
+
+            const latLngs = [];
+            filtered.forEach(loc => {
+                if (loc.lat && loc.lng) {
+                    const marker = L.marker([loc.lat, loc.lng], { icon: createCustomIcon(loc) });
+                    marker.bindPopup(createPopupContent(loc));
+                    markersLayer.addLayer(marker);
+                    latLngs.push([loc.lat, loc.lng]);
+                }
+            });
+
+            return latLngs;
+        }
+
+        function initIapaMap() {
+            const mapEl = document.getElementById('iapa-leaflet-map');
+            if (!mapEl || iapaMap) return;
+
+            // Iniciar mapa centrado globalmente
+            iapaMap = L.map('iapa-leaflet-map', {
+                center: [20, 0],
+                zoom: 2,
+                minZoom: 2,
+                maxZoom: 16,
+                scrollWheelZoom: false
+            });
+
+            // Mapa base limpio y corporativo (Esri World Light Gray - 100% gratuito sin marcas de agua ni API key requerida)
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+                attribution: '&copy; <a href="https://www.esri.com/" target="_blank" rel="noopener noreferrer">Esri</a> &copy; OpenStreetMap contributors',
+                maxZoom: 16
+            }).addTo(iapaMap);
+
+            // Capa de nombres de países y referencias geográficas
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+                maxZoom: 16
+            }).addTo(iapaMap);
+
+            renderMarkers();
+
+            // Reajustar dimensiones para renderizado nítido
+            setTimeout(() => {
+                iapaMap.invalidateSize();
+            }, 350);
+        }
+
+        // Navegación y filtrado por regiones
+        function filterMapByRegion(region) {
+            currentRegion = region;
+
+            // Actualizar estilo activo de botones
+            const filterBtns = document.querySelectorAll('#map-region-filters button');
+            filterBtns.forEach(btn => {
+                btn.className = "px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-text hover:bg-iapa-teal hover:text-white transition-all cursor-pointer";
+            });
+
+            const currentBtn = document.getElementById(`btn-filter-${region}`);
+            if (currentBtn) {
+                currentBtn.className = "px-3.5 py-2 rounded-xl text-xs font-semibold bg-iapa-teal text-white transition-all shadow-xs cursor-pointer";
+            }
+
+            const points = renderMarkers();
+
+            if (region === 'world') {
+                iapaMap.flyTo([20, 0], 2, { duration: 1.2 });
+            } else if (region === 'ecuador') {
+                iapaMap.flyTo([-1.2, -78.5], 7, { duration: 1.2 });
+            } else if (region === 'americas') {
+                iapaMap.flyTo([12, -75], 3, { duration: 1.2 });
+            } else if (region === 'europe') {
+                iapaMap.flyTo([50, 10], 4, { duration: 1.2 });
+            } else if (region === 'asia') {
+                iapaMap.flyTo([18, 105], 3, { duration: 1.2 });
+            }
+        }
+
+        // Búsqueda en tiempo real
+        function handleMapSearch(val) {
+            currentQuery = val;
+            const points = renderMarkers();
+            if (points && points.length > 0 && currentQuery.trim().length >= 2) {
+                const bounds = L.latLngBounds(points);
+                iapaMap.fitBounds(bounds, { padding: [50, 50], maxZoom: 7 });
+            }
+        }
+
+        // Cargar el mapa al inicializar el documento
+        document.addEventListener('DOMContentLoaded', () => {
+            initIapaMap();
+        });
+        window.addEventListener('load', () => {
+            if (iapaMap) iapaMap.invalidateSize();
+        });
+    </script>
+</body>
+
+</html>

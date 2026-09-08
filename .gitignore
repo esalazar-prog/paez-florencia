@@ -1,0 +1,26 @@
+# OS files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Office temp files
+~$*
+
+# Hidden duplicate images
+.*.png
+
+# Dependencies & Build artifacts
+node_modules/
+dist/
+.sanity/
+build/
+
+# Logs & Environment
+*.log
+.env
+.env.local
+.env.*.local
+Credenciales*
