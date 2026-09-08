@@ -450,8 +450,8 @@
                 transform: translateY(0);
             }
         }
-        }
     </style>
+    <link rel="stylesheet" href="site-animations.css">
 </head>
 
 <body
@@ -1252,7 +1252,7 @@
                         <button type="button" id="btn-filter-ecuador" onclick="filterMapByRegion('ecuador')"
                             class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-heritage-red/10 text-heritage-red border border-heritage-red/20 hover:bg-heritage-red hover:text-white transition-all cursor-pointer">
                             <span class="material-symbols-outlined text-sm">stars</span>
-                            <span>Ecuador Matriz (2)</span>
+                            <span>Ecuador Matriz P.F (2)</span>
                         </button>
                         <button type="button" id="btn-filter-americas" onclick="filterMapByRegion('americas')"
                             class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-iapa-teal hover:text-white transition-all cursor-pointer">
@@ -2123,6 +2123,7 @@
             if (iapaMap) iapaMap.invalidateSize();
         });
     </script>
+    <script src="site-animations.js"></script>
 </body>
 
 </html>

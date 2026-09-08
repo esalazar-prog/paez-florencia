@@ -1,0 +1,325 @@
+/**
+ * Páez, Florencia & Co. - Sistema de Animaciones Profesionales
+ * Corporate Modernism: Fluidez, precisión técnica y distinción institucional (60 FPS)
+ */
+
+:root {
+  --pf-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --pf-ease-soft: cubic-bezier(0.25, 1, 0.5, 1);
+  --pf-ease-bounce: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --pf-navy: #3E0C0F;
+  --pf-red: #B22222;
+  --pf-gold: #C5A059;
+}
+
+/* ══════════════════════════════════════════
+   1. BARRA SUPERIOR DE PROGRESO DE LECTURA
+   ══════════════════════════════════════════ */
+#pf-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #B22222, #871B1F, #3E0C0F);
+  z-index: 9999;
+  width: 0%;
+  pointer-events: none;
+  transition: width 0.12s linear;
+  box-shadow: 0 1px 6px rgba(178, 34, 34, 0.4);
+}
+
+/* ══════════════════════════════════════════
+   2. NAVBAR ELEVACIÓN EN SCROLL
+   ══════════════════════════════════════════ */
+nav.pf-nav-scrolled {
+  box-shadow: 0 8px 24px -4px rgba(62, 12, 15, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04) !important;
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(14px) saturate(180%) !important;
+  border-bottom-color: rgba(226, 232, 240, 0.85) !important;
+  transition: background-color 0.35s var(--pf-ease), box-shadow 0.35s var(--pf-ease), border-color 0.35s var(--pf-ease);
+}
+
+/* ══════════════════════════════════════════
+   3. BOTÓN FLOTANTE "VOLVER ARRIBA"
+   ══════════════════════════════════════════ */
+#pf-back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background: #3E0C0F;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(62, 12, 15, 0.25);
+  cursor: pointer;
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+  transition: opacity 0.35s var(--pf-ease), transform 0.35s var(--pf-ease), background-color 0.25s ease, visibility 0.35s;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#pf-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+#pf-back-to-top:hover {
+  background: #B22222;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 10px 24px rgba(178, 34, 34, 0.35);
+}
+
+#pf-back-to-top span {
+  font-size: 22px;
+  transition: transform 0.25s ease;
+}
+
+#pf-back-to-top:hover span {
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════
+   4. SISTEMA DE ENTRADA SCROLL REVEAL
+   ══════════════════════════════════════════ */
+.pf-reveal,
+[data-anim] {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(4px);
+  transition: opacity 0.75s var(--pf-ease),
+              transform 0.75s var(--pf-ease),
+              filter 0.75s var(--pf-ease);
+  will-change: opacity, transform, filter;
+}
+
+.pf-reveal-left,
+[data-anim="left"] {
+  transform: translateX(-36px);
+}
+
+.pf-reveal-right,
+[data-anim="right"] {
+  transform: translateX(36px);
+}
+
+.pf-reveal-scale,
+[data-anim="scale"] {
+  transform: scale(0.92);
+}
+
+.pf-reveal-fade {
+  transform: none;
+}
+
+/* Estado Activo / Visible */
+.pf-reveal.in,
+.pf-reveal.pf-visible,
+[data-anim].in {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+  filter: blur(0) !important;
+}
+
+/* Retardos Escalonados (Stagger Delays) */
+.delay-50  { transition-delay: 0.05s !important; }
+.delay-100 { transition-delay: 0.1s !important; }
+.delay-150 { transition-delay: 0.15s !important; }
+.delay-200 { transition-delay: 0.2s !important; }
+.delay-250 { transition-delay: 0.25s !important; }
+.delay-300 { transition-delay: 0.3s !important; }
+.delay-400 { transition-delay: 0.4s !important; }
+.delay-500 { transition-delay: 0.5s !important; }
+.delay-600 { transition-delay: 0.6s !important; }
+
+/* ══════════════════════════════════════════
+   5. HERO CASCADE (CARGA INICIAL)
+   ══════════════════════════════════════════ */
+@keyframes pfHeroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.pf-hero-badge {
+  animation: pfHeroFadeUp 0.8s var(--pf-ease) 0.15s both;
+}
+
+.pf-hero-title {
+  animation: pfHeroFadeUp 0.9s var(--pf-ease) 0.28s both;
+}
+
+.pf-hero-subtitle {
+  animation: pfHeroFadeUp 0.9s var(--pf-ease) 0.42s both;
+}
+
+.pf-hero-cta {
+  animation: pfHeroFadeUp 0.9s var(--pf-ease) 0.56s both;
+}
+
+.pf-hero-visual {
+  animation: pfHeroFadeUp 1s var(--pf-ease) 0.35s both;
+}
+
+/* ══════════════════════════════════════════
+   6. MICRO-INTERACCIONES EN TARJETAS
+   ══════════════════════════════════════════ */
+.pf-card-hover {
+  transition: transform 0.4s var(--pf-ease),
+              box-shadow 0.4s var(--pf-ease),
+              border-color 0.4s var(--pf-ease) !important;
+}
+
+.pf-card-hover:hover {
+  transform: translateY(-6px) scale(1.008) !important;
+  box-shadow: 0 20px 32px -8px rgba(62, 12, 15, 0.09),
+              0 6px 16px -4px rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(178, 34, 34, 0.3) !important;
+}
+
+/* Zoom de imagen contenido en tarjeta */
+.pf-img-zoom {
+  overflow: hidden;
+}
+
+.pf-img-zoom img,
+.pf-img-zoom .zoom-target {
+  transition: transform 0.75s var(--pf-ease) !important;
+}
+
+.pf-card-hover:hover .pf-img-zoom img,
+.pf-card-hover:hover .zoom-target,
+.pf-img-zoom:hover img {
+  transform: scale(1.06) !important;
+}
+
+/* ══════════════════════════════════════════
+   7. BOTONES CON EFECTO SHEEN (DESTELLO SUTIL)
+   ══════════════════════════════════════════ */
+.pf-btn-sheen {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s var(--pf-ease), box-shadow 0.25s var(--pf-ease), background-color 0.25s ease;
+}
+
+.pf-btn-sheen::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 70%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.pf-btn-sheen:hover::after {
+  left: 140%;
+  transition: left 0.85s ease-in-out;
+}
+
+.pf-btn-sheen:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(62, 12, 15, 0.16);
+}
+
+.pf-btn-sheen:active {
+  transform: translateY(0);
+}
+
+/* Icono con desplazamiento dinámico en hover */
+.pf-icon-shift {
+  display: inline-flex;
+  align-items: center;
+}
+
+.pf-icon-shift .shift-target {
+  transition: transform 0.25s var(--pf-ease);
+}
+
+.pf-icon-shift:hover .shift-target,
+.group:hover .shift-target {
+  transform: translateX(4px);
+}
+
+/* ══════════════════════════════════════════
+   8. LINEA DEGRADADA CON DESTELLO (SHIMMER)
+   ══════════════════════════════════════════ */
+.pf-grad-line {
+  background: linear-gradient(90deg, #B22222, #3E0C0F, #B22222);
+  background-size: 200% 100%;
+  animation: pfShimmer 4s linear infinite;
+}
+
+@keyframes pfShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ══════════════════════════════════════════
+   9. PULSO DISCRETO PARA INSIGNIAS O DESTACADOS
+   ══════════════════════════════════════════ */
+@keyframes pfPulseSoft {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 0.92;
+  }
+}
+
+.pf-pulse-badge {
+  animation: pfPulseSoft 3.5s ease-in-out infinite;
+}
+
+/* ══════════════════════════════════════════
+   10. CONTADORES NUMÉRICOS
+   ══════════════════════════════════════════ */
+.pf-counter {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.3s var(--pf-ease);
+}
+
+/* ══════════════════════════════════════════
+   11. ACCESIBILIDAD: PREFERS REDUCED MOTION
+   ══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .pf-reveal,
+  [data-anim] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

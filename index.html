@@ -209,6 +209,7 @@
                         border-radius: 2px;
                 }
         </style>
+        <link rel="stylesheet" href="site-animations.css">
 </head>
 
 <body
@@ -332,17 +333,17 @@
                 <div
                         class="relative z-10 w-full px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
                         <div class="max-w-2xl text-white">
-                                <h1 class="font-display-lg text-3xl sm:text-4xl md:text-display-lg mb-6 leading-tight break-words">
+                                <h1 class="pf-hero-title font-display-lg text-3xl sm:text-4xl md:text-display-lg mb-6 leading-tight break-words">
                                         Confianza para decidir.<br />
                                         Experiencia para avanzar.<br />
                                         <span class="text-inverse-primary italic">Valor para crecer.</span>
                                 </h1>
-                                <p class="font-body-lg text-body-lg text-surface-variant mb-8 max-w-xl">
+                                <p class="pf-hero-subtitle font-body-lg text-body-lg text-surface-variant mb-8 max-w-xl">
                                         Firma ecuatoriana con más de 25 años de experiencia en auditoría externa,
                                         asesorías contables y tributarias. Soluciones estratégicas para decisiones
                                         informadas.
                                 </p>
-                                <div class="flex flex-col sm:flex-row gap-4">
+                                <div class="pf-hero-cta flex flex-col sm:flex-row gap-4">
                                         <a href="servicios.html"
                                                 class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-8 py-4 rounded hover:bg-heritage-red transition-colors text-center inline-block">
                                                 Nuestros Servicios
@@ -357,7 +358,7 @@
         </header>
         <!-- Core Principles Section (Bento Grid) -->
         <section class="py-margin-desktop px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 pf-reveal">
                         <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-heritage-red mb-4">
                                 Nuestros Principios Fundamentales</h2>
                         <div class="w-24 h-1 bg-institutional-navy mx-auto"></div>
@@ -365,7 +366,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <!-- Misión -->
                         <div
-                                class="bg-surface-container-lowest border border-border-light p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                                class="pf-reveal delay-100 pf-card-hover bg-surface-container-lowest border border-border-light p-8 rounded-lg shadow-sm relative overflow-hidden group">
                                 <div
                                         class="absolute top-0 left-0 w-full h-1 bg-institutional-navy transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300">
                                 </div>
@@ -382,7 +383,7 @@
                         </div>
                         <!-- Visión -->
                         <div
-                                class="bg-surface-container-lowest border border-border-light p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                                class="pf-reveal delay-200 pf-card-hover bg-surface-container-lowest border border-border-light p-8 rounded-lg shadow-sm relative overflow-hidden group">
                                 <div
                                         class="absolute top-0 left-0 w-full h-1 bg-institutional-navy transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300">
                                 </div>
@@ -400,7 +401,7 @@
                         </div>
                         <!-- Propósito -->
                         <div
-                                class="bg-surface-container-lowest border border-border-light p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                                class="pf-reveal delay-300 pf-card-hover bg-surface-container-lowest border border-border-light p-8 rounded-lg shadow-sm relative overflow-hidden group">
                                 <div
                                         class="absolute top-0 left-0 w-full h-1 bg-institutional-navy transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300">
                                 </div>
@@ -987,6 +988,7 @@
                         }
                 });
         </script>
+        <script src="site-animations.js"></script>
 </body>
 
 </html>
