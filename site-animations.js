@@ -21,7 +21,6 @@
     setupNumberCounters();
     setupButtonSheenEffects();
     setupSmoothAnchors();
-    setupHero3DParallax();
     setupSafetyFallback();
   }
 
@@ -217,11 +216,21 @@
      F. MICRO-INTERACCIONES EN BOTONES
      ══════════════════════════════════════════ */
   function setupButtonSheenEffects() {
-    const primaryButtons = document.querySelectorAll('a[href*="contacto"], button.bg-heritage-red, a.bg-heritage-red, a.bg-institutional-navy');
+    // Solo aplicar a botones reales con relleno, NUNCA a enlaces de texto del menú de navegación
+    const primaryButtons = document.querySelectorAll('button.bg-heritage-red, button.bg-institutional-navy, a.bg-heritage-red, a.bg-institutional-navy.px-6, a.bg-institutional-navy.px-8, .btn-primary');
     primaryButtons.forEach(btn => {
+      // Si está en el menú de navegación y no es un botón de relleno CTA, omitir
+      if (btn.closest('nav') && !btn.classList.contains('px-6') && !btn.classList.contains('py-2')) {
+        return;
+      }
       if (!btn.classList.contains('pf-btn-sheen')) {
         btn.classList.add('pf-btn-sheen');
       }
+    });
+
+    // Asegurar que ningún enlace de texto del navbar tenga la clase pf-btn-sheen
+    document.querySelectorAll('nav a:not(.px-6)').forEach(navLink => {
+      navLink.classList.remove('pf-btn-sheen');
     });
   }
 
@@ -247,35 +256,7 @@
   }
 
   /* ══════════════════════════════════════════
-     H. PARALLAX 3D INTERACTIVO ESTANDARIZADO DEL HERO
-     ══════════════════════════════════════════ */
-  function setupHero3DParallax() {
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-    const heroBoxes = document.querySelectorAll('.hero-interactive-box, .seal-interactive-box, .compass-interactive-box, .emblem-interactive-box, #hero-emblem-container, #hero-seal-box, #hero-compass-box, #hero-noticias-box, #hero-contacto-box');
-    
-    heroBoxes.forEach(box => {
-      const section = box.closest('header, section');
-      if (!section) return;
-
-      section.addEventListener('mousemove', (e) => {
-        const rect = box.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
-        const deltaY = (e.clientY - centerY) / 300;
-        const rotX = (-deltaY * 12).toFixed(2);
-        const rotY = (deltaX * 14).toFixed(2);
-        box.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.03, 1.03, 1.03)`;
-      }, { passive: true });
-
-      section.addEventListener('mouseleave', () => {
-        box.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-      });
-    });
-  }
-
-  /* ══════════════════════════════════════════
-     I. RED DE SEGURIDAD (FAILSAFE TIMEOUT)
+     H. RED DE SEGURIDAD (FAILSAFE TIMEOUT)
      ══════════════════════════════════════════ */
   function setupSafetyFallback() {
     // Si por alguna razón el observador no se dispara en 2 segundos, asegurar que todo el contenido sea visible

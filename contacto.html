@@ -95,7 +95,7 @@
         /* Nav active highlight */
         .nav-active {
             color: #B22222 !important;
-            font-weight: 700;
+            font-weight: 600;
             position: relative;
         }
 
@@ -104,10 +104,16 @@
             position: absolute;
             bottom: -6px;
             left: 0;
-            width: 100%;
-            height: 2.5px;
-            background-color: #B22222;
+            right: 0;
+            height: 2px;
+            background: #B22222;
             border-radius: 2px;
+        }
+
+        /* Hero interactive 3D box */
+        .hero-interactive-box {
+            perspective: 1000px;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* Scroll Progress */
@@ -1348,6 +1354,26 @@
                     toast.classList.remove('show');
                 }, 5000);
             }
+        }
+
+        // ── Interactive 3D Parallax on Hero Contacto Box
+        const contactoBox = document.getElementById("hero-contacto-box");
+        if (contactoBox) {
+            const heroSec = contactoBox.closest("section");
+            heroSec.addEventListener("mousemove", (e) => {
+                const rect = contactoBox.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
+                const deltaY = (e.clientY - centerY) / 300;
+                const rotX = (-deltaY * 12).toFixed(2);
+                const rotY = (deltaX * 14).toFixed(2);
+                contactoBox.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.03, 1.03, 1.03)`;
+            });
+
+            heroSec.addEventListener("mouseleave", () => {
+                contactoBox.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+            });
         }
     </script>
     <script src="site-animations.js"></script>
