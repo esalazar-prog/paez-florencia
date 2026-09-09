@@ -430,7 +430,8 @@
     <link rel="stylesheet" href="site-animations.css">
 </head>
 
-<body class="overflow-x-hidden bg-white text-on-background antialiased" style="font-family:'Work Sans',sans-serif;color:#1b1b1e">
+<body class="overflow-x-hidden bg-white text-on-background antialiased"
+    style="font-family:'Work Sans',sans-serif;color:#1b1b1e">
 
     <div id="progress-bar"></div>
 
@@ -441,8 +442,7 @@
         <div
             class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
             <a href="index.html">
-                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain"
-                    src="P.F Logo.png" />
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="P.F Logo.png" />
             </a>
             <div class="hidden lg:flex items-center gap-5 xl:gap-8">
                 <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
@@ -459,33 +459,46 @@
                 <div class="flex items-center gap-4">
                     <a href="contacto.html"
                         class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Contáctenos</a>
-                    <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global" class="flex items-center">
-                        <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-10 w-auto object-contain rounded hover:opacity-85 transition-opacity" />
+                    <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                        title="IAPA International — Conexión Global" class="flex items-center">
+                        <img src="IAPA_International_Logo.png" alt="IAPA International"
+                            class="h-10 w-auto object-contain rounded hover:opacity-85 transition-opacity" />
                     </a>
                 </div>
             </div>
             <div class="flex items-center gap-3 lg:hidden">
                 <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International">
-                    <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-9 w-auto object-contain rounded" />
+                    <img src="IAPA_International_Logo.png" alt="IAPA International"
+                        class="h-9 w-auto object-contain rounded" />
                 </a>
-                <button id="menu-toggle" onclick="toggleMobileMenu()" class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <button id="menu-toggle" onclick="toggleMobileMenu()"
+                    class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors"
+                    aria-label="Abrir menú de navegación" aria-expanded="false">
                     <span id="menu-toggle-icon" class="material-symbols-outlined text-3xl">menu</span>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
-            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="servicios.html">Servicios</a>
-            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="expertise.html">Expertise</a>
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="servicios.html">Servicios</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="expertise.html">Expertise</a>
             <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-heritage-red font-semibold"
                 href="nosotros.html">Nosotros</a>
-            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="iapa.html">IAPA</a>
-            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="noticias.html">Noticias</a>
-            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="contacto.html">Contacto</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="iapa.html">IAPA</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="noticias.html">Noticias</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="contacto.html">Contacto</a>
             <div class="flex items-center gap-3 pt-2">
                 <a onclick="closeMobileMenu()" href="contacto.html"
                     class="block text-center flex-1 bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Contáctenos</a>
-                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International" class="flex-shrink-0">
-                    <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-11 w-auto object-contain rounded" />
+                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                    title="IAPA International" class="flex-shrink-0">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International"
+                        class="h-11 w-auto object-contain rounded" />
                 </a>
             </div>
         </div>
@@ -522,7 +535,7 @@
             if (ic) ic.textContent = 'menu';
         }
 
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             if (window.innerWidth >= 1024) {
                 var m = document.getElementById('mobile-menu');
                 if (m) {
@@ -558,7 +571,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
                 <!-- Left Column: Copy & Badges -->
                 <div class="lg:col-span-7" data-anim>
-                    <h1 class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
+                    <h1
+                        class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
                         Más de 25 años de<br />excelencia profesional
                     </h1>
                     <p class="font-body-lg text-body-lg text-white/90 leading-relaxed mb-10 max-w-2xl font-light">
@@ -1129,7 +1143,8 @@
                 <div class="leader-card group bg-white border border-border-light hover:border-heritage-red/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 grid grid-cols-1 lg:grid-cols-12 flex-1"
                     data-anim="left">
                     <!-- Photo Column -->
-                    <div class="lg:col-span-5 relative overflow-hidden min-h-[320px] sm:min-h-[400px] lg:min-h-[520px] bg-[#F1F5F9]">
+                    <div
+                        class="lg:col-span-5 relative overflow-hidden min-h-[320px] sm:min-h-[400px] lg:min-h-[520px] bg-[#F1F5F9]">
                         <img src="Gabriel Paez.png" alt="Dr. Gabriel Páez — Presidente / Socio"
                             class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                         <!-- Gradient overlay -->
@@ -1240,7 +1255,8 @@
                 <div class="leader-card group bg-white border border-border-light hover:border-heritage-red/30 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 grid grid-cols-1 lg:grid-cols-12 flex-1"
                     data-anim="right">
                     <!-- Photo Column -->
-                    <div class="lg:col-span-5 relative overflow-hidden min-h-[320px] sm:min-h-[400px] lg:min-h-[520px] bg-[#F1F5F9]">
+                    <div
+                        class="lg:col-span-5 relative overflow-hidden min-h-[320px] sm:min-h-[400px] lg:min-h-[520px] bg-[#F1F5F9]">
                         <img src="William Florencia.png" alt="Mst. William Florencia — Gerente General / Socio"
                             class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                         <!-- Gradient overlay -->
@@ -1441,7 +1457,7 @@
                         <div class="flex items-center gap-2.5">
                             <span class="material-symbols-outlined text-white/80 flex-shrink-0"
                                 style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
-                            <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM</span>
                         </div>
                     </div>
                 </div>

@@ -227,7 +227,8 @@
     <link rel="stylesheet" href="site-animations.css">
 </head>
 
-<body class="overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
+<body
+    class="overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
 
     <!-- Scroll Progress -->
     <div id="progress-bar"></div>
@@ -250,8 +251,7 @@
         <div
             class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
             <a href="index.html">
-                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain"
-                    src="P.F Logo.png" />
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="P.F Logo.png" />
             </a>
 
             <div class="hidden lg:flex items-center gap-5 xl:gap-8">
@@ -269,36 +269,50 @@
                 <div class="flex items-center gap-4">
                     <a href="#formulario-contacto"
                         class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Contáctenos</a>
-                    <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global" class="flex items-center">
-                        <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-10 w-auto object-contain rounded hover:opacity-85 transition-opacity" />
+                    <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                        title="IAPA International — Conexión Global" class="flex items-center">
+                        <img src="IAPA_International_Logo.png" alt="IAPA International"
+                            class="h-10 w-auto object-contain rounded hover:opacity-85 transition-opacity" />
                     </a>
                 </div>
             </div>
 
             <div class="flex items-center gap-3 lg:hidden">
-                <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global">
-                    <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-9 w-auto object-contain rounded" />
+                <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                    title="IAPA International — Conexión Global">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International"
+                        class="h-9 w-auto object-contain rounded" />
                 </a>
-                <button id="menu-toggle" onclick="toggleMobileMenu()" class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <button id="menu-toggle" onclick="toggleMobileMenu()"
+                    class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors"
+                    aria-label="Abrir menú de navegación" aria-expanded="false">
                     <span id="menu-toggle-icon" class="material-symbols-outlined text-3xl">menu</span>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
-            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="servicios.html">Servicios</a>
-            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="expertise.html">Expertise</a>
-            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="nosotros.html">Nosotros</a>
-            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="iapa.html">IAPA</a>
-            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="noticias.html">Noticias</a>
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="servicios.html">Servicios</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="expertise.html">Expertise</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="nosotros.html">Nosotros</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="iapa.html">IAPA</a>
+            <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                href="noticias.html">Noticias</a>
             <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-heritage-red font-semibold"
                 href="contacto.html">Contacto</a>
             <div class="flex items-center gap-3 pt-2">
                 <a onclick="closeMobileMenu()" href="#formulario-contacto"
                     class="block text-center flex-1 bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Contáctenos</a>
-                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank" rel="noopener noreferrer" title="IAPA International — Conexión Global" class="flex-shrink-0">
-                    <img src="IAPA_International_Logo.png" alt="IAPA International" class="h-11 w-auto object-contain rounded" />
+                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                    title="IAPA International — Conexión Global" class="flex-shrink-0">
+                    <img src="IAPA_International_Logo.png" alt="IAPA International"
+                        class="h-11 w-auto object-contain rounded" />
                 </a>
             </div>
         </div>
@@ -335,7 +349,7 @@
             if (ic) ic.textContent = 'menu';
         }
 
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             if (window.innerWidth >= 1024) {
                 var m = document.getElementById('mobile-menu');
                 if (m) {
@@ -379,7 +393,8 @@
                         <span>Atención Directa &amp; Asesoría Corporativa</span>
                     </div>
 
-                    <h1 class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
+                    <h1
+                        class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
                         Hablemos sobre la seguridad y el futuro de su empresa.
                     </h1>
                     <p class="font-body-lg text-body-lg text-white/90 leading-relaxed mb-8 max-w-2xl font-light">
@@ -427,8 +442,8 @@
                         </div>
                         <div class="absolute inset-12 rounded-full border border-white/10 pointer-events-none"></div>
 
-                        <svg class="w-64 h-64 sm:w-76 sm:h-76 md:w-84 md:h-84 drop-shadow-[0_16px_36px_rgba(0,0,0,0.4)]" viewBox="0 0 200 200" fill="none"
-                            xmlns="http://www.w3.org/2000/svg" id="hero-emblem-svg">
+                        <svg class="w-64 h-64 sm:w-76 sm:h-76 md:w-84 md:h-84 drop-shadow-[0_16px_36px_rgba(0,0,0,0.4)]"
+                            viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" id="hero-emblem-svg">
                             <defs>
                                 <radialGradient id="contactGoldGrad" cx="50%" cy="50%" r="50%">
                                     <stop offset="0%" stop-color="#fff4cc" />
@@ -759,7 +774,8 @@
                                 <span class="material-symbols-outlined text-secondary mt-0.5 flex-shrink-0"
                                     style="font-size:18px">schedule</span>
                                 <p class="text-xs text-secondary">
-                                    <strong>Horario de atención:</strong> Lunes a Viernes de 9:00 AM a 6:00 PM (09:00 - 18:00)
+                                    <strong>Horario de atención:</strong> Lunes a Viernes de 9:00 AM a 6:00 PM (09:00 -
+                                    18:00)
                                 </p>
                             </div>
                         </div>
@@ -839,7 +855,8 @@
                                 <span class="material-symbols-outlined text-secondary mt-0.5 flex-shrink-0"
                                     style="font-size:18px">schedule</span>
                                 <p class="text-xs text-secondary">
-                                    <strong>Horario de atención:</strong> Lunes a Viernes de 9:00 AM a 6:00 PM (09:00 - 18:00)
+                                    <strong>Horario de atención:</strong> Lunes a Viernes de 9:00 AM a 6:00 PM (09:00 -
+                                    18:00)
                                 </p>
                             </div>
                         </div>
@@ -1072,7 +1089,8 @@
                 <!-- Brand -->
                 <div class="md:col-span-4">
                     <a href="index.html" class="inline-block mb-5 group">
-                        <span class="font-display-lg text-2xl sm:text-[26px] font-bold tracking-tight text-white block leading-snug group-hover:text-white/90 transition-colors">
+                        <span
+                            class="font-display-lg text-2xl sm:text-[26px] font-bold tracking-tight text-white block leading-snug group-hover:text-white/90 transition-colors">
                             Páez, Florencia &amp; Co. Cía. Ltda.
                         </span>
                     </a>
@@ -1150,7 +1168,7 @@
                         <div class="flex items-center gap-2.5">
                             <span class="material-symbols-outlined text-white/80 flex-shrink-0"
                                 style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
-                            <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                            <span>Lun - Vie: 9:00 AM - 6:00 PM</span>
                         </div>
                     </div>
                 </div>

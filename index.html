@@ -253,75 +253,85 @@
                                         <img src="IAPA_International_Logo.png" alt="IAPA International"
                                                 class="h-9 w-auto object-contain rounded" />
                                 </a>
-                                <button id="menu-toggle" onclick="toggleMobileMenu()" class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors" aria-label="Abrir menú de navegación" aria-expanded="false">
-                    <span id="menu-toggle-icon" class="material-symbols-outlined text-3xl">menu</span>
-                </button>
+                                <button id="menu-toggle" onclick="toggleMobileMenu()"
+                                        class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors"
+                                        aria-label="Abrir menú de navegación" aria-expanded="false">
+                                        <span id="menu-toggle-icon"
+                                                class="material-symbols-outlined text-3xl">menu</span>
+                                </button>
                         </div>
                 </div>
-                <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
-                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="servicios.html">Servicios</a>
-                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="expertise.html">Expertise</a>
-                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="nosotros.html">Nosotros</a>
-                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="iapa.html">IAPA</a>
-                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="noticias.html">Noticias</a>
-                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary" href="contacto.html">Contacto</a>
+                <div id="mobile-menu"
+                        class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="servicios.html">Servicios</a>
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="expertise.html">Expertise</a>
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="nosotros.html">Nosotros</a>
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="iapa.html">IAPA</a>
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="noticias.html">Noticias</a>
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="contacto.html">Contacto</a>
                         <div class="flex items-center gap-3 pt-2">
                                 <a onclick="closeMobileMenu()" href="contacto.html"
                                         class="block text-center flex-1 bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Contáctenos</a>
-                                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
-                                        title="IAPA International" class="flex-shrink-0">
+                                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank"
+                                        rel="noopener noreferrer" title="IAPA International" class="flex-shrink-0">
                                         <img src="IAPA_International_Logo.png" alt="IAPA International"
                                                 class="h-11 w-auto object-contain rounded" />
                                 </a>
                         </div>
                 </div>
         </nav>
-    <!-- Script de navegación móvil global autónomo -->
-    <script>
-        function toggleMobileMenu() {
-            var m = document.getElementById('mobile-menu');
-            var b = document.getElementById('menu-toggle');
-            var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
-            if (!m) return;
-            var isHidden = m.classList.contains('hidden') || m.style.display === 'none' || (window.getComputedStyle && window.getComputedStyle(m).display === 'none');
-            if (isHidden) {
-                m.classList.remove('hidden');
-                m.style.display = 'block';
-                if (b) b.setAttribute('aria-expanded', 'true');
-                if (ic) ic.textContent = 'close';
-            } else {
-                m.classList.add('hidden');
-                m.style.display = 'none';
-                if (b) b.setAttribute('aria-expanded', 'false');
-                if (ic) ic.textContent = 'menu';
-            }
-        }
-
-        function closeMobileMenu() {
-            var m = document.getElementById('mobile-menu');
-            var b = document.getElementById('menu-toggle');
-            var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
-            if (!m) return;
-            m.classList.add('hidden');
-            m.style.display = 'none';
-            if (b) b.setAttribute('aria-expanded', 'false');
-            if (ic) ic.textContent = 'menu';
-        }
-
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 1024) {
-                var m = document.getElementById('mobile-menu');
-                if (m) {
-                    m.classList.add('hidden');
-                    m.style.display = '';
+        <!-- Script de navegación móvil global autónomo -->
+        <script>
+                function toggleMobileMenu() {
+                        var m = document.getElementById('mobile-menu');
+                        var b = document.getElementById('menu-toggle');
+                        var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+                        if (!m) return;
+                        var isHidden = m.classList.contains('hidden') || m.style.display === 'none' || (window.getComputedStyle && window.getComputedStyle(m).display === 'none');
+                        if (isHidden) {
+                                m.classList.remove('hidden');
+                                m.style.display = 'block';
+                                if (b) b.setAttribute('aria-expanded', 'true');
+                                if (ic) ic.textContent = 'close';
+                        } else {
+                                m.classList.add('hidden');
+                                m.style.display = 'none';
+                                if (b) b.setAttribute('aria-expanded', 'false');
+                                if (ic) ic.textContent = 'menu';
+                        }
                 }
-                var b = document.getElementById('menu-toggle');
-                if (b) b.setAttribute('aria-expanded', 'false');
-                var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
-                if (ic) ic.textContent = 'menu';
-            }
-        });
-    </script>
+
+                function closeMobileMenu() {
+                        var m = document.getElementById('mobile-menu');
+                        var b = document.getElementById('menu-toggle');
+                        var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+                        if (!m) return;
+                        m.classList.add('hidden');
+                        m.style.display = 'none';
+                        if (b) b.setAttribute('aria-expanded', 'false');
+                        if (ic) ic.textContent = 'menu';
+                }
+
+                window.addEventListener('resize', function () {
+                        if (window.innerWidth >= 1024) {
+                                var m = document.getElementById('mobile-menu');
+                                if (m) {
+                                        m.classList.add('hidden');
+                                        m.style.display = '';
+                                }
+                                var b = document.getElementById('menu-toggle');
+                                if (b) b.setAttribute('aria-expanded', 'false');
+                                var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+                                if (ic) ic.textContent = 'menu';
+                        }
+                });
+        </script>
         <!-- Hero Section -->
         <header class="relative w-full min-h-[80vh] flex items-center bg-heritage-red">
                 <!-- Background Video -->
@@ -333,12 +343,14 @@
                 <div
                         class="relative z-10 w-full px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
                         <div class="max-w-2xl text-white">
-                                <h1 class="pf-hero-title font-display-lg text-3xl sm:text-4xl md:text-display-lg mb-6 leading-tight break-words">
+                                <h1
+                                        class="pf-hero-title font-display-lg text-3xl sm:text-4xl md:text-display-lg mb-6 leading-tight break-words">
                                         Confianza para decidir.<br />
                                         Experiencia para avanzar.<br />
                                         <span class="text-inverse-primary italic">Valor para crecer.</span>
                                 </h1>
-                                <p class="pf-hero-subtitle font-body-lg text-body-lg text-surface-variant mb-8 max-w-xl">
+                                <p
+                                        class="pf-hero-subtitle font-body-lg text-body-lg text-surface-variant mb-8 max-w-xl">
                                         Firma ecuatoriana con más de 25 años de experiencia en auditoría externa,
                                         asesorías contables y tributarias. Soluciones estratégicas para decisiones
                                         informadas.
@@ -885,7 +897,7 @@
                                                 <div class="flex items-center gap-2.5">
                                                         <span class="material-symbols-outlined text-white/80 flex-shrink-0"
                                                                 style="font-size:18px">schedule</span>
-                                                        <span>Lun - Vie: 9:00 AM - 6:00 PM (09:00 - 18:00)</span>
+                                                        <span>Lun - Vie: 9:00 AM - 6:00 PM</span>
                                                 </div>
                                         </div>
                                 </div>
