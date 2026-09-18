@@ -1,13 +1,1006 @@
 <!DOCTYPE html>
-<html lang="es">
+
+<html class="light" lang="es" style="">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=index.html">
-    <title>Redirigiendo a Páez, Florencia & Co...</title>
-    <script>window.location.href = "index.html";</script>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>PAEZ, FLORENCIA &amp; CO. - Inicio</title>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap"
+                rel="stylesheet" />
+        <!-- Material Symbols -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <!-- Tailwind Config -->
+        <script id="tailwind-config">
+                tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                                extend: {
+                                        "colors": {
+                                                "border-light": "#E2E8F0",
+                                                "surface-container-high": "#e9e7ea",
+                                                "on-background": "#1b1b1e",
+                                                "surface-container-low": "#f5f3f5",
+                                                "on-secondary": "#ffffff",
+                                                "secondary-container": "#ff5a52",
+                                                "on-error-container": "#93000a",
+                                                "secondary": "#b52424",
+                                                "primary-container": "#0a1d37",
+                                                "slate-text": "#2D3748",
+                                                "inverse-on-surface": "#f2f0f3",
+                                                "primary-fixed-dim": "#b6c7e9",
+                                                "heritage-red": "#B22222",
+                                                "on-primary-container": "#7586a5",
+                                                "error-container": "#ffdad6",
+                                                "on-tertiary-fixed-variant": "#604021",
+                                                "outline": "#75777e",
+                                                "on-tertiary-fixed": "#2e1600",
+                                                "inverse-surface": "#303032",
+                                                "on-primary-fixed": "#081c36",
+                                                "on-surface-variant": "#44474d",
+                                                "tertiary": "#070200",
+                                                "on-secondary-fixed": "#410003",
+                                                "on-secondary-fixed-variant": "#92030f",
+                                                "on-tertiary": "#ffffff",
+                                                "on-error": "#ffffff",
+                                                "on-primary": "#ffffff",
+                                                "tertiary-fixed": "#ffdcc0",
+                                                "tertiary-fixed-dim": "#edbd95",
+                                                "tertiary-container": "#301700",
+                                                "surface-container-lowest": "#ffffff",
+                                                "surface": "#fbf9fb",
+                                                "outline-variant": "#c5c6ce",
+                                                "secondary-fixed": "#ffdad6",
+                                                "on-secondary-container": "#600006",
+                                                "secondary-fixed-dim": "#ffb4ac",
+                                                "inverse-primary": "#b6c7e9",
+                                                "primary-fixed": "#d6e3ff",
+                                                "surface-variant": "#e4e2e4",
+                                                "surface-dim": "#dbd9dc",
+                                                "institutional-navy": "#3E0C0F",
+                                                "on-surface": "#1b1b1e",
+                                                "surface-bright": "#fbf9fb",
+                                                "on-primary-fixed-variant": "#364763",
+                                                "primary": "#00030a",
+                                                "surface-container": "#efedf0",
+                                                "surface-container-highest": "#e4e2e4",
+                                                "background": "#fbf9fb",
+                                                "on-tertiary-container": "#a67d59",
+                                                "error": "#ba1a1a",
+                                                "surface-tint": "#4e5f7c"
+                                        },
+                                        "borderRadius": {
+                                                "DEFAULT": "0.125rem",
+                                                "lg": "0.25rem",
+                                                "xl": "0.5rem",
+                                                "full": "0.75rem"
+                                        },
+                                        "spacing": {
+                                                "unit": "4px",
+                                                "gutter-desktop": "32px",
+                                                "margin-mobile": "20px",
+                                                "container-max-width": "1200px",
+                                                "gutter-mobile": "16px",
+                                                "margin-desktop": "80px"
+                                        },
+                                        "fontFamily": {
+                                                "headline-lg-mobile": [
+                                                        "Fraunces"
+                                                ],
+                                                "body-lg": [
+                                                        "Work Sans"
+                                                ],
+                                                "headline-md": [
+                                                        "Fraunces"
+                                                ],
+                                                "caption": [
+                                                        "Work Sans"
+                                                ],
+                                                "headline-lg": [
+                                                        "Fraunces"
+                                                ],
+                                                "display-lg": [
+                                                        "Fraunces"
+                                                ],
+                                                "body-md": [
+                                                        "Work Sans"
+                                                ],
+                                                "label-md": [
+                                                        "Work Sans"
+                                                ]
+                                        },
+                                        "fontSize": {
+                                                "headline-lg-mobile": [
+                                                        "28px",
+                                                        {
+                                                                "lineHeight": "36px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "body-lg": [
+                                                        "18px",
+                                                        {
+                                                                "lineHeight": "28px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "headline-md": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "32px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "caption": [
+                                                        "12px",
+                                                        {
+                                                                "lineHeight": "16px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "headline-lg": [
+                                                        "32px",
+                                                        {
+                                                                "lineHeight": "40px",
+                                                                "letterSpacing": "-0.01em",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "display-lg": [
+                                                        "48px",
+                                                        {
+                                                                "lineHeight": "56px",
+                                                                "letterSpacing": "-0.02em",
+                                                                "fontWeight": "700"
+                                                        }
+                                                ],
+                                                "body-md": [
+                                                        "16px",
+                                                        {
+                                                                "lineHeight": "24px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "label-md": [
+                                                        "14px",
+                                                        {
+                                                                "lineHeight": "20px",
+                                                                "letterSpacing": "0.05em",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ]
+                                        }
+                                },
+                        },
+                }
+        </script>
+        <style>
+                .glass-panel {
+                        background: rgba(255, 255, 255, 0.85);
+                        backdrop-filter: blur(12px);
+                        border: 1px solid rgba(226, 232, 240, 0.6);
+                }
+
+                .counter-animate {
+                        transition: all 1s ease-out;
+                }
+
+                /* ── Nav Active Link ── */
+                .nav-active {
+                        color: #B22222 !important;
+                        position: relative;
+                        font-weight: 600;
+                }
+
+                .nav-active::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -6px;
+                        left: 0;
+                        right: 0;
+                        height: 2px;
+                        background: #B22222;
+                        border-radius: 2px;
+                }
+        </style>
+        <link rel="stylesheet" href="site-animations.css">
 </head>
-<body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
-    <p>Redirigiendo a la página de inicio...</p>
-    <p><a href="index.html">Haga clic aquí si no es redirigido automáticamente.</a></p>
+
+<body
+        class="overflow-x-hidden bg-background text-on-background font-body-md antialiased selection:bg-institutional-navy selection:text-white">
+        <!-- ══════════════════════════════════════════
+         NAVBAR (Estandarizado)
+    ══════════════════════════════════════════ -->
+        <nav class="bg-white sticky top-0 w-full border-b border-border-light z-50 shadow-sm">
+                <div
+                        class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
+                        <a href="index.html">
+                                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain"
+                                        src="P.F Logo.png" />
+                        </a>
+                        <div class="hidden lg:flex items-center gap-5 xl:gap-8">
+                                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                                        href="servicios.html">Servicios</a>
+                                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                                        href="expertise.html">Expertise</a>
+                                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                                        href="nosotros.html">Nosotros</a>
+                                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                                        href="iapa.html">IAPA</a>
+                                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                                        href="noticias.html">Noticias</a>
+                                <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
+                                        href="contacto.html">Contacto</a>
+                                <div class="flex items-center gap-4">
+                                        <a href="contacto.html"
+                                                class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Contáctenos</a>
+                                        <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                                                title="IAPA International — Conexión Global" class="flex items-center">
+                                                <img src="IAPA_International_Logo.png" alt="IAPA International"
+                                                        class="h-10 w-auto object-contain rounded hover:opacity-85 transition-opacity" />
+                                        </a>
+                                </div>
+                        </div>
+                        <div class="flex items-center gap-3 lg:hidden">
+                                <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
+                                        title="IAPA International">
+                                        <img src="IAPA_International_Logo.png" alt="IAPA International"
+                                                class="h-9 w-auto object-contain rounded" />
+                                </a>
+                                <button id="menu-toggle" onclick="toggleMobileMenu()"
+                                        class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors"
+                                        aria-label="Abrir menú de navegación" aria-expanded="false">
+                                        <span id="menu-toggle-icon"
+                                                class="material-symbols-outlined text-3xl">menu</span>
+                                </button>
+                        </div>
+                </div>
+                <div id="mobile-menu"
+                        class="hidden lg:hidden bg-white border-t border-border-light px-gutter-mobile py-4 space-y-4">
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="servicios.html">Servicios</a>
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="expertise.html">Expertise</a>
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="nosotros.html">Nosotros</a>
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="iapa.html">IAPA</a>
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="noticias.html">Noticias</a>
+                        <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
+                                href="contacto.html">Contacto</a>
+                        <div class="flex items-center gap-3 pt-2">
+                                <a onclick="closeMobileMenu()" href="contacto.html"
+                                        class="block text-center flex-1 bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Contáctenos</a>
+                                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank"
+                                        rel="noopener noreferrer" title="IAPA International" class="flex-shrink-0">
+                                        <img src="IAPA_International_Logo.png" alt="IAPA International"
+                                                class="h-11 w-auto object-contain rounded" />
+                                </a>
+                        </div>
+                </div>
+        </nav>
+        <!-- Script de navegación móvil global autónomo -->
+        <script>
+                function toggleMobileMenu() {
+                        var m = document.getElementById('mobile-menu');
+                        var b = document.getElementById('menu-toggle');
+                        var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+                        if (!m) return;
+                        var isHidden = m.classList.contains('hidden') || m.style.display === 'none' || (window.getComputedStyle && window.getComputedStyle(m).display === 'none');
+                        if (isHidden) {
+                                m.classList.remove('hidden');
+                                m.style.display = 'block';
+                                if (b) b.setAttribute('aria-expanded', 'true');
+                                if (ic) ic.textContent = 'close';
+                        } else {
+                                m.classList.add('hidden');
+                                m.style.display = 'none';
+                                if (b) b.setAttribute('aria-expanded', 'false');
+                                if (ic) ic.textContent = 'menu';
+                        }
+                }
+
+                function closeMobileMenu() {
+                        var m = document.getElementById('mobile-menu');
+                        var b = document.getElementById('menu-toggle');
+                        var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+                        if (!m) return;
+                        m.classList.add('hidden');
+                        m.style.display = 'none';
+                        if (b) b.setAttribute('aria-expanded', 'false');
+                        if (ic) ic.textContent = 'menu';
+                }
+
+                window.addEventListener('resize', function () {
+                        if (window.innerWidth >= 1024) {
+                                var m = document.getElementById('mobile-menu');
+                                if (m) {
+                                        m.classList.add('hidden');
+                                        m.style.display = '';
+                                }
+                                var b = document.getElementById('menu-toggle');
+                                if (b) b.setAttribute('aria-expanded', 'false');
+                                var ic = document.getElementById('menu-toggle-icon') || (b ? b.querySelector('.material-symbols-outlined') : null);
+                                if (ic) ic.textContent = 'menu';
+                        }
+                });
+        </script>
+        <!-- Hero Section -->
+        <header class="relative w-full min-h-[80vh] flex items-center bg-slate-text">
+                <!-- Background Video -->
+                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+                        <source src="Video_Auditoria.mp4" type="video/mp4">
+                </video>
+                <!-- Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-text/90 to-slate-text/40"></div>
+                <div
+                        class="relative z-10 w-full px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
+                        <div class="max-w-2xl text-white">
+                                <h1
+                                        class="pf-hero-title font-display-lg text-3xl sm:text-4xl md:text-display-lg mb-6 leading-tight break-words">
+                                        Confianza para decidir.<br />
+                                        Experiencia para avanzar.<br />
+                                        <span class="text-inverse-primary italic">Valor para crecer.</span>
+                                </h1>
+                                <p
+                                        class="pf-hero-subtitle font-body-lg text-body-lg text-surface-variant mb-8 max-w-xl">
+                                        Firma ecuatoriana con más de 25 años de experiencia en auditoría externa,
+                                        asesorías contables y tributarias. Soluciones estratégicas para decisiones
+                                        informadas.
+                                </p>
+                                <div class="pf-hero-cta flex flex-col sm:flex-row gap-4">
+                                        <a href="servicios.html"
+                                                class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-8 py-4 rounded hover:bg-heritage-red transition-colors text-center inline-block">
+                                                Nuestros Servicios
+                                        </a>
+                                        <a href="contacto.html"
+                                                class="border-2 border-border-light text-white font-label-md text-label-md uppercase px-8 py-4 rounded hover:bg-heritage-red hover:border-heritage-red transition-colors text-center inline-block">
+                                                Contáctenos
+                                        </a>
+                                </div>
+                        </div>
+                </div>
+        </header>
+        <!-- Core Principles Section (Bento Grid) -->
+        <section class="py-margin-desktop px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
+                <div class="text-center mb-16 pf-reveal">
+                        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-heritage-red mb-4">
+                                Nuestros Principios Fundamentales</h2>
+                        <div class="w-24 h-1 bg-institutional-navy mx-auto"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Misión -->
+                        <div
+                                class="pf-reveal delay-100 pf-card-hover bg-surface-container-lowest border border-border-light p-8 rounded-lg shadow-sm relative overflow-hidden group">
+                                <div
+                                        class="absolute top-0 left-0 w-full h-1 bg-institutional-navy transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300">
+                                </div>
+                                <div
+                                        class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center mb-6 text-heritage-red">
+                                        <span class="material-symbols-outlined"
+                                                style='font-variation-settings: "FILL" 1;'>flag</span>
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-heritage-red mb-4">Misión</h3>
+                                <p class="font-body-md text-body-md text-slate-text">
+                                        Brindar a nuestros clientes un servicio de calidad, realizado por profesionales
+                                        de alto nivel, que supere sus expectativas.
+                                </p>
+                        </div>
+                        <!-- Visión -->
+                        <div
+                                class="pf-reveal delay-200 pf-card-hover bg-surface-container-lowest border border-border-light p-8 rounded-lg shadow-sm relative overflow-hidden group">
+                                <div
+                                        class="absolute top-0 left-0 w-full h-1 bg-institutional-navy transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300">
+                                </div>
+                                <div
+                                        class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center mb-6 text-heritage-red">
+                                        <span class="material-symbols-outlined"
+                                                style='font-variation-settings: "FILL" 1;'>visibility</span>
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-heritage-red mb-4">Visión</h3>
+                                <p class="font-body-md text-body-md text-slate-text">
+                                        Ser un referente entre las firmas auditoras locales en Ecuador, destacándonos
+                                        por
+                                        enmarcar nuestro trabajo en la coherencia y en elevados estándares éticos.
+                                </p>
+                        </div>
+                        <!-- Propósito -->
+                        <div
+                                class="pf-reveal delay-300 pf-card-hover bg-surface-container-lowest border border-border-light p-8 rounded-lg shadow-sm relative overflow-hidden group">
+                                <div
+                                        class="absolute top-0 left-0 w-full h-1 bg-institutional-navy transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300">
+                                </div>
+                                <div
+                                        class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center mb-6 text-heritage-red">
+                                        <span class="material-symbols-outlined"
+                                                style='font-variation-settings: "FILL" 1;'>target</span>
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-heritage-red mb-4">Propósito</h3>
+                                <p class="font-body-md text-body-md text-slate-text">
+                                        Proporcionar nuestros conocimientos, recomendaciones y experiencias a nuestros
+                                        clientes para ayudarlos a tomar decisiones informadas.
+                                </p>
+                        </div>
+                </div>
+        </section>
+        <!-- Experience in Numbers Section -->
+        <section id="experiencia-cifras" class="bg-surface py-margin-desktop border-y border-border-light">
+                <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+                        <div class="mb-12">
+                                <p class="text-label-md font-label-md text-secondary uppercase tracking-wider mb-2">
+                                        Métricas de Impacto • Últimos 3 Años</p>
+                                <h2 class="text-display-lg font-display-lg text-heritage-red mb-4">Experiencia en Cifras
+                                </h2>
+                                <p class="text-body-lg font-body-lg text-slate-text max-w-2xl">Trayectoria consolidada y
+                                        resultados medibles de los últimos 3 años que definen nuestra excelencia
+                                        operativa.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                                <!-- Card 1: Dark -->
+                                <div
+                                        class="bg-heritage-red p-8 rounded-lg flex flex-col justify-between min-h-[320px] opacity-0 scale-90 transition-all duration-700 ease-out statistic-card">
+                                        <span
+                                                class="material-symbols-outlined text-white text-headline-md">trending_up</span>
+                                        <div>
+                                                <div class="font-display-lg text-white text-[68px] font-bold">+<span
+                                                                class="counter-value" data-target="300">0</span></div>
+                                                <div
+                                                        class="text-label-md font-label-md text-surface-variant uppercase tracking-widest">
+                                                        Auditorías (Últimos 3 años)</div>
+                                        </div>
+                                </div>
+                                <!-- Card 2: White -->
+                                <div
+                                        class="bg-surface-container-lowest border border-border-light p-8 rounded-lg flex flex-col justify-between min-h-[320px] opacity-0 scale-90 transition-all duration-700 ease-out statistic-card">
+                                        <span
+                                                class="material-symbols-outlined text-heritage-red text-headline-md">groups</span>
+                                        <div>
+                                                <div class="text-display-lg font-display-lg text-institutional-navy">
+                                                        +<span class="counter-value" data-target="60">0</span></div>
+                                                <div
+                                                        class="text-label-md font-label-md text-secondary uppercase tracking-widest">
+                                                        Clientes recurrentes</div>
+                                        </div>
+                                </div>
+                                <!-- Card 3: White -->
+                                <div
+                                        class="bg-surface-container-lowest border border-border-light p-8 rounded-lg flex flex-col justify-between min-h-[320px] opacity-0 scale-90 transition-all duration-700 ease-out statistic-card">
+                                        <span
+                                                class="material-symbols-outlined text-heritage-red text-headline-md">edit_document</span>
+                                        <div>
+                                                <div class="text-display-lg font-display-lg text-institutional-navy">
+                                                        +<span class="counter-value" data-target="25">0</span></div>
+                                                <div
+                                                        class="text-label-md font-label-md text-secondary uppercase tracking-widest">
+                                                        Años</div>
+                                        </div>
+                                </div>
+                                <!-- Card 4: Growth Chart -->
+                                <div
+                                        class="bg-surface-container-low border border-border-light p-8 rounded-lg flex flex-col opacity-0 scale-90 transition-all duration-700 ease-out statistic-card">
+                                        <div
+                                                class="text-label-md font-label-md text-heritage-red uppercase tracking-widest mb-8">
+                                                Crecimiento Anual</div>
+                                        <div class="flex items-end gap-2 h-24 mb-6">
+                                                <div class="flex-1 bg-surface-dim h-0 rounded-sm transition-all duration-1000 ease-out chart-bar"
+                                                        data-height="60%"></div>
+                                                <div class="flex-1 bg-secondary h-0 rounded-sm transition-all duration-1000 ease-out chart-bar"
+                                                        data-height="80%"></div>
+                                                <div class="flex-1 bg-institutional-navy h-0 rounded-sm transition-all duration-1000 ease-out chart-bar"
+                                                        data-height="75%"></div>
+                                        </div>
+                                        <div class="flex justify-between text-caption font-caption text-secondary mb-6">
+                                                <span class="">2023: 101</span>
+                                                <span class="">2024: 108</span>
+                                                <span class="">2025: 103</span>
+                                        </div>
+                                        <div
+                                                class="mt-auto pt-4 border-t border-border-light flex justify-between items-center">
+                                                <span class="text-label-md font-label-md text-secondary uppercase">Total
+                                                        Acumulado (3 años)</span>
+                                                <span class="text-headline-md font-headline-md text-heritage-red"><span
+                                                                class="counter-value" data-target="312">0</span></span>
+                                        </div>
+                                </div>
+                        </div>
+                        <!-- Distribution Section -->
+                        <div
+                                class="bg-surface-container-lowest border border-border-light p-8 rounded-lg opacity-0 scale-90 transition-all duration-700 ease-out statistic-card">
+                                <div class="flex justify-between items-center mb-8">
+                                        <h3
+                                                class="text-label-md font-label-md text-heritage-red uppercase tracking-widest">
+                                                Distribución por tipo de entidad (2023 | 2024 | 2025)</h3>
+                                        <div class="flex items-center gap-2 text-caption font-caption text-secondary">
+                                                <div class="w-2 h-2 rounded-full bg-institutional-navy"></div> Tendencia
+                                        </div>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
+                                        <div>
+                                                <div class="text-label-md font-label-md text-heritage-red mb-2">
+                                                        Entidades privadas</div>
+                                                <div class="text-body-md font-body-md text-heritage-red mb-2">69 <span
+                                                                class="text-secondary text-caption">/ 67 / 63</span>
+                                                </div>
+                                                <div
+                                                        class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+                                                        <div class="bg-institutional-navy h-full w-0 transition-all duration-[1500ms] ease-out distribution-bar"
+                                                                data-width="100%"></div>
+                                                </div>
+                                        </div>
+                                        <div>
+                                                <div class="text-label-md font-label-md text-heritage-red mb-2">Mercado
+                                                        de valores</div>
+                                                <div class="text-body-md font-body-md text-heritage-red mb-2">16 <span
+                                                                class="text-secondary text-caption">/ 24 / 24</span>
+                                                </div>
+                                                <div
+                                                        class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+                                                        <div class="bg-institutional-navy h-full w-0 transition-all duration-[1500ms] ease-out distribution-bar"
+                                                                data-width="100%"></div>
+                                                </div>
+                                        </div>
+                                        <div>
+                                                <div class="text-label-md font-label-md text-heritage-red mb-2">ONG
+                                                </div>
+                                                <div class="text-body-md font-body-md text-heritage-red mb-2">6 <span
+                                                                class="text-secondary text-caption">/ 9 / 9</span></div>
+                                                <div
+                                                        class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+                                                        <div class="bg-institutional-navy h-full w-0 transition-all duration-[1500ms] ease-out distribution-bar"
+                                                                data-width="100%"></div>
+                                                </div>
+                                        </div>
+                                        <div>
+                                                <div class="text-label-md font-label-md text-heritage-red mb-2">Otros
+                                                        servicios</div>
+                                                <div class="text-body-md font-body-md text-heritage-red mb-2">8 <span
+                                                                class="text-secondary text-caption">/ 6 / 6</span></div>
+                                                <div
+                                                        class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+                                                        <div class="bg-institutional-navy h-full w-0 transition-all duration-[1500ms] ease-out distribution-bar"
+                                                                data-width="100%"></div>
+                                                </div>
+                                        </div>
+                                        <div>
+                                                <div class="text-label-md font-label-md text-heritage-red mb-2">
+                                                        Entidades públicas</div>
+                                                <div class="text-body-md font-body-md text-heritage-red mb-2">2 <span
+                                                                class="text-secondary text-caption">/ 2 / 1</span></div>
+                                                <div
+                                                        class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+                                                        <div class="bg-institutional-navy h-full w-0 transition-all duration-[1500ms] ease-out distribution-bar"
+                                                                data-width="100%"></div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </section>
+        <!-- Multisectorial Experience -->
+        <section id="experiencia-multisectorial"
+                class="py-margin-desktop px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                        <div class="max-w-2xl">
+                                <h2
+                                        class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-heritage-red mb-4">
+                                        Experiencia Multisectorial</h2>
+                                <p class="font-body-lg text-body-lg text-slate-text">Aplicamos nuestro profundo
+                                        conocimiento de la industria para ofrecer soluciones adaptadas a los desafíos
+                                        específicos de su sector, garantizando precisión y cumplimiento.</p>
+                        </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-8 gap-6">
+                        <!-- Card 1: MANUFACTURA -->
+                        <div
+                                class="col-span-1 md:col-span-2 lg:col-span-2 group relative overflow-hidden rounded-lg aspect-[4/5] bg-heritage-red cursor-pointer opacity-0 translate-y-12 scale-95 transition-all duration-[800ms] ease-out multisector-card">
+                                <div class="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                        style='background-image: url("imagen_Manufactura.png"); background-size: cover; background-position: center center;'>
+                                </div>
+                                <div
+                                        class="absolute inset-0 bg-gradient-to-t from-heritage-red via-heritage-red/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div class="absolute bottom-0 left-0 p-6 w-full transition-all duration-300">
+                                        <div
+                                                class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-white">
+                                                <span class="material-symbols-outlined">inventory_2</span>
+                                        </div>
+                                        <h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">
+                                                Manufactura</h3>
+                                        <p
+                                                class="font-body-md text-body-md text-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
+                                                Experiencia en empresas industriales, procesos productivos, inventarios
+                                                y costos.</p>
+                                </div>
+                        </div>
+                        <!-- Card 2: SERVICIOS -->
+                        <div
+                                class="col-span-1 md:col-span-2 lg:col-span-2 group relative overflow-hidden rounded-lg aspect-[4/5] bg-heritage-red cursor-pointer opacity-0 translate-y-12 scale-95 transition-all duration-[800ms] ease-out multisector-card">
+                                <div class="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                        style='background-image: url("imagen_Servicios.png"); background-size: cover; background-position: center center;'>
+                                </div>
+                                <div
+                                        class="absolute inset-0 bg-gradient-to-t from-heritage-red via-heritage-red/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div class="absolute bottom-0 left-0 p-6 w-full transition-all duration-300">
+
+                                        <div
+                                                class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-white">
+                                                <span class="material-symbols-outlined">handshake</span>
+                                        </div>
+                                        <h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">
+                                                Servicios</h3>
+                                        <p
+                                                class="font-body-md text-body-md text-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
+                                                Auditoría de empresas de servicios profesionales, tecnológicos y otros
+                                                modelos de negocio.</p>
+                                </div>
+                        </div>
+                        <!-- Card 3: COMERCIAL -->
+                        <div
+                                class="col-span-1 md:col-span-2 lg:col-span-2 group relative overflow-hidden rounded-lg aspect-[4/5] bg-heritage-red cursor-pointer opacity-0 translate-y-12 scale-95 transition-all duration-[800ms] ease-out multisector-card">
+                                <div class="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                        style='background-image: url("imagen_Comercial.png"); background-size: cover; background-position: center center;'>
+                                </div>
+                                <div
+                                        class="absolute inset-0 bg-gradient-to-t from-heritage-red via-heritage-red/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div class="absolute bottom-0 left-0 p-6 w-full transition-all duration-300">
+                                        <div
+                                                class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-white">
+                                                <span class="material-symbols-outlined">storefront</span>
+                                        </div>
+                                        <h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">
+                                                Comercial</h3>
+                                        <p
+                                                class="font-body-md text-body-md text-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
+                                                Experiencia en compañías dedicadas a la comercialización y distribución
+                                                de productos.</p>
+                                </div>
+                        </div>
+                        <!-- Card 4: SALUD -->
+                        <div
+                                class="col-span-1 md:col-span-2 lg:col-span-2 group relative overflow-hidden rounded-lg aspect-[4/5] bg-heritage-red cursor-pointer opacity-0 translate-y-12 scale-95 transition-all duration-[800ms] ease-out multisector-card">
+                                <div class="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                        style='background-image: url("imagen_Salud.png"); background-size: cover; background-position: center center;'>
+                                </div>
+                                <div
+                                        class="absolute inset-0 bg-gradient-to-t from-heritage-red via-heritage-red/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div class="absolute bottom-0 left-0 p-6 w-full transition-all duration-300">
+                                        <div
+                                                class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-white">
+                                                <span class="material-symbols-outlined">medical_services</span>
+                                        </div>
+                                        <h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">Salud
+                                        </h3>
+                                        <p
+                                                class="font-body-md text-body-md text-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
+                                                Conocimiento de las particularidades contables y operativas del sector
+                                                salud.</p>
+                                </div>
+                        </div>
+                        <!-- Card 5: EDUCACIÓN -->
+                        <div
+                                class="col-span-1 md:col-span-2 lg:col-span-2 lg:col-start-2 group relative overflow-hidden rounded-lg aspect-[4/5] bg-heritage-red cursor-pointer opacity-0 translate-y-12 scale-95 transition-all duration-[800ms] ease-out multisector-card">
+                                <div class="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                        style='background-image: url("imagen_Educacion.png"); background-size: cover; background-position: center center;'>
+                                </div>
+                                <div
+                                        class="absolute inset-0 bg-gradient-to-t from-heritage-red via-heritage-red/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div class="absolute bottom-0 left-0 p-6 w-full transition-all duration-300">
+                                        <div
+                                                class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-white">
+                                                <span class="material-symbols-outlined">school</span>
+                                        </div>
+                                        <h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">
+                                                Educación</h3>
+                                        <p
+                                                class="font-body-md text-body-md text-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
+                                                Experiencia con instituciones educativas y organizaciones vinculadas al
+                                                sector.</p>
+                                </div>
+                        </div>
+                        <!-- Card 6: CONSTRUCCIÓN -->
+                        <div
+                                class="col-span-1 md:col-span-2 lg:col-span-2 group relative overflow-hidden rounded-lg aspect-[4/5] bg-heritage-red cursor-pointer opacity-0 translate-y-12 scale-95 transition-all duration-[800ms] ease-out multisector-card">
+                                <div class="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                        style='background-image: url("imagen_Construccion.png"); background-size: cover; background-position: center center;'>
+                                </div>
+                                <div
+                                        class="absolute inset-0 bg-gradient-to-t from-heritage-red via-heritage-red/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div class="absolute bottom-0 left-0 p-6 w-full transition-all duration-300">
+                                        <div
+                                                class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-white">
+                                                <span class="material-symbols-outlined">architecture</span>
+                                        </div>
+                                        <h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">
+                                                Construcción</h3>
+                                        <p
+                                                class="font-body-md text-body-md text-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
+                                                Auditoría de empresas relacionadas con proyectos de construcción y
+                                                actividades inmobiliarias.</p>
+                                </div>
+                        </div>
+                        <!-- Card 7: PÚBLICO Y ONG -->
+                        <div
+                                class="col-span-1 md:col-span-2 md:col-start-3 lg:col-span-2 lg:col-start-auto group relative overflow-hidden rounded-lg aspect-[4/5] bg-heritage-red cursor-pointer opacity-0 translate-y-12 scale-95 transition-all duration-[800ms] ease-out multisector-card">
+                                <div class="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                        style='background-image: url("imagen_ONG.png"); background-size: cover; background-position: center center;'>
+                                </div>
+                                <div
+                                        class="absolute inset-0 bg-gradient-to-t from-heritage-red via-heritage-red/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div class="absolute bottom-0 left-0 p-6 w-full transition-all duration-300">
+                                        <div
+                                                class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 text-white">
+                                                <span class="material-symbols-outlined">account_balance</span>
+                                        </div>
+                                        <h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">Público
+                                                y ONG</h3>
+                                        <p
+                                                class="font-body-md text-body-md text-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-4 group-hover:translate-y-0 duration-300">
+                                                Experiencia con entidades públicas y organizaciones sin fines de lucro.
+                                        </p>
+                                </div>
+                        </div>
+                </div>
+        </section>
+        <!-- Global Reach Section -->
+        <section class="bg-surface py-margin-desktop border-t border-border-light relative overflow-hidden">
+                <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop relative z-10">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                <div>
+                                        <h2
+                                                class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-heritage-red mb-6">
+                                                Miembros de IAPA International, conectamos con expertos en más de 60
+                                                países.</h2>
+                                        <p class="font-body-lg text-body-lg text-slate-text mb-8">
+                                                Como miembros de redes internacionales, conectamos con expertos en
+                                                múltiples países para ofrecer un servicio integral que trasciende
+                                                fronteras, manteniendo nuestro estándar de excelencia institucional.
+                                        </p>
+                                        <ul class="space-y-4 font-body-md text-body-md text-slate-text">
+                                                <li class="flex items-center gap-3">
+                                                        <span
+                                                                class="material-symbols-outlined text-institutional-navy">check_circle</span>
+                                                        Estándares internacionales de calidad.
+                                                </li>
+                                                <li class="flex items-center gap-3">
+                                                        <span
+                                                                class="material-symbols-outlined text-institutional-navy">check_circle</span>
+                                                        Conocimiento de normativas locales y globales.
+                                                </li>
+                                                <li class="flex items-center gap-3">
+                                                        <span
+                                                                class="material-symbols-outlined text-institutional-navy">check_circle</span>
+                                                        Red de profesionales altamente capacitados.
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div
+                                        class="relative h-[360px] md:h-[400px] w-full rounded-2xl overflow-hidden border border-border-light shadow-sm bg-white flex items-center justify-center p-4">
+                                        <img src="Mapa.jpg"
+                                                alt="Mapa de presencia global - Miembros de IAPA International"
+                                                class="w-full h-full object-contain" />
+                                        <!-- Glassmorphism overlay for location info -->
+                                        <div
+                                                class="absolute bottom-6 right-6 p-4 glass-panel rounded-xl max-w-xs shadow-md border border-border-light bg-white/90 backdrop-blur-md">
+                                                <div
+                                                        class="font-label-md text-label-md text-heritage-red uppercase mb-1 font-bold">
+                                                        Presencia en:</div>
+                                                <div
+                                                        class="font-headline-md text-headline-md text-institutional-navy font-bold">
+                                                        +60 Países</div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </section>
+        <!-- Footer -->
+        <footer id="contacto-cta" class="bg-[#871B1F] w-full py-16 border-t-4 border-[#3E0C0F] text-white">
+                <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+                                <!-- Brand -->
+                                <div class="md:col-span-4">
+                                        <div class="mb-5">
+                                                <a href="index.html" class="inline-block group">
+                                                        <span
+                                                                class="font-display-lg text-2xl sm:text-[26px] font-bold tracking-tight text-white block leading-snug group-hover:text-white/90 transition-colors">
+                                                                Páez, Florencia &amp; Co. Cía. Ltda.
+                                                        </span>
+                                                </a>
+                                        </div>
+                                        <p
+                                                class="font-body-md text-body-md text-white/80 mb-4 leading-relaxed max-w-xs">
+                                                25 Años de Excelencia en servicios profesionales de auditoría y
+                                                consultoría en todo el Ecuador.
+                                        </p>
+                                </div>
+
+                                <!-- Oficina Quito -->
+                                <div class="md:col-span-4">
+                                        <h4
+                                                class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-2 border-b border-white/20 flex items-center gap-2 font-bold">
+                                                <span class="material-symbols-outlined text-white"
+                                                        style="font-size:20px">location_city</span>
+                                                Oficina Quito
+                                        </h4>
+                                        <div class="space-y-3 font-body-md text-sm text-white/90">
+                                                <div class="flex items-start gap-2.5">
+                                                        <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
+                                                                style="font-size:18px">location_on</span>
+                                                        <span>Juan Diguja OE2-66 y Voz Andes, Edificio Opal oficinas 501
+                                                                y 502</span>
+                                                </div>
+                                                <div class="flex items-center gap-2.5">
+                                                        <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                                                style="font-size:18px">call</span>
+                                                        <a href="tel:023809780"
+                                                                class="hover:underline hover:text-white transition-colors">023809-780</a>
+                                                </div>
+                                                <div class="flex items-center gap-2.5">
+                                                        <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                                                style="font-size:18px">smartphone</span>
+                                                        <a href="tel:09997102616"
+                                                                class="hover:underline hover:text-white transition-colors">09997102616</a>
+                                                </div>
+                                                <div class="flex items-center gap-2.5">
+                                                        <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                                                style="font-size:18px">mail</span>
+                                                        <a href="mailto:pfcontadores@paezflorencia.com.ec"
+                                                                class="hover:underline hover:text-white transition-colors break-all">pfcontadores@paezflorencia.com.ec</a>
+                                                </div>
+                                                <div class="flex items-center gap-2.5">
+                                                        <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                                                style="font-size:18px">schedule</span>
+                                                        <span>Lun - Vie: 9:00 AM - 6:00 PM</span>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <!-- Oficina Guayaquil -->
+                                <div class="md:col-span-4">
+                                        <h4
+                                                class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-2 border-b border-white/20 flex items-center gap-2 font-bold">
+                                                <span class="material-symbols-outlined text-white"
+                                                        style="font-size:20px">location_city</span>
+                                                Oficina Guayaquil
+                                        </h4>
+                                        <div class="space-y-3 font-body-md text-sm text-white/90">
+                                                <div class="flex items-start gap-2.5">
+                                                        <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
+                                                                style="font-size:18px">location_on</span>
+                                                        <span>Junín 203 y Panamá, Edificio Teófilo Bucaram oficinas 1 y
+                                                                2</span>
+                                                </div>
+                                                <div class="flex items-center gap-2.5">
+                                                        <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                                                style="font-size:18px">smartphone</span>
+                                                        <a href="tel:0998452649"
+                                                                class="hover:underline hover:text-white transition-colors">0998452649</a>
+                                                </div>
+                                                <div class="flex items-center gap-2.5">
+                                                        <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                                                style="font-size:18px">mail</span>
+                                                        <a href="mailto:pfcontad@paezflorencia.com"
+                                                                class="hover:underline hover:text-white transition-colors break-all">pfcontad@paezflorencia.com</a>
+                                                </div>
+                                                <div class="flex items-center gap-2.5">
+                                                        <span class="material-symbols-outlined text-white/80 flex-shrink-0"
+                                                                style="font-size:18px">schedule</span>
+                                                        <span>Lun - Vie: 9:00 AM - 6:00 PM</span>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <!-- Bottom bar -->
+                        <div
+                                class="mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/20 text-xs text-white/70">
+                                <p>© 2026 PAEZ, FLORENCIA &amp; CO. Todos los derechos reservados.</p>
+                                <div class="flex gap-6">
+                                        <a href="#" class="hover:text-white transition-colors">Política de
+                                                Privacidad</a>
+                                        <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
+                                </div>
+                        </div>
+                </div>
+        </footer>
+        <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                        const counters = document.querySelectorAll('.counter-value');
+                        const speed = 150; // The lower the slower
+
+                        const animateCounters = () => {
+                                counters.forEach(counter => {
+                                        const updateCount = () => {
+                                                const target = +counter.getAttribute('data-target');
+                                                const count = +counter.innerText;
+                                                const inc = Math.max(1, Math.ceil(target / speed));
+
+                                                if (count < target) {
+                                                        counter.innerText = Math.min(count + inc, target);
+                                                        requestAnimationFrame(updateCount);
+                                                } else {
+                                                        counter.innerText = target;
+                                                }
+                                        };
+                                        updateCount();
+                                });
+                        }
+
+                        const section = document.querySelector('#experiencia-cifras');
+                        if (section) {
+                                const observer = new IntersectionObserver((entries, observer) => {
+                                        entries.forEach(entry => {
+                                                if (entry.isIntersecting) {
+                                                        // Animate Counters
+                                                        setTimeout(() => animateCounters(), 300);
+
+                                                        // Animate Cards
+                                                        const cards = section.querySelectorAll('.statistic-card');
+                                                        cards.forEach((card, index) => {
+                                                                setTimeout(() => {
+                                                                        card.classList.remove('opacity-0', 'scale-90');
+                                                                        card.classList.add('opacity-100', 'scale-100');
+                                                                }, index * 150);
+                                                        });
+
+                                                        // Animate Chart Bars
+                                                        const chartBars = section.querySelectorAll('.chart-bar');
+                                                        chartBars.forEach((bar, index) => {
+                                                                setTimeout(() => {
+                                                                        bar.style.height = bar.getAttribute('data-height');
+                                                                }, index * 200 + 600);
+                                                        });
+
+                                                        // Animate Distribution Bars
+                                                        const distBars = section.querySelectorAll('.distribution-bar');
+                                                        distBars.forEach((bar, index) => {
+                                                                setTimeout(() => {
+                                                                        bar.style.width = bar.getAttribute('data-width');
+                                                                }, index * 100 + 800);
+                                                        });
+
+                                                        observer.unobserve(entry.target);
+                                                }
+                                        });
+                                }, { threshold: 0.25 });
+
+                                observer.observe(section);
+                        }
+
+                        // Multisectorial Animation
+                        const multiSection = document.querySelector('#experiencia-multisectorial');
+                        if (multiSection) {
+                                const multiObserver = new IntersectionObserver((entries, observer) => {
+                                        entries.forEach(entry => {
+                                                if (entry.isIntersecting) {
+                                                        const multiCards = multiSection.querySelectorAll('.multisector-card');
+                                                        multiCards.forEach((card, index) => {
+                                                                setTimeout(() => {
+                                                                        card.classList.remove('opacity-0', 'translate-y-12', 'scale-95');
+                                                                        card.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+                                                                }, index * 150 + 200);
+                                                        });
+                                                        observer.unobserve(entry.target);
+                                                }
+                                        });
+                                }, { threshold: 0.15 });
+                                multiObserver.observe(multiSection);
+                        }
+                });
+        </script>
+        <script src="site-animations.js"></script>
 </body>
+
 </html>
