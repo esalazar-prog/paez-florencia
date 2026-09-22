@@ -30,7 +30,7 @@ const IAPA_MEMBERS_DATA = [
     "lat": -0.15842,
     "lng": -78.49062,
     "address": "Juan Diguja OE2-66 y Voz Andes, Edificio Opal oficinas 501 y 502, Quito",
-    "phone": "023809-780 / 09997102616",
+    "phone": "023809-780 / 0997102616",
     "email": "pfcontadores@paezflorencia.com.ec",
     "website": "https://paezflorencia.com"
   },

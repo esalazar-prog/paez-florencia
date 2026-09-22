@@ -360,7 +360,7 @@
         <div
             class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
             <a href="index.html">
-                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="P.F Logo.png" />
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp" />
             </a>
 
             <div class="hidden lg:flex items-center gap-5 xl:gap-8">
@@ -370,28 +370,18 @@
                 <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
                     href="nosotros.html">Nosotros</a>
                 <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
-                    href="iapa.html">IAPA</a>
+                    href="iapa.html">Miembro IAPA</a>
                 <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
                     href="noticias.html">Noticias</a>
                 <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
                     href="contacto.html">Contacto</a>
-                <div class="flex items-center gap-4">
-                    <a href="contacto.html"
-                        class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Contáctenos</a>
-                    <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
-                        title="IAPA International — Conexión Global" class="flex items-center">
-                        <img src="IAPA_International_Logo.png" alt="IAPA International"
-                            class="h-10 w-auto object-contain rounded hover:opacity-85 transition-opacity" />
-                    </a>
+                <div class="flex items-center">
+                    <a href="#contacto-cta"
+                        class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Solicita Información</a>
                 </div>
             </div>
 
-            <div class="flex items-center gap-3 lg:hidden">
-                <a href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
-                    title="IAPA International — Conexión Global">
-                    <img src="IAPA_International_Logo.png" alt="IAPA International"
-                        class="h-9 w-auto object-contain rounded" />
-                </a>
+            <div class="flex items-center lg:hidden">
                 <button id="menu-toggle" onclick="toggleMobileMenu()"
                     class="text-heritage-red p-1.5 rounded-lg focus:outline-none hover:bg-slate-100 transition-colors"
                     aria-label="Abrir menú de navegación" aria-expanded="false">
@@ -410,19 +400,14 @@
             <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
                 href="nosotros.html">Nosotros</a>
             <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
-                href="iapa.html">IAPA</a>
+                href="iapa.html">Miembro IAPA</a>
             <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
                 href="noticias.html">Noticias</a>
             <a onclick="closeMobileMenu()" class="block font-label-md text-label-md text-secondary"
                 href="contacto.html">Contacto</a>
-            <div class="flex items-center gap-3 pt-2">
-                <a onclick="closeMobileMenu()" href="contacto.html"
-                    class="block text-center flex-1 bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Contáctenos</a>
-                <a onclick="closeMobileMenu()" href="https://iapa.net/" target="_blank" rel="noopener noreferrer"
-                    title="IAPA International — Conexión Global" class="flex-shrink-0">
-                    <img src="IAPA_International_Logo.png" alt="IAPA International"
-                        class="h-11 w-auto object-contain rounded" />
-                </a>
+            <div class="pt-2">
+                <a onclick="closeMobileMenu()" href="#contacto-cta"
+                    class="block text-center w-full bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Solicita Información</a>
             </div>
         </div>
     </nav>
@@ -492,45 +477,17 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                <!-- Left Column: Copy & Badges -->
+                <!-- Left Column: Copy -->
                 <div class="lg:col-span-7" data-anim>
                     <h1
                         class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
                         Servicios Profesionales<br />e Integrales
                     </h1>
-                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed mb-8 max-w-2xl font-light">
+                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed max-w-2xl font-light">
                         Soluciones profesionales adaptadas a las exigencias de tu empresa. Integramos auditoría externa,
                         contabilidad estratégica, asesoría tributaria y consultoría empresarial para asegurar el
                         cumplimiento, la transparencia y la optimización financiera de su organización.
                     </p>
-
-                    <!-- Badges / Pill Tags -->
-                    <div class="flex flex-wrap gap-3.5 items-center">
-                        <div
-                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">fact_check</span>
-                            <span>AUDITORÍA EXTERNA</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">account_balance_wallet</span>
-                            <span>CONTABILIDAD &amp; OUTSOURCING</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">receipt_long</span>
-                            <span>ASESORÍA TRIBUTARIA</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">shield</span>
-                            <span>GESTIÓN DE RIESGOS</span>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Right Column: Compás Técnico Emblem Animado (Inspirado en Referencia_Servicios.png) -->
@@ -698,9 +655,9 @@
                         <div class="flex items-center gap-2.5 pb-4 mb-4 border-b border-border-light">
                             <span class="material-symbols-outlined text-heritage-red"
                                 style="font-size:22px">menu_book</span>
-                            <h3
+                            <h2
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold">
-                                Portafolio de Servicios</h3>
+                                Portafolio de Servicios</h2>
                         </div>
 
                         <nav class="space-y-1 text-sm font-label-md" id="sidebar-nav">
@@ -726,50 +683,20 @@
                             </a>
                             <a href="#servicio-5"
                                 class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
-                                <span>05. Auditoría Interna</span>
+                                <span>05. NIIF y Consultoría</span>
                                 <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
                             </a>
                             <a href="#servicio-6"
                                 class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
-                                <span>06. NIIF y Consultoría</span>
+                                <span>06. Servicios Especiales</span>
                                 <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
                             </a>
                             <a href="#servicio-7"
                                 class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
-                                <span>07. Servicios Especiales</span>
-                                <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
-                            </a>
-                            <a href="#servicio-8"
-                                class="service-nav-item flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-text/80 hover:text-heritage-red hover:bg-[#B22222]/5 transition-all">
-                                <span>08. Cumplimiento &amp; Riesgos</span>
+                                <span>07. Cumplimiento &amp; Riesgos</span>
                                 <span class="material-symbols-outlined text-sm opacity-40">chevron_right</span>
                             </a>
                         </nav>
-                    </div>
-
-                    <!-- Sidebar mini CTA card -->
-                    <div
-                        class="bg-gradient-to-br from-institutional-navy to-[#5a1217] rounded-2xl p-6 text-white shadow-md relative overflow-hidden">
-                        <div class="relative z-10">
-                            <span class="material-symbols-outlined text-tertiary-fixed mb-3"
-                                style="font-size:28px">support_agent</span>
-                            <h4 class="font-headline-md text-lg text-white mb-2">¿Necesita asistencia inmediata?</h4>
-                            <p class="font-body-md text-xs text-white/80 leading-relaxed mb-4">
-                                Nuestros socios directores revisan cada requerimiento de forma directa y personalizada.
-                            </p>
-                            <div class="flex flex-col gap-2">
-                                <a href="tel:09997102616"
-                                    class="inline-flex items-center gap-2 text-xs font-semibold text-white bg-white/15 px-3.5 py-2 rounded-lg hover:bg-white/25 transition-colors">
-                                    <span class="material-symbols-outlined text-sm">phone</span>
-                                    <span>09997102616 (Quito)</span>
-                                </a>
-                                <a href="tel:0998452649"
-                                    class="inline-flex items-center gap-2 text-xs font-semibold text-white bg-white/15 px-3.5 py-2 rounded-lg hover:bg-white/25 transition-colors">
-                                    <span class="material-symbols-outlined text-sm">phone</span>
-                                    <span>0998452649 (Guayaquil)</span>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </aside>
 
@@ -792,20 +719,17 @@
                             Consultoría</a>
                         <a href="#servicio-5"
                             class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">05.
-                            Fiscal</a>
+                            NIIF</a>
                         <a href="#servicio-6"
                             class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">06.
-                            NIIF</a>
+                            Especiales</a>
                         <a href="#servicio-7"
                             class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">07.
-                            Especiales</a>
-                        <a href="#servicio-8"
-                            class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-border-light text-institutional-navy shadow-2xs hover:bg-[#B22222] hover:text-white transition-colors">08.
                             Riesgos</a>
                     </div>
                 </div>
 
-                <!-- ── COLUMNA 2: DETALLE DE LOS 8 SERVICIOS (col-span-6 en desktop) ── -->
+                <!-- ── COLUMNA 2: DETALLE DE LOS 7 SERVICIOS (col-span-6 en desktop) ── -->
                 <main class="lg:col-span-6 space-y-10">
 
                     <!-- 1. AUDITORÍA EXTERNA -->
@@ -830,12 +754,7 @@
                             </div>
                         </div>
 
-                        <!-- Tagline Quote -->
-                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
-                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
-                                "Información financiera confiable para tomar decisiones con seguridad."
-                            </p>
-                        </div>
+
 
                         <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
                             Realizamos auditorías independientes de estados financieros, revisiones y trabajos
@@ -843,11 +762,11 @@
                         </p>
 
                         <div class="border-t border-border-light pt-6">
-                            <h4
+                            <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
                                 Servicios Principales:
-                            </h4>
+                            </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
@@ -906,11 +825,7 @@
                             </div>
                         </div>
 
-                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
-                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
-                                "Una función financiera organizada para que puedas concentrarte en tu negocio."
-                            </p>
-                        </div>
+
 
                         <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
                             Brindamos outsourcing contable y acompañamiento profesional para que las empresas dispongan
@@ -918,11 +833,11 @@
                         </p>
 
                         <div class="border-t border-border-light pt-6">
-                            <h4
+                            <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
                                 Servicios Principales:
-                            </h4>
+                            </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
@@ -985,11 +900,7 @@
                             </div>
                         </div>
 
-                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
-                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
-                                "Anticiparse a las obligaciones también es parte de una buena estrategia empresarial."
-                            </p>
-                        </div>
+
 
                         <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
                             Acompañamos a nuestros clientes en el cumplimiento de sus obligaciones tributarias y en el
@@ -998,11 +909,11 @@
                         </p>
 
                         <div class="border-t border-border-light pt-6">
-                            <h4
+                            <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
                                 Servicios Principales:
-                            </h4>
+                            </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
@@ -1065,11 +976,7 @@
                             </div>
                         </div>
 
-                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
-                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
-                                "Convertimos los desafíos de tu empresa en oportunidades de mejora."
-                            </p>
-                        </div>
+
 
                         <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
                             Aportamos nuestra experiencia para ayudar a las organizaciones a mejorar procesos,
@@ -1077,11 +984,11 @@
                         </p>
 
                         <div class="border-t border-border-light pt-6">
-                            <h4
+                            <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
                                 Áreas Principales:
-                            </h4>
+                            </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
@@ -1122,7 +1029,7 @@
                         </div>
                     </article>
 
-                    <!-- 5. AUDITORÍA INTERNA Y CONTROL INTERNO -->
+                    <!-- 5. NIIF Y CONSULTORÍA CONTABLE ESPECIALIZADA -->
                     <article id="servicio-5"
                         class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
                         data-anim>
@@ -1133,101 +1040,18 @@
                         <div class="flex items-center gap-3.5 mb-4">
                             <div
                                 class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
-                                <span class="material-symbols-outlined" style="font-size:28px">security</span>
-                            </div>
-                            <div>
-                                <span
-                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
-                                    05</span>
-                                <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Auditoría
-                                    Interna y Control Interno</h2>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
-                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
-                                "Controles más sólidos. Riesgos mejor gestionados."
-                            </p>
-                        </div>
-
-                        <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
-                            Ayudamos a las organizaciones a identificar riesgos y oportunidades de mejora en sus
-                            procesos, estructuras de control y sistemas de información.
-                        </p>
-
-                        <div class="border-t border-border-light pt-6">
-                            <h4
-                                class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
-                                Servicios Principales:
-                            </h4>
-                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
-                                <li class="flex items-start gap-2.5">
-                                    <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
-                                    <span>Auditoría interna.</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
-                                    <span>Evaluación de control interno.</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
-                                    <span>Levantamiento y documentación de procesos.</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
-                                    <span>Identificación y evaluación de riesgos.</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
-                                    <span>Diseño y evaluación de controles.</span>
-                                </li>
-                                <li class="flex items-start gap-2.5">
-                                    <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
-                                    <span>Políticas y procedimientos.</span>
-                                </li>
-                                <li class="flex items-start gap-2.5 md:col-span-2">
-                                    <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
-                                    <span>Informes y recomendaciones de mejora.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <!-- 6. NIIF Y CONSULTORÍA CONTABLE ESPECIALIZADA -->
-                    <article id="servicio-6"
-                        class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
-                        data-anim>
-                        <div
-                            class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
-                            06</div>
-
-                        <div class="flex items-center gap-3.5 mb-4">
-                            <div
-                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
                                 <span class="material-symbols-outlined" style="font-size:28px">menu_book</span>
                             </div>
                             <div>
                                 <span
                                     class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
-                                    06</span>
+                                    05</span>
                                 <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">NIIF y
                                     Consultoría Contable Especializada</h2>
                             </div>
                         </div>
 
-                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
-                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
-                                "Información financiera preparada para las decisiones de hoy."
-                            </p>
-                        </div>
+
 
                         <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
                             Asesoramos a las empresas en la aplicación de NIIF, NIIF para PYMES y otros requerimientos
@@ -1235,11 +1059,11 @@
                         </p>
 
                         <div class="border-t border-border-light pt-6">
-                            <h4
+                            <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
                                 Servicios Principales:
-                            </h4>
+                            </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
@@ -1275,13 +1099,13 @@
                         </div>
                     </article>
 
-                    <!-- 7. SERVICIOS ESPECIALES -->
-                    <article id="servicio-7"
+                    <!-- 6. SERVICIOS ESPECIALES -->
+                    <article id="servicio-6"
                         class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
                         data-anim>
                         <div
                             class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
-                            07</div>
+                            06</div>
 
                         <div class="flex items-center gap-3.5 mb-4">
                             <div
@@ -1291,17 +1115,13 @@
                             <div>
                                 <span
                                     class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
-                                    07</span>
+                                    06</span>
                                 <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Servicios
                                     Especiales</h2>
                             </div>
                         </div>
 
-                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
-                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
-                                "Soluciones profesionales para situaciones que requieren experiencia especializada."
-                            </p>
-                        </div>
+
 
                         <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
                             Atendemos trabajos específicos que requieren análisis independiente, conocimiento técnico y
@@ -1309,11 +1129,11 @@
                         </p>
 
                         <div class="border-t border-border-light pt-6">
-                            <h4
+                            <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
                                 Servicios Principales:
-                            </h4>
+                            </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
@@ -1359,13 +1179,13 @@
                         </div>
                     </article>
 
-                    <!-- 8. CUMPLIMIENTO Y GESTIÓN DE RIESGOS -->
-                    <article id="servicio-8"
+                    <!-- 7. CUMPLIMIENTO Y GESTIÓN DE RIESGOS -->
+                    <article id="servicio-7"
                         class="service-card bg-white rounded-3xl p-8 md:p-10 border border-border-light shadow-sm scroll-mt-28 relative overflow-hidden"
                         data-anim>
                         <div
                             class="absolute top-6 right-6 font-display-lg text-5xl font-extrabold text-institutional-navy/5 select-none pointer-events-none">
-                            08</div>
+                            07</div>
 
                         <div class="flex items-center gap-3.5 mb-4">
                             <div
@@ -1375,17 +1195,13 @@
                             <div>
                                 <span
                                     class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
-                                    08</span>
+                                    07</span>
                                 <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Cumplimiento y
                                     Gestión de Riesgos</h2>
                             </div>
                         </div>
 
-                        <div class="p-4 rounded-xl bg-[#FAF8F8] border-l-4 border-heritage-red mb-5">
-                            <p class="font-headline-md text-base text-institutional-navy font-medium italic">
-                                "Cumplir no es solamente una obligación. Es proteger el negocio."
-                            </p>
-                        </div>
+
 
                         <p class="font-body-md text-slate-text/85 leading-relaxed mb-6">
                             Acompañamos a las empresas en la identificación y gestión de riesgos asociados al
@@ -1393,11 +1209,11 @@
                         </p>
 
                         <div class="border-t border-border-light pt-6">
-                            <h4
+                            <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
                                 <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
                                 Servicios Principales:
-                            </h4>
+                            </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
@@ -1445,65 +1261,43 @@
 
                 </main>
 
-                <!-- ── COLUMNA 3: SHOWCASE VISUAL STICKY (col-span-3 en desktop, como la referencia) ── -->
+                <!-- ── COLUMNA 3: ASISTENCIA INMEDIATA STICKY (col-span-3 en desktop) ── -->
                 <aside class="lg:col-span-3 sticky top-28 space-y-6">
 
-                    <!-- Reference Image style photo card -->
-                    <div class="rounded-3xl overflow-hidden shadow-lg border border-border-light bg-white group"
+                    <!-- Tarjeta de Asistencia Inmediata -->
+                    <div
+                        class="bg-gradient-to-br from-institutional-navy to-[#5a1217] rounded-3xl p-6 md:p-7 text-white shadow-lg relative overflow-hidden border border-white/10"
                         data-anim>
-                        <div class="relative h-[380px] w-full overflow-hidden">
-                            <img src="imagen_Servicios.png" alt="Consultoría y Servicios PAEZ FLORENCIA"
-                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" />
+                        <div class="relative z-10">
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-institutional-navy/90 via-institutional-navy/20 to-transparent">
+                                class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-tertiary-fixed mb-4">
+                                <span class="material-symbols-outlined" style="font-size:28px">support_agent</span>
                             </div>
-
-                            <div class="absolute bottom-5 left-5 right-5 text-white">
-                                <span
-                                    class="inline-block px-3 py-1 rounded-md bg-heritage-red text-[11px] font-bold uppercase tracking-wider mb-2">Compromiso</span>
-                                <h4 class="font-display-lg text-lg text-white font-semibold leading-snug">
-                                    Acompañamiento Estratégico y Rigor Técnico
-                                </h4>
-                                <p class="text-xs text-white/80 mt-1">
-                                    Soluciones a la medida de los desafíos financieros de su organización.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Card footer highlights -->
-                        <div class="p-5 space-y-3 bg-white">
-                            <div class="flex items-center gap-3 text-xs text-slate-text">
-                                <span class="material-symbols-outlined text-heritage-red text-lg">verified</span>
-                                <span class="font-semibold">Firma calificada por entes reguladores</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-xs text-slate-text">
-                                <span
-                                    class="material-symbols-outlined text-heritage-red text-lg">supervised_user_circle</span>
-                                <span>Atención directa de Socios Directores</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-xs text-slate-text">
-                                <span class="material-symbols-outlined text-heritage-red text-lg">insights</span>
-                                <span>Enfoque preventivo de riesgos</span>
+                            <h3 class="font-headline-md text-xl text-white mb-2 font-semibold">¿Necesita asistencia inmediata?</h3>
+                            <p class="font-body-md text-xs text-white/80 leading-relaxed mb-5">
+                                Nuestros socios directores revisan cada requerimiento de forma directa y personalizada.
+                            </p>
+                            <div class="flex flex-col gap-2.5">
+                                <a href="tel:0997102616"
+                                    title="Contactar Oficina Quito (Llamar o WhatsApp)"
+                                    class="inline-flex items-center justify-between text-xs font-semibold text-white bg-white/15 hover:bg-white/25 px-4 py-2.5 rounded-xl transition-all">
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-sm">phone</span>
+                                        <span>0997102616 (Quito)</span>
+                                    </div>
+                                    <span class="material-symbols-outlined text-sm opacity-60">arrow_forward</span>
+                                </a>
+                                <a href="tel:0998452649"
+                                    title="Contactar Oficina Guayaquil (Llamar o WhatsApp)"
+                                    class="inline-flex items-center justify-between text-xs font-semibold text-white bg-white/15 hover:bg-white/25 px-4 py-2.5 rounded-xl transition-all">
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-sm">phone</span>
+                                        <span>0998452649 (Guayaquil)</span>
+                                    </div>
+                                    <span class="material-symbols-outlined text-sm opacity-60">arrow_forward</span>
+                                </a>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Quick Quote CTA box -->
-                    <div class="p-6 rounded-3xl bg-white border border-border-light shadow-sm text-center">
-                        <div
-                            class="w-12 h-12 mx-auto rounded-full bg-[#3E0C0F]/5 flex items-center justify-center text-institutional-navy mb-3">
-                            <span class="material-symbols-outlined" style="font-size:24px">mail</span>
-                        </div>
-                        <h4 class="font-headline-md text-base text-institutional-navy mb-1">¿Requiere una propuesta
-                            formal?</h4>
-                        <p class="font-body-md text-xs text-slate-text/70 mb-4">
-                            Envíenos los requerimientos de su empresa y le responderemos en menos de 24 horas
-                            laborables.
-                        </p>
-                        <a href="#contacto-cta"
-                            class="inline-block w-full py-2.5 px-4 bg-institutional-navy text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-heritage-red transition-colors shadow">
-                            Solicitar Cotización
-                        </a>
                     </div>
 
                 </aside>
@@ -1514,245 +1308,15 @@
     </section>
 
     <!-- ══════════════════════════════════════════
-     ESTRUCTURA TARIFARIA REFERENCIAL (Idéntico a Referencia_Servicios.png)
-══════════════════════════════════════════ -->
-    <!-- ══════════════════════════════════════════
-     TARIFARIO DE SERVICIOS
-══════════════════════════════════════════ -->
-    <section id="tarifas" class="py-16 md:py-24 bg-[#F2ECEC]/60 border-t border-b border-border-light">
-        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
-
-            <div class="text-center max-w-3xl mx-auto mb-14" data-anim>
-                <div
-                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-heritage-red/10 border border-heritage-red/20 mb-4">
-                    <span
-                        class="font-label-md text-xs tracking-wider uppercase text-heritage-red font-bold">TRANSPARENCIA
-                        INSTITUCIONAL</span>
-                </div>
-                <h2 class="font-display-lg text-3xl md:text-4xl text-institutional-navy mb-4 font-semibold">
-                    Tarifario de Servicios
-                </h2>
-                <p class="font-body-md text-sm md:text-base text-slate-text/80 max-w-2xl mx-auto leading-relaxed">
-                    Estructura horaria de honorarios profesionales para auditoría externa, consultoría financiera y
-                    auditoría de tecnología.
-                </p>
-            </div>
-
-            <!-- 5 Responsive Rate Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-10" data-anim>
-                <!-- 1. Socio de auditoría -->
-                <div
-                    class="bg-white rounded-2xl p-6 border border-border-light shadow-sm hover:shadow-md hover:border-heritage-red/40 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div
-                            class="w-12 h-12 rounded-xl bg-heritage-red/10 flex items-center justify-center text-heritage-red mb-4 group-hover:bg-heritage-red group-hover:text-white transition-colors">
-                            <span class="material-symbols-outlined" style="font-size:26px">workspace_premium</span>
-                        </div>
-                        <span
-                            class="font-label-md text-[11px] uppercase tracking-wider text-heritage-red font-bold block mb-1">Nivel
-                            Directivo</span>
-                        <h3 class="font-display-lg text-lg text-institutional-navy font-bold mb-3 leading-snug">Socio de
-                            auditoría</h3>
-                        <p class="font-body-md text-xs text-slate-text/75 leading-relaxed mb-6">
-                            Dirección estratégica del encargo, suscripción de informes y representación ante organismos
-                            reguladores.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-border-light">
-                        <div class="font-display-lg text-2xl font-bold text-heritage-red">US$ 60</div>
-                        <span class="font-caption text-xs text-slate-text/60">por hora</span>
-                    </div>
-                </div>
-
-                <!-- 2. Gerente de auditoría -->
-                <div
-                    class="bg-white rounded-2xl p-6 border border-border-light shadow-sm hover:shadow-md hover:border-heritage-red/40 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div
-                            class="w-12 h-12 rounded-xl bg-heritage-red/10 flex items-center justify-center text-heritage-red mb-4 group-hover:bg-heritage-red group-hover:text-white transition-colors">
-                            <span class="material-symbols-outlined" style="font-size:26px">manage_accounts</span>
-                        </div>
-                        <span
-                            class="font-label-md text-[11px] uppercase tracking-wider text-heritage-red font-bold block mb-1">Supervisión</span>
-                        <h3 class="font-display-lg text-lg text-institutional-navy font-bold mb-3 leading-snug">Gerente
-                            de auditoría</h3>
-                        <p class="font-body-md text-xs text-slate-text/75 leading-relaxed mb-6">
-                            Planificación global, aseguramiento del control de calidad y revisión exhaustiva de papeles
-                            de trabajo.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-border-light">
-                        <div class="font-display-lg text-2xl font-bold text-heritage-red">US$ 40</div>
-                        <span class="font-caption text-xs text-slate-text/60">por hora</span>
-                    </div>
-                </div>
-
-                <!-- 3. Senior de auditoría -->
-                <div
-                    class="bg-white rounded-2xl p-6 border border-border-light shadow-sm hover:shadow-md hover:border-heritage-red/40 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div
-                            class="w-12 h-12 rounded-xl bg-heritage-red/10 flex items-center justify-center text-heritage-red mb-4 group-hover:bg-heritage-red group-hover:text-white transition-colors">
-                            <span class="material-symbols-outlined" style="font-size:26px">assignment_turned_in</span>
-                        </div>
-                        <span
-                            class="font-label-md text-[11px] uppercase tracking-wider text-heritage-red font-bold block mb-1">Ejecución
-                            en Campo</span>
-                        <h3 class="font-display-lg text-lg text-institutional-navy font-bold mb-3 leading-snug">Senior
-                            de auditoría</h3>
-                        <p class="font-body-md text-xs text-slate-text/75 leading-relaxed mb-6">
-                            Ejecución de procedimientos complejos, pruebas analíticas sustantivas y liderazgo operativo
-                            del equipo.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-border-light">
-                        <div class="font-display-lg text-2xl font-bold text-heritage-red">US$ 20</div>
-                        <span class="font-caption text-xs text-slate-text/60">por hora</span>
-                    </div>
-                </div>
-
-                <!-- 4. Junior de auditoría -->
-                <div
-                    class="bg-white rounded-2xl p-6 border border-border-light shadow-sm hover:shadow-md hover:border-heritage-red/40 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div
-                            class="w-12 h-12 rounded-xl bg-heritage-red/10 flex items-center justify-center text-heritage-red mb-4 group-hover:bg-heritage-red group-hover:text-white transition-colors">
-                            <span class="material-symbols-outlined" style="font-size:26px">badge</span>
-                        </div>
-                        <span
-                            class="font-label-md text-[11px] uppercase tracking-wider text-heritage-red font-bold block mb-1">Soporte
-                            Técnico</span>
-                        <h3 class="font-display-lg text-lg text-institutional-navy font-bold mb-3 leading-snug">Junior
-                            de auditoría</h3>
-                        <p class="font-body-md text-xs text-slate-text/75 leading-relaxed mb-6">
-                            Verificación documental, confirmaciones de saldos, muestreo analítico y conciliaciones.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-border-light">
-                        <div class="font-display-lg text-2xl font-bold text-heritage-red">US$ 15</div>
-                        <span class="font-caption text-xs text-slate-text/60">por hora</span>
-                    </div>
-                </div>
-
-                <!-- 5. Gerente de tecnología -->
-                <div
-                    class="bg-white rounded-2xl p-6 border border-border-light shadow-sm hover:shadow-md hover:border-institutional-navy/40 transition-all flex flex-col justify-between group">
-                    <div>
-                        <div
-                            class="w-12 h-12 rounded-xl bg-institutional-navy/10 flex items-center justify-center text-institutional-navy mb-4 group-hover:bg-institutional-navy group-hover:text-white transition-colors">
-                            <span class="material-symbols-outlined" style="font-size:26px">terminal</span>
-                        </div>
-                        <span
-                            class="font-label-md text-[11px] uppercase tracking-wider text-institutional-navy font-bold block mb-1">Especialidad
-                            TI</span>
-                        <h3 class="font-display-lg text-lg text-institutional-navy font-bold mb-3 leading-snug">Gerente
-                            de tecnología</h3>
-                        <p class="font-body-md text-xs text-slate-text/75 leading-relaxed mb-6">
-                            Auditoría de sistemas computarizados, evaluación de controles generales TI y ciberseguridad.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-border-light">
-                        <div class="font-display-lg text-2xl font-bold text-institutional-navy">US$ 40</div>
-                        <span class="font-caption text-xs text-slate-text/60">por hora</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Structured Detail Table -->
-            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-border-light mb-6" data-anim>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr
-                                class="bg-gradient-to-r from-[#9E1B1B] to-heritage-red text-white text-xs md:text-sm font-semibold tracking-wider uppercase">
-                                <th class="py-4 px-6">Categoría Profesional</th>
-                                <th class="py-4 px-6">Área de Especialidad</th>
-                                <th class="py-4 px-6">Alcance y Responsabilidad</th>
-                                <th class="py-4 px-6 text-right">Tarifa por Hora</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-border-light text-xs md:text-sm font-body-md">
-                            <tr class="hover:bg-surface/70 transition-colors">
-                                <td class="py-4 px-6 font-semibold text-institutional-navy flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full bg-heritage-red"></span>
-                                    <span>Socio de auditoría</span>
-                                </td>
-                                <td class="py-4 px-6 text-slate-text/80">Auditoría Externa y Gobierno Corporativo</td>
-                                <td class="py-4 px-6 text-slate-text/80">Dirección estratégica, dictámenes oficiales y
-                                    representación institucional</td>
-                                <td class="py-4 px-6 text-right font-bold text-heritage-red">US$ 60 por hora</td>
-                            </tr>
-                            <tr class="hover:bg-surface/70 transition-colors">
-                                <td class="py-4 px-6 font-semibold text-institutional-navy flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full bg-heritage-red"></span>
-                                    <span>Gerente de auditoría</span>
-                                </td>
-                                <td class="py-4 px-6 text-slate-text/80">Supervisión y Control de Calidad</td>
-                                <td class="py-4 px-6 text-slate-text/80">Planificación, revisión de papeles de trabajo y
-                                    coordinación del encargo</td>
-                                <td class="py-4 px-6 text-right font-bold text-heritage-red">US$ 40 por hora</td>
-                            </tr>
-                            <tr class="hover:bg-surface/70 transition-colors">
-                                <td class="py-4 px-6 font-semibold text-institutional-navy flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full bg-heritage-red"></span>
-                                    <span>Senior de auditoría</span>
-                                </td>
-                                <td class="py-4 px-6 text-slate-text/80">Auditoría Operativa y de Campo</td>
-                                <td class="py-4 px-6 text-slate-text/80">Ejecución técnica avanzada, evaluación de
-                                    controles y liderazgo en campo</td>
-                                <td class="py-4 px-6 text-right font-bold text-heritage-red">US$ 20 por hora</td>
-                            </tr>
-                            <tr class="hover:bg-surface/70 transition-colors">
-                                <td class="py-4 px-6 font-semibold text-institutional-navy flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full bg-heritage-red"></span>
-                                    <span>Junior de auditoría</span>
-                                </td>
-                                <td class="py-4 px-6 text-slate-text/80">Soporte Técnico y Conciliaciones</td>
-                                <td class="py-4 px-6 text-slate-text/80">Verificación documental, confirmaciones de
-                                    saldos y pruebas de cumplimiento</td>
-                                <td class="py-4 px-6 text-right font-bold text-heritage-red">US$ 15 por hora</td>
-                            </tr>
-                            <tr class="hover:bg-surface/70 transition-colors">
-                                <td class="py-4 px-6 font-semibold text-institutional-navy flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full bg-institutional-navy"></span>
-                                    <span>Gerente de tecnología</span>
-                                </td>
-                                <td class="py-4 px-6 text-slate-text/80">Auditoría de Sistemas y TI</td>
-                                <td class="py-4 px-6 text-slate-text/80">Evaluación de controles generales de TI,
-                                    ciberseguridad y análisis de datos</td>
-                                <td class="py-4 px-6 text-right font-bold text-institutional-navy">US$ 40 por hora</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Footnote & CTA -->
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left mt-6">
-                <p class="text-xs text-slate-text/70 italic max-w-xl">
-                    * Tarifas referenciales para proyectos en Ecuador. También estructuramos propuestas de honorarios
-                    fijos cerrados según el alcance acordado.
-                </p>
-                <a href="#contacto-cta"
-                    class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-institutional-navy text-white text-xs font-semibold uppercase tracking-wider hover:bg-heritage-red transition-colors shadow">
-                    <span>Solicitar Propuesta a Medida</span>
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════
-     CONTACT / CONSULTATION CTA SECTION
-══════════════════════════════════════════ -->
+         SECCIÓN DE CONTACTO RÁPIDO / CTA
+    ══════════════════════════════════════════ -->
     <section id="contacto-cta" class="py-16 md:py-24 bg-white">
         <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
-            <div class="bg-gradient-to-br from-institutional-navy via-[#4a0e12] to-heritage-red rounded-3xl p-8 md:p-14 text-white shadow-xl relative overflow-hidden"
+            <div class="bg-gradient-to-br from-[#3b080c] via-[#611015] to-[#871B1F] rounded-3xl p-8 md:p-14 text-white shadow-2xl relative overflow-hidden"
                 data-anim>
-                <!-- Decorative element -->
+                <!-- Subtle decorative glows -->
                 <div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-white/5 pointer-events-none"></div>
-                <div class="absolute right-1/4 -top-16 w-60 h-60 rounded-full bg-white/5 pointer-events-none"></div>
+                <div class="absolute right-1/3 -top-20 w-72 h-72 rounded-full bg-white/5 pointer-events-none"></div>
 
                 <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                     <div class="lg:col-span-7">
@@ -1763,48 +1327,50 @@
                         <h2 class="font-display-lg text-3xl md:text-4xl text-white mb-4 leading-tight">
                             ¿Listo para optimizar la solidez y cumplimiento de su empresa?
                         </h2>
-                        <p class="font-body-lg text-white/85 text-base md:text-lg mb-6 leading-relaxed">
+                        <p class="font-body-lg text-white/85 text-base md:text-lg mb-8 leading-relaxed max-w-xl">
                             Coordine una sesión preliminar con nuestro equipo directivo en Quito o Guayaquil.
                             Analizaremos sus necesidades con absoluta reserva profesional.
                         </p>
                         <div class="flex flex-wrap gap-4 items-center">
                             <a href="mailto:pfcontadores@paezflorencia.com.ec"
                                 class="bg-white text-institutional-navy font-label-md text-sm md:text-base px-6 py-3.5 rounded-xl hover:bg-[#FAF8F8] transition-colors shadow-md font-semibold inline-flex items-center gap-2">
-                                <span class="material-symbols-outlined text-heritage-red">email</span>
+                                <span class="material-symbols-outlined text-heritage-red">mail</span>
                                 <span>Escribir a Quito</span>
                             </a>
                             <a href="mailto:pfcontad@paezflorencia.com"
                                 class="bg-white/15 border border-white/30 text-white font-label-md text-sm md:text-base px-6 py-3.5 rounded-xl hover:bg-white/25 transition-colors font-semibold inline-flex items-center gap-2">
-                                <span class="material-symbols-outlined text-white">email</span>
+                                <span class="material-symbols-outlined text-white">mail</span>
                                 <span>Escribir a Guayaquil</span>
                             </a>
                         </div>
                     </div>
 
                     <div class="lg:col-span-5 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                        <h3 class="font-headline-md text-lg text-white mb-4 flex items-center gap-2">
+                        <h3 class="font-headline-md text-lg text-white mb-5 flex items-center gap-2 font-bold">
                             <span class="material-symbols-outlined text-white">call</span>
-                            Líneas de Atención Directa
+                            <span>Líneas de Atención Directa</span>
                         </h3>
-                        <div class="space-y-4 text-sm text-white/90">
+                        <div class="space-y-3.5 text-sm text-white/90">
                             <div class="flex items-center justify-between pb-3 border-b border-white/10">
-                                <span>Oficina Quito (PBX):</span>
+                                <span class="text-white/80">Oficina Quito (PBX):</span>
                                 <a href="tel:023809780"
-                                    class="font-bold hover:text-white transition-colors">023809-780</a>
+                                    class="font-bold text-white hover:underline transition-colors">023809-780</a>
                             </div>
                             <div class="flex items-center justify-between pb-3 border-b border-white/10">
-                                <span>Celular Quito:</span>
-                                <a href="tel:09997102616"
-                                    class="font-bold hover:text-white transition-colors">09997102616</a>
+                                <span class="text-white/80">Celular Quito:</span>
+                                <a href="tel:0997102616"
+                                    title="Contactar Oficina Quito (Llamar o WhatsApp)"
+                                    class="font-bold text-white hover:underline transition-colors">0997102616</a>
                             </div>
                             <div class="flex items-center justify-between pb-3 border-b border-white/10">
-                                <span>Celular Guayaquil:</span>
+                                <span class="text-white/80">Celular Guayaquil:</span>
                                 <a href="tel:0998452649"
-                                    class="font-bold hover:text-white transition-colors">0998452649</a>
+                                    title="Contactar Oficina Guayaquil (Llamar o WhatsApp)"
+                                    class="font-bold text-white hover:underline transition-colors">0998452649</a>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <span>Horario:</span>
-                                <span class="text-white/80">Lun - Vie: 9:00 AM - 6:00 PM</span>
+                            <div class="flex items-center justify-between pt-1">
+                                <span class="text-white/80">Horario:</span>
+                                <span class="text-white font-medium">Lun - Vie: 9:00 AM - 6:00 PM</span>
                             </div>
                         </div>
                     </div>
@@ -1840,11 +1406,11 @@
 
                 <!-- Oficina Quito -->
                 <div class="md:col-span-4">
-                    <h4 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
+                    <h3 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
                         style="border-color:rgba(255,255,255,.2)">
                         <span class="material-symbols-outlined text-white" style="font-size:20px">location_city</span>
                         Oficina Quito
-                    </h4>
+                    </h3>
                     <div class="space-y-3 font-body-md text-sm" style="color:rgba(228,226,228,.9)">
                         <div class="flex items-start gap-2.5">
                             <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
@@ -1860,8 +1426,9 @@
                         <div class="flex items-center gap-2.5">
                             <span class="material-symbols-outlined text-white/80 flex-shrink-0"
                                 style="font-size:18px;font-variation-settings:'FILL' 1">smartphone</span>
-                            <a href="tel:09997102616"
-                                class="hover:underline hover:text-white transition-colors">09997102616</a>
+                            <a href="tel:0997102616"
+                                title="Contactar Oficina Quito (Llamar o WhatsApp)"
+                                class="hover:underline hover:text-white transition-colors">0997102616</a>
                         </div>
                         <div class="flex items-center gap-2.5">
                             <span class="material-symbols-outlined text-white/80 flex-shrink-0"
@@ -1879,11 +1446,11 @@
 
                 <!-- Oficina Guayaquil -->
                 <div class="md:col-span-4">
-                    <h4 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
+                    <h3 class="font-label-md text-label-md text-white mb-5 uppercase tracking-wider pb-3 border-b flex items-center gap-2 font-bold"
                         style="border-color:rgba(255,255,255,.2)">
                         <span class="material-symbols-outlined text-white" style="font-size:20px">location_city</span>
                         Oficina Guayaquil
-                    </h4>
+                    </h3>
                     <div class="space-y-3 font-body-md text-sm" style="color:rgba(228,226,228,.9)">
                         <div class="flex items-start gap-2.5">
                             <span class="material-symbols-outlined text-white/80 mt-0.5 flex-shrink-0"
