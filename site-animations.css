@@ -339,22 +339,185 @@ nav.pf-nav-scrolled {
 }
 
 /* ══════════════════════════════════════════
-   11. ACCESIBILIDAD: PREFERS REDUCED MOTION
+   12. ANIMACIÓN DE CARGA INSTITUCIONAL (PRELOADER)
    ══════════════════════════════════════════ */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+body.pf-loading {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
 
-  .pf-reveal,
-  [data-anim] {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
+#pf-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999999;
+  background-color: #721408;
+  background-image: radial-gradient(circle at center, #87190b 0%, #721408 55%, #560e05 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.65s var(--pf-ease), visibility 0.65s var(--pf-ease);
+  will-change: opacity, visibility;
+  pointer-events: all;
+  margin: 0;
+  padding: 0;
+}
+
+#pf-preloader.pf-preloader-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.pf-preloader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  padding: 32px;
+  animation: pfCardScaleIn 0.7s var(--pf-ease) both;
+}
+
+/* Contenedor del Logo / Sello */
+.pf-preloader-logo-wrap {
+  position: relative;
+  width: 175px;
+  max-width: 78vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 26px;
+  overflow: hidden;
+  border-radius: 18px;
+  animation: pfLogoBreath 2.4s ease-in-out infinite alternate;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.45));
+}
+
+.pf-preloader-logo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Brillo Metálico Diagonal que cruza el Logo */
+.pf-preloader-logo-wrap::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -130%;
+  width: 70%;
+  height: 220%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  animation: pfPreloaderSheen 2.3s infinite ease-in-out 0.3s;
+}
+
+/* Barra de progreso inferior */
+.pf-preloader-bar-wrap {
+  width: 130px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.pf-preloader-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
+  animation: pfBarProgress 1.4s var(--pf-ease) forwards;
+}
+
+/* Textos institucionales */
+.pf-preloader-brand {
+  text-align: center;
+}
+
+.pf-preloader-title {
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.3;
+  font-family: inherit;
+  opacity: 0.96;
+}
+
+.pf-preloader-subtitle {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin: 4px 0 0 0;
+  line-height: 1.2;
+  font-family: inherit;
+}
+
+/* Keyframes */
+@keyframes pfCardScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
+
+@keyframes pfLogoBreath {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    transform: scale(1.035) translateY(-3px);
+  }
+}
+
+@keyframes pfPreloaderSheen {
+  0% {
+    left: -130%;
+  }
+  60%, 100% {
+    left: 170%;
+  }
+}
+
+@keyframes pfBarProgress {
+  0% {
+    width: 0%;
+  }
+  40% {
+    width: 45%;
+  }
+  75% {
+    width: 85%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #pf-preloader {
+    display: none !important;
+  }
+}
+

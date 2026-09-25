@@ -40,7 +40,7 @@
                         "surface-variant": "#e4e2e4",
                         "tertiary-fixed": "#ffdcc0",
                         "outline-variant": "#c5c6ce",
-                        "secondary": "#b52424",
+                        "secondary": "#3E0C0F",
                     },
                     spacing: {
                         "gutter-desktop": "32px",
@@ -242,15 +242,69 @@
             border-color: #B22222;
             box-shadow: 0 4px 14px -2px rgba(178, 34, 34, 0.4);
         }
+
+        /* ── Preloader Crítico Inmediato (Cero Flash / Cero Salto) ── */
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body.pf-loading {
+            overflow: hidden !important;
+            height: 100vh !important;
+        }
+
+        #pf-preloader {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 9999999 !important;
+            background-color: #721408 !important;
+            background-image: radial-gradient(circle at center, #87190b 0%, #721408 55%, #560e05 100%) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-direction: column !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            pointer-events: all !important;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        #pf-preloader.pf-preloader-hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
     </style>
     <link rel="stylesheet" href="site-animations.css">
 </head>
 
 <body
-    class="overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
+    class="pf-loading overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
 
-    <!-- Scroll Progress -->
-    <div id="progress-bar"></div>
+    <!-- ══════════════════════════════════════════
+         PRELOADER INSTITUCIONAL (FONDO COMPLETO #721408)
+    ══════════════════════════════════════════ -->
+    <div id="pf-preloader" aria-hidden="true">
+        <div class="pf-preloader-container">
+            <div class="pf-preloader-logo-wrap">
+                <img src="WEBP/Logo_Carga.webp" alt="Páez, Florencia & Co." class="pf-preloader-logo-img" width="205" height="127" />
+            </div>
+            <div class="pf-preloader-bar-wrap">
+                <div class="pf-preloader-bar-fill"></div>
+            </div>
+            <div class="pf-preloader-brand">
+                <p class="pf-preloader-title">Páez, Florencia &amp; Co.</p>
+                <p class="pf-preloader-subtitle">Auditoría &amp; Asesoría</p>
+            </div>
+        </div>
+    </div>
 
     <!-- ══════════════════════════════════════════
      NAVBAR ESTANDARIZADO
@@ -259,7 +313,7 @@
         <div
             class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
             <a href="index.html">
-                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp" />
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp" width="1051" height="323" fetchpriority="high" decoding="async" />
             </a>
 
             <div class="hidden lg:flex items-center gap-5 xl:gap-8">
@@ -376,39 +430,17 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                <!-- Left Column: Copy & Badges -->
+                <!-- Left Column: Copy -->
                 <div class="lg:col-span-7" data-anim>
                     <h1
                         class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
                         Publicaciones &amp;<br />Actualidad Empresarial
                     </h1>
-                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed mb-8 max-w-2xl font-light">
+                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed max-w-2xl font-light">
                         Criterios técnicos, reformas fiscales, actualización en normas NIIF y análisis estratégico
                         elaborados por los socios y directores de PAEZ, FLORENCIA &amp; CO. para la toma de decisiones
                         informadas.
                     </p>
-
-                    <!-- Badges / Pill Tags -->
-                    <div class="flex flex-wrap gap-3.5 items-center">
-                        <div
-                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">auto_stories</span>
-                            <span>CRITERIO TÉCNICO</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">gavel</span>
-                            <span>REFORMAS SRI</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">analytics</span>
-                            <span>NIIF &amp; GOBERNANZA</span>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Right Column: Emblema Editorial Animado -->
@@ -540,7 +572,10 @@
     <!-- ══════════════════════════════════════════
      FILTERS & LIVE SEARCH BAR
 ══════════════════════════════════════════ -->
-    <section class="py-10 border-b border-border-light bg-white sticky top-20 z-40 shadow-sm">
+    <!-- ══════════════════════════════════════════
+     FILTERS & LIVE SEARCH BAR
+══════════════════════════════════════════ -->
+    <section id="filters-section" class="py-10 border-b border-border-light bg-white sticky top-20 z-40 shadow-sm">
         <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
             <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
 
@@ -595,10 +630,9 @@
 ══════════════════════════════════════════ -->
     <section class="py-8 md:py-16">
         <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
-            <div class="flex items-center justify-between mb-8 pb-4 border-b border-border-light">
-                <h2 class="font-headline-md text-2xl text-institutional-navy flex items-center gap-2">
-                    <span class="material-symbols-outlined text-heritage-red">feed</span>
-                    <span>Artículos Recientes</span>
+            <div id="articles-header" class="flex items-center justify-between mb-8 pb-4 border-b border-border-light">
+                <h2 class="font-headline-md text-2xl text-institutional-navy">
+                    Artículos Recientes
                 </h2>
                 <span id="article-count" class="text-sm text-secondary font-label-md">Mostrando artículos</span>
             </div>
@@ -608,15 +642,17 @@
                 <!-- Injected via JavaScript from articulos-data.js -->
             </div>
 
-            <!-- Empty State if search yields no results -->
-            <div id="empty-state" class="hidden text-center py-20 bg-white rounded-2xl border border-border-light p-8">
-                <span class="material-symbols-outlined text-slate-300 text-6xl mb-4">search_off</span>
-                <h3 class="font-headline-md text-xl text-institutional-navy mb-2">No se encontraron publicaciones</h3>
-                <p class="font-body-md text-secondary text-sm max-w-md mx-auto mb-6">
-                    No hay artículos que coincidan con los términos de búsqueda o categoría seleccionada.
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden text-center py-20 bg-white rounded-3xl border border-border-light p-10 max-w-2xl mx-auto shadow-sm">
+                <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-[#FAF8F8] border border-border-light flex items-center justify-center text-institutional-navy font-display-lg font-bold text-2xl shadow-sm">
+                    PF
+                </div>
+                <h3 id="empty-title" class="font-headline-md text-2xl text-institutional-navy mb-3">Próximamente nuevas publicaciones</h3>
+                <p id="empty-desc" class="font-body-md text-slate-text/80 text-base max-w-lg mx-auto mb-6 leading-relaxed">
+                    Las publicaciones, criterios técnicos y novedades editoriales de PAEZ, FLORENCIA &amp; CO. se encontrarán disponibles próximamente conforme se difundan desde el panel de contenidos.
                 </p>
                 <button id="btn-clear-filters"
-                    class="px-5 py-2.5 rounded-lg bg-institutional-navy text-white text-sm font-semibold hover:bg-heritage-red transition-colors">
+                    class="hidden px-5 py-2.5 rounded-xl bg-institutional-navy text-white text-sm font-semibold hover:bg-heritage-red transition-colors">
                     Restablecer filtros
                 </button>
             </div>
@@ -875,11 +911,33 @@
         const btnClear = document.getElementById("btn-clear-filters");
 
         const featuredSection = document.getElementById("featured-section");
+        const filtersSection = document.getElementById("filters-section");
+        const articlesHeader = document.getElementById("articles-header");
 
         function renderArticles() {
             const all = (typeof articulosData !== "undefined" && Array.isArray(articulosData))
                 ? articulosData
                 : ((typeof window !== "undefined" && Array.isArray(window.articulosData)) ? window.articulosData : []);
+
+            // If completely empty (no articles published via API yet)
+            if (all.length === 0) {
+                if (featuredSection) featuredSection.classList.add("hidden");
+                if (featuredContainer) featuredContainer.innerHTML = "";
+                if (filtersSection) filtersSection.classList.add("hidden");
+                if (articlesHeader) articlesHeader.classList.add("hidden");
+                if (articlesGrid) articlesGrid.innerHTML = "";
+                if (emptyState) emptyState.classList.remove("hidden");
+                const emptyTitle = document.getElementById("empty-title");
+                const emptyDesc = document.getElementById("empty-desc");
+                if (emptyTitle) emptyTitle.textContent = "Próximamente nuevas publicaciones";
+                if (emptyDesc) emptyDesc.textContent = "Las publicaciones, criterios técnicos y novedades editoriales de PAEZ, FLORENCIA & CO. se encontrarán disponibles próximamente conforme se difundan desde el panel de contenidos.";
+                if (btnClear) btnClear.classList.add("hidden");
+                return;
+            }
+
+            // If there are articles, ensure filters and header are active
+            if (filtersSection) filtersSection.classList.remove("hidden");
+            if (articlesHeader) articlesHeader.classList.remove("hidden");
 
             // Filter by category & search
             const filtered = all.filter(article => {
@@ -908,7 +966,7 @@
                             <div class="lg:col-span-5 p-8 lg:p-12 flex flex-col justify-between">
                                 <div>
                                     <div class="flex items-center gap-3 text-xs text-secondary font-label-md mb-4">
-                                        <span class="text-heritage-red font-semibold uppercase tracking-wider">${featured.categoria}</span>
+                                        <span class="text-institutional-navy font-semibold uppercase tracking-wider">${featured.categoria}</span>
                                         <span>•</span>
                                         <span>${featured.fecha}</span>
                                         <span>•</span>
@@ -923,13 +981,13 @@
                                 </div>
                                 <div class="flex items-center justify-between pt-6 border-t border-border-light">
                                     <div class="flex items-center gap-3">
-                                        <img src="${featured.autor.avatar}" alt="${featured.autor.nombre}" class="w-10 h-10 rounded-full object-cover border border-border-light" />
+                                        <img src="${featured.autor.avatar}" alt="${featured.autor.nombre}" class="w-10 h-10 rounded-full object-cover border border-border-light" width="40" height="40" loading="lazy" decoding="async" />
                                         <div>
                                             <p class="text-xs font-semibold text-institutional-navy">${featured.autor.nombre}</p>
                                             <p class="text-[11px] text-secondary">${featured.autor.cargo}</p>
                                         </div>
                                     </div>
-                                    <a href="articulo.html?id=${featured.id}" class="inline-flex items-center gap-1 text-heritage-red font-label-md text-sm font-semibold hover:gap-2 transition-all">
+                                    <a href="articulo.html?id=${featured.id}" class="inline-flex items-center gap-1 text-institutional-navy hover:text-heritage-red font-label-md text-sm font-semibold hover:gap-2 transition-all">
                                         <span>Leer</span>
                                         <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                     </a>
@@ -937,9 +995,13 @@
                             </div>
                         </div>
                     `;
+                } else {
+                    if (featuredSection) featuredSection.classList.add("hidden");
+                    if (featuredContainer) featuredContainer.innerHTML = "";
                 }
             } else {
                 if (featuredSection) featuredSection.classList.add("hidden");
+                if (featuredContainer) featuredContainer.innerHTML = "";
             }
 
             // 2. Articles Grid
@@ -951,7 +1013,15 @@
             if (gridArticles.length === 0) {
                 articlesGrid.innerHTML = "";
                 emptyState.classList.remove("hidden");
+
+                const emptyTitle = document.getElementById("empty-title");
+                const emptyDesc = document.getElementById("empty-desc");
+                const btnClear = document.getElementById("btn-clear-filters");
+
                 articleCount.textContent = "0 artículos encontrados";
+                if (emptyTitle) emptyTitle.textContent = "No se encontraron publicaciones";
+                if (emptyDesc) emptyDesc.textContent = "No hay artículos que coincidan con los términos de búsqueda o categoría seleccionada.";
+                if (btnClear) btnClear.classList.remove("hidden");
             } else {
                 emptyState.classList.add("hidden");
                 articleCount.textContent = `Mostrando ${filtered.length === 1 ? '1 publicación' : `${filtered.length} publicaciones`}`;
@@ -960,7 +1030,7 @@
                     <article class="article-card bg-white rounded-2xl border border-border-light overflow-hidden flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="relative h-52 overflow-hidden bg-slate-100">
-                                <img src="${article.imagen}" alt="${article.titulo}" class="w-full h-full object-cover" />
+                                <img src="${article.imagen}" alt="${article.titulo}" class="w-full h-full object-cover" loading="lazy" decoding="async" />
                                 <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/95 backdrop-blur-sm text-institutional-navy font-label-md text-[11px] font-semibold uppercase tracking-wider shadow-sm">
                                     ${article.categoria}
                                 </span>
@@ -982,10 +1052,10 @@
 
                         <div class="px-6 pb-6 pt-2 border-t border-border-light/60 flex items-center justify-between">
                             <div class="flex items-center gap-2.5">
-                                <img src="${article.autor.avatar}" alt="${article.autor.nombre}" class="w-8 h-8 rounded-full object-cover border border-border-light" />
+                                <img src="${article.autor.avatar}" alt="${article.autor.nombre}" class="w-8 h-8 rounded-full object-cover border border-border-light" width="32" height="32" loading="lazy" decoding="async" />
                                 <span class="text-xs font-medium text-slate-text">${article.autor.nombre}</span>
                             </div>
-                            <a href="articulo.html?id=${article.id}" class="text-heritage-red hover:text-institutional-navy text-xs font-semibold font-label-md uppercase tracking-wider inline-flex items-center gap-1 group">
+                            <a href="articulo.html?id=${article.id}" class="text-institutional-navy hover:text-heritage-red text-xs font-semibold font-label-md uppercase tracking-wider inline-flex items-center gap-1 group">
                                 <span>Leer más</span>
                                 <span class="material-symbols-outlined text-xs group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
                             </a>

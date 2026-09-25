@@ -40,7 +40,7 @@
                         "surface-variant": "#e4e2e4",
                         "tertiary-fixed": "#ffdcc0",
                         "outline-variant": "#c5c6ce",
-                        "secondary": "#b52424",
+                        "secondary": "#3E0C0F",
                     },
                     spacing: {
                         "gutter-desktop": "32px",
@@ -223,15 +223,70 @@
             transform: translateY(0);
             opacity: 1;
         }
+
+        /* ── Preloader Crítico Inmediato (Cero Flash / Cero Salto) ── */
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body.pf-loading {
+            overflow: hidden !important;
+            height: 100vh !important;
+        }
+
+        #pf-preloader {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 9999999 !important;
+            background-color: #721408 !important;
+            background-image: radial-gradient(circle at center, #87190b 0%, #721408 55%, #560e05 100%) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-direction: column !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            pointer-events: all !important;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        #pf-preloader.pf-preloader-hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
     </style>
     <link rel="stylesheet" href="site-animations.css">
 </head>
 
 <body
-    class="overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
+    class="pf-loading overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
 
-    <!-- Scroll Progress -->
-    <div id="progress-bar"></div>
+    <!-- ══════════════════════════════════════════
+         PRELOADER INSTITUCIONAL (FONDO COMPLETO #721408)
+    ══════════════════════════════════════════ -->
+    <div id="pf-preloader" aria-hidden="true">
+        <div class="pf-preloader-container">
+            <div class="pf-preloader-logo-wrap">
+                <img src="WEBP/Logo_Carga.webp" alt="Páez, Florencia & Co." class="pf-preloader-logo-img" width="205"
+                    height="127" />
+            </div>
+            <div class="pf-preloader-bar-wrap">
+                <div class="pf-preloader-bar-fill"></div>
+            </div>
+            <div class="pf-preloader-brand">
+                <p class="pf-preloader-title">Páez, Florencia &amp; Co.</p>
+                <p class="pf-preloader-subtitle">Auditoría &amp; Asesoría</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Toast Notification for Form Submissions -->
     <div id="toast-notification"
@@ -251,7 +306,8 @@
         <div
             class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
             <a href="index.html">
-                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp" />
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp"
+                    width="1051" height="323" fetchpriority="high" decoding="async" />
             </a>
 
             <div class="hidden lg:flex items-center gap-5 xl:gap-8">
@@ -268,7 +324,8 @@
                 <a class="font-label-md text-label-md nav-active" href="contacto.html">Contacto</a>
                 <div class="flex items-center">
                     <a href="#formulario-contacto"
-                        class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Solicita Información</a>
+                        class="bg-institutional-navy text-white font-label-md text-label-md uppercase px-6 py-2 rounded hover:bg-heritage-red transition-colors inline-block">Solicita
+                        Información</a>
                 </div>
             </div>
 
@@ -298,7 +355,8 @@
                 href="contacto.html">Contacto</a>
             <div class="pt-2">
                 <a onclick="closeMobileMenu()" href="#formulario-contacto"
-                    class="block text-center w-full bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Solicita Información</a>
+                    class="block text-center w-full bg-institutional-navy text-white font-label-md text-label-md uppercase py-3 rounded hover:bg-heritage-red transition-colors">Solicita
+                    Información</a>
             </div>
         </div>
     </nav>
@@ -368,49 +426,19 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                <!-- Text Column -->
+                <!-- Left Column: Copy -->
                 <div class="lg:col-span-7" data-anim>
-                    <!-- Badge -->
-                    <div
-                        class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider mb-6 hover:bg-white/20 transition-colors">
-                        <span class="material-symbols-outlined text-white"
-                            style="font-size:18px;font-variation-settings: 'FILL' 1">support_agent</span>
-                        <span>Atención Directa &amp; Asesoría Corporativa</span>
-                    </div>
-
                     <h1
                         class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
                         Hablemos sobre la seguridad y el futuro de su empresa.
                     </h1>
-                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed mb-8 max-w-2xl font-light">
+                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed max-w-2xl font-light">
                         Nuestros socios directores se encuentran a su disposición en <strong
                             class="font-semibold text-white">Quito</strong> y <strong
                             class="font-semibold text-white">Guayaquil</strong> para evaluar requerimientos de auditoría
                         externa, consultoría tributaria, contabilidad y gestión de riesgos, con estricta reserva
                         profesional.
                     </p>
-
-                    <!-- Feature Pillars Tags (Estandarizados con Nosotros y Servicios) -->
-                    <div class="flex flex-wrap gap-3.5 items-center">
-                        <div
-                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">verified</span>
-                            <span>RESPUESTA EN MENOS DE 24H</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">lock</span>
-                            <span>CONFIDENCIALIDAD TOTAL (NDA)</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">pin_drop</span>
-                            <span>SEDES QUITO Y GUAYAQUIL</span>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Graphic Column: Emblema Geográfico Institucional Estandarizado -->
@@ -510,17 +538,13 @@
                 <div class="lg:col-span-7 bg-white rounded-3xl p-8 md:p-12 border border-border-light shadow-sm">
                     <div class="mb-8 pb-6 border-b border-border-light">
                         <div
-                            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#B22222]/10 text-heritage-red text-xs font-semibold uppercase tracking-wider mb-3">
+                            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#3E0C0F]/10 text-institutional-navy text-xs font-semibold uppercase tracking-wider mb-3">
                             <span class="material-symbols-outlined" style="font-size:16px">mail</span>
                             <span>Canal de Atención Directa</span>
                         </div>
-                        <h2 class="font-display-lg text-3xl md:text-4xl text-institutional-navy mb-3">
+                        <h2 class="font-display-lg text-3xl md:text-4xl text-institutional-navy mb-0">
                             Envíenos su Requerimiento
                         </h2>
-                        <p class="font-body-md text-secondary text-sm md:text-base leading-relaxed">
-                            Complete los datos a continuación y uno de nuestros directores de área analizará su caso
-                            preliminarmente para coordinar una reunión de trabajo técnica.
-                        </p>
                     </div>
 
                     <!-- Contact Form con 3 Capas de Seguridad Anti-Bot -->
@@ -694,11 +718,12 @@
                         <div class="flex items-center justify-between pb-4 mb-5 border-b border-border-light">
                             <div class="flex items-center gap-3">
                                 <div
-                                    class="w-10 h-10 rounded-xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                    class="w-10 h-10 rounded-xl bg-[#3E0C0F]/10 flex items-center justify-center text-institutional-navy">
                                     <span class="material-symbols-outlined" style="font-size:22px">apartment</span>
                                 </div>
                                 <div>
-                                    <span class="text-xs font-bold uppercase tracking-wider text-heritage-red">Oficina
+                                    <span
+                                        class="text-xs font-bold uppercase tracking-wider text-institutional-navy">Oficina
                                         Matriz</span>
                                     <h3 class="font-headline-md text-xl text-institutional-navy font-bold">Sede Quito
                                     </h3>
@@ -710,7 +735,7 @@
 
                         <div class="space-y-4 text-sm text-slate-text font-body-md">
                             <div class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-heritage-red mt-0.5 flex-shrink-0"
+                                <span class="material-symbols-outlined text-institutional-navy mt-0.5 flex-shrink-0"
                                     style="font-size:19px">location_on</span>
                                 <div>
                                     <p class="font-semibold text-institutional-navy">Dirección Corporativa:</p>
@@ -720,7 +745,7 @@
                             </div>
 
                             <div class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-heritage-red mt-0.5 flex-shrink-0"
+                                <span class="material-symbols-outlined text-institutional-navy mt-0.5 flex-shrink-0"
                                     style="font-size:19px">call</span>
                                 <div>
                                     <p class="font-semibold text-institutional-navy">Teléfono PBX:</p>
@@ -732,12 +757,11 @@
                             </div>
 
                             <div class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-heritage-red mt-0.5 flex-shrink-0"
+                                <span class="material-symbols-outlined text-institutional-navy mt-0.5 flex-shrink-0"
                                     style="font-size:19px">smartphone</span>
                                 <div>
                                     <p class="font-semibold text-institutional-navy">Celular / WhatsApp Directo:</p>
-                                    <a href="tel:0997102616"
-                                        title="Contactar Oficina Quito (Llamar o WhatsApp)"
+                                    <a href="tel:0997102616" title="Contactar Oficina Quito (Llamar o WhatsApp)"
                                         class="text-secondary hover:text-heritage-red transition-colors font-medium">
                                         0997102616
                                     </a>
@@ -745,7 +769,7 @@
                             </div>
 
                             <div class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-heritage-red mt-0.5 flex-shrink-0"
+                                <span class="material-symbols-outlined text-institutional-navy mt-0.5 flex-shrink-0"
                                     style="font-size:19px">mail</span>
                                 <div>
                                     <p class="font-semibold text-institutional-navy">Correo Electrónico:</p>
@@ -773,7 +797,7 @@
                             </a>
                             <a href="https://maps.app.goo.gl/9HgoqNRNDFdu5Cuv6" target="_blank"
                                 rel="noopener noreferrer"
-                                class="flex-1 py-2.5 px-4 rounded-xl border border-border-light hover:border-heritage-red text-heritage-red text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
+                                class="flex-1 py-2.5 px-4 rounded-xl border border-border-light hover:border-institutional-navy text-institutional-navy text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
                                 <span class="material-symbols-outlined" style="font-size:16px">directions</span>
                                 <span>Cómo Llegar</span>
                             </a>
@@ -803,7 +827,7 @@
 
                         <div class="space-y-4 text-sm text-slate-text font-body-md">
                             <div class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-heritage-red mt-0.5 flex-shrink-0"
+                                <span class="material-symbols-outlined text-institutional-navy mt-0.5 flex-shrink-0"
                                     style="font-size:19px">location_on</span>
                                 <div>
                                     <p class="font-semibold text-institutional-navy">Dirección Corporativa:</p>
@@ -813,7 +837,7 @@
                             </div>
 
                             <div class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-heritage-red mt-0.5 flex-shrink-0"
+                                <span class="material-symbols-outlined text-institutional-navy mt-0.5 flex-shrink-0"
                                     style="font-size:19px">smartphone</span>
                                 <div>
                                     <p class="font-semibold text-institutional-navy">Celular / WhatsApp Directo:</p>
@@ -825,7 +849,7 @@
                             </div>
 
                             <div class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-heritage-red mt-0.5 flex-shrink-0"
+                                <span class="material-symbols-outlined text-institutional-navy mt-0.5 flex-shrink-0"
                                     style="font-size:19px">mail</span>
                                 <div>
                                     <p class="font-semibold text-institutional-navy">Correo Electrónico:</p>
@@ -853,7 +877,7 @@
                             </a>
                             <a href="https://maps.google.com/?q=Junin+203+y+Panama,+Guayaquil,+Ecuador" target="_blank"
                                 rel="noopener noreferrer"
-                                class="flex-1 py-2.5 px-4 rounded-xl border border-border-light hover:border-heritage-red text-heritage-red text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
+                                class="flex-1 py-2.5 px-4 rounded-xl border border-border-light hover:border-institutional-navy text-institutional-navy text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
                                 <span class="material-symbols-outlined" style="font-size:16px">directions</span>
                                 <span>Cómo Llegar</span>
                             </a>
@@ -874,33 +898,15 @@
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <div
-                    class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#B22222]/10 text-heritage-red text-xs font-semibold uppercase tracking-wider mb-3">
+                    class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#3E0C0F]/10 text-institutional-navy text-xs font-semibold uppercase tracking-wider mb-3">
                     <span class="material-symbols-outlined" style="font-size:16px">explore</span>
                     <span>Geolocalización &amp; Sedes Físicas</span>
                 </div>
                 <h2 class="font-display-lg text-3xl md:text-4xl text-institutional-navy mb-4">
-                    Nuestras Oficinas en Google Maps
+                    Nuestras Oficinas
                 </h2>
                 <p class="font-body-md text-secondary text-sm md:text-base leading-relaxed">
-                    Visítenos en nuestras instalaciones principales. Disponemos de salas de reuniones privadas equipadas
-                    para auditorías, sesiones de directorio y revisión de contingencias tributarias.
-                </p>
-
-                <!-- City Selector Tabs -->
-                <div class="inline-flex p-1.5 bg-slate-100 rounded-2xl gap-2 mt-6 border border-border-light">
-                    <button id="tab-btn-both" onclick="activateCityTab('both')"
-                        class="city-tab active px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all">
-                        Ambas Sedes (Comparativa)
-                    </button>
-                    <button id="tab-btn-quito" onclick="activateCityTab('quito')"
-                        class="city-tab px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-secondary hover:text-institutional-navy transition-all">
-                        Oficina Quito
-                    </button>
-                    <button id="tab-btn-gye" onclick="activateCityTab('gye')"
-                        class="city-tab px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-secondary hover:text-institutional-navy transition-all">
-                        Oficina Guayaquil
-                    </button>
-                </div>
+                    Visítenos en nuestras instalaciones principales.
             </div>
 
             <!-- Maps Grid Container -->
@@ -940,11 +946,14 @@
                     <div
                         class="p-4 bg-white border-t border-border-light flex flex-wrap items-center justify-between gap-3 text-xs">
                         <div class="flex items-center gap-2 text-secondary">
-                            <span class="material-symbols-outlined text-heritage-red" style="font-size:16px">call</span>
-                            <span>PBX: <strong>023809-780</strong> | Cel: <a href="tel:0997102616" class="font-bold hover:text-heritage-red hover:underline transition-colors" title="Contactar Oficina Quito">0997102616</a></span>
+                            <span class="material-symbols-outlined text-institutional-navy"
+                                style="font-size:16px">call</span>
+                            <span>PBX: <strong>023809-780</strong> | Cel: <a href="tel:0997102616"
+                                    class="font-bold hover:text-heritage-red hover:underline transition-colors"
+                                    title="Contactar Oficina Quito">0997102616</a></span>
                         </div>
                         <a href="https://maps.app.goo.gl/9HgoqNRNDFdu5Cuv6" target="_blank" rel="noopener noreferrer"
-                            class="font-semibold text-heritage-red hover:underline flex items-center gap-1">
+                            class="font-semibold text-institutional-navy hover:underline flex items-center gap-1">
                             <span>Trazar ruta hacia Edificio Opal</span>
                             <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
                         </a>
@@ -987,11 +996,13 @@
                         <div class="flex items-center gap-2 text-secondary">
                             <span class="material-symbols-outlined text-heritage-red"
                                 style="font-size:16px">smartphone</span>
-                            <span>Celular / WhatsApp: <a href="tel:0998452649" class="font-bold hover:text-heritage-red hover:underline transition-colors" title="Contactar Oficina Guayaquil">0998452649</a></span>
+                            <span>Celular / WhatsApp: <a href="tel:0998452649"
+                                    class="font-bold hover:text-heritage-red hover:underline transition-colors"
+                                    title="Contactar Oficina Guayaquil">0998452649</a></span>
                         </div>
                         <a href="https://maps.google.com/?q=Junin+203+y+Panama,+Guayaquil,+Ecuador" target="_blank"
                             rel="noopener noreferrer"
-                            class="font-semibold text-heritage-red hover:underline flex items-center gap-1">
+                            class="font-semibold text-institutional-navy hover:underline flex items-center gap-1">
                             <span>Trazar ruta en Google Maps</span>
                             <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
                         </a>
@@ -1002,64 +1013,6 @@
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════
-     PROTOCOL & COMMITMENT (PROCESO DE CONTACTO)
-══════════════════════════════════════════ -->
-    <section class="py-16 md:py-20 bg-[#FAF8F8]">
-        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy mb-3">
-                    Nuestro Protocolo de Primera Consulta
-                </h2>
-                <p class="font-body-md text-secondary text-sm leading-relaxed">
-                    Garantizamos un proceso ordenado, profesional y transparente desde el primer acercamiento.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Step 1 -->
-                <div class="bg-white rounded-2xl p-7 border border-border-light shadow-sm text-center md:text-left">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-[#B22222]/10 text-heritage-red flex items-center justify-center font-bold text-lg mb-5 mx-auto md:mx-0">
-                        01
-                    </div>
-                    <h3 class="font-headline-md text-lg text-institutional-navy mb-2 font-bold">Asignación Directa</h3>
-                    <p class="font-body-md text-secondary text-xs sm:text-sm leading-relaxed">
-                        Su consulta es canalizada de inmediato a uno de los socios directores según el sector técnico de
-                        su requerimiento (Auditoría, Tributario o Legal-Financiero).
-                    </p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="bg-white rounded-2xl p-7 border border-border-light shadow-sm text-center md:text-left">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-[#B22222]/10 text-heritage-red flex items-center justify-center font-bold text-lg mb-5 mx-auto md:mx-0">
-                        02
-                    </div>
-                    <h3 class="font-headline-md text-lg text-institutional-navy mb-2 font-bold">Acuerdo de
-                        Confidencialidad</h3>
-                    <p class="font-body-md text-secondary text-xs sm:text-sm leading-relaxed">
-                        Previo a la revisión de cualquier documento societario o balanza de comprobación, suscribimos un
-                        acuerdo formal de confidencialidad (NDA) para resguardo de su empresa.
-                    </p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="bg-white rounded-2xl p-7 border border-border-light shadow-sm text-center md:text-left">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-[#B22222]/10 text-heritage-red flex items-center justify-center font-bold text-lg mb-5 mx-auto md:mx-0">
-                        03
-                    </div>
-                    <h3 class="font-headline-md text-lg text-institutional-navy mb-2 font-bold">Sesión y Propuesta a
-                        Medida</h3>
-                    <p class="font-body-md text-secondary text-xs sm:text-sm leading-relaxed">
-                        Coordinamos una reunión técnica (presencial en nuestras sedes o por Teams) y emitimos una
-                        propuesta de honorarios y alcance detallada, sin costos ocultos.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ══════════════════════════════════════════
          SECCIÓN DE CONTACTO RÁPIDO / CTA
@@ -1112,14 +1065,12 @@
                             </div>
                             <div class="flex items-center justify-between pb-3 border-b border-white/10">
                                 <span class="text-white/80">Celular Quito:</span>
-                                <a href="tel:0997102616"
-                                    title="Contactar Oficina Quito (Llamar o WhatsApp)"
+                                <a href="tel:0997102616" title="Contactar Oficina Quito (Llamar o WhatsApp)"
                                     class="font-bold text-white hover:underline transition-colors">0997102616</a>
                             </div>
                             <div class="flex items-center justify-between pb-3 border-b border-white/10">
                                 <span class="text-white/80">Celular Guayaquil:</span>
-                                <a href="tel:0998452649"
-                                    title="Contactar Oficina Guayaquil (Llamar o WhatsApp)"
+                                <a href="tel:0998452649" title="Contactar Oficina Guayaquil (Llamar o WhatsApp)"
                                     class="font-bold text-white hover:underline transition-colors">0998452649</a>
                             </div>
                             <div class="flex items-center justify-between pt-1">
@@ -1179,8 +1130,7 @@
                         <div class="flex items-center gap-2.5">
                             <span class="material-symbols-outlined text-white/80 flex-shrink-0"
                                 style="font-size:18px;font-variation-settings:'FILL' 1">smartphone</span>
-                            <a href="tel:0997102616"
-                                title="Contactar Oficina Quito (Llamar o WhatsApp)"
+                            <a href="tel:0997102616" title="Contactar Oficina Quito (Llamar o WhatsApp)"
                                 class="hover:underline hover:text-white transition-colors">0997102616</a>
                         </div>
                         <div class="flex items-center gap-2.5">
@@ -1261,33 +1211,17 @@
             if (pb) pb.style.width = scrolled + "%";
         });
 
-        // 3. City Tabs Switcher for Google Maps
+        // 3. City Tabs Switcher for Google Maps (Ambas sedes siempre visibles)
         function activateCityTab(target) {
-            const tabBoth = document.getElementById('tab-btn-both');
-            const tabQuito = document.getElementById('tab-btn-quito');
-            const tabGye = document.getElementById('tab-btn-gye');
-
             const mapQuito = document.getElementById('mapa-quito');
             const mapGye = document.getElementById('mapa-gye');
 
-            // Reset tab classes
-            [tabBoth, tabQuito, tabGye].forEach(btn => {
-                if (btn) btn.classList.remove('active', 'text-white');
-            });
+            if (mapQuito) mapQuito.classList.remove('hidden');
+            if (mapGye) mapGye.classList.remove('hidden');
 
-            if (target === 'quito') {
-                if (tabQuito) tabQuito.classList.add('active');
-                if (mapQuito) mapQuito.classList.remove('hidden');
-                if (mapGye) mapGye.classList.add('hidden');
-            } else if (target === 'gye') {
-                if (tabGye) tabGye.classList.add('active');
-                if (mapQuito) mapQuito.classList.add('hidden');
-                if (mapGye) mapGye.classList.remove('hidden');
-            } else {
-                // Both
-                if (tabBoth) tabBoth.classList.add('active');
-                if (mapQuito) mapQuito.classList.remove('hidden');
-                if (mapGye) mapGye.classList.remove('hidden');
+            const targetElement = target === 'gye' ? mapGye : mapQuito;
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
 

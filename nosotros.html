@@ -33,7 +33,7 @@
                         "surface-variant": "#e4e2e4",
                         "tertiary-fixed": "#ffdcc0",
                         "outline-variant": "#c5c6ce",
-                        "secondary": "#b52424",
+                        "secondary": "#3E0C0F",
                     },
                     spacing: {
                         "gutter-desktop": "32px",
@@ -258,17 +258,6 @@
             transform: translateY(0) scale(1);
         }
 
-        .timeline-nav-chip {
-            transition: all 0.25s ease;
-        }
-
-        .timeline-nav-chip.active {
-            background-color: #B22222 !important;
-            color: #ffffff !important;
-            border-color: #B22222 !important;
-            box-shadow: 0 6px 16px -4px rgba(178, 34, 34, 0.35);
-        }
-
         /* Stagger Delays */
         .d1 {
             transition-delay: .15s
@@ -426,14 +415,69 @@
             perspective: 1000px;
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        /* ── Preloader Crítico Inmediato (Cero Flash / Cero Salto) ── */
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body.pf-loading {
+            overflow: hidden !important;
+            height: 100vh !important;
+        }
+
+        #pf-preloader {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 9999999 !important;
+            background-color: #721408 !important;
+            background-image: radial-gradient(circle at center, #87190b 0%, #721408 55%, #560e05 100%) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-direction: column !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            pointer-events: all !important;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        #pf-preloader.pf-preloader-hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
     </style>
     <link rel="stylesheet" href="site-animations.css">
 </head>
 
-<body class="overflow-x-hidden bg-white text-on-background antialiased"
+<body class="pf-loading overflow-x-hidden bg-white text-on-background antialiased"
     style="font-family:'Work Sans',sans-serif;color:#1b1b1e">
 
-    <div id="progress-bar"></div>
+    <!-- ══════════════════════════════════════════
+         PRELOADER INSTITUCIONAL (FONDO COMPLETO #721408)
+    ══════════════════════════════════════════ -->
+    <div id="pf-preloader" aria-hidden="true">
+        <div class="pf-preloader-container">
+            <div class="pf-preloader-logo-wrap">
+                <img src="WEBP/Logo_Carga.webp" alt="Páez, Florencia & Co." class="pf-preloader-logo-img" width="205" height="127" />
+            </div>
+            <div class="pf-preloader-bar-wrap">
+                <div class="pf-preloader-bar-fill"></div>
+            </div>
+            <div class="pf-preloader-brand">
+                <p class="pf-preloader-title">Páez, Florencia &amp; Co.</p>
+                <p class="pf-preloader-subtitle">Auditoría &amp; Asesoría</p>
+            </div>
+        </div>
+    </div>
 
     <!-- ══════════════════════════════════════════
      NAVBAR
@@ -442,7 +486,7 @@
         <div
             class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
             <a href="index.html">
-                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp" />
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp" width="1051" height="323" fetchpriority="high" decoding="async" />
             </a>
             <div class="hidden lg:flex items-center gap-5 xl:gap-8">
                 <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
@@ -537,7 +581,7 @@
     </script>
 
     <!-- ══════════════════════════════════════════
-     HERO  —  Rojo Heritage con Badges
+     HERO  —  Rojo Heritage Corporativo
 ══════════════════════════════════════════ -->
     <section
         class="relative bg-gradient-to-br from-[#9E1B1B] via-[#B22222] to-[#801414] text-white overflow-hidden py-20 md:py-28">
@@ -555,39 +599,17 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                <!-- Left Column: Copy & Badges -->
+                <!-- Left Column: Copy -->
                 <div class="lg:col-span-7" data-anim>
                     <h1
                         class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
                         Más de 25 años de<br />excelencia profesional
                     </h1>
-                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed mb-10 max-w-2xl font-light">
+                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed max-w-2xl font-light">
                         PAEZ, FLORENCIA &amp; CO. CIA. LTDA. es una firma ecuatoriana especializada en
                         auditoría externa, asesorías contables y tributarias, impulsando el crecimiento y
                         fortalecimiento de nuestros clientes con integridad y precisión.
                     </p>
-
-                    <!-- Badges / Pill Tags -->
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <div
-                            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">verified_user</span>
-                            <span>CONFIDENCIALIDAD</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">schedule</span>
-                            <span>OPORTUNIDAD</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">workspace_premium</span>
-                            <span>PROFESIONALISMO</span>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Right Column: Emblema Institucional de 25+ Años Animado -->
@@ -769,10 +791,10 @@
 
             <!-- Section Header -->
             <div class="text-center max-w-2xl mx-auto mb-16" data-anim>
-                <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-heritage-red mb-3">
+                <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-institutional-navy mb-3">
                     Nuestros Pilares
                 </h2>
-                <div class="w-20 h-1 bg-institutional-navy mx-auto rounded-full"></div>
+                <div class="w-20 h-1 bg-heritage-red mx-auto rounded-full"></div>
             </div>
 
             <!-- Pilares Grid: Misión y Visión -->
@@ -855,63 +877,19 @@
         class="py-margin-desktop bg-surface border-y border-border-light relative overflow-hidden">
         <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
 
-            <!-- Section Header & Controls -->
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12" data-anim>
-                <div class="max-w-2xl">
-                    <p
-                        class="font-label-md text-label-md text-heritage-red uppercase tracking-widest mb-2 font-semibold">
-                        Evolución Continua
-                    </p>
-                    <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-heritage-red mb-3">
-                        Nuestra Trayectoria
-                    </h2>
-                    <p class="font-body-lg text-body-lg text-slate-text leading-relaxed">
-                        Un legado de evolución constante, adaptándonos a las exigencias normativas y
-                        tecnológicas para servir mejor a nuestros clientes.
-                    </p>
-                </div>
-                <!-- Play / Replay Animation Trigger -->
-                <div class="flex-shrink-0">
-                    <button id="btn-replay-timeline"
-                        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border-light text-slate-text hover:text-heritage-red hover:border-heritage-red/40 font-label-md text-xs uppercase tracking-wider shadow-sm transition-all">
-                        <span class="material-symbols-outlined text-base">replay</span>
-                        Desplegar animación
-                    </button>
-                </div>
-            </div>
-
-            <!-- Milestone Navigator Chips -->
-            <div class="flex flex-wrap items-center gap-2.5 mb-14" data-anim>
-                <button
-                    class="timeline-nav-chip active px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
-                    data-filter="all">
-                    ✦ Toda la trayectoria
-                </button>
-                <button
-                    class="timeline-nav-chip px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
-                    data-target="year-2001">
-                    2001 · Constitución
-                </button>
-                <button
-                    class="timeline-nav-chip px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
-                    data-target="year-2007">
-                    2007 · SuperCompañías
-                </button>
-                <button
-                    class="timeline-nav-chip px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
-                    data-target="year-2012">
-                    2012 · Miembro IAPA
-                </button>
-                <button
-                    class="timeline-nav-chip px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
-                    data-target="year-2020">
-                    2020 · Contraloría
-                </button>
-                <button
-                    class="timeline-nav-chip px-4 py-2 rounded-full bg-white border border-border-light font-label-md text-xs uppercase tracking-wider text-slate-text hover:bg-slate-50"
-                    data-target="year-2021">
-                    2021 · Educación Superior
-                </button>
+            <!-- Section Header -->
+            <div class="max-w-2xl mb-12 md:mb-16" data-anim>
+                <p
+                    class="font-label-md text-label-md text-institutional-navy uppercase tracking-widest mb-2 font-semibold">
+                    Evolución Continua
+                </p>
+                <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-institutional-navy mb-3">
+                    Nuestra Trayectoria
+                </h2>
+                <p class="font-body-lg text-body-lg text-slate-text leading-relaxed">
+                    Un legado de evolución constante, adaptándonos a las exigencias normativas y
+                    tecnológicas para servir mejor a nuestros clientes.
+                </p>
             </div>
 
             <!-- Timeline Container -->
@@ -978,7 +956,7 @@
                                     <span class="material-symbols-outlined text-xs">trending_up</span> Mercado de
                                     Valores
                                 </span>
-                                <h3 class="font-headline-md text-xl md:text-2xl text-heritage-red mb-2 font-bold">
+                                <h3 class="font-headline-md text-xl md:text-2xl text-institutional-navy mb-2 font-bold">
                                     Superintendencia de Compañías
                                 </h3>
                                 <p class="font-body-md text-body-md text-slate-text leading-relaxed mb-4">
@@ -1048,7 +1026,7 @@
                                     class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-heritage-red font-label-md text-xs uppercase tracking-wider mb-3 font-semibold">
                                     <span class="material-symbols-outlined text-xs">gavel</span> Sector Público
                                 </span>
-                                <h3 class="font-headline-md text-xl md:text-2xl text-heritage-red mb-2 font-bold">
+                                <h3 class="font-headline-md text-xl md:text-2xl text-institutional-navy mb-2 font-bold">
                                     Contraloría General del Estado
                                 </h3>
                                 <p class="font-body-md text-body-md text-slate-text leading-relaxed mb-4">
@@ -1112,10 +1090,10 @@
 
             <!-- Section Header -->
             <div class="text-center max-w-2xl mx-auto mb-16" data-anim>
-                <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-heritage-red mb-3">
+                <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-institutional-navy mb-3">
                     Liderazgo Ejecutivo
                 </h2>
-                <div class="w-20 h-1 bg-institutional-navy mx-auto rounded-full mb-4"></div>
+                <div class="w-20 h-1 bg-heritage-red mx-auto rounded-full mb-4"></div>
                 <p class="font-body-lg text-body-lg text-slate-text leading-relaxed">
                     Profesionales altamente capacitados con destacada trayectoria en las principales firmas globales y
                     corporaciones del país.
@@ -1131,8 +1109,9 @@
                     <!-- Photo Column -->
                     <div
                         class="lg:col-span-5 relative overflow-hidden min-h-[320px] sm:min-h-[400px] lg:min-h-[520px] bg-[#F1F5F9]">
-                        <img src="Gabriel Paez.png" alt="Dr. Gabriel Páez — Presidente / Socio"
-                            class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                        <img src="WEBP/Gabriel Paez.webp" alt="Dr. Gabriel Páez — Presidente / Socio"
+                            class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                            width="1023" height="1537" loading="lazy" decoding="async" />
                         <!-- Gradient overlay -->
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-[#3E0C0F]/90 via-[#3E0C0F]/30 to-transparent flex flex-col justify-end p-6 z-10">
@@ -1243,8 +1222,9 @@
                     <!-- Photo Column -->
                     <div
                         class="lg:col-span-5 relative overflow-hidden min-h-[320px] sm:min-h-[400px] lg:min-h-[520px] bg-[#F1F5F9]">
-                        <img src="William Florencia.png" alt="Mst. William Florencia — Gerente General / Socio"
-                            class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                        <img src="WEBP/William Florencia.webp" alt="Mst. William Florencia — Gerente General / Socio"
+                            class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                            width="945" height="1260" loading="lazy" decoding="async" />
                         <!-- Gradient overlay -->
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-heritage-red/65 via-heritage-red/20 to-transparent flex flex-col justify-end p-6 z-10">
@@ -1560,12 +1540,10 @@
 
         document.querySelectorAll('[data-anim]').forEach(el => animObserver.observe(el));
 
-        // ── Professional Timeline Unfolding & Interactive Controller
+        // ── Professional Timeline Unfolding Controller
         const timelineSection = document.getElementById('trayectoria-section');
         const stemFill = document.getElementById('timeline-stem-fill');
         const timelineRows = document.querySelectorAll('.timeline-row');
-        const navChips = document.querySelectorAll('.timeline-nav-chip');
-        const replayBtn = document.getElementById('btn-replay-timeline');
 
         const unfoldTimeline = () => {
             if (stemFill) stemFill.classList.add('filled');
@@ -1573,13 +1551,6 @@
                 setTimeout(() => {
                     row.classList.add('unfolded');
                 }, idx * 300 + 200);
-            });
-        };
-
-        const resetTimeline = () => {
-            if (stemFill) stemFill.classList.remove('filled');
-            timelineRows.forEach(row => {
-                row.classList.remove('unfolded', 'active');
             });
         };
 
@@ -1596,41 +1567,6 @@
             }, { threshold: 0.15 });
             timelineObserver.observe(timelineSection);
         }
-
-        // Replay Button
-        replayBtn?.addEventListener('click', () => {
-            resetTimeline();
-            setTimeout(() => {
-                unfoldTimeline();
-            }, 100);
-        });
-
-        // Milestone Filter / Nav Chips
-        navChips.forEach(chip => {
-            chip.addEventListener('click', () => {
-                navChips.forEach(c => c.classList.remove('active'));
-                chip.classList.add('active');
-
-                const targetId = chip.getAttribute('data-target');
-                if (!targetId || chip.getAttribute('data-filter') === 'all') {
-                    timelineRows.forEach(row => {
-                        row.classList.remove('opacity-30', 'scale-95');
-                        row.classList.add('unfolded');
-                    });
-                } else {
-                    timelineRows.forEach(row => {
-                        if (row.id === targetId) {
-                            row.classList.remove('opacity-30', 'scale-95');
-                            row.classList.add('unfolded', 'active');
-                            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        } else {
-                            row.classList.add('opacity-30', 'scale-95');
-                            row.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        });
 
         // ── Interactive 3D Parallax on Hero Institutional Seal
         const sealBox = document.getElementById("hero-seal-box");

@@ -33,7 +33,7 @@
                         "surface-variant": "#e4e2e4",
                         "tertiary-fixed": "#ffdcc0",
                         "outline-variant": "#c5c6ce",
-                        "secondary": "#b52424",
+                        "secondary": "#3E0C0F",
                     },
                     spacing: {
                         "gutter-desktop": "32px",
@@ -343,15 +343,69 @@
             perspective: 1000px;
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        /* ── Preloader Crítico Inmediato (Cero Flash / Cero Salto) ── */
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body.pf-loading {
+            overflow: hidden !important;
+            height: 100vh !important;
+        }
+
+        #pf-preloader {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 9999999 !important;
+            background-color: #721408 !important;
+            background-image: radial-gradient(circle at center, #87190b 0%, #721408 55%, #560e05 100%) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-direction: column !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            pointer-events: all !important;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        #pf-preloader.pf-preloader-hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
     </style>
     <link rel="stylesheet" href="site-animations.css">
 </head>
 
 <body
-    class="overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
+    class="pf-loading overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
 
-    <!-- Scroll Progress -->
-    <div id="progress-bar"></div>
+    <!-- ══════════════════════════════════════════
+         PRELOADER INSTITUCIONAL (FONDO COMPLETO #721408)
+    ══════════════════════════════════════════ -->
+    <div id="pf-preloader" aria-hidden="true">
+        <div class="pf-preloader-container">
+            <div class="pf-preloader-logo-wrap">
+                <img src="WEBP/Logo_Carga.webp" alt="Páez, Florencia & Co." class="pf-preloader-logo-img" width="205" height="127" />
+            </div>
+            <div class="pf-preloader-bar-wrap">
+                <div class="pf-preloader-bar-fill"></div>
+            </div>
+            <div class="pf-preloader-brand">
+                <p class="pf-preloader-title">Páez, Florencia &amp; Co.</p>
+                <p class="pf-preloader-subtitle">Auditoría &amp; Asesoría</p>
+            </div>
+        </div>
+    </div>
 
     <!-- ══════════════════════════════════════════
      NAVBAR
@@ -360,7 +414,7 @@
         <div
             class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
             <a href="index.html">
-                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp" />
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp" width="1051" height="323" fetchpriority="high" decoding="async" />
             </a>
 
             <div class="hidden lg:flex items-center gap-5 xl:gap-8">
@@ -459,7 +513,7 @@
     </script>
 
     <!-- ══════════════════════════════════════════
-     HERO  —  Rojo Heritage Corporativo con Badges
+     HERO  —  Rojo Heritage Corporativo
 ══════════════════════════════════════════ -->
     <section
         class="relative bg-gradient-to-br from-[#9E1B1B] via-[#B22222] to-[#801414] text-white overflow-hidden py-20 md:py-28">
@@ -742,12 +796,12 @@
 
                         <div class="flex items-center gap-3.5 mb-4">
                             <div
-                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                class="w-12 h-12 rounded-2xl bg-[#3E0C0F]/10 flex items-center justify-center text-institutional-navy">
                                 <span class="material-symbols-outlined" style="font-size:28px">fact_check</span>
                             </div>
                             <div>
                                 <span
-                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold">Servicio
                                     01</span>
                                 <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Auditoría
                                     Externa</h2>
@@ -764,38 +818,38 @@
                         <div class="border-t border-border-light pt-6">
                             <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                <span class="material-symbols-outlined text-institutional-navy text-base">checklist</span>
                                 Servicios Principales:
                             </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Auditoría de estados financieros.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Auditorías para compañías sujetas a organismos de control.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Auditorías con propósitos especiales.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Revisiones de información financiera.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Procedimientos previamente convenidos.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Evaluación de controles internos.</span>
                                 </li>
                             </ul>
@@ -812,13 +866,13 @@
 
                         <div class="flex items-center gap-3.5 mb-4">
                             <div
-                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                class="w-12 h-12 rounded-2xl bg-[#3E0C0F]/10 flex items-center justify-center text-institutional-navy">
                                 <span class="material-symbols-outlined"
                                     style="font-size:28px">account_balance_wallet</span>
                             </div>
                             <div>
                                 <span
-                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold">Servicio
                                     02</span>
                                 <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Contabilidad y
                                     Outsourcing Contable</h2>
@@ -835,43 +889,43 @@
                         <div class="border-t border-border-light pt-6">
                             <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                <span class="material-symbols-outlined text-institutional-navy text-base">checklist</span>
                                 Servicios Principales:
                             </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Outsourcing contable.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Registro y procesamiento de operaciones.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Elaboración de estados financieros.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Cierres y conciliaciones contables.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Consolidación de estados financieros.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Implementación y revisión de sistemas contables.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5 md:col-span-2">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Aplicación de NIIF y NIIF para PYMES.</span>
                                 </li>
                             </ul>
@@ -888,12 +942,12 @@
 
                         <div class="flex items-center gap-3.5 mb-4">
                             <div
-                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                class="w-12 h-12 rounded-2xl bg-[#3E0C0F]/10 flex items-center justify-center text-institutional-navy">
                                 <span class="material-symbols-outlined" style="font-size:28px">receipt_long</span>
                             </div>
                             <div>
                                 <span
-                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold">Servicio
                                     03</span>
                                 <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Asesoría
                                     Tributaria</h2>
@@ -911,43 +965,43 @@
                         <div class="border-t border-border-light pt-6">
                             <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                <span class="material-symbols-outlined text-institutional-navy text-base">checklist</span>
                                 Servicios Principales:
                             </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Asesoría tributaria.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Revisión de declaraciones y obligaciones.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Análisis de contingencias fiscales.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Consultas y revisión de tratamientos tributarios.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Asesoría en procesos de fiscalización.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Acompañamiento ante el SRI.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5 md:col-span-2">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Planificación tributaria dentro del marco legal.</span>
                                 </li>
                             </ul>
@@ -964,12 +1018,12 @@
 
                         <div class="flex items-center gap-3.5 mb-4">
                             <div
-                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                class="w-12 h-12 rounded-2xl bg-[#3E0C0F]/10 flex items-center justify-center text-institutional-navy">
                                 <span class="material-symbols-outlined" style="font-size:28px">domain</span>
                             </div>
                             <div>
                                 <span
-                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold">Servicio
                                     04</span>
                                 <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Consultoría
                                     Empresarial</h2>
@@ -986,43 +1040,43 @@
                         <div class="border-t border-border-light pt-6">
                             <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                <span class="material-symbols-outlined text-institutional-navy text-base">checklist</span>
                                 Áreas Principales:
                             </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Consultoría financiera y contable.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Control interno.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Evaluación y mejora de procesos.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Diseño de políticas y procedimientos.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Análisis financiero.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Evaluación de riesgos.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5 md:col-span-2">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Reorganización y mejora empresarial.</span>
                                 </li>
                             </ul>
@@ -1039,12 +1093,12 @@
 
                         <div class="flex items-center gap-3.5 mb-4">
                             <div
-                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                class="w-12 h-12 rounded-2xl bg-[#3E0C0F]/10 flex items-center justify-center text-institutional-navy">
                                 <span class="material-symbols-outlined" style="font-size:28px">menu_book</span>
                             </div>
                             <div>
                                 <span
-                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold">Servicio
                                     05</span>
                                 <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">NIIF y
                                     Consultoría Contable Especializada</h2>
@@ -1061,38 +1115,38 @@
                         <div class="border-t border-border-light pt-6">
                             <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                <span class="material-symbols-outlined text-institutional-navy text-base">checklist</span>
                                 Servicios Principales:
                             </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Implementación de NIIF y NIIF para PYMES.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Diagnóstico y políticas contables.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Tratamiento de operaciones complejas.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Preparación y conversión de información financiera.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Consolidación de estados financieros.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Análisis de impactos contables.</span>
                                 </li>
                             </ul>
@@ -1109,12 +1163,12 @@
 
                         <div class="flex items-center gap-3.5 mb-4">
                             <div
-                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                class="w-12 h-12 rounded-2xl bg-[#3E0C0F]/10 flex items-center justify-center text-institutional-navy">
                                 <span class="material-symbols-outlined" style="font-size:28px">stars</span>
                             </div>
                             <div>
                                 <span
-                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold">Servicio
                                     06</span>
                                 <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Servicios
                                     Especiales</h2>
@@ -1131,48 +1185,48 @@
                         <div class="border-t border-border-light pt-6">
                             <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                <span class="material-symbols-outlined text-institutional-navy text-base">checklist</span>
                                 Servicios Principales:
                             </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Due diligence financiero y contable.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Revisiones especiales.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Procedimientos previamente convenidos.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Inventarios físicos y conciliaciones.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Valuación y revisión de activos.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Informes especiales.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Investigaciones y análisis financieros.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Apoyo en procesos de reorganización empresarial.</span>
                                 </li>
                             </ul>
@@ -1189,12 +1243,12 @@
 
                         <div class="flex items-center gap-3.5 mb-4">
                             <div
-                                class="w-12 h-12 rounded-2xl bg-[#B22222]/10 flex items-center justify-center text-heritage-red">
+                                class="w-12 h-12 rounded-2xl bg-[#3E0C0F]/10 flex items-center justify-center text-institutional-navy">
                                 <span class="material-symbols-outlined" style="font-size:28px">shield</span>
                             </div>
                             <div>
                                 <span
-                                    class="font-label-md text-xs uppercase tracking-wider text-heritage-red font-bold">Servicio
+                                    class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold">Servicio
                                     07</span>
                                 <h2 class="font-display-lg text-2xl md:text-3xl text-institutional-navy">Cumplimiento y
                                     Gestión de Riesgos</h2>
@@ -1211,48 +1265,48 @@
                         <div class="border-t border-border-light pt-6">
                             <h3
                                 class="font-label-md text-xs uppercase tracking-wider text-institutional-navy font-bold mb-4 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-heritage-red text-base">checklist</span>
+                                <span class="material-symbols-outlined text-institutional-navy text-base">checklist</span>
                                 Servicios Principales:
                             </h3>
                             <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-text/80">
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Prevención de lavado de activos.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Consultoría en cumplimiento.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Elaboración y actualización de manuales.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Políticas y procedimientos.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Evaluación de riesgos.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Apoyo al oficial de cumplimiento.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Asesoría frente a organismos de control.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span
-                                        class="material-symbols-outlined text-heritage-red text-base mt-0.5 flex-shrink-0">check_circle</span>
+                                        class="material-symbols-outlined text-institutional-navy text-base mt-0.5 flex-shrink-0">check_circle</span>
                                     <span>Revisiones de cumplimiento.</span>
                                 </li>
                             </ul>

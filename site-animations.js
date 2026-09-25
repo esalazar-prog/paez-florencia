@@ -14,6 +14,8 @@
   }
 
   function initSiteAnimations() {
+    setupSitePreloader();
+    setupPageTransitions();
     setupReadingProgressBar();
     setupBackToTopButton();
     setupNavbarScrollObserver();
@@ -726,4 +728,134 @@
     window.handleContactSubmit = handleContactSubmit;
     window.sendViaWhatsApp = sendViaWhatsApp;
   }
+
+  /* ══════════════════════════════════════════
+     L. ANIMACIÓN DE CARGA INSTITUCIONAL (PRELOADER)
+     ══════════════════════════════════════════ */
+  function setupSitePreloader() {
+    let preloader = document.getElementById('pf-preloader');
+    if (!preloader) {
+      if (document.body) document.body.classList.remove('pf-loading');
+      return;
+    }
+
+    // Evitar salto brusco de scroll si el navegador intenta restaurar la posición previa al recargar
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      preloader.remove();
+      if (document.body) document.body.classList.remove('pf-loading');
+      return;
+    }
+
+    const minDisplayTime = 950;
+    const startTime = performance.now();
+
+    function hidePreloader() {
+      if (!preloader || preloader.classList.contains('pf-preloader-hidden')) return;
+      const elapsed = performance.now() - startTime;
+      const remaining = Math.max(0, minDisplayTime - elapsed);
+
+      setTimeout(() => {
+        preloader.classList.add('pf-preloader-hidden');
+        if (document.body) {
+          document.body.classList.remove('pf-loading');
+        }
+
+        setTimeout(() => {
+          if (preloader && preloader.parentNode) {
+            preloader.style.display = 'none';
+            preloader.remove();
+          }
+        }, 700);
+      }, remaining);
+    }
+
+    if (document.readyState === 'complete') {
+      hidePreloader();
+    } else {
+      window.addEventListener('load', hidePreloader, { once: true });
+    }
+
+    // Failsafe de seguridad por si la red retarda recursos externos
+    setTimeout(hidePreloader, 2200);
+  }
+
+  /* ══════════════════════════════════════════
+     M. TRANSICIÓN FLUIDA ENTRE SUBPÁGINAS
+     ══════════════════════════════════════════ */
+  function setupPageTransitions() {
+    // Si el usuario vuelve con botón Atrás/Adelante (bfcache), retirar preloader de inmediato
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted) {
+        const preloader = document.getElementById('pf-preloader');
+        if (preloader) {
+          preloader.classList.add('pf-preloader-hidden');
+          preloader.style.display = 'none';
+        }
+        if (document.body) {
+          document.body.classList.remove('pf-loading');
+        }
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      // Ignorar hashes, llamadas, correos, javascript o target blank
+      if (
+        href.startsWith('#') ||
+        href.startsWith('mailto:') ||
+        href.startsWith('tel:') ||
+        href.startsWith('javascript:') ||
+        link.target === '_blank' ||
+        link.hasAttribute('download')
+      ) {
+        return;
+      }
+
+      // Si es URL absoluta externa, ignorar
+      if (href.startsWith('http://') || href.startsWith('https://')) {
+        try {
+          const url = new URL(href, window.location.href);
+          if (url.origin !== window.location.origin) return;
+        } catch (err) {
+          return;
+        }
+      }
+
+      // Si es el mismo archivo exacto y solo cambia hash, no activar
+      const currentClean = window.location.pathname.split('/').pop() || 'index.html';
+      const targetClean = href.split('#')[0].split('?')[0].split('/').pop() || 'index.html';
+      if (currentClean === targetClean && href.includes('#')) {
+        return;
+      }
+
+      const preloader = document.getElementById('pf-preloader');
+      if (preloader) {
+        e.preventDefault();
+        preloader.style.display = 'flex';
+        // Forzar reflujo de layout
+        void preloader.offsetWidth;
+        preloader.classList.remove('pf-preloader-hidden');
+        if (document.body) {
+          document.body.classList.add('pf-loading');
+        }
+
+        // Navegar fluidamente tras el inicio de cobertura
+        setTimeout(() => {
+          window.location.href = href;
+        }, 280);
+      }
+    });
+  }
 })();
+

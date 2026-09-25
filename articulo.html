@@ -40,7 +40,7 @@
                         "surface-variant": "#e4e2e4",
                         "tertiary-fixed": "#ffdcc0",
                         "outline-variant": "#c5c6ce",
-                        "secondary": "#b52424",
+                        "secondary": "#3E0C0F",
                     },
                     spacing: {
                         "gutter-desktop": "32px",
@@ -196,15 +196,69 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ── Preloader Crítico Inmediato (Cero Flash / Cero Salto) ── */
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body.pf-loading {
+            overflow: hidden !important;
+            height: 100vh !important;
+        }
+
+        #pf-preloader {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 9999999 !important;
+            background-color: #721408 !important;
+            background-image: radial-gradient(circle at center, #87190b 0%, #721408 55%, #560e05 100%) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-direction: column !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            pointer-events: all !important;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        #pf-preloader.pf-preloader-hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
     </style>
     <link rel="stylesheet" href="site-animations.css">
 </head>
 
 <body
-    class="overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
+    class="pf-loading overflow-x-hidden bg-[#FAF8F8] text-slate-text font-body-md antialiased selection:bg-[#B22222] selection:text-white">
 
-    <!-- Scroll Progress -->
-    <div id="progress-bar"></div>
+    <!-- ══════════════════════════════════════════
+         PRELOADER INSTITUCIONAL (FONDO COMPLETO #721408)
+    ══════════════════════════════════════════ -->
+    <div id="pf-preloader" aria-hidden="true">
+        <div class="pf-preloader-container">
+            <div class="pf-preloader-logo-wrap">
+                <img src="WEBP/Logo_Carga.webp" alt="Páez, Florencia & Co." class="pf-preloader-logo-img" width="205" height="127" />
+            </div>
+            <div class="pf-preloader-bar-wrap">
+                <div class="pf-preloader-bar-fill"></div>
+            </div>
+            <div class="pf-preloader-brand">
+                <p class="pf-preloader-title">Páez, Florencia &amp; Co.</p>
+                <p class="pf-preloader-subtitle">Auditoría &amp; Asesoría</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Toast Notification -->
     <div id="toast"
@@ -220,7 +274,7 @@
         <div
             class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
             <a href="index.html">
-                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp" />
+                <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain" src="LOGO_WEB.webp" width="1051" height="323" fetchpriority="high" decoding="async" />
             </a>
 
             <div class="hidden lg:flex items-center gap-5 xl:gap-8">
@@ -330,13 +384,13 @@
                 <span class="material-symbols-outlined text-xs text-slate-300">chevron_right</span>
                 <a href="noticias.html" class="hover:text-heritage-red transition-colors">Noticias</a>
                 <span class="material-symbols-outlined text-xs text-slate-300">chevron_right</span>
-                <span id="breadcrumb-category" class="text-heritage-red font-semibold">Tributario</span>
+                <span id="breadcrumb-category" class="text-institutional-navy font-semibold">Tributario</span>
             </div>
 
             <!-- Meta Badges -->
             <div class="flex items-center flex-wrap gap-3 mb-5">
                 <span id="article-badge"
-                    class="px-3.5 py-1.5 rounded-full bg-[#B22222]/10 text-heritage-red font-label-md text-xs font-semibold uppercase tracking-wider">
+                    class="px-3.5 py-1.5 rounded-full bg-[#3E0C0F]/10 text-institutional-navy font-label-md text-xs font-semibold uppercase tracking-wider">
                     Asesoría Tributaria
                 </span>
                 <span class="text-secondary text-sm">•</span>
@@ -359,8 +413,9 @@
                 class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-border-light">
                 <!-- Author Info -->
                 <div class="flex items-center gap-3.5">
-                    <img id="author-avatar" src="Gabriel Paez.png" alt="Autor"
-                        class="w-12 h-12 rounded-full object-cover border-2 border-heritage-red/20 shadow-sm" />
+                    <img id="author-avatar" src="WEBP/Gabriel Paez.webp" alt="Autor"
+                        class="w-12 h-12 rounded-full object-cover border-2 border-heritage-red/20 shadow-sm"
+                        width="48" height="48" loading="lazy" decoding="async" />
                     <div>
                         <p id="author-name" class="font-headline-md text-base text-institutional-navy font-bold">
                             Autor
@@ -410,7 +465,7 @@
                 <div
                     class="p-3 bg-white/95 border-t border-border-light text-xs text-secondary font-label-md flex items-center justify-between">
                     <span id="article-caption">Análisis y perspectiva corporativa — PAEZ, FLORENCIA &amp; CO.</span>
-                    <span class="text-heritage-red font-semibold">Fuente Oficial</span>
+                    <span class="text-institutional-navy font-semibold">Fuente Oficial</span>
                 </div>
             </div>
 
@@ -422,15 +477,16 @@
             <!-- Author Signature Card -->
             <div
                 class="mt-16 pt-10 border-t border-border-light bg-white rounded-3xl p-8 border shadow-sm flex flex-col sm:flex-row items-center gap-6">
-                <img id="author-bio-avatar" src="Gabriel Paez.png" alt="Autor"
-                    class="w-20 h-20 rounded-2xl object-cover border-2 border-heritage-red/20 flex-shrink-0" />
+                <img id="author-bio-avatar" src="WEBP/Gabriel Paez.webp" alt="Autor"
+                    class="w-20 h-20 rounded-2xl object-cover border-2 border-heritage-red/20 flex-shrink-0"
+                    width="80" height="80" loading="lazy" decoding="async" />
                 <div>
                     <div class="flex items-center gap-2 mb-1">
                         <h2 id="author-bio-name" class="font-headline-md text-lg text-institutional-navy font-bold">
                             Autor
                         </h2>
                         <span
-                            class="inline-block px-2.5 py-0.5 rounded-full bg-[#B22222]/10 text-heritage-red text-[11px] font-bold uppercase tracking-wider">
+                            class="inline-block px-2.5 py-0.5 rounded-full bg-[#3E0C0F]/10 text-institutional-navy text-[11px] font-bold uppercase tracking-wider">
                             Firma
                         </span>
                     </div>
@@ -731,13 +787,13 @@
                         htmlContent += `
                             <div class="key-card">
                                 <h3 class="font-headline-md text-institutional-navy text-lg font-bold mb-3 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-heritage-red">check_circle</span>
+                                    <span class="material-symbols-outlined text-institutional-navy">check_circle</span>
                                     <span>${block.titulo}</span>
                                 </h3>
                                 <ul class="space-y-2.5 text-sm font-body-md text-slate-text">
                                     ${block.items.map(item => `
                                         <li class="flex items-start gap-2">
-                                            <span class="text-heritage-red font-bold">•</span>
+                                            <span class="text-institutional-navy font-bold">•</span>
                                             <span>${item}</span>
                                         </li>
                                     `).join("")}
@@ -771,7 +827,7 @@
                                 <img src="${rel.imagen}" alt="${rel.titulo}" class="w-full h-full object-cover" />
                             </div>
                             <div class="p-6">
-                                <span class="text-heritage-red text-xs font-semibold font-label-md uppercase tracking-wider block mb-2">
+                                <span class="text-institutional-navy text-xs font-semibold font-label-md uppercase tracking-wider block mb-2">
                                     ${rel.categoria}
                                 </span>
                                 <h3 class="font-display-lg text-lg text-institutional-navy leading-snug hover:text-heritage-red transition-colors mb-2">
@@ -784,7 +840,7 @@
                         </div>
                         <div class="px-6 pb-6 pt-2 border-t border-border-light/60 flex items-center justify-between">
                             <span class="text-[11px] text-secondary font-label-md">${rel.fecha}</span>
-                            <a href="articulo.html?id=${rel.id}" class="text-heritage-red text-xs font-semibold hover:underline inline-flex items-center gap-0.5">
+                            <a href="articulo.html?id=${rel.id}" class="text-institutional-navy hover:text-heritage-red text-xs font-semibold hover:underline inline-flex items-center gap-0.5">
                                 <span>Leer</span>
                                 <span class="material-symbols-outlined text-xs">arrow_forward</span>
                             </a>
@@ -796,6 +852,29 @@
             }
         }
 
+        function showArticleNotFound() {
+            const titleEl = document.getElementById("article-title");
+            if (titleEl) titleEl.textContent = "Publicación no disponible";
+            const bodyEl = document.getElementById("article-editorial-body");
+            if (bodyEl) {
+                bodyEl.innerHTML = `
+                    <div class="text-center py-12">
+                        <p class="font-body-lg text-slate-text leading-relaxed mb-6">
+                            El artículo solicitado no se encuentra disponible o aún no ha sido publicado a través del panel de contenidos.
+                        </p>
+                        <a href="noticias.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-institutional-navy text-white text-sm font-semibold hover:bg-heritage-red transition-colors shadow-sm">
+                            <span class="material-symbols-outlined text-sm">arrow_back</span>
+                            <span>Volver al listado de Noticias</span>
+                        </a>
+                    </div>
+                `;
+            }
+            const badgeEl = document.getElementById("article-badge");
+            if (badgeEl) badgeEl.textContent = "Noticias";
+            const dateEl = document.getElementById("article-date");
+            if (dateEl) dateEl.textContent = "Actualidad";
+        }
+
         // ── Dynamic Article Population from URL Query Param ?id=...
         document.addEventListener("DOMContentLoaded", () => {
             const urlParams = new URLSearchParams(window.location.search);
@@ -805,18 +884,25 @@
                 ? getArticleById(articleId)
                 : ((typeof articulosData !== "undefined" && articulosData.length > 0) ? articulosData[0] : null);
 
-            renderArticleContent(article);
+            if (article) {
+                renderArticleContent(article);
+            }
 
             // Fetch Sanity to check if article was published or updated
             if (typeof fetchSanityArticles === "function") {
                 fetchSanityArticles().then(() => {
-                    if (articleId) {
-                        const sanityArticle = getArticleById(articleId);
-                        if (sanityArticle && sanityArticle !== article) {
-                            renderArticleContent(sanityArticle);
-                        }
+                    const foundArticle = articleId 
+                        ? getArticleById(articleId) 
+                        : ((typeof articulosData !== "undefined" && articulosData.length > 0) ? articulosData[0] : null);
+                    
+                    if (foundArticle) {
+                        renderArticleContent(foundArticle);
+                    } else {
+                        showArticleNotFound();
                     }
                 });
+            } else if (!article) {
+                showArticleNotFound();
             }
 
             // Social Share Handlers

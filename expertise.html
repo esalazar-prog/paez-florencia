@@ -33,7 +33,7 @@
                         "surface-variant": "#e4e2e4",
                         "tertiary-fixed": "#ffdcc0",
                         "outline-variant": "#c5c6ce",
-                        "secondary": "#b52424",
+                        "secondary": "#3E0C0F",
                     },
                     spacing: {
                         "gutter-desktop": "32px",
@@ -275,13 +275,68 @@
         .expertise-interactive-box:hover .expertise-assembly {
             animation-play-state: paused;
         }
+
+        /* ── Preloader Crítico Inmediato (Cero Flash / Cero Salto) ── */
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body.pf-loading {
+            overflow: hidden !important;
+            height: 100vh !important;
+        }
+
+        #pf-preloader {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            z-index: 9999999 !important;
+            background-color: #721408 !important;
+            background-image: radial-gradient(circle at center, #87190b 0%, #721408 55%, #560e05 100%) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-direction: column !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            pointer-events: all !important;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        #pf-preloader.pf-preloader-hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
     </style>
     <link rel="stylesheet" href="site-animations.css">
 </head>
 
-<body class="overflow-x-hidden bg-white text-on-background antialiased" style="font-family:'Work Sans',sans-serif;color:#1b1b1e">
+<body class="pf-loading overflow-x-hidden bg-white text-on-background antialiased" style="font-family:'Work Sans',sans-serif;color:#1b1b1e">
 
-    <div id="progress-bar"></div>
+    <!-- ══════════════════════════════════════════
+         PRELOADER INSTITUCIONAL (FONDO COMPLETO #721408)
+    ══════════════════════════════════════════ -->
+    <div id="pf-preloader" aria-hidden="true">
+        <div class="pf-preloader-container">
+            <div class="pf-preloader-logo-wrap">
+                <img src="WEBP/Logo_Carga.webp" alt="Páez, Florencia & Co." class="pf-preloader-logo-img" width="205" height="127" />
+            </div>
+            <div class="pf-preloader-bar-wrap">
+                <div class="pf-preloader-bar-fill"></div>
+            </div>
+            <div class="pf-preloader-brand">
+                <p class="pf-preloader-title">Páez, Florencia &amp; Co.</p>
+                <p class="pf-preloader-subtitle">Auditoría &amp; Asesoría</p>
+            </div>
+        </div>
+    </div>
 
     <!-- ══════════════════════════════════════════
      NAV
@@ -291,7 +346,7 @@
             class="flex justify-between items-center h-20 px-gutter-mobile md:px-gutter-desktop max-w-container-max-width mx-auto">
             <a href="index.html">
                 <img alt="PAEZ, FLORENCIA & CO." class="h-12 md:h-14 w-auto object-contain"
-                    src="LOGO_WEB.webp" />
+                    src="LOGO_WEB.webp" width="1051" height="323" fetchpriority="high" decoding="async" />
             </a>
             <div class="hidden lg:flex items-center gap-5 xl:gap-8">
                 <a class="font-label-md text-label-md text-secondary hover:text-institutional-navy transition-colors"
@@ -378,7 +433,7 @@
     </script>
 
     <!-- ══════════════════════════════════════════
-     HERO  —  Rojo Heritage Corporativo con Badges
+     HERO  —  Rojo Heritage Corporativo
 ══════════════════════════════════════════ -->
     <section
         class="relative bg-gradient-to-br from-[#9E1B1B] via-[#B22222] to-[#801414] text-white overflow-hidden py-20 md:py-28">
@@ -396,39 +451,17 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-                <!-- Left Column: Copy & Badges -->
+                <!-- Left Column: Copy -->
                 <div class="lg:col-span-7" data-anim>
                     <h1
                         class="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-white mb-6 leading-tight break-words">
                         Conocimiento técnico<br />que entiende tu negocio
                     </h1>
-                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed mb-8 max-w-2xl font-light">
+                    <p class="font-body-lg text-body-lg text-white/90 leading-relaxed max-w-2xl font-light">
                         Cada empresa es diferente. Por eso combinamos nuestra experiencia profesional con el
                         conocimiento de las normas contables, tributarias, societarias y de auditoría aplicables en
                         Ecuador para brindar soluciones concretas y útiles para su organización.
                     </p>
-
-                    <!-- Badges / Pill Tags -->
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <div
-                            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">workspace_premium</span>
-                            <span>EXPERIENCIA PROBADA</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">verified</span>
-                            <span>CALIFICACIÓN OFICIAL</span>
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-label-md text-xs uppercase tracking-wider hover:bg-white/20 transition-colors">
-                            <span class="material-symbols-outlined text-white"
-                                style="font-size:18px;font-variation-settings:'FILL' 1">balance</span>
-                            <span>RIGOR TÉCNICO</span>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Right Column: Emblema Técnico de Expertise Animado -->
@@ -519,6 +552,40 @@
     </section>
 
     <!-- ══════════════════════════════════════════
+     MÉTRICAS CLAVE / TRAYECTORIA
+══════════════════════════════════════════ -->
+    <section class="relative bg-white hero-grid border-b border-border-light py-12 md:py-16">
+        <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+                <div class="text-center" data-anim>
+                    <div class="big-num">25<span style="font-size:.6em; vertical-align: .2em; margin-left: 2px;">+</span></div>
+                    <p class="font-label-md text-label-md text-slate-text/60 uppercase tracking-widest text-xs mt-3 font-semibold">
+                        Años de experiencia
+                    </p>
+                </div>
+                <div class="text-center d1" data-anim>
+                    <div class="big-num">103</div>
+                    <p class="font-label-md text-label-md text-slate-text/60 uppercase tracking-widest text-xs mt-3 font-semibold">
+                        Auditorías en 2025
+                    </p>
+                </div>
+                <div class="text-center d2" data-anim>
+                    <div class="big-num">61</div>
+                    <p class="font-label-md text-label-md text-slate-text/60 uppercase tracking-widest text-xs mt-3 font-semibold">
+                        Clientes recurrentes
+                    </p>
+                </div>
+                <div class="text-center d3" data-anim>
+                    <div class="big-num">4</div>
+                    <p class="font-label-md text-label-md text-slate-text/60 uppercase tracking-widest text-xs mt-3 font-semibold">
+                        Acreditaciones nacionales
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
      ACREDITACIONES  —  fondo blanco, cards con borde rojo
 ══════════════════════════════════════════ -->
     <section id="acreditaciones" class="py-margin-desktop bg-white">
@@ -527,7 +594,7 @@
             <!-- Header con imagen de fondo parcial -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                 <div data-anim="left">
-                    <p class="font-label-md text-label-md text-heritage-red uppercase tracking-widest mb-3">
+                    <p class="font-label-md text-label-md text-institutional-navy uppercase tracking-widest mb-3">
                         Reconocimiento institucional</p>
                     <h2
                         class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-institutional-navy mb-4">
@@ -540,8 +607,9 @@
                     </p>
                 </div>
                 <div class="relative rounded-xl overflow-hidden shadow-lg aspect-video" data-anim="right">
-                    <img src="Acreditaciones.jpg" alt="Acreditaciones profesionales"
-                        class="w-full h-full object-cover object-center scale-105" style="filter: blur(3px);" />
+                    <img src="WEBP/Acreditaciones.webp" alt="Acreditaciones profesionales"
+                        class="w-full h-full object-cover object-center scale-105" style="filter: blur(3px);"
+                        width="1000" height="667" loading="lazy" decoding="async" />
                     <div
                         class="absolute inset-0 bg-gradient-to-r from-institutional-navy/60 to-transparent flex items-center px-8">
                         <div class="text-white">
@@ -559,8 +627,8 @@
                 <div class="accred-card card-hover bg-white border border-border-light rounded-xl p-8 text-center shadow-sm"
                     data-anim>
                     <div class="h-16 w-full flex items-center justify-center mx-auto mb-5">
-                        <img src="SUPERCIAS.png" alt="Superintendencia de Compañías, Valores y Seguros"
-                            class="max-h-16 max-w-[140px] object-contain" />
+                        <img src="WEBP/SUPERCIAS.webp" alt="Superintendencia de Compañías, Valores y Seguros"
+                            class="max-h-16 max-w-[140px] object-contain" width="295" height="350" loading="lazy" decoding="async" />
                     </div>
                     <h3
                         class="font-headline-md text-headline-md text-institutional-navy mb-3 leading-tight text-sm md:text-base">
@@ -577,8 +645,8 @@
                 <div class="accred-card card-hover bg-white border border-border-light rounded-xl p-8 text-center shadow-sm d1"
                     data-anim>
                     <div class="h-16 w-full flex items-center justify-center mx-auto mb-5">
-                        <img src="SUPERCIAS.png" alt="Mercado de Valores"
-                            class="max-h-16 max-w-[140px] object-contain" />
+                        <img src="WEBP/SUPERCIAS.webp" alt="Mercado de Valores"
+                            class="max-h-16 max-w-[140px] object-contain" width="295" height="350" loading="lazy" decoding="async" />
                     </div>
                     <h3
                         class="font-headline-md text-headline-md text-institutional-navy mb-3 leading-tight text-sm md:text-base">
@@ -596,8 +664,8 @@
                 <div class="accred-card card-hover bg-white border border-border-light rounded-xl p-8 text-center shadow-sm d2"
                     data-anim>
                     <div class="h-16 w-full flex items-center justify-center mx-auto mb-5">
-                        <img src="Contraloria.jpg" alt="Contraloría General del Estado"
-                            class="max-h-16 max-w-[140px] object-contain" />
+                        <img src="WEBP/Contraloria.webp" alt="Contraloría General del Estado"
+                            class="max-h-16 max-w-[140px] object-contain" width="699" height="632" loading="lazy" decoding="async" />
                     </div>
                     <h3
                         class="font-headline-md text-headline-md text-institutional-navy mb-3 leading-tight text-sm md:text-base">
@@ -614,8 +682,8 @@
                 <div class="accred-card card-hover bg-white border border-border-light rounded-xl p-8 text-center shadow-sm d3"
                     data-anim>
                     <div class="h-16 w-full flex items-center justify-center mx-auto mb-5">
-                        <img src="CES.png" alt="Consejo de Educación Superior"
-                            class="max-h-16 max-w-[140px] object-contain" />
+                        <img src="WEBP/CES.webp" alt="Consejo de Educación Superior"
+                            class="max-h-16 max-w-[140px] object-contain" width="748" height="294" loading="lazy" decoding="async" />
                     </div>
                     <h3
                         class="font-headline-md text-headline-md text-institutional-navy mb-3 leading-tight text-sm md:text-base">
@@ -639,7 +707,7 @@
         <div class="max-w-container-max-width mx-auto px-gutter-mobile md:px-gutter-desktop">
 
             <div class="text-center mb-20" data-anim>
-                <p class="font-label-md text-label-md text-heritage-red uppercase tracking-widest mb-3">Proceso riguroso
+                <p class="font-label-md text-label-md text-institutional-navy uppercase tracking-widest mb-3">Proceso riguroso
                 </p>
                 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-institutional-navy mb-4">
                     Nuestra Metodología de Auditoría
@@ -661,11 +729,11 @@
                 <div class="flex-1 method-step flex flex-col items-center text-center px-3 group cursor-default"
                     data-anim>
                     <div
-                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-heritage-red bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-heritage-red group-hover:bg-heritage-red group-hover:text-white transition-all duration-300">
+                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-institutional-navy bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-institutional-navy group-hover:bg-heritage-red group-hover:text-white transition-all duration-300">
                         01</div>
                     <div
                         class="bg-white border border-border-light rounded-xl p-5 shadow-sm w-full group-hover:shadow-md group-hover:border-heritage-red/30 transition-all duration-300">
-                        <span class="material-symbols-outlined text-heritage-red mb-3 block"
+                        <span class="material-symbols-outlined text-institutional-navy mb-3 block"
                             style="font-size:24px;font-variation-settings:'FILL' 1">manage_search</span>
                         <h3 class="font-headline-md text-headline-md text-institutional-navy mb-2 text-sm">Conocimiento
                             del Negocio</h3>
@@ -695,11 +763,11 @@
                 <div class="flex-1 method-step flex flex-col items-center text-center px-3 group cursor-default d2"
                     data-anim>
                     <div
-                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-heritage-red bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-heritage-red group-hover:bg-heritage-red group-hover:text-white transition-all duration-300">
+                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-institutional-navy bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-institutional-navy group-hover:bg-heritage-red group-hover:text-white transition-all duration-300">
                         03</div>
                     <div
                         class="bg-white border border-border-light rounded-xl p-5 shadow-sm w-full group-hover:shadow-md group-hover:border-heritage-red/30 transition-all duration-300">
-                        <span class="material-symbols-outlined text-heritage-red mb-3 block"
+                        <span class="material-symbols-outlined text-institutional-navy mb-3 block"
                             style="font-size:24px;font-variation-settings:'FILL' 1">target</span>
                         <h3 class="font-headline-md text-headline-md text-institutional-navy mb-2 text-sm">Planificación
                             y Enfoque</h3>
@@ -729,11 +797,11 @@
                 <div class="flex-1 method-step flex flex-col items-center text-center px-3 group cursor-default d4"
                     data-anim>
                     <div
-                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-heritage-red bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-heritage-red group-hover:bg-heritage-red group-hover:text-white transition-all duration-300">
+                        class="step-num relative z-10 w-14 h-14 rounded-full border-2 border-institutional-navy bg-white flex items-center justify-center mb-6 shadow-md font-headline-md text-headline-md text-institutional-navy group-hover:bg-heritage-red group-hover:text-white transition-all duration-300">
                         05</div>
                     <div
                         class="bg-white border border-border-light rounded-xl p-5 shadow-sm w-full group-hover:shadow-md group-hover:border-heritage-red/30 transition-all duration-300">
-                        <span class="material-symbols-outlined text-heritage-red mb-3 block"
+                        <span class="material-symbols-outlined text-institutional-navy mb-3 block"
                             style="font-size:24px;font-variation-settings:'FILL' 1">summarize</span>
                         <h3 class="font-headline-md text-headline-md text-institutional-navy mb-2 text-sm">Conclusión y
                             Comunicación</h3>
@@ -748,7 +816,7 @@
                 <div class="bg-white border border-border-light rounded-xl p-5 shadow-sm flex gap-4 items-start"
                     data-anim>
                     <div
-                        class="w-10 h-10 rounded-full border-2 border-heritage-red flex items-center justify-center flex-shrink-0 text-heritage-red font-bold text-sm">
+                        class="w-10 h-10 rounded-full border-2 border-institutional-navy flex items-center justify-center flex-shrink-0 text-institutional-navy font-bold text-sm">
                         01</div>
                     <div>
                         <h3 class="font-headline-md text-headline-md text-institutional-navy mb-1">Conocimiento del
@@ -772,7 +840,7 @@
                 <div class="bg-white border border-border-light rounded-xl p-5 shadow-sm flex gap-4 items-start"
                     data-anim>
                     <div
-                        class="w-10 h-10 rounded-full border-2 border-heritage-red flex items-center justify-center flex-shrink-0 text-heritage-red font-bold text-sm">
+                        class="w-10 h-10 rounded-full border-2 border-institutional-navy flex items-center justify-center flex-shrink-0 text-institutional-navy font-bold text-sm">
                         03</div>
                     <div>
                         <h3 class="font-headline-md text-headline-md text-institutional-navy mb-1">Planificación y
@@ -796,7 +864,7 @@
                 <div class="bg-white border border-border-light rounded-xl p-5 shadow-sm flex gap-4 items-start"
                     data-anim>
                     <div
-                        class="w-10 h-10 rounded-full border-2 border-heritage-red flex items-center justify-center flex-shrink-0 text-heritage-red font-bold text-sm">
+                        class="w-10 h-10 rounded-full border-2 border-institutional-navy flex items-center justify-center flex-shrink-0 text-institutional-navy font-bold text-sm">
                         05</div>
                     <div>
                         <h3 class="font-headline-md text-headline-md text-institutional-navy mb-1">Conclusión y
@@ -810,7 +878,7 @@
             <!-- ── FRASE DE CIERRE — diseño editorial elegante ── -->
             <div class="relative mt-6" data-anim="scale">
                 <!-- Número decorativo -->
-                <div class="absolute -top-8 left-0 font-headline-lg text-headline-lg text-heritage-red/8 select-none leading-none"
+                <div class="absolute -top-8 left-0 font-headline-lg text-headline-lg text-institutional-navy/8 select-none leading-none"
                     style="font-family:'Fraunces',serif;font-size:clamp(100px,14vw,180px);font-weight:700;line-height:1;pointer-events:none">
                     &ldquo;
                 </div>
@@ -830,7 +898,7 @@
                             <div class="flex items-center gap-3 mt-6">
                                 <div class="w-10 h-0.5 bg-heritage-red rounded-full"></div>
                                 <span
-                                    class="font-label-md text-label-md text-heritage-red uppercase tracking-widest text-xs">PAEZ,
+                                    class="font-label-md text-label-md text-institutional-navy uppercase tracking-widest text-xs">PAEZ,
                                     FLORENCIA &amp; CO.</span>
                             </div>
                         </div>
