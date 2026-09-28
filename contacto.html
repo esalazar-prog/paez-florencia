@@ -624,57 +624,7 @@
                             </div>
                         </div>
 
-                        <!-- Row 3: Sede de Preferencia & Servicio Solicitado -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="form-sede"
-                                    class="block text-xs font-label-md font-bold uppercase tracking-wider text-slate-text mb-2">
-                                    Sede de Interés <span class="text-heritage-red">*</span>
-                                </label>
-                                <div
-                                    class="form-input-box relative flex items-center rounded-xl border border-border-light bg-[#FAF8F8]">
-                                    <span class="material-symbols-outlined absolute left-3.5 text-secondary"
-                                        style="font-size:20px">location_on</span>
-                                    <select id="form-sede" name="sede" required
-                                        class="w-full pl-11 pr-8 py-3 bg-transparent text-sm font-body-md focus:outline-none rounded-xl appearance-none cursor-pointer">
-                                        <option value="Quito">Oficina Matriz Quito</option>
-                                        <option value="Guayaquil">Oficina Litoral Guayaquil</option>
-                                        <option value="Ambas / Telemática">Atención Telemática / Todo el País</option>
-                                    </select>
-                                    <span
-                                        class="material-symbols-outlined absolute right-3 pointer-events-none text-secondary"
-                                        style="font-size:18px">expand_more</span>
-                                </div>
-                            </div>
-                            <div>
-                                <label for="form-service"
-                                    class="block text-xs font-label-md font-bold uppercase tracking-wider text-slate-text mb-2">
-                                    Servicio Requerido <span class="text-heritage-red">*</span>
-                                </label>
-                                <div
-                                    class="form-input-box relative flex items-center rounded-xl border border-border-light bg-[#FAF8F8]">
-                                    <span class="material-symbols-outlined absolute left-3.5 text-secondary"
-                                        style="font-size:20px">business_center</span>
-                                    <select id="form-service" name="servicio" required
-                                        class="w-full pl-11 pr-8 py-3 bg-transparent text-sm font-body-md focus:outline-none rounded-xl appearance-none cursor-pointer">
-                                        <option value="Auditoría Externa">Auditoría Externa y Aseguramiento</option>
-                                        <option value="Asesoría Tributaria">Asesoría Tributaria y Fiscal SRI</option>
-                                        <option value="Contabilidad & Outsourcing">Contabilidad &amp; Outsourcing
-                                            Financiero</option>
-                                        <option value="Gestión de Riesgos">Gestión de Riesgos &amp; Control Interno
-                                        </option>
-                                        <option value="Peritaje & Forense">Peritaje Contable &amp; Auditoría Forense
-                                        </option>
-                                        <option value="Otro">Otro requerimiento especializado</option>
-                                    </select>
-                                    <span
-                                        class="material-symbols-outlined absolute right-3 pointer-events-none text-secondary"
-                                        style="font-size:18px">expand_more</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Row 4: Mensaje / Detalle del requerimiento -->
+                        <!-- Row 3: Mensaje / Detalle del requerimiento -->
                         <div>
                             <label for="form-message"
                                 class="block text-xs font-label-md font-bold uppercase tracking-wider text-slate-text mb-2">
@@ -1259,8 +1209,6 @@
             const company = document.getElementById('form-company').value.trim();
             const email = document.getElementById('form-email').value.trim();
             const phone = document.getElementById('form-phone').value.trim();
-            const sede = document.getElementById('form-sede').value;
-            const service = document.getElementById('form-service').value;
             const message = document.getElementById('form-message').value.trim();
 
             const submitBtn = document.getElementById('btn-submit-form');
@@ -1309,7 +1257,7 @@
                 if (response.ok) {
                     showToast(
                         `¡Gracias ${name}!`,
-                        `Su requerimiento sobre ${service} para ${sede} fue enviado a nuestro equipo directivo.`
+                        `Su requerimiento fue enviado con éxito a nuestro equipo directivo.`
                     );
                     form.reset();
                 } else {
@@ -1329,19 +1277,15 @@
         function sendViaWhatsApp() {
             const name = document.getElementById('form-name').value.trim() || 'Estimados señores';
             const company = document.getElementById('form-company').value.trim() || 'No especificada';
-            const sede = document.getElementById('form-sede').value;
-            const service = document.getElementById('form-service').value;
             const message = document.getElementById('form-message').value.trim() || 'Deseo solicitar información sobre sus servicios profesionales.';
 
-            // Phone destination based on sede
-            const phoneTarget = (sede === 'Guayaquil') ? '593998452649' : '5939997102616';
+            // Línea de atención directa (Oficina Quito / WhatsApp Corporativo)
+            const phoneTarget = '593997102616';
 
             const text = encodeURIComponent(
                 `*REQUERIMIENTO WEB — PAEZ, FLORENCIA & CO.*\n\n` +
                 `*Nombre:* ${name}\n` +
-                `*Empresa:* ${company}\n` +
-                `*Sede:* ${sede}\n` +
-                `*Servicio de Interés:* ${service}\n\n` +
+                `*Empresa:* ${company}\n\n` +
                 `*Mensaje:* ${message}`
             );
 

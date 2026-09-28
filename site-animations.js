@@ -707,21 +707,18 @@
 
       const name = (nameInput && nameInput.value.trim()) || 'Estimados señores';
       const company = (companyInput && companyInput.value.trim()) || 'No especificada';
-      const sede = (sedeInput && sedeInput.value) || 'Quito';
-      const service = (serviceInput && serviceInput.value) || 'Auditoría Externa';
+      const sede = sedeInput ? sedeInput.value : '';
+      const service = serviceInput ? serviceInput.value : '';
       const message = (messageInput && messageInput.value.trim()) || 'Deseo solicitar información sobre sus servicios profesionales.';
 
       const phoneTarget = (sede === 'Guayaquil') ? '593998452649' : '593997102616';
 
-      const text = encodeURIComponent(
-        `*REQUERIMIENTO WEB — PAEZ, FLORENCIA & CO.*\n\n` +
-        `*Nombre:* ${name}\n` +
-        `*Empresa:* ${company}\n` +
-        `*Sede:* ${sede}\n` +
-        `*Servicio de Interés:* ${service}\n\n` +
-        `*Mensaje:* ${message}`
-      );
+      let textContent = `*REQUERIMIENTO WEB — PAEZ, FLORENCIA & CO.*\n\n*Nombre:* ${name}\n*Empresa:* ${company}\n`;
+      if (sede) textContent += `*Sede:* ${sede}\n`;
+      if (service) textContent += `*Servicio de Interés:* ${service}\n`;
+      textContent += `\n*Mensaje:* ${message}`;
 
+      const text = encodeURIComponent(textContent);
       window.open(`https://wa.me/${phoneTarget}?text=${text}`, '_blank');
     }
 
