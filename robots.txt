@@ -1,0 +1,71 @@
+# ═════════════════════════════════════════════════════════════
+# ROBOTS.TXT — PÁEZ, FLORENCIA & CO.
+# Protección Contra Bots Maliciosos, Scrapers y Crawlers Agresivos
+# ═════════════════════════════════════════════════════════════
+
+# 1. Motores de Búsqueda Legítimos (Permitidos)
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+Allow: /
+Disallow: /*.pdf$
+Disallow: /*.mp4$
+Disallow: /studio-noticias-y-actualizaciones/
+
+# 2. Bloqueo de Scrapers de IA y Extracción de Datos No Autorizada
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: CCBot
+User-agent: anthropic-ai
+User-agent: Claude-Web
+User-agent: ClaudeBot
+User-agent: Bytespider
+User-agent: Diffbot
+User-agent: PerplexityBot
+User-agent: FacebookBot
+User-agent: Kangaroo Bot
+User-agent: Omgilibot
+Disallow: /
+
+# 3. Bloqueo de Scrapers Comerciales y Bots de Auditoría SEO Agresivos
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: SemrushBot-SA
+User-agent: DotBot
+User-agent: MJ12bot
+User-agent: PetalBot
+User-agent: BLEXBot
+User-agent: DataForSeoBot
+User-agent: Serpstatbot
+User-agent: SeekportBot
+User-agent: MegaIndex
+Disallow: /
+
+# 4. Bloqueo de Herramientas de Pentesting, Scanners de Vulnerabilidades y Harvesters
+User-agent: sqlmap
+User-agent: Nikto
+User-agent: wpscan
+User-agent: masscan
+User-agent: Scrapy
+User-agent: HTTrack
+User-agent: EmailCollector
+User-agent: WebCopier
+User-agent: WebReaper
+User-agent: TeleportPro
+User-agent: Zeus
+User-agent: CherryPicker
+User-agent: Harvest
+User-agent: Extractor
+Disallow: /
+
+# 5. Regla General para Cualquier Otro Bot
+User-agent: *
+Allow: /
+Disallow: /studio-noticias-y-actualizaciones/
+Disallow: /scratch/
+Disallow: /*.pdf$
+Crawl-delay: 5

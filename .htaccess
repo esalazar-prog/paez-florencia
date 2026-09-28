@@ -1,0 +1,74 @@
+# ═════════════════════════════════════════════════════════════
+# .HTACCESS — PÁEZ, FLORENCIA & CO.
+# Configuración de Seguridad Integral Anti-Bot, Anti-Exploit y Cabeceras
+# ═════════════════════════════════════════════════════════════
+
+# 1. Desactivar listado de directorios
+Options -Indexes -MultiViews
+
+# 2. Forzar HTTPS si está disponible
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 3. Bloquear Bots Maliciosos, Scrapers y Herramientas Automatizadas por User-Agent
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_USER_AGENT} (sqlmap|nikto|wpscan|masscan|acunetix|havij|nessus|openvas|nmap|dirbuster|gobuster) [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} (scrapy|curl|wget|python-requests|urllib|libwww-perl|go-http-client|java|phpcrawl) [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} (httrack|webcopier|teleport|harvest|emailcollector|emailsiphon|webbandit|autoemailspider) [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} (semrushbot|ahrefsbot|mj12bot|dotbot|petalbot|blexbot|megaindex|dataforseobot) [NC,OR]
+    RewriteCond %{HTTP_USER_AGENT} (gptbot|ccbot|claudebot|bytespider|diffbot|perplexitybot) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# 4. Bloqueo de Intentos de Inyección (SQLi, XSS, Path Traversal, Exec/Eval)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Bloquear caracteres sospechosos en Query String
+    RewriteCond %{QUERY_STRING} (eval\(|<script|javascript:|unescape\(|document\.cookie|document\.write) [NC,OR]
+    RewriteCond %{QUERY_STRING} (select.*from|union.*select|insert.*into|delete.*from|drop.*table) [NC,OR]
+    RewriteCond %{QUERY_STRING} (\.\./|\.\.\\|etc/passwd|proc/self) [NC,OR]
+    RewriteCond %{QUERY_STRING} (base64_encode|base64_decode|GLOBALS|_REQUEST|_ENV) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# 5. Proteger Archivos Sensibles y Ocultos (.git, .env, .DS_Store, backups)
+<FilesMatch "(^\.|\.git|\.env|\.DS_Store|\.bak|\.config|\.sql|\.log|\.sh)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 6. Cabeceras de Seguridad HTTP (Hardened Security Headers)
+<IfModule mod_headers.c>
+    # Previene Clickjacking / Embedding no autorizado en iframes
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Previene el MIME type sniffing (ataques con archivos engañosos)
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Habilita el filtro XSS del navegador
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Control estricto de Referrer para privacidad
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Restricción de permisos y APIs del navegador
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+
+    # HSTS: Fuerza el uso exclusivo de HTTPS (1 año)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+
+    # Desactivar cabecera informativa de tecnología de servidor
+    Header unset X-Powered-By
+    Header unset Server
+</IfModule>

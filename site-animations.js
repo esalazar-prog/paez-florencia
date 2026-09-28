@@ -621,19 +621,27 @@
       const form = (e && e.target && e.target.tagName === 'FORM') ? e.target : document.getElementById('contact-form');
       if (!form) return;
 
-      // Capa 1: Honeypot
-      const gotcha = form.querySelector('[name="_gotcha"]');
-      if (gotcha && gotcha.value.trim() !== '') {
+      // Capa 1: Doble Honeypot
+      const gotcha1 = form.querySelector('[name="_gotcha"]');
+      const gotcha2 = form.querySelector('[name="_website_decoy"]');
+      if ((gotcha1 && gotcha1.value.trim() !== '') || (gotcha2 && gotcha2.value.trim() !== '')) {
         console.warn('Bot detectado mediante Honeypot. Envío bloqueado silenciosamente.');
         showToast('¡Requerimiento Recibido!', 'Nos comunicaremos a la brevedad.');
         form.reset();
         return;
       }
 
-      // Capa 2: Time-gate (< 2.5s)
+      // Capa 2: Detección de WebDriver / Navegación automatizada
+      if (navigator.webdriver || window._phantom || window.__nightmare) {
+        console.warn('Navegador automatizado detectado.');
+        showToast('Acceso restringido', 'Navegación automatizada no autorizada.');
+        return;
+      }
+
+      // Capa 3: Time-gate (< 2.8s)
       const timeElapsed = Date.now() - pageLoadTimestamp;
-      if (timeElapsed < 2500) {
-        console.warn('Envío demasiado rápido (< 2.5s).');
+      if (timeElapsed < 2800) {
+        console.warn('Envío demasiado rápido (< 2.8s).');
         showToast('Envío muy rápido', 'Por favor verifique sus datos antes de presionar enviar.');
         return;
       }

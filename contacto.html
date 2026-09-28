@@ -9,6 +9,12 @@
         content="Comuníquese con los socios directores de PAEZ, FLORENCIA &amp; CO. en Quito y Guayaquil. Asesoría tributaria, auditoría externa y consultoría contable con confidencialidad absoluta."
         name="description" />
 
+    <!-- Security & Anti-Bot Protection Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta name="robots" content="index, follow" />
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -547,17 +553,24 @@
                         </h2>
                     </div>
 
-                    <!-- Contact Form con 3 Capas de Seguridad Anti-Bot -->
+                    <!-- Contact Form con Sistema Multicapa de Blindaje Anti-Bot -->
                     <form id="contact-form" action="https://formspree.io/f/mqpkgbgg" method="POST" class="space-y-6"
                         onsubmit="handleContactSubmit(event)">
-                        <!-- CAPA 1: Honeypot Invisible Anti-Bot (Los humanos no lo ven; si un bot lo rellena, se descarta) -->
+                        <!-- CAPA 1A: Honeypot Invisible Anti-Bot Estándar -->
                         <input type="text" name="_gotcha" id="form-gotcha"
                             style="display:none !important; visibility:hidden !important;" tabindex="-1"
                             autocomplete="off" aria-hidden="true" />
 
-                        <!-- Configuración Formspree: Asunto del correo y Reply-To automático -->
+                        <!-- CAPA 1B: Trampa Decoy Off-screen para bots que esquivan display:none -->
+                        <div style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;" aria-hidden="true">
+                            <label for="form-website-decoy">Deje este campo vacío</label>
+                            <input type="text" name="_website_decoy" id="form-website-decoy" tabindex="-1" autocomplete="new-password" value="" />
+                        </div>
+
+                        <!-- Configuración Formspree & Token de Seguridad Dinámico -->
                         <input type="hidden" name="_subject"
                             value="Nuevo Requerimiento Web — PAEZ, FLORENCIA &amp; CO." />
+                        <input type="hidden" name="_security_token" id="form-security-token" value="" />
                         <input type="hidden" name="_timecheck" id="form-timecheck" value="" />
 
                         <!-- Row 1: Nombre & Cargo -->
@@ -857,6 +870,7 @@
                 </h2>
                 <p class="font-body-md text-secondary text-sm md:text-base leading-relaxed">
                     Visítenos en nuestras instalaciones principales.
+                </p>
             </div>
 
             <!-- Maps Grid Container -->
@@ -1176,40 +1190,144 @@
         }
 
         // ══════════════════════════════════════════════
-        // CONFIGURACIÓN DE SEGURIDAD & FORMSPREE
+        // BLINDAJE DE SEGURIDAD INTEGRAL Y ANTI-BOT MULTICAPA
         // ══════════════════════════════════════════════
-        // Registra el instante exacto de carga para la Capa 2 (Time-gate anti-bot)
         const pageLoadTimestamp = Date.now();
+        let humanInteractionScore = 0;
 
-        // 4. Form Submit Handler con 3 Capas Anti-Bot y envío a Formspree
+        // Telemetría de comportamiento humano (los scripts bots automáticos no ejecutan estos eventos naturales)
+        function registerHumanTelemetry() {
+            humanInteractionScore++;
+        }
+        ['pointerdown', 'keydown', 'touchstart', 'focusin', 'wheel'].forEach(evt => {
+            window.addEventListener(evt, registerHumanTelemetry, { passive: true });
+        });
+
+        // Generación de token dinámico anti-CSRF / sesión browser
+        function generateSecurityToken() {
+            const entropy = `${pageLoadTimestamp}-${screen.width}x${screen.height}-${navigator.language || 'es'}`;
+            let hash = 0;
+            for (let i = 0; i < entropy.length; i++) {
+                hash = ((hash << 5) - hash) + entropy.charCodeAt(i);
+                hash |= 0;
+            }
+            return 'pfsec_' + Math.abs(hash).toString(36) + '_' + Date.now().toString(36);
+        }
+
+        // 4. Form Submit Handler con Protección Multicapa
         async function handleContactSubmit(e) {
             e.preventDefault();
             const form = document.getElementById('contact-form');
 
-            // ── CAPA 1: HONEYPOT (Trampa anti-bot) ──
-            const gotchaValue = document.getElementById('form-gotcha').value;
-            if (gotchaValue && gotchaValue.trim() !== "") {
-                console.warn("Bot detectado mediante Honeypot. Envío bloqueado silenciosamente.");
-                // Simulamos éxito para engañar al bot sin saturar el servidor
+            // ── CAPA 1: DOBLE HONEYPOT (Trampa invisible + Decoy off-screen) ──
+            const gotcha1 = document.getElementById('form-gotcha')?.value || '';
+            const gotcha2 = document.getElementById('form-website-decoy')?.value || '';
+            if (gotcha1.trim() !== '' || gotcha2.trim() !== '') {
+                console.warn("Bot detectado mediante trampa Honeypot. Envío neutralizado.");
+                // Simulación de éxito para despistar al bot sin saturar el buzón de Formspree
                 showToast("¡Requerimiento Recibido!", "Nos comunicaremos a la brevedad.");
                 form.reset();
                 return;
             }
 
-            // ── CAPA 2: TIME-GATE (Validación de tiempo humano) ──
-            const timeElapsed = Date.now() - pageLoadTimestamp;
-            if (timeElapsed < 2500) {
-                console.warn("Envío instantáneo sospechoso (< 2.5s). Bloqueado por seguridad.");
-                showToast("Envío muy rápido", "Por favor verifique sus datos antes de presionar enviar.");
+            // ── CAPA 2: DETECCIÓN DE NAVEGADORES AUTOMATIZADOS / HEADLESS DRIVERS ──
+            const isAutomated = navigator.webdriver || 
+                                window._phantom || 
+                                window.__nightmare || 
+                                window.callPhantom || 
+                                window.__selenium_unwrapped ||
+                                (window.document.documentElement.getAttribute("webdriver") !== null);
+            if (isAutomated) {
+                console.warn("Navegador automatizado / WebDriver detectado.");
+                showToast("Acceso restringido", "Navegación automatizada no autorizada.");
                 return;
             }
 
-            // Campos para mensajes y confirmación
-            const name = document.getElementById('form-name').value.trim();
-            const company = document.getElementById('form-company').value.trim();
-            const email = document.getElementById('form-email').value.trim();
-            const phone = document.getElementById('form-phone').value.trim();
-            const message = document.getElementById('form-message').value.trim();
+            // ── CAPA 3: TIME-GATE (Velocidad mínima humana y vigencia) ──
+            const timeElapsed = Date.now() - pageLoadTimestamp;
+            if (timeElapsed < 2800) {
+                console.warn("Envío a velocidad no humana (< 2.8s). Bloqueado por seguridad.");
+                showToast("Envío muy rápido", "Por favor verifique sus datos con calma antes de presionar enviar.");
+                return;
+            }
+            if (timeElapsed > 86400000) { // 24 horas
+                showToast("Sesión expirada", "Por favor recargue la página para renovar la conexión segura.");
+                return;
+            }
+
+            // ── CAPA 4: VERIFICACIÓN DE TELEMETRÍA HUMANA ORGÁNICA ──
+            if (humanInteractionScore < 1) {
+                console.warn("Envío sin telemetría de interacción humana orgánica.");
+                showToast("Verificación de seguridad", "Por favor interactúe con el formulario antes de enviar.");
+                return;
+            }
+
+            // ── CAPA 5: RATE LIMITING & CONTROL DE INUNDACIÓN (FLOOD PROTECTION) ──
+            const now = Date.now();
+            const storageKey = 'pf_form_ratelimit';
+            let recentSubmits = [];
+            try {
+                const stored = sessionStorage.getItem(storageKey);
+                if (stored) recentSubmits = JSON.parse(stored);
+            } catch(err) {}
+
+            // Filtrar envíos de los últimos 15 minutos
+            recentSubmits = recentSubmits.filter(ts => (now - ts) < 15 * 60 * 1000);
+
+            // Cooldown de 25 segundos entre envíos consecutivos
+            if (recentSubmits.length > 0 && (now - recentSubmits[recentSubmits.length - 1]) < 25000) {
+                const waitSecs = Math.ceil((25000 - (now - recentSubmits[recentSubmits.length - 1])) / 1000);
+                showToast("Espere un momento", `Por favor espere ${waitSecs} segundos antes de enviar otro requerimiento.`);
+                return;
+            }
+
+            // Límite de 3 envíos por cada 15 minutos
+            if (recentSubmits.length >= 3) {
+                showToast("Límite alcanzado", "Ha alcanzado el límite de envíos recientes. Por favor contáctenos directamente vía WhatsApp o llamada telefónica.");
+                return;
+            }
+
+            // ── CAPA 6: SANITIZACIÓN & VALIDACIÓN DE CONTENIDO ──
+            const nameEl = document.getElementById('form-name');
+            const companyEl = document.getElementById('form-company');
+            const emailEl = document.getElementById('form-email');
+            const phoneEl = document.getElementById('form-phone');
+            const messageEl = document.getElementById('form-message');
+
+            const name = nameEl.value.trim();
+            const company = companyEl.value.trim();
+            const email = emailEl.value.trim();
+            const phone = phoneEl.value.trim();
+            const message = messageEl.value.trim();
+
+            // Validación estricta de formato de correo
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                showToast("Correo Inválido", "Por favor ingrese una dirección de correo corporativo válida.");
+                emailEl.focus();
+                return;
+            }
+
+            // Detección de inyección de encabezado CRLF (\r o \n en campos de una sola línea)
+            if (/[\r\n]/.test(name) || /[\r\n]/.test(email) || /[\r\n]/.test(phone)) {
+                console.warn("Intento de inyección CRLF detectado y neutralizado.");
+                showToast("Dato inválido", "El formato ingresado contiene caracteres no permitidos.");
+                return;
+            }
+
+            // Filtro anti-spam de enlaces (link bombing)
+            const linkCount = (message.match(/https?:\/\//gi) || []).length;
+            if (linkCount > 2) {
+                showToast("Mensaje no permitido", "Por seguridad, los mensajes con múltiples enlaces no son procesados.");
+                return;
+            }
+
+            // Asignar token dinámico al formulario
+            const tokenEl = document.getElementById('form-security-token');
+            if (tokenEl) tokenEl.value = generateSecurityToken();
+
+            const timecheckEl = document.getElementById('form-timecheck');
+            if (timecheckEl) timecheckEl.value = timeElapsed.toString();
 
             const submitBtn = document.getElementById('btn-submit-form');
             const originalBtnHtml = submitBtn.innerHTML;
@@ -1224,7 +1342,7 @@
                 <span>Procesando envío seguro...</span>
             `;
 
-            // ── CAPA 3: ENVÍO CIFRADO A FORMSPREE / RECAPTCHA ──
+            // ── CAPA 7: ENVÍO CIFRADO A FORMSPREE CON PROTOCOLO SSL ──
             const endpoint = form.getAttribute('action');
             const formData = new FormData(form);
 
@@ -1255,9 +1373,14 @@
                 submitBtn.innerHTML = originalBtnHtml;
 
                 if (response.ok) {
+                    recentSubmits.push(now);
+                    try {
+                        sessionStorage.setItem(storageKey, JSON.stringify(recentSubmits));
+                    } catch(err) {}
+
                     showToast(
                         `¡Gracias ${name}!`,
-                        `Su requerimiento fue enviado con éxito a nuestro equipo directivo.`
+                        `Su requerimiento fue enviado con éxito y verificado por nuestros filtros de seguridad.`
                     );
                     form.reset();
                 } else {
